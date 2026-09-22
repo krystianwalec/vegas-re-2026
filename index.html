@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Las Vegas RE+ 2026 — Trip Planner · Krystian &amp; brother</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<style>
+  :root {
+    --bg: #f4f0e8;
+    --bg-card: #fffcf7;
+    --ink: #1a1a1a;
+    --muted: #5c5a55;
+    --line: #e2d9c8;
+    --accent: #c45c26;
+    --accent-soft: #f3e0d4;
+    --teal: #0d6e6e;
+    --teal-soft: #d7efef;
+    --family: #6b3fa0;
+    --family-soft: #efe6f8;
+    --wedding: #b8860b;
+    --wedding-soft: #f7efd4;
+    --climb: #2d6a3e;
+    --climb-soft: #e2f0e6;
+    --flight: #1e4d8c;
+    --flight-soft: #dde8f5;
+    --conflict: #a33a2c;
+    --conflict-soft: #f8e4e1;
+    --hotel: #c2185b;
+    --hotel-soft: #fce4ec;
+    --loop: #0d6e6e;
+    --loop-soft: #d7efef;
+    --vendor: #1e4d8c;
+    --vendor-soft: #dde8f5;
+    --ticket: #6b3fa0;
+    --ticket-soft: #efe6f8;
+    --radius: 16px;
+    --shadow: 0 8px 28px rgba(26,26,26,.08);
+    --max: 1100px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: "DM Sans", system-ui, sans-serif;
+    color: var(--ink);
+    background:
+      radial-gradient(1200px 600px at 10% -10%, #f7e6d4 0%, transparent 55%),
+      radial-gradient(900px 500px at 100% 0%, #d9ecec 0%, transparent 50%),
+      var(--bg);
+    line-height: 1.55;
+  }
+  h1, h2, h3, .display {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+  a { color: var(--teal); }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 1.25rem 4rem; }
+
+  .hero {
+    position: relative;
+    padding: 3.5rem 0 2.5rem;
+    overflow: hidden;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: .5rem;
+    background: var(--accent-soft); color: var(--accent);
+    padding: .35rem .85rem; border-radius: 999px;
+    font-size: .85rem; font-weight: 600;
+  }
+  .hero h1 { font-size: clamp(2rem, 5vw, 3.1rem); margin: 1rem 0 .5rem; }
+  .hero-sub { color: var(--muted); font-size: 1.1rem; max-width: 46rem; }
+  .meta-row {
+    display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.5rem;
+  }
+  .chip {
+    display: inline-flex; align-items: center; gap: .4rem;
+    background: var(--bg-card); border: 1px solid var(--line);
+    padding: .45rem .8rem; border-radius: 999px; font-size: .9rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,.03);
+  }
+  .chip.flight { border-color: #b9cce6; background: var(--flight-soft); color: var(--flight); }
+  .chip.hotel { border-color: #f0b8cb; background: var(--hotel-soft); color: var(--hotel); }
+  .chip.loop { border-color: #b5d8d8; background: var(--loop-soft); color: var(--loop); }
+  .chip.vendor { border-color: #b9cce6; background: var(--vendor-soft); color: var(--vendor); }
+  .chip.ticket { border-color: #d4c0ea; background: var(--ticket-soft); color: var(--ticket); }
+  .chip.warn { border-color: #e8b4ac; background: var(--conflict-soft); color: var(--conflict); }
+
+  .notice {
+    margin-top: 1.75rem;
+    background: var(--bg-card);
+    border-left: 4px solid var(--accent);
+    padding: 1rem 1.25rem;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    box-shadow: var(--shadow);
+  }
+  .notice strong { color: var(--accent); }
+
+  .critical {
+    margin-top: 1.25rem;
+    background: linear-gradient(135deg, #f8e4e1, #fff8ee);
+    border: 1px solid #e8b4ac;
+    border-left: 4px solid var(--conflict);
+    padding: 1.1rem 1.25rem;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    box-shadow: var(--shadow);
+  }
+  .critical h3 {
+    margin: 0 0 .5rem;
+    font-size: 1.1rem;
+    color: var(--conflict);
+  }
+  .critical table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .9rem;
+    margin-top: .75rem;
+  }
+  .critical th, .critical td {
+    text-align: left;
+    padding: .45rem .6rem;
+    border-bottom: 1px solid #e8b4ac;
+    vertical-align: top;
+  }
+  .critical th {
+    font-size: .72rem;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--conflict);
+  }
+  .critical .no { font-weight: 700; color: var(--conflict); }
+  .critical .yes { font-weight: 700; color: var(--climb); }
+  .critical p { margin: .5rem 0 0; font-size: .92rem; }
+
+  .toc {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(244,240,232,.92); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+    margin: 0 -1.25rem; padding: .65rem 1.25rem;
+  }
+  .toc-inner {
+    max-width: var(--max); margin: 0 auto;
+    display: flex; gap: .5rem; overflow-x: auto; scrollbar-width: thin;
+  }
+  .toc a {
+    white-space: nowrap; text-decoration: none; color: var(--muted);
+    font-size: .88rem; font-weight: 500;
+    padding: .4rem .75rem; border-radius: 999px;
+  }
+  .toc a:hover { background: var(--accent-soft); color: var(--accent); }
+
+  section { margin-top: 3rem; }
+  .section-head {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 1rem; flex-wrap: wrap; margin-bottom: 1.25rem;
+  }
+  .section-head h2 { margin: 0; font-size: clamp(1.5rem, 3vw, 2rem); }
+  .section-head p { margin: .35rem 0 0; color: var(--muted); max-width: 40rem; }
+  .tag {
+    font-size: .75rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .06em; padding: .3rem .6rem; border-radius: 6px;
+  }
+  .tag.ours { background: var(--teal-soft); color: var(--teal); }
+  .tag.hotel { background: var(--hotel-soft); color: var(--hotel); }
+  .tag.flight { background: var(--flight-soft); color: var(--flight); }
+  .tag.vendor { background: var(--vendor-soft); color: var(--vendor); }
+  .tag.ticket { background: var(--ticket-soft); color: var(--ticket); }
+  .tag.warn { background: var(--conflict-soft); color: var(--conflict); }
+
+  .legend {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: .6rem; margin-bottom: 1.5rem;
+  }
+  .legend-item {
+    display: flex; align-items: center; gap: .55rem;
+    background: var(--bg-card); border: 1px solid var(--line);
+    padding: .55rem .75rem; border-radius: 12px; font-size: .88rem;
+  }
+  .dot {
+    width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0;
+  }
+  .dot.flight { background: var(--flight); }
+  .dot.city { background: var(--teal); }
+  .dot.hotel { background: var(--hotel); }
+  .dot.loop { background: var(--loop); }
+  .dot.vendor { background: var(--vendor); }
+  .dot.warn { background: var(--conflict); }
+
+  .spine {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: .5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: .85rem .9rem;
+    margin-bottom: 1.25rem;
+    box-shadow: var(--shadow);
+  }
+  .spine-item {
+    border-radius: 10px;
+    padding: .55rem .65rem;
+    background: #faf7f1;
+    border: 1px solid var(--line);
+    font-size: .82rem;
+    line-height: 1.35;
+  }
+  .spine-item strong { display: block; font-size: .78rem; letter-spacing: .03em; text-transform: uppercase; margin-bottom: .15rem; }
+  .spine-item.flight { background: var(--flight-soft); border-color: #b9cce6; }
+  .spine-item.flight strong { color: var(--flight); }
+  .spine-item.city { background: var(--teal-soft); border-color: #b5d8d8; }
+  .spine-item.city strong { color: var(--teal); }
+  .spine-item.hotel { background: var(--hotel-soft); border-color: #f0b8cb; }
+  .spine-item.hotel strong { color: var(--hotel); }
+  .spine-item.warn { background: var(--conflict-soft); border-color: #e8b4ac; }
+  .spine-item.warn strong { color: var(--conflict); }
+
+  .calendar {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+  .day-card {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.1rem 1.15rem 1.2rem;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+  }
+  .day-card::before {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 5px;
+    background: var(--teal);
+  }
+  .day-card.flight::before { background: var(--flight); }
+  .day-card.warn-day::before { background: var(--conflict); }
+  .day-card.expo-day::before { background: var(--vendor); }
+  .day-date {
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 1.15rem; margin: 0 0 .15rem;
+  }
+  .day-dow { color: var(--muted); font-size: .82rem; margin-bottom: .7rem; }
+  .day-body { font-size: .92rem; }
+  .day-body ul { margin: .4rem 0 0; padding-left: 1.1rem; }
+  .day-body li { margin: .25rem 0; }
+  .pill {
+    display: inline-block; font-size: .7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .04em;
+    padding: .2rem .5rem; border-radius: 6px; margin: 0 .25rem .35rem 0;
+  }
+  .pill.flight { background: var(--flight-soft); color: var(--flight); }
+  .pill.city { background: var(--teal-soft); color: var(--teal); }
+  .pill.hotel { background: var(--hotel-soft); color: var(--hotel); }
+  .pill.warn { background: var(--conflict-soft); color: var(--conflict); }
+  .pill.vendor { background: var(--vendor-soft); color: var(--vendor); }
+
+  .hotel-banner {
+    background: linear-gradient(135deg, #c2185b, #e91e8c);
+    color: #fff; border-radius: var(--radius); padding: 1.4rem 1.5rem;
+    margin-bottom: 1.25rem; box-shadow: var(--shadow);
+  }
+  .hotel-banner h2 { margin: 0 0 .35rem; color: #fff; }
+  .hotel-banner p { margin: 0; opacity: .95; }
+
+  .hotel-equal {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.15rem;
+  }
+  .hotel-card {
+    background: var(--bg-card);
+    border: 1px solid #f0b8cb;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border-left: 5px solid var(--hotel);
+    display: flex;
+    flex-direction: column;
+  }
+  .hotel-card .photos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: #eee;
+  }
+  .hotel-card .photos img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    display: block;
+    background: #ddd;
+  }
+  .hotel-card .body { padding: 1.1rem 1.2rem 1.25rem; flex: 1; }
+  .hotel-card h3 { margin: 0 0 .25rem; color: var(--hotel); font-size: 1.15rem; }
+  .hotel-card .tldr {
+    font-size: .9rem;
+    color: var(--ink);
+    margin: 0 0 .75rem;
+    font-style: italic;
+  }
+  .hotel-card .addr { color: var(--muted); font-size: .85rem; margin: 0 0 .75rem; }
+  .hotel-card ul { margin: 0; padding-left: 1.1rem; font-size: .88rem; }
+  .hotel-card li { margin: .28rem 0; }
+  .firm-badge {
+    display: inline-block;
+    font-size: .72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    padding: .22rem .55rem;
+    border-radius: 999px;
+    margin-bottom: .5rem;
+  }
+  .firm-badge.best { background: var(--climb-soft); color: var(--climb); border: 1px solid #b7d4bf; }
+  .firm-badge.strong { background: var(--teal-soft); color: var(--teal); border: 1px solid #b5d8d8; }
+  .firm-badge.medium { background: var(--wedding-soft); color: #7a5c00; border: 1px solid #e4d39a; }
+  .firm-badge.mixed { background: #f3eee4; color: #7a5c00; border: 1px solid #e4d39a; }
+  .firm-badge.plush { background: var(--conflict-soft); color: var(--conflict); border: 1px solid #e8b4ac; }
+  .est {
+    display: inline-block;
+    margin-top: .55rem;
+    font-size: .78rem;
+    font-weight: 700;
+    background: var(--hotel-soft);
+    color: var(--hotel);
+    padding: .2rem .5rem;
+    border-radius: 6px;
+  }
+  .hotel-note {
+    margin-top: 1rem; font-size: .9rem;
+    background: var(--hotel-soft); color: var(--hotel);
+    border: 1px solid #f0b8cb; border-radius: 12px;
+    padding: .75rem 1rem;
+  }
+
+  .data-table-wrap {
+    overflow-x: auto;
+    margin: 0 0 1.25rem;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .9rem;
+  }
+  .data-table th {
+    text-align: left;
+    padding: .6rem .9rem;
+    background: var(--teal-soft);
+    color: var(--teal);
+    font-size: .72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    border-bottom: 1px solid #c5e0e0;
+  }
+  .data-table td {
+    padding: .48rem .9rem;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  .data-table th.amt, .data-table td.amt {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .data-table.hotel-tint th { background: var(--hotel-soft); color: var(--hotel); border-color: #f0b8cb; }
+  .data-table.vendor-tint th { background: var(--vendor-soft); color: var(--vendor); border-color: #b9cce6; }
+  .data-table.ticket-tint th { background: var(--ticket-soft); color: var(--ticket); border-color: #d4c0ea; }
+  .data-table.warn-tint th { background: var(--conflict-soft); color: var(--conflict); border-color: #e8b4ac; }
+
+  .map-box {
+    height: 420px; border-radius: var(--radius); overflow: hidden;
+    border: 1px solid var(--line); box-shadow: var(--shadow);
+    background: #ddd;
+  }
+  .map-note { font-size: .85rem; color: var(--muted); margin: .6rem 0 0; }
+
+  .vendor-banner {
+    background: linear-gradient(135deg, #1e4d8c, #3a6fb5);
+    color: #fff; border-radius: var(--radius); padding: 1.4rem 1.5rem;
+    margin-bottom: 1.25rem; box-shadow: var(--shadow);
+  }
+  .vendor-banner h2 { margin: 0 0 .35rem; color: #fff; }
+  .vendor-banner p { margin: 0; opacity: .95; }
+
+  .book-tesla {
+    background: linear-gradient(135deg, var(--flight-soft), #fff8ee);
+    border: 1px solid #b9cce6;
+    border-left: 4px solid var(--flight);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 1.1rem 1.25rem;
+    margin-bottom: 1.25rem;
+    box-shadow: var(--shadow);
+  }
+  .book-tesla h3 { margin: 0 0 .45rem; color: var(--flight); font-size: 1.1rem; }
+  .book-tesla ul { margin: .4rem 0 0; padding-left: 1.15rem; }
+  .book-tesla li { margin: .3rem 0; font-size: .92rem; }
+
+  .vendor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: .85rem;
+  }
+  .vendor-card {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: .95rem 1.05rem;
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--vendor);
+  }
+  .vendor-card.priority { border-left-color: var(--accent); }
+  .vendor-card h4 { margin: 0 0 .25rem; font-size: 1rem; }
+  .vendor-card .booth {
+    font-size: .78rem; font-weight: 700;
+    color: var(--vendor);
+    margin-bottom: .4rem;
+  }
+  .vendor-card p { margin: 0; font-size: .86rem; color: var(--muted); }
+  .vendor-card .ask {
+    margin-top: .5rem;
+    font-size: .82rem;
+    background: #faf7f1;
+    border: 1px dashed var(--line);
+    border-radius: 8px;
+    padding: .45rem .6rem;
+  }
+
+  .ticket-banner {
+    background: linear-gradient(135deg, #6b3fa0, #8e5bc7);
+    color: #fff; border-radius: var(--radius); padding: 1.4rem 1.5rem;
+    margin-bottom: 1.25rem; box-shadow: var(--shadow);
+  }
+  .ticket-banner h2 { margin: 0 0 .35rem; color: #fff; }
+  .ticket-banner p { margin: 0; opacity: .95; }
+
+  .invite-box {
+    background: var(--ticket-soft);
+    border: 1px solid #d4c0ea;
+    border-left: 4px solid var(--ticket);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 1.1rem 1.25rem;
+    margin: 1rem 0;
+    box-shadow: var(--shadow);
+  }
+  .invite-box h3 { margin: 0 0 .45rem; color: var(--ticket); font-size: 1.05rem; }
+  .invite-box ol { margin: .4rem 0 0; padding-left: 1.2rem; }
+  .invite-box li { margin: .35rem 0; font-size: .92rem; }
+
+  .pretrip-list { display: grid; gap: .85rem; }
+  .check-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: .85rem 1rem;
+    align-items: start;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1rem 1.15rem;
+    box-shadow: var(--shadow);
+  }
+  .check-box {
+    width: 1.35rem;
+    height: 1.35rem;
+    border: 2px solid var(--accent);
+    border-radius: 5px;
+    margin-top: .15rem;
+    flex-shrink: 0;
+    background: #fff;
+  }
+  .check-item-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .5rem .75rem;
+    margin-bottom: .35rem;
+  }
+  .check-item-head h3 { margin: 0; font-size: 1.05rem; }
+  .status-badge {
+    font-size: .72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    padding: .22rem .55rem;
+    border-radius: 999px;
+  }
+  .status-badge.open {
+    background: var(--accent-soft);
+    color: var(--accent);
+    border: 1px solid #e8c4ae;
+  }
+  .check-item p {
+    margin: .25rem 0 0;
+    font-size: .9rem;
+  }
+  .check-item .action {
+    margin-top: .45rem;
+    font-size: .88rem;
+    color: var(--muted);
+    background: #faf7f1;
+    border: 1px dashed var(--line);
+    border-radius: 10px;
+    padding: .5rem .75rem;
+  }
+  .check-item .action strong { color: var(--accent); }
+
+  .links-row {
+    display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .75rem;
+  }
+  .links-row a {
+    display: inline-block;
+    font-size: .82rem;
+    font-weight: 600;
+    text-decoration: none;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    padding: .35rem .7rem;
+    border-radius: 999px;
+  }
+  .links-row a:hover { border-color: var(--teal); background: var(--teal-soft); }
+
+  footer {
+    margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line);
+    color: var(--muted); font-size: .88rem; text-align: center;
+  }
+
+  .leaflet-container { font: inherit; }
+  .map-popup h4 { margin: 0 0 .25rem; font-size: .95rem; }
+  .map-popup p { margin: 0; font-size: .82rem; color: #444; }
+
+  .tab-btn {
+    border: 1px solid var(--line); background: var(--bg-card);
+    color: var(--muted); font: inherit; font-weight: 600; font-size: .85rem;
+    padding: .45rem .85rem; border-radius: 999px; cursor: pointer;
+    transition: .15s ease;
+  }
+  .tab-btn:hover { border-color: var(--teal); color: var(--teal); }
+  .tab-btn.active {
+    background: var(--teal); color: #fff; border-color: var(--teal);
+  }
+
+  .muted { color: var(--muted); }
+  .src-note { margin-top: .85rem; font-size: .8rem; color: var(--muted); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <span class="hero-badge">🎰 · ☀️ RE+ 26 · November 2026</span>
+      <h1>Las Vegas RE+ — Nov 16–18, 2026</h1>
+      <p class="hero-sub">
+        Trip planner for <strong>Krystian &amp; brother</strong> — one shared room (two beds),
+        <strong>no rental car</strong>, Loop for hotel↔LVCC daytime, Uber for airport legs.
+        Goal: Tuesday Expo floor for St. Thomas 3-home solar + storage project.
+      </p>
+      <div class="meta-row">
+        <span class="chip flight">✈ SEA→LAS · Mon Nov 16 · 8:05pm–10:37pm PT</span>
+        <span class="chip flight">✈ LAS→SEA · Wed Nov 18 · 6:00–8:49am PT</span>
+        <span class="chip flight">✈ Brother EWR · same pattern TBD</span>
+        <span class="chip hotel">🏨 1 room · 2 beds · firm preferred</span>
+        <span class="chip loop">🚇 Loop daytime · Uber nights</span>
+        <span class="chip ticket">🎟 Tue Expo One-Day · $225/$275</span>
+        <span class="chip vendor">⚡ Tesla · Enphase · Sol-Ark…</span>
+      </div>
+
+      <div class="critical" id="uber-notice" role="alert">
+        <h3>⚠ Critical: Uber required for both airport legs</h3>
+        <p>Vegas Loop airport service typically runs <strong>~10am–9pm</strong>. Your flight windows miss it entirely.</p>
+        <table>
+          <thead>
+            <tr><th>Leg</th><th>Timing (PT)</th><th>Loop?</th><th>Plan</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Arrival Mon</strong></td>
+              <td>Land ~10:37pm → curbside ~11:00–11:30pm</td>
+              <td class="no">NO</td>
+              <td><strong>Uber/Lyft</strong> hotel-direct (~12–25 min, ~$18–45)</td>
+            </tr>
+            <tr>
+              <td><strong>Departure Wed</strong></td>
+              <td>Leave hotel ~4:00–4:30am for 6:00am flight</td>
+              <td class="no">NO</td>
+              <td><strong>Uber/Lyft</strong> (~15–25 min + TSA). Pre-schedule night before.</td>
+            </tr>
+            <tr>
+              <td><strong>Tue show day</strong></td>
+              <td>Hotel ↔ LVCC daytime</td>
+              <td class="yes">YES</td>
+              <td>Loop (or walk from Marriott/Westgate)</td>
+            </tr>
+          </tbody>
+        </table>
+        <p><strong>Bottom line:</strong> Budget 2× rideshares + tip. Loop is excellent for the show commute — useless for your airport times.</p>
+      </div>
+
+      <div class="notice">
+        <strong>Status:</strong> Research only — nothing booked as of Sep 21, 2026 (PT).
+        Hotel rates below are <strong>estimates</strong> from recent comparables — re-quote live before booking.
+        Registration is open at <a href="https://www.re-plus.com/register/" target="_blank" rel="noopener">re-plus.com/register</a>.
+      </div>
+    </header>
+
+    <nav class="toc" aria-label="Table of contents">
+      <div class="toc-inner">
+        <a href="#uber-notice">Uber alert</a>
+        <a href="#itinerary">Itinerary</a>
+        <a href="#hotels">Hotels</a>
+        <a href="#map">Map</a>
+        <a href="#loop">Loop hours</a>
+        <a href="#vendors">Vendors</a>
+        <a href="#tickets">Tickets</a>
+        <a href="#checklist">Checklist</a>
+      </div>
+    </nav>
+
+    <section id="itinerary">
+      <div class="section-head">
+        <div>
+          <span class="tag flight">Timeline</span>
+          <h2>Itinerary · Mon Nov 16 – Wed Nov 18</h2>
+          <p>Late Mon arrival → full Tuesday Expo → Wed 4am Uber to airport. Loop daytime only.</p>
+        </div>
+      </div>
+
+      <div class="spine" aria-label="Trip spine">
+        <div class="spine-item warn"><strong>Mon ~11pm</strong> Land LAS → Uber to hotel</div>
+        <div class="spine-item hotel"><strong>Mon–Tue nights</strong> Shared 2-bed room</div>
+        <div class="spine-item city"><strong>Tue 10am–6pm</strong> Expo floor · Loop commute</div>
+        <div class="spine-item flight"><strong>Tue</strong> Vendor meetings · Tesla booked</div>
+        <div class="spine-item warn"><strong>Wed 4–4:30am</strong> Uber → LAS for 6am flight</div>
+      </div>
+
+      <div class="calendar">
+        <article class="day-card flight warn-day">
+          <h3 class="day-date">Monday · Nov 16</h3>
+          <div class="day-dow">Arrival · SEA → LAS</div>
+          <div class="day-body">
+            <span class="pill flight">Flight</span>
+            <span class="pill warn">Uber</span>
+            <span class="pill hotel">Check-in</span>
+            <ul>
+              <li>Depart SEA <strong>8:05pm PT</strong> → land LAS <strong>~10:37pm PT</strong></li>
+              <li>Bags/curbside ~11:00–11:30pm — <strong>Loop closed</strong></li>
+              <li><strong>Uber/Lyft</strong> straight to hotel (~12–25 min)</li>
+              <li>Brother: EWR→LAS same Mon-evening pattern (exact times TBD)</li>
+              <li>Optional: Welcome Reception only if Full Conference + energy after late flight</li>
+            </ul>
+          </div>
+        </article>
+        <article class="day-card expo-day">
+          <h3 class="day-date">Tuesday · Nov 17</h3>
+          <div class="day-dow">Full Expo day · LVCC</div>
+          <div class="day-body">
+            <span class="pill vendor">Expo</span>
+            <span class="pill city">Loop</span>
+            <ul>
+              <li>Loop or walk hotel → LVCC</li>
+              <li>Exhibits <strong>10:00am – 6:00pm PT</strong></li>
+              <li>Priority: Tesla N527, Enphase, Sol-Ark, FranklinWH, Enstall…</li>
+              <li>Loop back to hotel; optional Block Party (Full Conference)</li>
+            </ul>
+          </div>
+        </article>
+        <article class="day-card flight warn-day">
+          <h3 class="day-date">Wednesday · Nov 18</h3>
+          <div class="day-dow">Early exit · LAS → SEA</div>
+          <div class="day-body">
+            <span class="pill warn">Uber 4am</span>
+            <span class="pill flight">Flight</span>
+            <ul>
+              <li>Leave hotel <strong>~4:00–4:30am</strong> — Loop closed</li>
+              <li><strong>Pre-schedule Uber/Lyft</strong> the night before</li>
+              <li>Depart LAS <strong>6:00am</strong> → SEA <strong>8:49am PT</strong></li>
+              <li>Miss most/all Wed–Thu exhibits (expo opens 9am Wed)</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="hotels">
+      <div class="hotel-banner">
+        <h2>Hotels — equal shortlist of 5</h2>
+        <p>One shared room, two beds (queen/queen preferred) · Mon Nov 16 + Tue Nov 17 only · firm mattress preferred. All five are Loop-capable or walk-to-LVCC. Rates are <strong>estimates</strong> — re-quote live.</p>
+      </div>
+
+      <div class="hotel-equal">
+        <article class="hotel-card" id="hotel-hilton">
+          <div class="photos">
+            <img src="images/hilton-d1.jpg" alt="Hilton Resorts World Deluxe room" loading="lazy">
+            <img src="images/hilton-d2.jpg" alt="Hilton Resorts World Deluxe room view" loading="lazy">
+          </div>
+          <div class="body">
+            <span class="firm-badge strong">Firm likelihood: High–medium</span>
+            <h3>1. Hilton at Resorts World</h3>
+            <p class="tldr">Modern 2021 Hilton with Serenity beds that skew firm-with-plush-top, on-site Loop to LVCC — strong conference pick.</p>
+            <p class="addr">3000 S Las Vegas Blvd / Resorts World · ≈ 36.1337, −115.1662</p>
+            <ul>
+              <li><strong>Beds:</strong> Hilton Serenity — firm with plush top (not board-hard)</li>
+              <li><strong>Loop:</strong> On-property station · ~2–5 min to LVCC</li>
+              <li><strong>Walk LVCC:</strong> ~15–25 min (prefer Loop)</li>
+              <li><strong>Amenities:</strong> Gym, 5th-fl pool, Starbucks L1/L2, full RW dining</li>
+              <li><strong>Monorail:</strong> No on-site</li>
+              <li><strong>Room:</strong> Deluxe ~400 sq ft · 1 King or 2 Queens</li>
+            </ul>
+            <span class="est">Est. 2Q: ~$180–280/night before resort fee · show weeks may spike $250–400 · ESTIMATE</span>
+          </div>
+        </article>
+
+        <article class="hotel-card" id="hotel-marriott">
+          <div class="photos">
+            <img src="images/marriott-1.jpg" alt="Las Vegas Marriott guestroom" loading="lazy">
+            <img src="images/marriott-2.jpg" alt="Las Vegas Marriott suite" loading="lazy">
+          </div>
+          <div class="body">
+            <span class="firm-badge medium">Firm likelihood: Medium</span>
+            <h3>2. Las Vegas Marriott</h3>
+            <p class="tldr">Closest walk to LVCC West + 2025 reno + predictable Marriott medium-firm pillow-top — conference-efficient, not the firmest.</p>
+            <p class="addr">325 Convention Center Dr · ≈ 36.1319, −115.1535</p>
+            <ul>
+              <li><strong>Beds:</strong> Marriott Bed ~medium-firm + pillow-top</li>
+              <li><strong>Loop:</strong> Not on-property · walk to LVCC campus stations (~5–10 min)</li>
+              <li><strong>Walk LVCC:</strong> <strong>~5–10 min</strong> to West Hall — best pure walk</li>
+              <li><strong>Amenities:</strong> 24h gym, heated pool, Sagebrush, SB Market/Starbucks</li>
+              <li><strong>Monorail:</strong> LVCC station nearby (~0.4 mi)</li>
+              <li><strong>Reno:</strong> Guestrooms completed 2025 → early 2026</li>
+            </ul>
+            <span class="est">Est. 2Q: ~$160–280/night midweek mid-Nov · ESTIMATE · confirm 2Q inventory</span>
+          </div>
+        </article>
+
+        <article class="hotel-card" id="hotel-westgate">
+          <div class="photos">
+            <img src="images/westgate-1.webp" alt="Westgate Luxe double queen bedroom" loading="lazy">
+            <img src="images/westgate-2.webp" alt="Westgate Luxe double queen city view" loading="lazy">
+          </div>
+          <div class="body">
+            <span class="firm-badge best">Firm likelihood: Best of 5</span>
+            <h3>3. Westgate Las Vegas</h3>
+            <p class="tldr">Best explicit firm-bed evidence of the five, plus Loop + Monorail + doorstep LVCC — top firm-preferring choice if you accept older-tower variance.</p>
+            <p class="addr">3000 Paradise Rd · ≈ 36.1363, −115.1517</p>
+            <ul>
+              <li><strong>Beds:</strong> Simmons Beautyrest (Signature) — “pleasantly firm”; ask Signature/LUXE, not Premier plush</li>
+              <li><strong>Loop:</strong> On-site station · ~2–4 min to LVCC</li>
+              <li><strong>Walk LVCC:</strong> ~5–15 min (next door)</li>
+              <li><strong>Amenities:</strong> Gym, pool, Edge Steakhouse, on-site coffee</li>
+              <li><strong>Monorail:</strong> On-site station</li>
+              <li><strong>Note:</strong> Older tower with ongoing refreshes — verify “renovated” category</li>
+            </ul>
+            <span class="est">Est. 2Q: ~$120–220/night typical · show weeks higher · ESTIMATE</span>
+          </div>
+        </article>
+
+        <article class="hotel-card" id="hotel-fontainebleau">
+          <div class="photos">
+            <img src="images/fontainebleau-1.jpg" alt="Fontainebleau Bleau room" loading="lazy">
+            <img src="images/fontainebleau-2.jpg" alt="Fontainebleau Bleau room alternate" loading="lazy">
+          </div>
+          <div class="body">
+            <span class="firm-badge plush">Firm likelihood: Lowest (plush)</span>
+            <h3>4. Fontainebleau Las Vegas</h3>
+            <p class="tldr">Newest luxury north Strip with excellent plush pillowtop beds and on-site Loop — great if you want soft-supportive luxury; skip if firm is non-negotiable.</p>
+            <p class="addr">2777 S Las Vegas Blvd · ≈ 36.1375, −115.1589</p>
+            <ul>
+              <li><strong>Beds:</strong> Custom Serta pillowtop — “plush but supportive” / firm-but-forgiving</li>
+              <li><strong>Loop:</strong> On-site Level V1 · ~3–8 min to LVCC</li>
+              <li><strong>Walk LVCC:</strong> ~10–20 min</li>
+              <li><strong>Amenities:</strong> Large fitness, multi-pool Oasis, dense F&amp;B</li>
+              <li><strong>Monorail:</strong> No on-site</li>
+              <li><strong>Opened:</strong> Dec 2023 (new build)</li>
+            </ul>
+            <span class="est">Est. 2Q: ~$200–350+/night + resort fee · ESTIMATE</span>
+          </div>
+        </article>
+
+        <article class="hotel-card" id="hotel-sahara">
+          <div class="photos">
+            <img src="images/sahara-1.jpg" alt="Sahara Alexandria iconic double room" loading="lazy">
+            <img src="images/sahara-2.jpg" alt="Sahara Story Tower double room" loading="lazy">
+          </div>
+          <div class="body">
+            <span class="firm-badge mixed">Firm likelihood: Mixed / weak</span>
+            <h3>5. Sahara Las Vegas</h3>
+            <p class="tldr">Value north Strip with Loop + Monorail; beds are hit-or-miss (request Marra/Alexandria) — not the place to optimize for a confirmed firm mattress.</p>
+            <p class="addr">2535 S Las Vegas Blvd · ≈ 36.1422, −115.1566</p>
+            <ul>
+              <li><strong>Beds:</strong> Serta Sahara — comfort mixed; request <strong>Marra or Alexandria</strong>, not Blanca</li>
+              <li><strong>Loop:</strong> On-site (Paradise entrance, opened Aug 2026) · ~3–7 min</li>
+              <li><strong>Walk LVCC:</strong> ~10–20 min along Paradise</li>
+              <li><strong>Amenities:</strong> Gym/spa, pools, Starbucks on-site</li>
+              <li><strong>Monorail:</strong> On-site Sahara station</li>
+            </ul>
+            <span class="est">Est. 2Q: ~$90–180/night + fees midweek · spikes for events · ESTIMATE</span>
+          </div>
+        </article>
+      </div>
+
+      <p class="hotel-note">
+        <strong>Booking tips:</strong> Filter <strong>2 Queen</strong> explicitly (many Strip rooms are king-only).
+        Late checkout Wed is impossible — you’ll leave ~4am; confirm 24h front desk.
+        Prefer easy rideshare curb for 4am (all five are fine).
+        Official RE+ housing: <a href="https://www.re-plus.com/attend/" target="_blank" rel="noopener">re-plus.com/attend</a>.
+        Resort fees often extra ($40–$60+/night at Strip casinos).
+      </p>
+    </section>
+
+    <section id="map">
+      <div class="section-head">
+        <div>
+          <span class="tag ours">OpenStreetMap + Leaflet</span>
+          <h2>Map · hotels, LVCC, Loop, airport</h2>
+          <p>Pink = hotels · teal = Loop stations · blue = airport · purple = LVCC.</p>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:.75rem">
+        <button type="button" id="map-focus-all" class="tab-btn active">All pins</button>
+        <button type="button" id="map-focus-hotels" class="tab-btn">Hotels + LVCC</button>
+        <button type="button" id="map-focus-airport" class="tab-btn">Airport</button>
+      </div>
+      <div id="map" class="map-box" role="img" aria-label="Map of Las Vegas hotels, Loop, and LVCC"></div>
+      <p class="map-note">Scroll zoom after clicking the map. Coordinates are planning approximations (±50–150m). Pins: 5 equal hotels, LVCC, Loop stations, Harry Reid T1/T3.</p>
+    </section>
+
+    <section id="loop">
+      <div class="section-head">
+        <div>
+          <span class="tag ours">Boring Company</span>
+          <h2>Vegas Loop · hours &amp; fares</h2>
+          <p>Excellent for Tue hotel↔LVCC. Useless for your Mon ~11pm arrival and Wed ~4am airport run.</p>
+        </div>
+      </div>
+
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr><th>Segment</th><th>Typical hours</th><th>Your flight windows</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Resorts World / Westgate / Riviera-area public</td>
+              <td>Often ~10am–9pm (event-dependent)</td>
+              <td>OK for Tue show commute</td>
+            </tr>
+            <tr>
+              <td>Convention Center &amp; Encore (some guides)</td>
+              <td>~7:30am–5:30pm or event-tied</td>
+              <td>Morning show start OK; evenings may be limited</td>
+            </tr>
+            <tr>
+              <td>Sahara</td>
+              <td>7am–9pm (+ convention extensions)</td>
+              <td>OK daytime</td>
+            </tr>
+            <tr>
+              <td><strong>Airport hybrid</strong> (RW/Westgate ↔ T1/T3)</td>
+              <td><strong>10am–9pm</strong> · ~$12</td>
+              <td class="no" style="color:var(--conflict);font-weight:700">Fails Mon late &amp; Wed early</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr><th>Route</th><th>Loop (est.)</th><th>Uber/Lyft (est.)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Within LVCC campus</td><td>~2–3 min (often free w/ badge)</td><td>N/A — walk 15–25 min hall-to-hall</td></tr>
+            <tr><td>Resorts World ↔ LVCC</td><td>~2–5 min + short walk</td><td>8–20 min</td></tr>
+            <tr><td>Westgate ↔ LVCC</td><td>~2–4 min + walk</td><td>5–12 min</td></tr>
+            <tr><td>Fontainebleau ↔ LVCC</td><td>~3–8 min</td><td>10–25 min</td></tr>
+            <tr><td>Sahara ↔ LVCC</td><td>~3–7 min</td><td>8–18 min</td></tr>
+            <tr><td>LAS ↔ hotels / LVCC</td><td>Unavailable at your times</td><td>12–25 min · $15–25 off-peak / $30–45+ surge</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>How to ride:</strong> Walk to station → buy via QR / <a href="https://lvloop.com/tickets" target="_blank" rel="noopener">lvloop.com/tickets</a> (or LVCC badge for campus-only) → scan, stall assignment, board Tesla, tell driver destination. Tip optional.</p>
+      <p><strong>Fares (publicized, non-airport):</strong> Single $4.25 · Round trip $7 · Day pass $12.50 (typically excludes airport) · Airport ~$12 when operating.</p>
+
+      <div class="links-row">
+        <a href="https://www.lvcva.com/vegas-loop/" target="_blank" rel="noopener">LVCVA Loop overview</a>
+        <a href="https://lvloop.com/tickets" target="_blank" rel="noopener">lvloop.com tickets</a>
+        <a href="https://www.fontainebleaulasvegas.com/information/vegas-loop/" target="_blank" rel="noopener">Fontainebleau Loop FAQ</a>
+        <a href="https://www.rwlasvegas.com/meeting-events/vegas-loop/" target="_blank" rel="noopener">Resorts World Loop</a>
+        <a href="https://www.lasvegasdirect.com/riding-the-vegas-loop-ultimate-guide/" target="_blank" rel="noopener">Loop guide (3rd party)</a>
+      </div>
+      <p class="src-note">Hours vary by event — verify day-of on lvloop.com. Airport Loop is still partly surface streets; won’t cover 4am Wed regardless.</p>
+    </section>
+
+    <section id="vendors">
+      <div class="vendor-banner">
+        <h2>Vendors · St. Thomas 3-home solar + storage</h2>
+        <p>3 new rentals · ~4,000 sqft each · solar + batteries targeting 80–90% · flat roofs · open to BIPV/tiles · hurricane / salt-air / island logistics. You attend <strong>Tue Expo primarily</strong> (10am–6pm).</p>
+      </div>
+
+      <div class="book-tesla" id="book-tesla">
+        <h3>⚡ Book Tesla ahead — don’t rely on walk-up</h3>
+        <p>Booth <strong>N527 · North Hall</strong>. Walk-up OK for browse, but waits are long — book a residential Energy specialist for Tue AM.</p>
+        <ul>
+          <li><strong>Email Tesla Energy</strong> for a Tue meeting + ask for Customer Invitation codes</li>
+          <li>Use <strong>RE+ Connect</strong> app / Map Your Show meeting tools</li>
+          <li>LinkedIn outreach to Tesla Energy residential / regional contacts</li>
+          <li>Also: <a href="https://www.tesla.com/energy" target="_blank" rel="noopener">tesla.com/energy</a></li>
+          <li><strong>Ask:</strong> Hurricane/wind-rated Solar Roof vs conventional on flat roofs; Powerwall sizing for ~4k sqft vacation rentals; salt-air / coastal install; shipping &amp; certified installers for STT; remote monitoring / Fleet API for 3 homes</li>
+        </ul>
+      </div>
+
+      <div class="section-head" style="margin-top:0">
+        <div>
+          <span class="tag vendor">Priority floor list</span>
+          <h2 style="font-size:1.35rem">Tue routing tip</h2>
+          <p>Cluster <strong>Central</strong> morning (storage/hybrid), then <strong>North</strong> (Tesla / Enphase / Enstall), then <strong>West</strong> if time. Re-verify booths in RE+ Connect the week of the show.</p>
+        </div>
+      </div>
+
+      <div class="vendor-grid">
+        <article class="vendor-card priority">
+          <h4>1. Tesla</h4>
+          <div class="booth">N527 · North · BOOK AHEAD</div>
+          <p>Solar Roof / panels + Powerwall · Storm Watch · single-vendor PV+storage for rentals.</p>
+          <div class="ask">Email Tesla Energy · RE+ Connect · LinkedIn · tesla.com/energy · ask for invite codes</div>
+        </article>
+        <article class="vendor-card priority">
+          <h4>2. Enphase Energy</h4>
+          <div class="booth">N2026 · North (+ S11001 Silver Lot)</div>
+          <p>Microinverters + IQ Battery · strong remote monitoring for absentee rentals · already in USVI via partners.</p>
+          <div class="ask">Book residential/storage specialist · ask for customer invite · confirm which booth is staffed</div>
+        </article>
+        <article class="vendor-card">
+          <h4>3. Sol-Ark</h4>
+          <div class="booth">C6844 &amp; C6854 · Central · walk-up fine</div>
+          <p>Hybrid inverters common in Caribbean · strong generator + battery islanding for grid-unreliable STT.</p>
+          <div class="ask">15K vs stacked · shipping to STT · dealer intro</div>
+        </article>
+        <article class="vendor-card">
+          <h4>4. FranklinWH</h4>
+          <div class="booth">C4614 · Central · walk-up fine</div>
+          <p>Whole-home battery alternative to Powerwall · expanding US residential footprint.</p>
+          <div class="ask">kWh/kW vs Powerwall · coastal/IP · Caribbean channel</div>
+        </article>
+        <article class="vendor-card">
+          <h4>5. Generac</h4>
+          <div class="booth">C5148 · Central</div>
+          <p>PWRcell + generators — realistic island stack for WAPA outages + hurricane season.</p>
+          <div class="ask">Salt-air enclosures · fuel logistics · USVI dealer</div>
+        </article>
+        <article class="vendor-card">
+          <h4>6. SMA America</h4>
+          <div class="booth">N862 · North</div>
+          <p>Sunny Boy Smart Energy hybrids · VOLT Energy (STT EPC) lists SMA among partners.</p>
+          <div class="ask">Backup options · Caribbean service · Sunny Portal multi-site</div>
+        </article>
+        <article class="vendor-card">
+          <h4>7. OutBack Power</h4>
+          <div class="booth">C6688 · Central</div>
+          <p>Longstanding off-grid / island brand · rugged hybrid architecture still common in Caribbean.</p>
+          <div class="ask">SkyBox / Radian · STT distribution · generator integration</div>
+        </article>
+        <article class="vendor-card">
+          <h4>8. Victron Energy</h4>
+          <div class="booth">W16965 · West</div>
+          <p>Marine/island gold standard · excellent remote VRM for absentee owners.</p>
+          <div class="ask">Quattro/MultiPlus · VRM multi-site · Caribbean dealers</div>
+        </article>
+        <article class="vendor-card">
+          <h4>9. Enstall (IronRidge / PanelClaw)</h4>
+          <div class="booth">N536 · North · walk-up fine</div>
+          <p>Flat-roof &amp; rail racking with wind-engineering · PanelClaw called out by STT EPC VOLT.</p>
+          <div class="ask">Hurricane flat-roof for ~4k sqft · ASCE wind calcs · salt-air hardware</div>
+        </article>
+        <article class="vendor-card">
+          <h4>10–12. Unirac · S-5! · Kaneka</h4>
+          <div class="booth">N504 · N3144 · W15949</div>
+          <p>Racking backup · metal clamps if needed · <strong>Kaneka = primary on-floor BIPV</strong> (GAF/CertainTeed not in directory).</p>
+          <div class="ask">BIPV vs Tesla Solar Roof · coastal suitability</div>
+        </article>
+        <article class="vendor-card">
+          <h4>13–15. Fortress · EG4 · Stem</h4>
+          <div class="booth">C6832 · C5460 · C6754</div>
+          <p>LiFePO₄ storage · cost benchmarks · fleet EMS if aggregating 3 homes later.</p>
+          <div class="ask">Price discovery · USVI support model</div>
+        </article>
+      </div>
+
+      <p class="src-note" style="margin-top:1rem">
+        Offline STT EPCs (email separately, not on RE+ floor):
+        <a href="https://voltenergyservices.net/" target="_blank" rel="noopener">VOLT Energy</a> ·
+        <a href="https://prosolarcaribbean.com/" target="_blank" rel="noopener">ProSolar</a> ·
+        <a href="https://www.iriesolarvi.com/" target="_blank" rel="noopener">IRIE Solar</a> ·
+        <a href="https://efactoryenergy.com/" target="_blank" rel="noopener">Electric Factory</a> ·
+        <a href="https://www.solar340.com/" target="_blank" rel="noopener">Solar340</a>.
+        Directory: <a href="https://re26.mapyourshow.com/" target="_blank" rel="noopener">re26.mapyourshow.com</a>.
+      </p>
+    </section>
+
+    <section id="tickets">
+      <div class="ticket-banner">
+        <h2>Tickets · lean Tuesday Expo</h2>
+        <p>With Mon late arrival and Wed 6am departure, <strong>Expo Hall One-Day (Tuesday)</strong> is the natural paid fit — or chase free Customer Invitation codes from exhibitors.</p>
+      </div>
+
+      <div class="invite-box">
+        <h3>Best free path — Exhibitor Customer Invitations</h3>
+        <p>Exhibitors get complimentary Expo Hall Only passes (allotment by booth size). Attendees can’t claim them from RE+ directly — you need a code/link from the exhibitor.</p>
+        <ol>
+          <li>Pick 3–5 large booths (Tesla, Enphase, Generac, SMA, Sol-Ark, FranklinWH).</li>
+          <li>Email residential / regional sales (or booth-meeting form) and ask: <em>“Do you have two RE+ 26 Customer Invitation / complimentary Expo Hall codes for Tue Nov 17?”</em></li>
+          <li>Register at <a href="https://www.re-plus.com/register/" target="_blank" rel="noopener">re-plus.com/register</a> with the invite → typically <strong>$0 Expo Hall</strong>.</li>
+          <li>Use one registration if multiple vendors offer invites — don’t create duplicate badges.</li>
+          <li>Fallback if no invite by ~early November: buy <strong>Expo Hall One-Day (Tuesday)</strong>.</li>
+        </ol>
+      </div>
+
+      <div class="data-table-wrap">
+        <table class="data-table ticket-tint">
+          <thead>
+            <tr><th>Pass</th><th class="amt">Member / Nonmember</th><th>Fit for this trip</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Expo Hall One-Day</strong> (Tue/Wed/Thu)</td>
+              <td class="amt"><strong>$225 / $275</strong></td>
+              <td><strong>Best paid fit</strong> — choose Tuesday</td>
+            </tr>
+            <tr>
+              <td>Expo Hall Only (all exhibit days)</td>
+              <td class="amt">$335 / $445</td>
+              <td>Only if plans slip to Wed AM (you fly out early — unlikely)</td>
+            </tr>
+            <tr>
+              <td>Full Conference</td>
+              <td class="amt">$1,237 / $1,497</td>
+              <td>Only for Block Party / lounges / Mon education (limited Mon value)</td>
+            </tr>
+            <tr>
+              <td>Tech &amp; Innovation Forum + Expo</td>
+              <td class="amt">$695 / $805</td>
+              <td>If you want Tue tech sessions + floor</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>Deadlines:</strong> Refunds through Oct 1, 2026 (−$50); on/after Oct 2 generally non-refundable. Member pricing requires SEIA premium / SEPA membership verified by Nov 12, 2026, 5pm EDT. Housing deadline cited Oct 14, 2026.</p>
+      <div class="links-row">
+        <a href="https://www.re-plus.com/register/" target="_blank" rel="noopener">Register</a>
+        <a href="https://www.re-plus.com/explore-pass-types/" target="_blank" rel="noopener">Pass types</a>
+        <a href="https://www.re-plus.com/exhibitor-resources/" target="_blank" rel="noopener">Exhibitor resources (invites)</a>
+        <a href="https://www.re-plus.com/attend/" target="_blank" rel="noopener">Attend / housing</a>
+        <a href="https://www.re-plus.com/" target="_blank" rel="noopener">re-plus.com</a>
+      </div>
+    </section>
+
+    <section id="checklist">
+      <div class="section-head">
+        <div>
+          <span class="tag warn">Before you go</span>
+          <h2>Pre-trip checklist</h2>
+          <p>Nothing booked yet — work down this list. Snap advice: chase two vendor invites this week; if none by ~Oct 15, buy two Tue One-Day passes.</p>
+        </div>
+      </div>
+      <div class="pretrip-list">
+        <div class="check-item">
+          <div class="check-box" aria-hidden="true"></div>
+          <div>
+            <div class="check-item-head">
+              <h3>Email Tesla Energy + Enphase for Tue meetings &amp; invite codes</h3>
+              <span class="status-badge open">Do this week</span>
+            </div>
+            <p>Subject: RE+ 26 Tue meeting — 3 new homes, St. Thomas USVI (solar + storage). Ask for 20–30 min booth slot + Customer Invitation codes for two guests.</p>
+            <div class="action"><strong>Also:</strong> Sol-Ark, FranklinWH, Generac, SMA — same outreach template.</div>
+          </div>
+        </div>
+        <div class="check-item">
+          <div class="check-box" aria-hidden="true"></div>
+          <div>
+            <div class="check-item-head">
+              <h3>Lock pass type — vendor invite or Tue One-Day ($225/$275)</h3>
+              <span class="status-badge open">Open</span>
+            </div>
+            <p>Register at re-plus.com. Refund window closes Oct 1 (−$50). Prefer invite → $0 Expo Hall.</p>
+          </div>
+        </div>
+        <div class="check-item">
+          <div class="check-box" aria-hidden="true"></div>
+          <div>
+            <div class="check-item-head">
+              <h3>Pick hotel from equal 5 · book 2-queen · request firm mattress</h3>
+              <span class="status-badge open">Open</span>
+            </div>
+            <p>Westgate = best firm evidence · Hilton RW = Loop + modern · Marriott = best walk · Fontainebleau = plush luxury · Sahara = value + new Loop. Re-quote live rates (estimates only above).</p>
+            <div class="action"><strong>Nights:</strong> Mon Nov 16 + Tue Nov 17 only. Confirm 24h desk for 4am Wed exit.</div>
+          </div>
+        </div>
+        <div class="check-item">
+          <div class="check-box" aria-hidden="true"></div>
+          <div>
+            <div class="check-item-head">
+              <h3>Brother’s exact EWR–LAS times</h3>
+              <span class="status-badge open">TBD</span>
+            </div>
+            <p>Same Mon-evening / Wed-early pattern. If he lands before ~9pm Mon, check airport Loop — still plan Uber as default.</p>
+          </div>
+        </div>
+        <div class="check-item">
+          <div class="check-box" aria-hidden="true"></div>
+          <div>
+            <div class="check-item-head">
+              <h3>Pre-schedule Wed 4:00–4:30am Uber hotel → LAS</h3>
+              <span class="status-badge open">Night before</span>
+            </div>
+            <p>Loop closed. Also plan Mon ~11pm Uber on arrival. Budget 2× rideshares + tip.</p>
+          </div>
+        </div>
+        <div class="check-item">
+          <div class="check-box" aria-hidden="true"></div>
+          <div>
+            <div class="check-item-head">
+              <h3>Re-check booth map + Loop hours show week</h3>
+              <span class="status-badge open">Nov 2026</span>
+            </div>
+            <p>RE+ Connect / Map Your Show for booth moves. lvloop.com for day-of hours. Download offline maps.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Las Vegas RE+ 2026 · Krystian &amp; brother · research as of Sep 21, 2026 (PT) · nothing booked.</p>
+      <p>Hotel rates = estimates · verify live · Room photos from hotel CDNs · Map © OpenStreetMap · Leaflet</p>
+    </footer>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script>
+    const map = L.map('map', { scrollWheelZoom: false });
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '&copy; OpenStreetMap'
+    }).addTo(map);
+
+    const hotelIcon = L.divIcon({
+      className: '',
+      html: '<div style="background:#c2185b;width:18px;height:18px;border-radius:4px;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;font-size:10px;line-height:1">🏨</div>',
+      iconSize: [18, 18], iconAnchor: [9, 9]
+    });
+    const loopIcon = L.divIcon({
+      className: '',
+      html: '<div style="background:#0d6e6e;width:14px;height:14px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.4)"></div>',
+      iconSize: [14, 14], iconAnchor: [7, 7]
+    });
+    const venueIcon = L.divIcon({
+      className: '',
+      html: '<div style="background:#6b3fa0;width:18px;height:18px;border-radius:6px;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;font-size:10px">☀</div>',
+      iconSize: [18, 18], iconAnchor: [9, 9]
+    });
+    const flightIcon = L.divIcon({
+      className: '',
+      html: '<div style="background:#1e4d8c;width:14px;height:14px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.4)"></div>',
+      iconSize: [14, 14], iconAnchor: [7, 7]
+    });
+
+    function popup(title, body) {
+      return `<div class="map-popup"><h4>${title}</h4><p>${body}</p></div>`;
+    }
+
+    const markers = [];
+
+    const hotels = [
+      [36.1337, -115.1662, 'Hilton at Resorts World', 'On-site Loop · Serenity firm-with-plush · Est. $180–280/night'],
+      [36.1319, -115.1535, 'Las Vegas Marriott', 'Walk ~5–10 min to West Hall · 2025 reno · Est. $160–280'],
+      [36.1363, -115.1517, 'Westgate Las Vegas', 'Best firm-bed evidence · Loop + Monorail · Est. $120–220'],
+      [36.1375, -115.1589, 'Fontainebleau Las Vegas', 'Plush Serta pillowtop · on-site Loop V1 · Est. $200–350+'],
+      [36.1422, -115.1566, 'Sahara Las Vegas', 'New Loop (Aug 2026) + Monorail · request Marra/Alexandria · Est. $90–180'],
+    ];
+    hotels.forEach(([lat, lng, t, b]) => {
+      markers.push(L.marker([lat, lng], { icon: hotelIcon }).addTo(map).bindPopup(popup(t, b)));
+    });
+
+    markers.push(L.marker([36.1315, -115.1515], { icon: venueIcon }).addTo(map)
+      .bindPopup(popup('Las Vegas Convention Center', 'RE+ 26 · Tue Expo 10am–6pm · 3150 Paradise Rd')));
+
+    const loops = [
+      [36.1318, -115.1560, 'LVCC West / campus Loop'],
+      [36.1295, -115.1510, 'LVCC Central / South Loop'],
+      [36.1355, -115.1550, 'LVCC Riviera-area Loop'],
+      [36.1337, -115.1662, 'Resorts World Loop'],
+      [36.1363, -115.1517, 'Westgate Loop'],
+      [36.1375, -115.1589, 'Fontainebleau Loop (V1)'],
+      [36.1420, -115.1545, 'Sahara Loop (Paradise entrance)'],
+      [36.1295, -115.1656, 'Encore Loop'],
+    ];
+    loops.forEach(([lat, lng, t]) => {
+      markers.push(L.marker([lat, lng], { icon: loopIcon }).addTo(map).bindPopup(popup(t, 'Verify day-of hours on lvloop.com')));
+    });
+
+    markers.push(L.marker([36.0801, -115.1522], { icon: flightIcon }).addTo(map)
+      .bindPopup(popup('Harry Reid · Terminal 1', 'Arrive Mon ~10:37pm · Uber required (Loop closed)')));
+    markers.push(L.marker([36.0840, -115.1537], { icon: flightIcon }).addTo(map)
+      .bindPopup(popup('Harry Reid · Terminal 3', 'Depart Wed 6:00am · leave hotel ~4–4:30am Uber')));
+
+    const group = L.featureGroup(markers);
+    map.fitBounds(group.getBounds().pad(0.12));
+    map.on('click', () => map.scrollWheelZoom.enable());
+
+    const focusBtns = {
+      'map-focus-all': () => map.fitBounds(group.getBounds().pad(0.12)),
+      'map-focus-hotels': () => map.flyTo([36.135, -115.158], 14),
+      'map-focus-airport': () => map.flyTo([36.082, -115.153], 13),
+    };
+    Object.keys(focusBtns).forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.addEventListener('click', () => {
+        document.querySelectorAll('#map ~ *').forEach(() => {});
+        document.querySelectorAll('#map').forEach(() => {});
+        el.parentElement.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        el.classList.add('active');
+        focusBtns[id]();
+      });
+    });
+  </script>
+</body>
+</html>
