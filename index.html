@@ -332,6 +332,53 @@
     padding: .2rem .5rem;
     border-radius: 6px;
   }
+
+  .hotel-card.unavailable {
+    opacity: 0.78;
+    filter: grayscale(0.45);
+    border-left-color: #9a9a9a;
+    border-color: #d0d0d0;
+  }
+  .hotel-card.unavailable h3 {
+    color: #6a6a6a;
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+  }
+  .hotel-card.unavailable .photos img {
+    filter: grayscale(0.55);
+  }
+  .avail-badge {
+    display: inline-block;
+    font-size: .72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    padding: .28rem .65rem;
+    border-radius: 999px;
+    margin: 0 .35rem .55rem 0;
+  }
+  .avail-badge.yes {
+    background: #e6f5ea;
+    color: #1b6b34;
+    border: 1px solid #b7d4bf;
+  }
+  .avail-badge.no {
+    background: #ececec;
+    color: #555;
+    border: 1px solid #c8c8c8;
+  }
+  .hotel-subhead {
+    margin: 1.75rem 0 .85rem;
+    font-size: 1.05rem;
+    color: var(--hotel);
+  }
+  .hotel-subhead span {
+    display: block;
+    font-size: .85rem;
+    font-weight: 400;
+    color: var(--muted);
+    margin-top: .2rem;
+  }
   .hotel-note {
     margin-top: 1rem; font-size: .9rem;
     background: var(--hotel-soft); color: var(--hotel);
@@ -601,11 +648,11 @@
             </tr>
           </tbody>
         </table>
-        <p><strong>Bottom line:</strong> Budget 2× rideshares + tip. Loop is excellent for the show commute — useless for your airport times. <strong>Hotel airport shuttles:</strong> none of the five replace Uber overnight (Westgate/Sahara have paid LASxpress partners only).</p>
+        <p><strong>Bottom line:</strong> Budget 2× rideshares + tip. Loop is excellent for the show commute — useless for your airport times. <strong>Hotel airport shuttles:</strong> none of the shortlist hotels replace Uber overnight (Westgate/Sahara have paid LASxpress partners only).</p>
       </div>
 
       <div class="notice">
-        <strong>Status:</strong> Research only — nothing booked. <strong>Last refreshed Oct 1, 2026 (PT)</strong> (was Sep 28). Airport-shuttle check: none of the five replaces Uber for Mon late / Wed early.
+        <strong>Status:</strong> Research only — nothing booked. <strong>Last refreshed Oct 1, 2026 (PT)</strong> (was Sep 28). Airport-shuttle check: none of the shortlist hotels replaces Uber for Mon late / Wed early.
         Hotel rates below are <strong>estimates</strong> from recent comparables — re-quote live before booking.
         Registration is open at <a href="https://www.re-plus.com/register/" target="_blank" rel="noopener">re-plus.com/register</a>.
       </div>
@@ -691,17 +738,18 @@
 
     <section id="hotels">
       <div class="hotel-banner">
-        <h2>Hotels — equal shortlist of 5</h2>
-        <p>One shared room, two beds (queen/queen preferred) · Mon Nov 16 + Tue Nov 17 only · firm mattress preferred. All five are Loop-capable or walk-to-LVCC. Rates are <strong>estimates</strong> — re-quote live.</p>
+        <h2>Hotels — original 5 + extension</h2>
+        <p>One shared room, two beds (queen/queen preferred) · check-in Mon Nov 16 · out Wed Nov 18 · firm mattress preferred. <strong>Oct 1 check:</strong> Hilton RW, Westgate, Marriott, and Sahara are <strong>unavailable</strong> for these dates (kept below for reference). Fontainebleau + extension hotels compete as available options. Rates are <strong>estimates / RE+ block</strong> — re-quote live (esp. 2-queen).</p>
       </div>
 
       <div class="hotel-equal">
-        <article class="hotel-card" id="hotel-hilton">
+        <article class="hotel-card unavailable" id="hotel-hilton">
           <div class="photos">
             <img src="images/hilton-d1.jpg" alt="Hilton Resorts World Deluxe room" loading="lazy">
             <img src="images/hilton-d2.jpg" alt="Hilton Resorts World Deluxe room view" loading="lazy">
           </div>
           <div class="body">
+            <span class="avail-badge no">Unavailable for Nov 16–18</span>
             <span class="firm-badge strong">Firm likelihood: High–medium</span>
             <h3>1. Hilton at Resorts World</h3>
             <p class="tldr">Modern 2021 Hilton with Serenity beds that skew firm-with-plush-top, on-site Loop to LVCC — strong conference pick.</p>
@@ -719,12 +767,13 @@
           </div>
         </article>
 
-        <article class="hotel-card" id="hotel-marriott">
+        <article class="hotel-card unavailable" id="hotel-marriott">
           <div class="photos">
             <img src="images/marriott-1.jpg" alt="Las Vegas Marriott guestroom" loading="lazy">
             <img src="images/marriott-2.jpg" alt="Las Vegas Marriott suite" loading="lazy">
           </div>
           <div class="body">
+            <span class="avail-badge no">Unavailable for Nov 16–18</span>
             <span class="firm-badge medium">Firm likelihood: Medium</span>
             <h3>2. Las Vegas Marriott</h3>
             <p class="tldr">Closest walk to LVCC West + 2025 reno + predictable Marriott medium-firm pillow-top — conference-efficient, not the firmest.</p>
@@ -742,12 +791,13 @@
           </div>
         </article>
 
-        <article class="hotel-card" id="hotel-westgate">
+        <article class="hotel-card unavailable" id="hotel-westgate">
           <div class="photos">
             <img src="images/westgate-1.webp" alt="Westgate Luxe double queen bedroom" loading="lazy">
             <img src="images/westgate-2.webp" alt="Westgate Luxe double queen city view" loading="lazy">
           </div>
           <div class="body">
+            <span class="avail-badge no">Unavailable for Nov 16–18</span>
             <span class="firm-badge best">Firm likelihood: Best of 5</span>
             <h3>3. Westgate Las Vegas</h3>
             <p class="tldr">Best explicit firm-bed evidence of the five, plus Loop + Monorail + doorstep LVCC — top firm-preferring choice if you accept older-tower variance.</p>
@@ -771,6 +821,7 @@
             <img src="images/fontainebleau-2.jpg" alt="Fontainebleau Bleau room alternate" loading="lazy">
           </div>
           <div class="body">
+            <span class="avail-badge yes">Available for Nov 16–18</span>
             <span class="firm-badge plush">Firm likelihood: Lowest (plush)</span>
             <h3>4. Fontainebleau Las Vegas</h3>
             <p class="tldr">Newest luxury north Strip with excellent plush pillowtop beds and on-site Loop — great if you want soft-supportive luxury; skip if firm is non-negotiable.</p>
@@ -788,12 +839,13 @@
           </div>
         </article>
 
-        <article class="hotel-card" id="hotel-sahara">
+        <article class="hotel-card unavailable" id="hotel-sahara">
           <div class="photos">
             <img src="images/sahara-1.jpg" alt="Sahara Alexandria iconic double room" loading="lazy">
             <img src="images/sahara-2.jpg" alt="Sahara Story Tower double room" loading="lazy">
           </div>
           <div class="body">
+            <span class="avail-badge no">Unavailable for Nov 16–18</span>
             <span class="firm-badge mixed">Firm likelihood: Mixed / weak</span>
             <h3>5. Sahara Las Vegas</h3>
             <p class="tldr">Value north Strip with Loop + Monorail; beds are hit-or-miss (request Marra/Alexandria) — not the place to optimize for a confirmed firm mattress.</p>
@@ -811,11 +863,155 @@
         </article>
       </div>
 
+
+      <h3 class="hotel-subhead">Extension — also available (equal with Fontainebleau)
+        <span>RE+ official housing block rates (book by Oct 14, 2026) · 2-bed room types from hotel catalogs · re-quote 2Q live · Loop/LVCC-friendly Paradise corridor + Encore</span>
+      </h3>
+      <div class="hotel-equal" id="hotels-extension">
+        <article class="hotel-card" id="hotel-springhill">
+          <div class="photos">
+            <img src="images/springhill-1.jpg" alt="SpringHill Suites LVCC suite" loading="lazy">
+            <img src="images/springhill-2.jpg" alt="SpringHill Suites LVCC suite alternate" loading="lazy">
+          </div>
+          <div class="body">
+            <span class="avail-badge yes">Available for Nov 16–18</span>
+            <span class="firm-badge medium">Firm likelihood: Medium / mixed</span>
+            <h3>6. SpringHill Suites LVCC</h3>
+            <p class="tldr">All-suite Paradise Rd pick with confirmed 2-queen suites + breakfast — walk to LVCC, quieter than casino towers.</p>
+            <p class="addr">2989 Paradise Rd · ≈ 36.1352, −115.1549</p>
+            <ul>
+              <li><strong>Beds:</strong> Suite with <strong>2 queens</strong> + trundle (confirm 2Q at book)</li>
+              <li><strong>Loop:</strong> Not on-property · walk to <strong>LVCC campus</strong> Loop (~5–10 min)</li>
+              <li><strong>Walk LVCC:</strong> ~5–10 min</li>
+              <li><strong>Amenities:</strong> Hot breakfast, rooftop pool, gym, free Wi-Fi</li>
+              <li><strong>Airport shuttle:</strong> <strong>None</strong> overnight — <strong>Uber</strong> for Mon late / Wed early</li>
+              <li><strong>Book:</strong> RE+ housing or <a href="https://www.marriott.com/en-us/hotels/laspr-springhill-suites-las-vegas-convention-center/overview/" target="_blank" rel="noopener">marriott.com/LASPR</a></li>
+            </ul>
+            <span class="est">RE+ block ~$219/night + tax · ESTIMATE · breakfast included per housing page</span>
+          </div>
+        </article>
+
+        <article class="hotel-card" id="hotel-courtyard">
+          <div class="photos">
+            <img src="images/courtyard-1.jpg" alt="Courtyard LVCC queen queen room" loading="lazy">
+            <img src="images/courtyard-2.jpg" alt="Courtyard LVCC queen queen room alternate" loading="lazy">
+          </div>
+          <div class="body">
+            <span class="avail-badge yes">Available for Nov 16–18</span>
+            <span class="firm-badge medium">Firm likelihood: Medium</span>
+            <h3>7. Courtyard LVCC</h3>
+            <p class="tldr">Straight convention workhorse on Paradise with queen/queen rooms and a short walk to LVCC — practical, not plush.</p>
+            <p class="addr">3275 Paradise Rd · ≈ 36.1295, −115.1540</p>
+            <ul>
+              <li><strong>Beds:</strong> <strong>2 queens</strong> guest rooms (Marriott gallery)</li>
+              <li><strong>Loop:</strong> LVCC campus stations (~5–10 min walk)</li>
+              <li><strong>Walk LVCC:</strong> ~5–10 min</li>
+              <li><strong>Amenities:</strong> Bistro, indoor pool, gym, non-casino</li>
+              <li><strong>Airport shuttle:</strong> <strong>None</strong> overnight — Uber</li>
+              <li><strong>Book:</strong> RE+ housing or <a href="https://www.marriott.com/en-us/hotels/lasch-courtyard-las-vegas-convention-center/overview/" target="_blank" rel="noopener">marriott.com/LASCH</a></li>
+            </ul>
+            <span class="est">RE+ block ~$209/night + tax · ESTIMATE</span>
+          </div>
+        </article>
+
+        <article class="hotel-card" id="hotel-renaissance">
+          <div class="photos">
+            <img src="images/renaissance-1.jpg" alt="Renaissance Las Vegas double beds room" loading="lazy">
+            <img src="images/renaissance-2.jpg" alt="Renaissance Las Vegas guestroom" loading="lazy">
+          </div>
+          <div class="body">
+            <span class="avail-badge yes">Available for Nov 16–18</span>
+            <span class="firm-badge plush">Firm likelihood: Soft / plush-leaning</span>
+            <h3>8. Renaissance Las Vegas</h3>
+            <p class="tldr">LVCC-adjacent 4-star with two-double rooms and a polished lobby — great location if you accept softer pillowtops.</p>
+            <p class="addr">3400 Paradise Rd · ≈ 36.1278, −115.1540</p>
+            <ul>
+              <li><strong>Beds:</strong> <strong>2 doubles</strong> (not queens) or king — confirm 2-bed at book</li>
+              <li><strong>Loop:</strong> LVCC campus · property faces convention center</li>
+              <li><strong>Walk LVCC:</strong> ~3–8 min (often cited as closest Renaissance)</li>
+              <li><strong>Amenities:</strong> Zio’s, pool, 24/7 gym, UPS store, no casino</li>
+              <li><strong>Airport shuttle:</strong> <strong>None</strong> overnight — Uber</li>
+              <li><strong>Book:</strong> RE+ housing or <a href="https://www.marriott.com/en-us/hotels/lasbr-renaissance-las-vegas-hotel/overview/" target="_blank" rel="noopener">marriott.com/LASBR</a></li>
+            </ul>
+            <span class="est">RE+ block ~$209 + $30 resort fee/night · ESTIMATE</span>
+          </div>
+        </article>
+
+        <article class="hotel-card" id="hotel-residence">
+          <div class="photos">
+            <img src="images/residence-1.jpg" alt="Residence Inn LVCC two-bedroom loft" loading="lazy">
+            <img src="images/residence-2.jpg" alt="Residence Inn LVCC queen studio" loading="lazy">
+          </div>
+          <div class="body">
+            <span class="avail-badge yes">Available for Nov 16–18</span>
+            <span class="firm-badge medium">Firm likelihood: Medium</span>
+            <h3>9. Residence Inn LVCC</h3>
+            <p class="tldr">Extended-stay loft option with real second bedroom (king + queen) and kitchen — space tradeoff vs casino hotels.</p>
+            <p class="addr">3225 Paradise Rd · ≈ 36.1305, −115.1540</p>
+            <ul>
+              <li><strong>Beds:</strong> Prefer <strong>2BR loft</strong> (king + queen + sofa); studio = 1 queen + sofa</li>
+              <li><strong>Loop:</strong> LVCC campus walk (~5–10 min)</li>
+              <li><strong>Walk LVCC:</strong> ~5–10 min</li>
+              <li><strong>Amenities:</strong> Breakfast, full kitchen (loft), pool, gym</li>
+              <li><strong>Airport shuttle:</strong> <strong>None</strong> overnight — Uber</li>
+              <li><strong>Book:</strong> RE+ housing or <a href="https://www.marriott.com/en-us/hotels/lasnv-residence-inn-las-vegas-convention-center/overview/" target="_blank" rel="noopener">marriott.com/LASNV</a></li>
+            </ul>
+            <span class="est">RE+ block ~$219/night + tax · ESTIMATE · loft usually higher than studio</span>
+          </div>
+        </article>
+
+        <article class="hotel-card" id="hotel-encore">
+          <div class="photos">
+            <img src="images/encore-1.jpg" alt="Encore Resort Suite bedroom" loading="lazy">
+            <img src="images/encore-2.jpg" alt="Encore Resort Suite sitting area" loading="lazy">
+          </div>
+          <div class="body">
+            <span class="avail-badge yes">Available for Nov 16–18</span>
+            <span class="firm-badge plush">Firm likelihood: Plush (Wynn Dream Bed)</span>
+            <h3>10. Encore Las Vegas</h3>
+            <p class="tldr">Luxury Loop-on-site option with Encore Resort Two Queens — spendy, soft beds, best tunnel commute of the extension.</p>
+            <p class="addr">3131 S Las Vegas Blvd · ≈ 36.1295, −115.1650</p>
+            <ul>
+              <li><strong>Beds:</strong> <strong>Encore Resort Two Queens</strong> (~745 sq ft) — pillow-top Dream Beds</li>
+              <li><strong>Loop:</strong> <strong>On-site Encore station</strong> · short ride to LVCC</li>
+              <li><strong>Walk LVCC:</strong> ~15–25 min (prefer Loop)</li>
+              <li><strong>Amenities:</strong> Full Wynn/Encore dining, pools, spa, casino</li>
+              <li><strong>Airport shuttle:</strong> <strong>None</strong> overnight — Uber (Airport Loop daytime only)</li>
+              <li><strong>Book:</strong> RE+ housing or <a href="https://www.wynnlasvegas.com/" target="_blank" rel="noopener">wynnlasvegas.com</a></li>
+            </ul>
+            <span class="est">RE+ block ~$349 Sun–Thu / $399 Fri–Sat + $45 resort fee · ESTIMATE</span>
+          </div>
+        </article>
+
+        <article class="hotel-card" id="hotel-hgv-paradise">
+          <div class="photos">
+            <img src="images/hgv-1.jpg" alt="Hilton Grand Vacations Paradise suite" loading="lazy">
+            <img src="images/hgv-2.jpg" alt="Hilton Grand Vacations Paradise suite alternate" loading="lazy">
+          </div>
+          <div class="body">
+            <span class="avail-badge yes">Available for Nov 16–18</span>
+            <span class="firm-badge mixed">Firm likelihood: Unknown / unit-dependent</span>
+            <h3>11. HGV Club Paradise</h3>
+            <p class="tldr">Value suite near Westgate/LVCC with 2BR layouts that can sleep two on queens — kitchen + laundry bonus.</p>
+            <p class="addr">455 Karen Ave · ≈ 36.1360, −115.1545</p>
+            <ul>
+              <li><strong>Beds:</strong> 2BR suites often <strong>1 king + 2 queens</strong> (+ sofa) — confirm layout</li>
+              <li><strong>Loop:</strong> Short hop to Westgate / LVCC Loop stations</li>
+              <li><strong>Walk LVCC:</strong> ~10–15 min via Paradise / Westgate</li>
+              <li><strong>Amenities:</strong> Kitchen, W/D in many units, pool, gym, non-casino</li>
+              <li><strong>Airport shuttle:</strong> <strong>None</strong> overnight — Uber</li>
+              <li><strong>Book:</strong> RE+ housing or Hilton / HGVC Paradise</li>
+            </ul>
+            <span class="est">RE+ block ~$149–179 + $20 resort fee/night · ESTIMATE</span>
+          </div>
+        </article>
+      </div>
+
       <p class="hotel-note">
         <strong>Booking tips:</strong> Filter <strong>2 Queen</strong> explicitly (many Strip rooms are king-only).
         Late checkout Wed is impossible — you’ll leave ~4am; confirm 24h front desk.
         Prefer easy rideshare curb for 4am (all five are fine).
-        <strong>Airport shuttles (Oct 1 check):</strong> none of the five runs a free overnight hotel shuttle that covers Mon ~11pm or Wed ~4–4:30am — keep <strong>Uber/Lyft</strong> as primary; Westgate/Sahara only add optional paid LASxpress if pre-booked.
+        <strong>Airport shuttles (Oct 1 check):</strong> none of the shortlist hotels (original or extension) runs a free overnight hotel shuttle that covers Mon ~11pm or Wed ~4–4:30am — keep <strong>Uber/Lyft</strong> as primary; Westgate/Sahara only add optional paid LASxpress if pre-booked.
         Official RE+ housing: <a href="https://www.re-plus.com/attend/" target="_blank" rel="noopener">re-plus.com/attend</a>.
         Resort fees often extra ($40–$60+/night at Strip casinos).
       </p>
@@ -835,7 +1031,7 @@
         <button type="button" id="map-focus-airport" class="tab-btn">Airport</button>
       </div>
       <div id="map" class="map-box" role="img" aria-label="Map of Las Vegas hotels, Loop, and LVCC"></div>
-      <p class="map-note">Scroll zoom after clicking the map. Coordinates are planning approximations (±50–150m). Pins: 5 equal hotels, LVCC, Loop stations, Harry Reid T1/T3.</p>
+      <p class="map-note">Scroll zoom after clicking the map. Coordinates are planning approximations (±50–150m). Pins: original 5 (4 unavailable) + 6 extension available, LVCC, Loop stations, Harry Reid T1/T3.</p>
     </section>
 
     <section id="loop">
@@ -1108,7 +1304,7 @@
               <h3>Pick hotel from equal 5 · book 2-queen · request firm mattress</h3>
               <span class="status-badge open">Open</span>
             </div>
-            <p>Westgate = best firm evidence · Hilton RW = Loop + modern · Marriott = best walk · Fontainebleau = plush luxury · Sahara = value + new Loop. Re-quote live rates (estimates only above).</p>
+            <p>Oct 1: Hilton RW / Westgate / Marriott / Sahara unavailable for Nov 16–18. Available: Fontainebleau + SpringHill / Courtyard / Renaissance / Residence Inn / Encore / HGV Paradise (RE+ block). Re-quote 2Q live.</p>
             <div class="action"><strong>Nights:</strong> Mon Nov 16 + Tue Nov 17 only. Confirm 24h desk for 4am Wed exit.</div>
           </div>
         </div>
@@ -1146,7 +1342,7 @@
     </section>
 
     <footer>
-      <p>Las Vegas RE+ 2026 · Krystian &amp; brother · last refreshed Sep 28, 2026 (PT) · nothing booked.</p>
+      <p>Las Vegas RE+ 2026 · Krystian &amp; brother · last refreshed Oct 1, 2026 (PT) · nothing booked.</p>
       <p>Hotel rates = estimates · verify live · Room photos from hotel CDNs · Map © OpenStreetMap · Leaflet</p>
     </footer>
   </div>
@@ -1187,11 +1383,17 @@
     const markers = [];
 
     const hotels = [
-      [36.1337, -115.1662, 'Hilton at Resorts World', 'On-site Loop · Serenity firm-with-plush · Est. $180–280/night'],
-      [36.1319, -115.1535, 'Las Vegas Marriott', 'Walk ~5–10 min to West Hall · 2025 reno · Est. $160–280'],
-      [36.1363, -115.1517, 'Westgate Las Vegas', 'Best firm-bed evidence · Loop + Monorail · Est. $120–220'],
-      [36.1375, -115.1589, 'Fontainebleau Las Vegas', 'Plush Serta pillowtop · on-site Loop V1 · Est. $200–350+'],
-      [36.1422, -115.1566, 'Sahara Las Vegas', 'New Loop (Aug 2026) + Monorail · request Marra/Alexandria · Est. $90–180'],
+      [36.1337, -115.1662, 'Hilton at Resorts World', 'UNAVAILABLE Nov 16–18 · was on-site Loop'],
+      [36.1319, -115.1535, 'Las Vegas Marriott', 'UNAVAILABLE Nov 16–18 · was best walk'],
+      [36.1363, -115.1517, 'Westgate Las Vegas', 'UNAVAILABLE Nov 16–18 · was best firm-bed evidence'],
+      [36.1375, -115.1589, 'Fontainebleau Las Vegas', 'AVAILABLE · plush Serta · on-site Loop V1 · Est. $200–350+'],
+      [36.1422, -115.1566, 'Sahara Las Vegas', 'UNAVAILABLE Nov 16–18'],
+      [36.1352, -115.1549, 'SpringHill Suites LVCC', 'AVAILABLE · 2Q suites · RE+ ~$219 · walk LVCC'],
+      [36.1295, -115.1540, 'Courtyard LVCC', 'AVAILABLE · 2Q · RE+ ~$209 · walk LVCC'],
+      [36.1278, -115.1540, 'Renaissance Las Vegas', 'AVAILABLE · 2 doubles · RE+ ~$209+$30 fee'],
+      [36.1305, -115.1540, 'Residence Inn LVCC', 'AVAILABLE · 2BR loft · RE+ ~$219'],
+      [36.1295, -115.1650, 'Encore Las Vegas', 'AVAILABLE · 2Q · on-site Loop · RE+ ~$349+$45'],
+      [36.1360, -115.1545, 'HGV Club Paradise', 'AVAILABLE · 2BR suites · RE+ ~$149–179+$20'],
     ];
     hotels.forEach(([lat, lng, t, b]) => {
       markers.push(L.marker([lat, lng], { icon: hotelIcon }).addTo(map).bindPopup(popup(t, b)));
