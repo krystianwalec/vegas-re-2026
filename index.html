@@ -409,6 +409,45 @@
     padding: .75rem 1rem;
   }
 
+  .avail-badge.live {
+    background: #e6f5ea;
+    color: #1b6b34;
+    border: 1px solid #b7d4bf;
+  }
+  .avail-badge.sold {
+    background: #ececec;
+    color: #555;
+    border: 1px solid #c8c8c8;
+  }
+  .avail-badge.nobed {
+    background: #f5ebe0;
+    color: #7a4a1a;
+    border: 1px solid #e0c9a8;
+  }
+  .checked-stamp {
+    display: inline-block;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .02em;
+    padding: .2rem .55rem;
+    border-radius: 6px;
+    background: #eef3f8;
+    color: #1e4d8c;
+    border: 1px solid #b9cce6;
+    margin: 0 .35rem .55rem 0;
+  }
+  .price-flag {
+    display: block;
+    margin-top: .45rem;
+    font-size: .78rem;
+    font-weight: 700;
+    color: var(--conflict);
+    background: var(--conflict-soft);
+    border: 1px solid #e8b4ac;
+    border-radius: 6px;
+    padding: .35rem .55rem;
+  }
+
   .data-table-wrap {
     overflow-x: auto;
     margin: 0 0 1.25rem;
@@ -685,12 +724,12 @@
             </tr>
           </tbody>
         </table>
-        <p><strong>Bottom line:</strong> Budget 2× rideshares + tip. Loop is excellent for the show commute — useless for your airport times. <strong>Hotel airport shuttles:</strong> <strong>Home2 Suites</strong> offers daytime complimentary Uber (reported 7am–11pm) — still <strong>misses</strong> Mon late / Wed early. Westgate/Sahara (sold out) had paid LASxpress partners claiming 24/7. <strong>Uber remains primary</strong> for both airport legs.</p>
+        <p><strong>Bottom line:</strong> Budget 2× rideshares + tip. Loop is excellent for the show commute — useless for your airport times. <strong>Hotel airport shuttles:</strong> none of the currently available 2-bed hotels offer overnight coverage for Mon ~11pm / Wed ~4–4:30am. Home2’s daytime Uber voucher (sold out for these dates) and Westgate/Sahara LASxpress partners would still have missed your windows. <strong>Uber remains primary</strong> for both airport legs.</p>
       </div>
 
       <div class="notice">
-        <strong>Status:</strong> Research only — nothing booked. <strong>Last refreshed Oct 5, 2026 (PT)</strong> — weekly Loop/RE+ check (One-Day Advanced rate ends Oct 8); Oct 1 cost + freshness pass (added Fairfield, Sonesta, Siegel, LINQ). No shortlist hotel replaces Uber for Mon ~11pm / Wed ~4–4:30am; Home2 daytime Uber voucher is the only available Tier A airport perk.
-        Hotel rates below are <strong>estimates</strong> from recent comparables — re-quote live before booking.
+        <strong>Status:</strong> Research only — nothing booked. <strong>Last refreshed Oct 5, 2026 (PT)</strong> — live hotel 2-bed availability ~8:30pm PT (Nov 16–18); weekly Loop/RE+ check (One-Day Advanced rate ends Oct 8). Four hotels still show 2-bed inventory publicly (Renaissance, Fontainebleau, Siegel, LINQ); most Paradise corridor sold out or king-only. Uber still required Mon ~11pm / Wed ~4–4:30am — no overnight shuttles claimed.
+        Hotel rates below include <strong>live public quotes</strong> from that check — confirm at checkout (esp. low Expedia figures).
         Registration is open at <a href="https://www.re-plus.com/register/" target="_blank" rel="noopener">re-plus.com/register</a>.
       </div>
     </header>
@@ -775,16 +814,21 @@
 
     <section id="hotels">
       <div class="hotel-banner">
-        <h2>Hotels — ranked by walk + airport shuttle</h2>
+        <h2>Hotels — live 2-bed availability (Oct 5)</h2>
         <p>One shared room, two beds (queen/queen preferred) · check-in Mon Nov 16 · out Wed Nov 18 · firm mattress preferred.
-        <strong>Tier A</strong> = short LVCC walk <em>and</em> hotel/partner airport shuttle ·
-        <strong>B</strong> = short walk, no airport shuttle ·
-        <strong>C</strong> = on-site Loop / Monorail, longer walk ·
-        unavailable originals grayed at end.
-        <strong>Overnight:</strong> no available hotel’s shuttle covers Mon ~11pm <em>and</em> Wed ~4–4:30am — keep Uber for those legs; daytime shuttles still listed as a plus.
-        Compare table = <strong>room 2-night + mobility</strong> estimates (Uber/Loop/Monorail). Rates are <strong>estimates / RE+ block</strong> — re-quote live (esp. 2-queen). Freshness = opened / last major reno from cited sources.</p>
+        <strong>Top:</strong> four hotels with live <strong>2-bed</strong> inventory (equal treatment).
+        <strong>Below:</strong> grayed cards kept for reference — <em>Sold out Nov 16–18</em> or <em>No 2-bed rooms left</em>.
+        <strong>Overnight:</strong> no available hotel’s shuttle covers Mon ~11pm <em>and</em> Wed ~4–4:30am — keep Uber for those legs.
+        Compare table = <strong>live room 2-night + mobility</strong> (Uber/Loop/Monorail). Availability moves fast in RE+ week.</p>
       </div>
 
+      <div class="hotel-note" style="margin-bottom:1.25rem">
+        <strong>Availability is moving fast</strong> for RE+ week.
+        Hotels that look sold out on public OTAs may still have inventory in the
+        <strong>RE+ official housing block</strong> (book by <strong>Oct 14, 2026</strong>) —
+        <a href="https://www.re-plus.com/housing/" target="_blank" rel="noopener">re-plus.com/housing</a>.
+        Live public check: Mon Oct 5, 2026 ~8:30pm PT · 2 adults · 1 room · needs 2 beds.
+      </div>
 
       <div class="cost-fresh-wrap" id="hotel-cost-compare">
         <table class="data-table hotel-tint">
@@ -794,45 +838,270 @@
               <th>Tier</th>
               <th>Walk</th>
               <th class="wrap">Freshness</th>
-              <th class="wrap">Room 2nt</th>
+              <th class="wrap">Room 2nt (live)</th>
               <th class="wrap">Mobility</th>
               <th class="wrap">≈ Total</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td class="wrap"><a href="#hotel-home2">Home2 LVCC</a></td><td>A</td><td>~10–15</td><td class="wrap">Opened Sep 2020</td><td class="wrap">OTA re-quote</td><td class="wrap">~$44–76*</td><td class="wrap">room + mob.</td></tr>
-            <tr><td class="wrap"><a href="#hotel-springhill">SpringHill</a></td><td>B</td><td>~5–10</td><td class="wrap">Opened 2009 · reno ~2017</td><td class="wrap">RE+ ~$438</td><td class="wrap">~$44–76</td><td class="wrap">~$482–514</td></tr>
-            <tr><td class="wrap"><a href="#hotel-courtyard">Courtyard</a></td><td>B</td><td>~5–10</td><td class="wrap">1989 · reno 2019</td><td class="wrap">RE+ ~$418</td><td class="wrap">~$44–76</td><td class="wrap">~$462–494</td></tr>
-            <tr><td class="wrap"><a href="#hotel-renaissance">Renaissance</a></td><td>B</td><td>~3–8</td><td class="wrap">Opened ~2004–05</td><td class="wrap">RE+ ~$478 w/ fee</td><td class="wrap">~$44–76</td><td class="wrap">~$522–554</td></tr>
-            <tr><td class="wrap"><a href="#hotel-residence">Residence Inn</a></td><td>B</td><td>~5–10</td><td class="wrap">1989 · reno 2019; 2026 refresh listed</td><td class="wrap">RE+ ~$438</td><td class="wrap">~$44–76</td><td class="wrap">~$482–514</td></tr>
-            <tr><td class="wrap"><a href="#hotel-hgv-paradise">HGV Paradise</a></td><td>B</td><td>~8–15</td><td class="wrap">Opened 1999 · reno 2011</td><td class="wrap">RE+ ~$338–398</td><td class="wrap">~$44–76</td><td class="wrap">~$382–474</td></tr>
-            <tr><td class="wrap"><a href="#hotel-hampton">Hampton LVCC</a></td><td>B</td><td>~10–15</td><td class="wrap">Opened Sep 2020</td><td class="wrap">OTA re-quote</td><td class="wrap">~$44–76</td><td class="wrap">room + mob.</td></tr>
-            <tr><td class="wrap"><a href="#hotel-embassy">Embassy Suites</a></td><td>B</td><td>~12–20</td><td class="wrap">Opened 2000 · reno 2024</td><td class="wrap">RE+ ~$388</td><td class="wrap">~$44–76</td><td class="wrap">~$432–464</td></tr>
-            <tr><td class="wrap"><a href="#hotel-fairfield">Fairfield Inn</a></td><td>B</td><td>~15–20</td><td class="wrap">Opened 1990 · reno 2025</td><td class="wrap">OTA re-quote</td><td class="wrap">~$36–64</td><td class="wrap">room + mob.</td></tr>
-            <tr><td class="wrap"><a href="#hotel-sonesta">Sonesta Simply</a></td><td>B*</td><td>~20–30</td><td class="wrap">Reno done May 2026</td><td class="wrap">Catalog $119–289/nt — re-quote</td><td class="wrap">~$36–64</td><td class="wrap">re-quote + mob.</td></tr>
-            <tr><td class="wrap"><a href="#hotel-siegel">Siegel Select</a></td><td>B$</td><td>~10–15</td><td class="wrap">Older (~2009-era stock)</td><td class="wrap">OTA re-quote</td><td class="wrap">~$44–76</td><td class="wrap">room + mob.</td></tr>
-            <tr><td class="wrap"><a href="#hotel-fontainebleau">Fontainebleau</a></td><td>C</td><td>~10–20</td><td class="wrap">Opened Dec 2023</td><td class="wrap">Prior ~$400–700+ — re-quote</td><td class="wrap">~$57–91†</td><td class="wrap">re-quote + mob.</td></tr>
-            <tr><td class="wrap"><a href="#hotel-encore">Encore</a></td><td>C</td><td>~15–25</td><td class="wrap">Opened Dec 2008</td><td class="wrap">RE+ ~$788 w/ fee</td><td class="wrap">~$57–91†</td><td class="wrap">~$845–879</td></tr>
-            <tr><td class="wrap"><a href="#hotel-linq">The LINQ</a></td><td>C</td><td>Monorail</td><td class="wrap">Reno 2014–15</td><td class="wrap">RE+ ~$198–398 w/ fee</td><td class="wrap">~$52–87‡</td><td class="wrap">~$250–485</td></tr>
+            <tr><td class="wrap"><a href="#hotel-renaissance">Renaissance</a> · 2 beds</td><td>B</td><td>~3–8</td><td class="wrap">Opened ~2004–05</td><td class="wrap">$1,094 prepay / $1,178 flex (pre-tax, fee in)</td><td class="wrap">~$44–76</td><td class="wrap">~$1,138–1,254</td></tr>
+            <tr><td class="wrap"><a href="#hotel-fontainebleau">Fontainebleau</a> · 2 beds</td><td>C</td><td>~10–20</td><td class="wrap">Opened Dec 2023</td><td class="wrap">~$1,508 before tax (fee in)</td><td class="wrap">~$57–91†</td><td class="wrap">~$1,565–1,599</td></tr>
+            <tr><td class="wrap"><a href="#hotel-siegel">Siegel Select</a> · 2 beds</td><td>B$</td><td>~10–15</td><td class="wrap">Older (~2009-era stock)</td><td class="wrap">~$152 Expedia (tax/fee incl*)</td><td class="wrap">~$44–76</td><td class="wrap">~$196–228*</td></tr>
+            <tr><td class="wrap"><a href="#hotel-linq">The LINQ</a> · 2 beds</td><td>C</td><td>Monorail</td><td class="wrap">Reno 2014–15</td><td class="wrap">~$126–136 Expedia (tax/fee incl*)</td><td class="wrap">~$52–87‡</td><td class="wrap">~$178–223*</td></tr>
+            <tr><td class="wrap"><a href="#hotel-springhill">SpringHill</a></td><td>B</td><td>~5–10</td><td class="wrap">Opened 2009 · reno ~2017</td><td class="wrap">No 2-bed · ~$131/nt king+sofa</td><td class="wrap">~$44–76</td><td class="wrap">—</td></tr>
+            <tr><td class="wrap"><a href="#hotel-courtyard">Courtyard</a></td><td>B</td><td>~5–10</td><td class="wrap">1989 · reno 2019</td><td class="wrap">No 2-bed · $2,056/2nt king suite</td><td class="wrap">~$44–76</td><td class="wrap">—</td></tr>
+            <tr><td class="wrap"><a href="#hotel-sonesta">Sonesta Simply</a></td><td>B*</td><td>~20–30</td><td class="wrap">Reno done May 2026</td><td class="wrap">No 2-bed · 1Q studio only</td><td class="wrap">~$36–64</td><td class="wrap">—</td></tr>
+            <tr><td class="wrap"><a href="#hotel-encore">Encore</a></td><td>C</td><td>~15–25</td><td class="wrap">Opened Dec 2008</td><td class="wrap">No 2-bed · king $444/nt</td><td class="wrap">~$57–91†</td><td class="wrap">—</td></tr>
+            <tr><td class="wrap"><a href="#hotel-home2">Home2 LVCC</a></td><td>A</td><td>~10–15</td><td class="wrap">Opened Sep 2020</td><td class="wrap">Sold out Nov 16–18</td><td class="wrap">~$44–76*</td><td class="wrap">—</td></tr>
+            <tr><td class="wrap"><a href="#hotel-hampton">Hampton LVCC</a></td><td>B</td><td>~10–15</td><td class="wrap">Opened Sep 2020</td><td class="wrap">Sold out Nov 16–18</td><td class="wrap">~$44–76</td><td class="wrap">—</td></tr>
+            <tr><td class="wrap"><a href="#hotel-residence">Residence Inn</a></td><td>B</td><td>~5–10</td><td class="wrap">1989 · reno 2019; 2026 refresh listed</td><td class="wrap">Sold out Nov 16–18</td><td class="wrap">~$44–76</td><td class="wrap">—</td></tr>
+            <tr><td class="wrap"><a href="#hotel-fairfield">Fairfield Inn</a></td><td>B</td><td>~15–20</td><td class="wrap">Opened 1990 · reno 2025</td><td class="wrap">Sold out Nov 16–18</td><td class="wrap">~$36–64</td><td class="wrap">—</td></tr>
+            <tr><td class="wrap"><a href="#hotel-embassy">Embassy Suites</a></td><td>B</td><td>~12–20</td><td class="wrap">Opened 2000 · reno 2024</td><td class="wrap">Sold out Nov 16–18</td><td class="wrap">~$44–76</td><td class="wrap">—</td></tr>
+            <tr><td class="wrap"><a href="#hotel-hgv-paradise">HGV Paradise</a></td><td>B</td><td>~8–15</td><td class="wrap">Opened 1999 · reno 2011</td><td class="wrap">Sold out Nov 16–18</td><td class="wrap">~$44–76</td><td class="wrap">—</td></tr>
           </tbody>
         </table>
-        <p class="map-note" style="margin-top:.5rem">*Home2 daytime Uber voucher (reported 7am–11pm) does <strong>not</strong> cut Mon late / Wed early Ubers. †Includes Loop ~$7 RT (or walk $0). ‡Monorail ~$12–15 Tue. Mobility = public Uber/Loop/Monorail ranges; tip extra; surge possible. Room figures pre-tax from RE+ housing or labeled prior/catalog. Details: <code>hotel-cost-freshness-2026-10-01.md</code>.</p>
+        <p class="map-note" style="margin-top:.5rem">Live check <strong>Mon Oct 5, 2026 ~8:30pm PT</strong> (2 adults, 1 room, 2 beds, Nov 16–18). *Siegel/LINQ Expedia totals say taxes/fees included — confirm at checkout (surprisingly low for show week). †Includes Loop ~$7 RT (or walk $0). ‡Monorail ~$12–15 Tue. Mobility = Uber/Loop/Monorail ranges; tip/surge extra. Details: <code>availability-2026-10-05.md</code>.</p>
       </div>
 
-      <h3 class="hotel-subhead">Tier A — short walk + hotel/partner airport shuttle
-        <span>Equal weight among available Tier A. Daytime shuttle/Uber voucher ≠ overnight coverage for your flight windows.</span>
+      <h3 class="hotel-subhead">Available with 2 beds — equal shortlist
+        <span>Live rates checked Mon Oct 5, 2026 ~8:30pm PT. Walk / Loop / Monorail / firm-bed notes kept. No overnight airport shuttles claimed.</span>
       </h3>
-      <div class="hotel-equal" id="hotels-tier-a">
-        <article class="hotel-card" id="hotel-home2">
+      <div class="hotel-equal" id="hotels-available">
+<article class="hotel-card" id="hotel-renaissance">
+          <div class="photos">
+            <img src="images/renaissance-1.jpg" alt="Renaissance Las Vegas double beds room" loading="lazy">
+            <img src="images/renaissance-2.jpg" alt="Renaissance Las Vegas guestroom" loading="lazy">
+          </div>
+          <div class="body">
+            <span class="tier-label b">Tier B</span>
+            <span class="avail-badge live">Available · 2 beds</span>
+            <span class="checked-stamp">Checked Oct 5, 2026 ~8:30pm PT</span>
+            <span class="firm-badge plush">Firm likelihood: Soft / plush-leaning</span>
+            <h3>Renaissance Las Vegas</h3>
+            <p class="tldr">LVCC-adjacent 4-star with two-double rooms and a polished lobby — great location if you accept softer pillowtops.</p>
+            <p class="addr">3400 Paradise Rd · ≈ 36.1278, −115.1540</p>
+            <ul>
+              <li><strong>Beds:</strong> <strong>Strip View · 2 Double Beds</strong> (live Oct 5)</li>
+              <li><strong>Walk LVCC:</strong> ~<strong>3–8 min</strong> (faces campus)</li>
+              <li><strong>Loop:</strong> LVCC campus</li>
+              <li><strong>Airport shuttle:</strong> <strong>None</strong> — Uber</li>
+              <li><strong>Amenities:</strong> Zio’s, pool, 24/7 gym, UPS store, no casino</li>
+              <li><strong>Book:</strong> <a href="https://www.marriott.com/reservation/availabilitySearch.mi?propertyCode=LASRB&fromDate=11/16/2026&toDate=11/18/2026&numberOfRooms=1&numberOfAdults=2" target="_blank" rel="noopener">Marriott live availability (LASRB)</a> · also RE+ housing</li>
+            </ul>
+            <span class="est">LIVE Oct 5: Prepay non-ref $547/nt → $1,094/2nt incl $30 dest fee (pre-tax) · Flexible Best Available $589/nt → $1,178/2nt, free cancel by Nov 14, 2026</span>
+            <span class="meta-line"><strong>Freshness:</strong> Opened <strong>Dec 2004 / early 2005</strong></span>
+            <span class="meta-line"><strong>Mobility est.:</strong> Mon+Wed Uber ~$44–76 · Tue walk $0</span>
+            <span class="all-in">≈ All-in 2nt: ~$1,138–1,170 (prepay) or ~$1,222–1,254 (flexible) + tax if not incl.</span>
+          </div>
+        </article>
+
+<article class="hotel-card" id="hotel-fontainebleau">
+          <div class="photos">
+            <img src="images/fontainebleau-1.jpg" alt="Fontainebleau Bleau room" loading="lazy">
+            <img src="images/fontainebleau-2.jpg" alt="Fontainebleau Bleau room alternate" loading="lazy">
+          </div>
+          <div class="body">
+            <span class="tier-label c">Tier C</span>
+            <span class="avail-badge live">Available · 2 beds</span>
+            <span class="checked-stamp">Checked Oct 5, 2026 ~8:30pm PT</span>
+            <span class="firm-badge plush">Firm likelihood: Lowest (plush)</span>
+            <h3>Fontainebleau Las Vegas</h3>
+            <p class="tldr">Newest luxury north Strip with excellent plush pillowtop beds and on-site Loop — soft-supportive luxury; skip if firm is non-negotiable.</p>
+            <p class="addr">2777 S Las Vegas Blvd · ≈ 36.1375, −115.1589</p>
+            <ul>
+              <li><strong>Beds:</strong> <strong>Bleau Queen · 2 queens</strong> (494 sq ft) — live Oct 5 · Custom Serta pillowtop (“plush but supportive”)</li>
+              <li><strong>Loop:</strong> On-site Level V1 · ~3–8 min to LVCC</li>
+              <li><strong>Walk LVCC:</strong> ~<strong>10–20 min</strong> (prefer Loop)</li>
+              <li><strong>Airport shuttle:</strong> <strong>None</strong> hotel-run — Uber</li>
+              <li><strong>Amenities:</strong> Large fitness, multi-pool Oasis, dense F&amp;B</li>
+              <li><strong>Opened:</strong> Dec 2023 (new build)</li>
+              <li><strong>Book:</strong> <a href="https://reserve.fontainebleaulasvegas.com/ibe/shop.aspx?checkIn=11/16/2026&checkOut=11/18/2026&hotelID=17704" target="_blank" rel="noopener">Fontainebleau live reserve</a></li>
+            </ul>
+            <span class="est">LIVE Oct 5: Bleau Queen $754 avg/nt incl resort fee, excl tax → ~$1,508/2nt before tax · cancel policy not shown on quote</span>
+            <span class="meta-line"><strong>Freshness:</strong> Opened <strong>Dec 13, 2023</strong> — newest luxury on shortlist</span>
+            <span class="meta-line"><strong>Mobility est.:</strong> Mon+Wed Uber ~$50–84 · Tue Loop ~$7 RT (or walk)</span>
+            <span class="all-in">≈ All-in 2nt: ~$1,565–1,599 (room ~$1,508 + mobility ~$57–91) + tax</span>
+          </div>
+        </article>
+
+<article class="hotel-card" id="hotel-siegel">
+          <div class="photos">
+            <img src="images/siegel-1.jpg" alt="Siegel Select Convention Center room" loading="lazy">
+            <img src="images/siegel-2.jpg" alt="Siegel Select Convention Center room alternate" loading="lazy">
+          </div>
+          <div class="body">
+            <span class="tier-label b">Tier B budget</span>
+            <span class="avail-badge live">Available · 2 beds</span>
+            <span class="checked-stamp">Checked Oct 5, 2026 ~8:30pm PT</span>
+            <span class="firm-badge mixed">Firm likelihood: Unknown</span>
+            <h3>Siegel Select Convention Center</h3>
+            <p class="tldr">Closest new addition by walk (~10–15 min on Convention Center Dr) — extended-stay budget; verify recent reviews before trusting beds/cleanliness.</p>
+            <p class="addr">220 Convention Center Dr · ≈ 36.1324, −115.1615</p>
+            <ul>
+              <li><strong>Beds:</strong> <strong>Standard Room · 2 Queen + Kitchenette</strong> (Expedia live Oct 5)</li>
+              <li><strong>Walk LVCC:</strong> ~<strong>10–15 min</strong></li>
+              <li><strong>Airport shuttle:</strong> <strong>None</strong> found — Uber</li>
+              <li><strong>Amenities:</strong> Kitchenette extended-stay basics; no casino</li>
+              <li><strong>Book:</strong> <a href="https://www.siegelselect.com/siegel-select-convention-center-drive/" target="_blank" rel="noopener">siegelselect.com</a></li>
+            </ul>
+            <span class="est">LIVE Oct 5 (Expedia): $76/nt · taxes/fees included per Expedia → ~$152/2nt · free cancel until Oct 12</span>
+            <span class="meta-line"><strong>Freshness:</strong> Older stock (Siegel acquisition 2016; ~2009-era reno cites) — does <strong>not</strong> feel new</span>
+            <span class="meta-line"><strong>Mobility est.:</strong> Mon+Wed Uber ~$44–76 · Tue walk $0</span>
+            <span class="all-in">≈ All-in 2nt: ~$196–228 (room ~$152 + mobility ~$44–76)</span>
+          <span class="price-flag">⚠ Price surprisingly low for RE+ show week — confirm at checkout. Older budget property; quality caveat.</span>
+          </div>
+        </article>
+
+<article class="hotel-card" id="hotel-linq">
+          <div class="photos">
+            <img src="images/linq-1.jpg" alt="The LINQ Hotel exterior" loading="lazy">
+            <img src="images/linq-2.jpg" alt="The LINQ Hotel and Casino exterior" loading="lazy">
+          </div>
+          <div class="body">
+            <span class="tier-label c">Tier C · Monorail</span>
+            <span class="avail-badge live">Available · 2 beds</span>
+            <span class="checked-stamp">Checked Oct 5, 2026 ~8:30pm PT</span>
+            <span class="firm-badge mixed">Firm likelihood: Unknown / mixed</span>
+            <h3>The LINQ Hotel</h3>
+            <p class="tldr">Cheapest RE+ rate band on the list — mid-Strip with Monorail to LVCC (walk too long). Only if total cost clearly wins vs Paradise walk hotels.</p>
+            <p class="addr">3535 S Las Vegas Blvd · ≈ 36.1184, −115.1706</p>
+            <ul>
+              <li><strong>Beds:</strong> <strong>Deluxe 2 Double</strong> ($63/nt) or <strong>2 queens</strong> ($68/nt) on Expedia — live Oct 5</li>
+              <li><strong>Walk LVCC:</strong> ~<strong>35 min</strong> — use <strong>Monorail</strong> (Harrah’s/LINQ → LVCC)</li>
+              <li><strong>Airport shuttle:</strong> <strong>None</strong> hotel — Uber</li>
+              <li><strong>Amenities:</strong> Casino, High Roller / Promenade access; <strong>$49.95</strong> resort fee</li>
+              <li><strong>Book:</strong> RE+ housing or Caesars / LINQ (Expedia showed Deluxe 2 Double / 2Q on Oct 5 — confirm at checkout)</li>
+            </ul>
+            <span class="est">LIVE Oct 5 (Expedia): Deluxe 2 Double $63/nt · 2Q $68/nt · taxes/fees included per Expedia · cancel not shown</span>
+            <span class="meta-line"><strong>Freshness:</strong> $223M reno / rebrand <strong>2014–2015</strong> (Travel Weekly)</span>
+            <span class="meta-line"><strong>Mobility est.:</strong> Mon+Wed Uber ~$40–72 · Tue Monorail ~$12–15</span>
+            <span class="all-in">≈ All-in 2nt: ~$178–213 (2 Double ~$126) or ~$188–223 (2Q ~$136) + mobility ~$52–87</span>
+          <span class="price-flag">⚠ Price surprisingly low for RE+ show week — confirm at checkout. Not walkable to LVCC — use Monorail.</span>
+          </div>
+        </article>
+      </div>
+
+      <h3 class="hotel-subhead">Sold out / no 2-bed left (kept for reference)
+        <span>Cards grayed · badges: “Sold out Nov 16–18” or “No 2-bed rooms left”. RE+ housing block may still help through Oct 14.</span>
+      </h3>
+      <div class="hotel-equal" id="hotels-unavailable">
+<article class="hotel-card unavailable" id="hotel-springhill">
+          <div class="photos">
+            <img src="images/springhill-1.jpg" alt="SpringHill Suites LVCC suite" loading="lazy">
+            <img src="images/springhill-2.jpg" alt="SpringHill Suites LVCC suite alternate" loading="lazy">
+          </div>
+          <div class="body">
+            <span class="tier-label b">Tier B</span>
+            <span class="avail-badge nobed">No 2-bed rooms left</span>
+            <span class="firm-badge medium">Firm likelihood: Medium / mixed</span>
+            <h3>SpringHill Suites LVCC</h3>
+            <p class="tldr">All-suite Paradise Rd pick with confirmed 2-queen suites + breakfast — walk to LVCC, quieter than casino towers.</p>
+            <p class="addr">2989 Paradise Rd · ≈ 36.1352, −115.1549</p>
+            <ul>
+              <li><strong>Beds:</strong> Suite with <strong>2 queens</strong> + trundle (confirm 2Q at book)</li>
+              <li><strong>Walk LVCC:</strong> ~<strong>5–10 min</strong></li>
+              <li><strong>Loop:</strong> LVCC campus stations (~5–10 min walk)</li>
+              <li><strong>Airport shuttle:</strong> <strong>None</strong> — Uber for Mon late / Wed early</li>
+              <li><strong>Amenities:</strong> Hot breakfast, rooftop pool, gym, free Wi-Fi</li>
+              <li><strong>Book:</strong> RE+ housing or <a href="https://www.marriott.com/en-us/hotels/laspr-springhill-suites-las-vegas-convention-center/overview/" target="_blank" rel="noopener">marriott.com/LASPR</a></li>
+            </ul>
+            <span class="est">LIVE Oct 5: only suite 1 king + trundle sofa · ~$131/nt — no true 2-bed</span>
+            <span class="meta-line"><strong>Freshness:</strong> Opened <strong>Oct 2009</strong> · reno cited ~2017</span>
+            <span class="meta-line"><strong>Mobility est.:</strong> Mon+Wed Uber ~$44–76 · Tue walk $0</span>
+            <span class="all-in">≈ All-in 2nt: ~$482–514 (RE+ room + mobility)</span>
+          </div>
+        </article>
+
+<article class="hotel-card unavailable" id="hotel-courtyard">
+          <div class="photos">
+            <img src="images/courtyard-1.jpg" alt="Courtyard LVCC queen queen room" loading="lazy">
+            <img src="images/courtyard-2.jpg" alt="Courtyard LVCC queen queen room alternate" loading="lazy">
+          </div>
+          <div class="body">
+            <span class="tier-label b">Tier B</span>
+            <span class="avail-badge nobed">No 2-bed rooms left</span>
+            <span class="firm-badge medium">Firm likelihood: Medium</span>
+            <h3>Courtyard LVCC</h3>
+            <p class="tldr">Straight convention workhorse on Paradise with queen/queen rooms and a short walk to LVCC — practical, not plush.</p>
+            <p class="addr">3275 Paradise Rd · ≈ 36.1295, −115.1540</p>
+            <ul>
+              <li><strong>Beds:</strong> <strong>2 queens</strong> guest rooms (Marriott gallery)</li>
+              <li><strong>Walk LVCC:</strong> ~<strong>5–10 min</strong></li>
+              <li><strong>Loop:</strong> LVCC campus stations (~5–10 min walk)</li>
+              <li><strong>Airport shuttle:</strong> <strong>None</strong> — Uber</li>
+              <li><strong>Amenities:</strong> Bistro, indoor pool, gym, non-casino</li>
+              <li><strong>Book:</strong> RE+ housing or <a href="https://www.marriott.com/en-us/hotels/lasch-courtyard-las-vegas-convention-center/overview/" target="_blank" rel="noopener">marriott.com/LASCH</a></li>
+            </ul>
+            <span class="est">LIVE Oct 5: only 1 king suite · $2,056/2nt — no 2-bed</span>
+            <span class="meta-line"><strong>Freshness:</strong> Built <strong>1989</strong> · last major reno <strong>2019</strong> (Cvent)</span>
+            <span class="meta-line"><strong>Mobility est.:</strong> Mon+Wed Uber ~$44–76 · Tue walk $0</span>
+            <span class="all-in">≈ All-in 2nt: ~$462–494</span>
+          </div>
+        </article>
+
+<article class="hotel-card unavailable" id="hotel-sonesta">
+          <div class="photos">
+            <img src="images/sonesta-1.jpg" alt="Sonesta Simply Suites LVCC one bedroom suite" loading="lazy">
+            <img src="images/sonesta-2.jpg" alt="Sonesta Simply Suites LVCC studio suite" loading="lazy">
+          </div>
+          <div class="body">
+            <span class="tier-label b">Tier B*</span>
+            <span class="avail-badge nobed">No 2-bed rooms left</span>
+            <span class="firm-badge medium">Firm likelihood: Unknown (new mattresses post-reno likely)</span>
+            <h3>Sonesta Simply Suites LVCC</h3>
+            <p class="tldr">Freshest extended-stay on Paradise (reno done May 2026) with 2-queen suites + kitchen — walk is ~1.3 mi (~20–30 min), so only if freshness/price wins.</p>
+            <p class="addr">4034 S Paradise Rd · ≈ 36.1165, −115.1540</p>
+            <ul>
+              <li><strong>Beds:</strong> <strong>1BR suite · 2 queens</strong> (~460 sq ft) — confirm at book</li>
+              <li><strong>Walk LVCC:</strong> ~<strong>20–30 min</strong> (official 1.3 mi) — over preferred ≤20</li>
+              <li><strong>Airport shuttle:</strong> <strong>None</strong> — Uber (~1.9 mi to LAS per Cvent)</li>
+              <li><strong>Amenities:</strong> Full kitchen, gym, laundry, pool; <strong>no resort fee</strong></li>
+              <li><strong>Book:</strong> <a href="https://www.sonesta.com/sonesta-simply-suites/nv/las-vegas/sonesta-simply-suites-las-vegas-convention-center" target="_blank" rel="noopener">sonesta.com</a></li>
+            </ul>
+            <span class="est">LIVE Oct 5: 1 queen studio only — no 2-bed</span>
+            <span class="meta-line"><strong>Freshness:</strong> Built 2000 · reno completed <strong>May 6, 2026</strong> (Sonesta PR) — feels new</span>
+            <span class="meta-line"><strong>Mobility est.:</strong> Mon+Wed Uber ~$36–64 · Tue walk $0 (or short Uber ~$8–15 RT)</span>
+            <span class="all-in">≈ All-in 2nt: re-quote room + ~$36–64</span>
+          </div>
+        </article>
+
+<article class="hotel-card unavailable" id="hotel-encore">
+          <div class="photos">
+            <img src="images/encore-1.jpg" alt="Encore Resort Suite bedroom" loading="lazy">
+            <img src="images/encore-2.jpg" alt="Encore Resort Suite sitting area" loading="lazy">
+          </div>
+          <div class="body">
+            <span class="tier-label c">Tier C</span>
+            <span class="avail-badge nobed">No 2-bed rooms left</span>
+            <span class="firm-badge plush">Firm likelihood: Plush (Wynn Dream Bed)</span>
+            <h3>Encore Las Vegas</h3>
+            <p class="tldr">Luxury Loop-on-site option with Encore Resort Two Queens — spendy, soft beds, best tunnel commute of the Loop set.</p>
+            <p class="addr">3131 S Las Vegas Blvd · ≈ 36.1295, −115.1650</p>
+            <ul>
+              <li><strong>Beds:</strong> <strong>Encore Resort Two Queens</strong> (~745 sq ft) — pillow-top Dream Beds</li>
+              <li><strong>Loop:</strong> <strong>On-site Encore station</strong> · short ride to LVCC</li>
+              <li><strong>Walk LVCC:</strong> ~<strong>15–25 min</strong> (prefer Loop)</li>
+              <li><strong>Airport shuttle:</strong> <strong>None</strong> overnight — Uber (Airport Loop daytime only)</li>
+              <li><strong>Amenities:</strong> Full Wynn/Encore dining, pools, spa, casino</li>
+              <li><strong>Book:</strong> RE+ housing or <a href="https://www.wynnlasvegas.com/" target="_blank" rel="noopener">wynnlasvegas.com</a></li>
+            </ul>
+            <span class="est">LIVE Oct 5: king only · $444/nt — no 2-bed</span>
+            <span class="meta-line"><strong>Freshness:</strong> Opened <strong>Dec 22, 2008</strong></span>
+            <span class="meta-line"><strong>Mobility est.:</strong> Mon+Wed Uber ~$50–84 · Tue Loop ~$7 RT</span>
+            <span class="all-in">≈ All-in 2nt: ~$845–879</span>
+          </div>
+        </article>
+
+<article class="hotel-card unavailable" id="hotel-home2">
           <div class="photos">
             <img src="images/home2-1.jpg" alt="Home2 Suites LVCC suite" loading="lazy">
             <img src="images/home2-2.jpg" alt="Home2 Suites LVCC suite alternate" loading="lazy">
           </div>
           <div class="body">
             <span class="tier-label a">Tier A</span>
-            <span class="avail-badge yes">Available signal · re-quote</span>
+            <span class="avail-badge sold">Sold out Nov 16–18</span>
             <span class="firm-badge medium">Firm likelihood: Medium / unknown</span>
-            <h3>1. Home2 Suites LVCC</h3>
+            <h3>Home2 Suites LVCC</h3>
             <p class="tldr">Only available shortlist hotel with a hotel-arranged airport transfer (complimentary Uber, reported daytime) plus a real walk to LVCC — confirm hours by phone.</p>
             <p class="addr">755 Sierra Vista Dr · ≈ 36.1264, −115.1465</p>
             <ul>
@@ -850,157 +1119,17 @@
             <span class="all-in">≈ All-in 2nt: room (re-quote) + ~$44–76 mobility</span>
           </div>
         </article>
-      </div>
 
-      <h3 class="hotel-subhead">Tier B — short walk, no hotel airport shuttle
-        <span>Paradise / Sierra Vista corridor · Uber for airport · walk or campus Loop for Tuesday.</span>
-      </h3>
-      <div class="hotel-equal" id="hotels-tier-b">
-        <article class="hotel-card" id="hotel-springhill">
-          <div class="photos">
-            <img src="images/springhill-1.jpg" alt="SpringHill Suites LVCC suite" loading="lazy">
-            <img src="images/springhill-2.jpg" alt="SpringHill Suites LVCC suite alternate" loading="lazy">
-          </div>
-          <div class="body">
-            <span class="tier-label b">Tier B</span>
-            <span class="avail-badge yes">Available for Nov 16–18</span>
-            <span class="firm-badge medium">Firm likelihood: Medium / mixed</span>
-            <h3>2. SpringHill Suites LVCC</h3>
-            <p class="tldr">All-suite Paradise Rd pick with confirmed 2-queen suites + breakfast — walk to LVCC, quieter than casino towers.</p>
-            <p class="addr">2989 Paradise Rd · ≈ 36.1352, −115.1549</p>
-            <ul>
-              <li><strong>Beds:</strong> Suite with <strong>2 queens</strong> + trundle (confirm 2Q at book)</li>
-              <li><strong>Walk LVCC:</strong> ~<strong>5–10 min</strong></li>
-              <li><strong>Loop:</strong> LVCC campus stations (~5–10 min walk)</li>
-              <li><strong>Airport shuttle:</strong> <strong>None</strong> — Uber for Mon late / Wed early</li>
-              <li><strong>Amenities:</strong> Hot breakfast, rooftop pool, gym, free Wi-Fi</li>
-              <li><strong>Book:</strong> RE+ housing or <a href="https://www.marriott.com/en-us/hotels/laspr-springhill-suites-las-vegas-convention-center/overview/" target="_blank" rel="noopener">marriott.com/LASPR</a></li>
-            </ul>
-            <span class="est">RE+ block ~$219/night + tax · ESTIMATE · breakfast included per housing page</span>
-            <span class="meta-line"><strong>Freshness:</strong> Opened <strong>Oct 2009</strong> · reno cited ~2017</span>
-            <span class="meta-line"><strong>Mobility est.:</strong> Mon+Wed Uber ~$44–76 · Tue walk $0</span>
-            <span class="all-in">≈ All-in 2nt: ~$482–514 (RE+ room + mobility)</span>
-          </div>
-        </article>
-
-        <article class="hotel-card" id="hotel-courtyard">
-          <div class="photos">
-            <img src="images/courtyard-1.jpg" alt="Courtyard LVCC queen queen room" loading="lazy">
-            <img src="images/courtyard-2.jpg" alt="Courtyard LVCC queen queen room alternate" loading="lazy">
-          </div>
-          <div class="body">
-            <span class="tier-label b">Tier B</span>
-            <span class="avail-badge yes">Available for Nov 16–18</span>
-            <span class="firm-badge medium">Firm likelihood: Medium</span>
-            <h3>3. Courtyard LVCC</h3>
-            <p class="tldr">Straight convention workhorse on Paradise with queen/queen rooms and a short walk to LVCC — practical, not plush.</p>
-            <p class="addr">3275 Paradise Rd · ≈ 36.1295, −115.1540</p>
-            <ul>
-              <li><strong>Beds:</strong> <strong>2 queens</strong> guest rooms (Marriott gallery)</li>
-              <li><strong>Walk LVCC:</strong> ~<strong>5–10 min</strong></li>
-              <li><strong>Loop:</strong> LVCC campus stations (~5–10 min walk)</li>
-              <li><strong>Airport shuttle:</strong> <strong>None</strong> — Uber</li>
-              <li><strong>Amenities:</strong> Bistro, indoor pool, gym, non-casino</li>
-              <li><strong>Book:</strong> RE+ housing or <a href="https://www.marriott.com/en-us/hotels/lasch-courtyard-las-vegas-convention-center/overview/" target="_blank" rel="noopener">marriott.com/LASCH</a></li>
-            </ul>
-            <span class="est">RE+ block ~$209/night + tax · ESTIMATE</span>
-            <span class="meta-line"><strong>Freshness:</strong> Built <strong>1989</strong> · last major reno <strong>2019</strong> (Cvent)</span>
-            <span class="meta-line"><strong>Mobility est.:</strong> Mon+Wed Uber ~$44–76 · Tue walk $0</span>
-            <span class="all-in">≈ All-in 2nt: ~$462–494</span>
-          </div>
-        </article>
-
-        <article class="hotel-card" id="hotel-renaissance">
-          <div class="photos">
-            <img src="images/renaissance-1.jpg" alt="Renaissance Las Vegas double beds room" loading="lazy">
-            <img src="images/renaissance-2.jpg" alt="Renaissance Las Vegas guestroom" loading="lazy">
-          </div>
-          <div class="body">
-            <span class="tier-label b">Tier B</span>
-            <span class="avail-badge yes">Available for Nov 16–18</span>
-            <span class="firm-badge plush">Firm likelihood: Soft / plush-leaning</span>
-            <h3>4. Renaissance Las Vegas</h3>
-            <p class="tldr">LVCC-adjacent 4-star with two-double rooms and a polished lobby — great location if you accept softer pillowtops.</p>
-            <p class="addr">3400 Paradise Rd · ≈ 36.1278, −115.1540</p>
-            <ul>
-              <li><strong>Beds:</strong> <strong>2 doubles</strong> (not queens) or king — confirm 2-bed at book</li>
-              <li><strong>Walk LVCC:</strong> ~<strong>3–8 min</strong> (faces campus)</li>
-              <li><strong>Loop:</strong> LVCC campus</li>
-              <li><strong>Airport shuttle:</strong> <strong>None</strong> — Uber</li>
-              <li><strong>Amenities:</strong> Zio’s, pool, 24/7 gym, UPS store, no casino</li>
-              <li><strong>Book:</strong> RE+ housing or <a href="https://www.marriott.com/en-us/hotels/lasbr-renaissance-las-vegas-hotel/overview/" target="_blank" rel="noopener">marriott.com/LASBR</a></li>
-            </ul>
-            <span class="est">RE+ block ~$209 + $30 resort fee/night · ESTIMATE</span>
-            <span class="meta-line"><strong>Freshness:</strong> Opened <strong>Dec 2004 / early 2005</strong></span>
-            <span class="meta-line"><strong>Mobility est.:</strong> Mon+Wed Uber ~$44–76 · Tue walk $0</span>
-            <span class="all-in">≈ All-in 2nt: ~$522–554 (incl. $30/nt resort fee ×2)</span>
-          </div>
-        </article>
-
-        <article class="hotel-card" id="hotel-residence">
-          <div class="photos">
-            <img src="images/residence-1.jpg" alt="Residence Inn LVCC two-bedroom loft" loading="lazy">
-            <img src="images/residence-2.jpg" alt="Residence Inn LVCC queen studio" loading="lazy">
-          </div>
-          <div class="body">
-            <span class="tier-label b">Tier B</span>
-            <span class="avail-badge yes">Available for Nov 16–18</span>
-            <span class="firm-badge medium">Firm likelihood: Medium</span>
-            <h3>5. Residence Inn LVCC</h3>
-            <p class="tldr">Extended-stay loft option with real second bedroom (king + queen) and kitchen — space tradeoff vs casino hotels.</p>
-            <p class="addr">3225 Paradise Rd · ≈ 36.1305, −115.1540</p>
-            <ul>
-              <li><strong>Beds:</strong> Prefer <strong>2BR loft</strong> (king + queen + sofa); studio = 1 queen + sofa</li>
-              <li><strong>Walk LVCC:</strong> ~<strong>5–10 min</strong></li>
-              <li><strong>Loop:</strong> LVCC campus walk (~5–10 min)</li>
-              <li><strong>Airport shuttle:</strong> <strong>None</strong> — Uber</li>
-              <li><strong>Amenities:</strong> Breakfast, full kitchen (loft), pool, gym</li>
-              <li><strong>Book:</strong> RE+ housing or <a href="https://www.marriott.com/en-us/hotels/lasnv-residence-inn-las-vegas-convention-center/overview/" target="_blank" rel="noopener">marriott.com/LASNV</a></li>
-            </ul>
-            <span class="est">RE+ block ~$219/night + tax · ESTIMATE · loft usually higher than studio</span>
-            <span class="meta-line"><strong>Freshness:</strong> Built <strong>1989</strong> · reno <strong>2019</strong>; Expedia lists Mar–Jun 2026 refresh (expect done by Nov)</span>
-            <span class="meta-line"><strong>Mobility est.:</strong> Mon+Wed Uber ~$44–76 · Tue walk $0</span>
-            <span class="all-in">≈ All-in 2nt: ~$482–514 (loft may higher)</span>
-          </div>
-        </article>
-
-        <article class="hotel-card" id="hotel-hgv-paradise">
-          <div class="photos">
-            <img src="images/hgv-1.jpg" alt="Hilton Grand Vacations Paradise suite" loading="lazy">
-            <img src="images/hgv-2.jpg" alt="Hilton Grand Vacations Paradise suite alternate" loading="lazy">
-          </div>
-          <div class="body">
-            <span class="tier-label b">Tier B</span>
-            <span class="avail-badge yes">Available for Nov 16–18</span>
-            <span class="firm-badge mixed">Firm likelihood: Unknown / unit-dependent</span>
-            <h3>6. HGV Club Paradise</h3>
-            <p class="tldr">Value suite near Westgate/LVCC with 2BR layouts that can sleep two on queens — kitchen + laundry bonus.</p>
-            <p class="addr">455 Karen Ave · ≈ 36.1360, −115.1545</p>
-            <ul>
-              <li><strong>Beds:</strong> 2BR suites often <strong>1 king + 2 queens</strong> (+ sofa) — confirm layout</li>
-              <li><strong>Walk LVCC:</strong> ~<strong>8–15 min</strong> via Paradise / Westgate</li>
-              <li><strong>Loop:</strong> Short hop to Westgate / LVCC Loop stations</li>
-              <li><strong>Airport shuttle:</strong> <strong>None</strong> (Hilton: Not available) — Uber</li>
-              <li><strong>Amenities:</strong> Kitchen, W/D in many units, pool, gym, non-casino</li>
-              <li><strong>Book:</strong> RE+ housing or Hilton / HGVC Paradise</li>
-            </ul>
-            <span class="est">RE+ block ~$149–179 + $20 resort fee/night · ESTIMATE</span>
-            <span class="meta-line"><strong>Freshness:</strong> Opened <strong>Dec 1999</strong> · reno <strong>2011</strong> (unit variance)</span>
-            <span class="meta-line"><strong>Mobility est.:</strong> Mon+Wed Uber ~$44–76 · Tue walk $0</span>
-            <span class="all-in">≈ All-in 2nt: ~$382–474</span>
-          </div>
-        </article>
-
-        <article class="hotel-card" id="hotel-hampton">
+<article class="hotel-card unavailable" id="hotel-hampton">
           <div class="photos">
             <img src="images/hampton-1.jpg" alt="Hampton Inn Suites LVCC guest room" loading="lazy">
             <img src="images/hampton-2.jpg" alt="Hampton Inn Suites LVCC guest room alternate" loading="lazy">
           </div>
           <div class="body">
             <span class="tier-label b">Tier B</span>
-            <span class="avail-badge yes">Re-quote · not on RE+ list</span>
+            <span class="avail-badge sold">Sold out Nov 16–18</span>
             <span class="firm-badge medium">Firm likelihood: Medium</span>
-            <h3>7. Hampton Inn &amp; Suites LVCC</h3>
+            <h3>Hampton Inn &amp; Suites LVCC</h3>
             <p class="tldr">Same Sierra Vista campus as Home2 — short walk, 2-queen rooms, breakfast; no airport shuttle (unlike Home2’s Uber perk).</p>
             <p class="addr">755 Sierra Vista Dr · ≈ 36.1264, −115.1465</p>
             <ul>
@@ -1018,43 +1147,43 @@
           </div>
         </article>
 
-        <article class="hotel-card" id="hotel-embassy">
+<article class="hotel-card unavailable" id="hotel-residence">
           <div class="photos">
-            <img src="images/embassy-1.jpg" alt="Embassy Suites Convention Center two queens suite" loading="lazy">
-            <img src="images/embassy-2.jpg" alt="Embassy Suites Convention Center two queens suite alternate" loading="lazy">
+            <img src="images/residence-1.jpg" alt="Residence Inn LVCC two-bedroom loft" loading="lazy">
+            <img src="images/residence-2.jpg" alt="Residence Inn LVCC queen studio" loading="lazy">
           </div>
           <div class="body">
             <span class="tier-label b">Tier B</span>
-            <span class="avail-badge yes">Available signal · RE+ block</span>
+            <span class="avail-badge sold">Sold out Nov 16–18</span>
             <span class="firm-badge medium">Firm likelihood: Medium</span>
-            <h3>8. Embassy Suites Convention Center</h3>
-            <p class="tldr">Two-room 2-queen suites + free breakfast/evening reception; free daytime shuttle to LVCC — but <strong>no airport</strong> shuttle.</p>
-            <p class="addr">3600 Paradise Rd · ≈ 36.1240, −115.1539</p>
+            <h3>Residence Inn LVCC</h3>
+            <p class="tldr">Extended-stay loft option with real second bedroom (king + queen) and kitchen — space tradeoff vs casino hotels.</p>
+            <p class="addr">3225 Paradise Rd · ≈ 36.1305, −115.1540</p>
             <ul>
-              <li><strong>Beds:</strong> <strong>2-room suite · 2 queens</strong> (+ sofa living room) — confirm at book</li>
-              <li><strong>Walk LVCC:</strong> ~<strong>12–20 min</strong> · or free hotel shuttle to LVCC / Monorail / Fashion Show <strong>hourly 7:30am–10:30pm</strong></li>
-              <li><strong>Airport shuttle:</strong> <strong>Not available</strong> (Hilton official) — Uber for airport</li>
-              <li><strong>Overnight fit:</strong> LVCC shuttle hours miss Wed 4am; no airport van</li>
-              <li><strong>Amenities:</strong> Cooked-to-order breakfast, evening reception, indoor pool, gym</li>
-              <li><strong>Book:</strong> RE+ housing or <a href="https://www.hilton.com/en/hotels/lascces-embassy-suites-convention-center-las-vegas/" target="_blank" rel="noopener">hilton.com/LASCCES</a></li>
+              <li><strong>Beds:</strong> Prefer <strong>2BR loft</strong> (king + queen + sofa); studio = 1 queen + sofa</li>
+              <li><strong>Walk LVCC:</strong> ~<strong>5–10 min</strong></li>
+              <li><strong>Loop:</strong> LVCC campus walk (~5–10 min)</li>
+              <li><strong>Airport shuttle:</strong> <strong>None</strong> — Uber</li>
+              <li><strong>Amenities:</strong> Breakfast, full kitchen (loft), pool, gym</li>
+              <li><strong>Book:</strong> RE+ housing or <a href="https://www.marriott.com/en-us/hotels/lasnv-residence-inn-las-vegas-convention-center/overview/" target="_blank" rel="noopener">marriott.com/LASNV</a></li>
             </ul>
-            <span class="est">RE+ block ~$179 Sun/Fri/Sat / $194 Mon–Thu + tax · ESTIMATE</span>
-            <span class="meta-line"><strong>Freshness:</strong> Opened <strong>2000</strong> · reno <strong>2024</strong> (Cvent)</span>
-            <span class="meta-line"><strong>Mobility est.:</strong> Mon+Wed Uber ~$44–76 · Tue walk $0 or free hotel LVCC shuttle (daytime)</span>
-            <span class="all-in">≈ All-in 2nt: ~$432–464</span>
+            <span class="est">RE+ block ~$219/night + tax · ESTIMATE · loft usually higher than studio</span>
+            <span class="meta-line"><strong>Freshness:</strong> Built <strong>1989</strong> · reno <strong>2019</strong>; Expedia lists Mar–Jun 2026 refresh (expect done by Nov)</span>
+            <span class="meta-line"><strong>Mobility est.:</strong> Mon+Wed Uber ~$44–76 · Tue walk $0</span>
+            <span class="all-in">≈ All-in 2nt: ~$482–514 (loft may higher)</span>
           </div>
         </article>
 
-        <article class="hotel-card" id="hotel-fairfield">
+<article class="hotel-card unavailable" id="hotel-fairfield">
           <div class="photos">
             <img src="images/fairfield-1.jpg" alt="Fairfield Inn LVCC exterior" loading="lazy">
             <img src="images/fairfield-2.jpg" alt="Fairfield Inn LVCC exterior alternate" loading="lazy">
           </div>
           <div class="body">
             <span class="tier-label b">Tier B</span>
-            <span class="avail-badge yes">Re-quote · not on RE+ list</span>
+            <span class="avail-badge sold">Sold out Nov 16–18</span>
             <span class="firm-badge medium">Firm likelihood: Medium / unknown</span>
-            <h3>9. Fairfield Inn LVCC</h3>
+            <h3>Fairfield Inn LVCC</h3>
             <p class="tldr">South-Paradise Marriott select with 2-queen rooms and a 2025 reno — walkable to LVCC (~15–20), slightly closer Uber to LAS.</p>
             <p class="addr">3850 Paradise Rd · ≈ 36.1197, −115.1541</p>
             <ul>
@@ -1072,157 +1201,67 @@
           </div>
         </article>
 
-        <article class="hotel-card" id="hotel-sonesta">
+<article class="hotel-card unavailable" id="hotel-embassy">
           <div class="photos">
-            <img src="images/sonesta-1.jpg" alt="Sonesta Simply Suites LVCC one bedroom suite" loading="lazy">
-            <img src="images/sonesta-2.jpg" alt="Sonesta Simply Suites LVCC studio suite" loading="lazy">
+            <img src="images/embassy-1.jpg" alt="Embassy Suites Convention Center two queens suite" loading="lazy">
+            <img src="images/embassy-2.jpg" alt="Embassy Suites Convention Center two queens suite alternate" loading="lazy">
           </div>
           <div class="body">
-            <span class="tier-label b">Tier B*</span>
-            <span class="avail-badge yes">Re-quote · longer walk</span>
-            <span class="firm-badge medium">Firm likelihood: Unknown (new mattresses post-reno likely)</span>
-            <h3>10. Sonesta Simply Suites LVCC</h3>
-            <p class="tldr">Freshest extended-stay on Paradise (reno done May 2026) with 2-queen suites + kitchen — walk is ~1.3 mi (~20–30 min), so only if freshness/price wins.</p>
-            <p class="addr">4034 S Paradise Rd · ≈ 36.1165, −115.1540</p>
+            <span class="tier-label b">Tier B</span>
+            <span class="avail-badge sold">Sold out Nov 16–18</span>
+            <span class="firm-badge medium">Firm likelihood: Medium</span>
+            <h3>Embassy Suites Convention Center</h3>
+            <p class="tldr">Two-room 2-queen suites + free breakfast/evening reception; free daytime shuttle to LVCC — but <strong>no airport</strong> shuttle.</p>
+            <p class="addr">3600 Paradise Rd · ≈ 36.1240, −115.1539</p>
             <ul>
-              <li><strong>Beds:</strong> <strong>1BR suite · 2 queens</strong> (~460 sq ft) — confirm at book</li>
-              <li><strong>Walk LVCC:</strong> ~<strong>20–30 min</strong> (official 1.3 mi) — over preferred ≤20</li>
-              <li><strong>Airport shuttle:</strong> <strong>None</strong> — Uber (~1.9 mi to LAS per Cvent)</li>
-              <li><strong>Amenities:</strong> Full kitchen, gym, laundry, pool; <strong>no resort fee</strong></li>
-              <li><strong>Book:</strong> <a href="https://www.sonesta.com/sonesta-simply-suites/nv/las-vegas/sonesta-simply-suites-las-vegas-convention-center" target="_blank" rel="noopener">sonesta.com</a></li>
+              <li><strong>Beds:</strong> <strong>2-room suite · 2 queens</strong> (+ sofa living room) — confirm at book</li>
+              <li><strong>Walk LVCC:</strong> ~<strong>12–20 min</strong> · or free hotel shuttle to LVCC / Monorail / Fashion Show <strong>hourly 7:30am–10:30pm</strong></li>
+              <li><strong>Airport shuttle:</strong> <strong>Not available</strong> (Hilton official) — Uber for airport</li>
+              <li><strong>Overnight fit:</strong> LVCC shuttle hours miss Wed 4am; no airport van</li>
+              <li><strong>Amenities:</strong> Cooked-to-order breakfast, evening reception, indoor pool, gym</li>
+              <li><strong>Book:</strong> RE+ housing or <a href="https://www.hilton.com/en/hotels/lascces-embassy-suites-convention-center-las-vegas/" target="_blank" rel="noopener">hilton.com/LASCCES</a></li>
             </ul>
-            <span class="est">Cvent catalog doubles $119–289/nt — NOT Nov date quote · re-quote · ESTIMATE</span>
-            <span class="meta-line"><strong>Freshness:</strong> Built 2000 · reno completed <strong>May 6, 2026</strong> (Sonesta PR) — feels new</span>
-            <span class="meta-line"><strong>Mobility est.:</strong> Mon+Wed Uber ~$36–64 · Tue walk $0 (or short Uber ~$8–15 RT)</span>
-            <span class="all-in">≈ All-in 2nt: re-quote room + ~$36–64</span>
+            <span class="est">RE+ block ~$179 Sun/Fri/Sat / $194 Mon–Thu + tax · ESTIMATE</span>
+            <span class="meta-line"><strong>Freshness:</strong> Opened <strong>2000</strong> · reno <strong>2024</strong> (Cvent)</span>
+            <span class="meta-line"><strong>Mobility est.:</strong> Mon+Wed Uber ~$44–76 · Tue walk $0 or free hotel LVCC shuttle (daytime)</span>
+            <span class="all-in">≈ All-in 2nt: ~$432–464</span>
           </div>
         </article>
 
-        <article class="hotel-card" id="hotel-siegel">
+<article class="hotel-card unavailable" id="hotel-hgv-paradise">
           <div class="photos">
-            <img src="images/siegel-1.jpg" alt="Siegel Select Convention Center room" loading="lazy">
-            <img src="images/siegel-2.jpg" alt="Siegel Select Convention Center room alternate" loading="lazy">
+            <img src="images/hgv-1.jpg" alt="Hilton Grand Vacations Paradise suite" loading="lazy">
+            <img src="images/hgv-2.jpg" alt="Hilton Grand Vacations Paradise suite alternate" loading="lazy">
           </div>
           <div class="body">
-            <span class="tier-label b">Tier B budget</span>
-            <span class="avail-badge yes">Re-quote · budget product</span>
-            <span class="firm-badge mixed">Firm likelihood: Unknown</span>
-            <h3>11. Siegel Select Convention Center</h3>
-            <p class="tldr">Closest new addition by walk (~10–15 min on Convention Center Dr) — extended-stay budget; verify recent reviews before trusting beds/cleanliness.</p>
-            <p class="addr">220 Convention Center Dr · ≈ 36.1324, −115.1615</p>
+            <span class="tier-label b">Tier B</span>
+            <span class="avail-badge sold">Sold out Nov 16–18</span>
+            <span class="firm-badge mixed">Firm likelihood: Unknown / unit-dependent</span>
+            <h3>HGV Club Paradise</h3>
+            <p class="tldr">Value suite near Westgate/LVCC with 2BR layouts that can sleep two on queens — kitchen + laundry bonus.</p>
+            <p class="addr">455 Karen Ave · ≈ 36.1360, −115.1545</p>
             <ul>
-              <li><strong>Beds:</strong> <strong>2 queen</strong> rooms listed on aggregators — confirm</li>
-              <li><strong>Walk LVCC:</strong> ~<strong>10–15 min</strong></li>
-              <li><strong>Airport shuttle:</strong> <strong>None</strong> found — Uber</li>
-              <li><strong>Amenities:</strong> Kitchenette extended-stay basics; no casino</li>
-              <li><strong>Book:</strong> <a href="https://www.siegelselect.com/siegel-select-convention-center-drive/" target="_blank" rel="noopener">siegelselect.com</a></li>
+              <li><strong>Beds:</strong> 2BR suites often <strong>1 king + 2 queens</strong> (+ sofa) — confirm layout</li>
+              <li><strong>Walk LVCC:</strong> ~<strong>8–15 min</strong> via Paradise / Westgate</li>
+              <li><strong>Loop:</strong> Short hop to Westgate / LVCC Loop stations</li>
+              <li><strong>Airport shuttle:</strong> <strong>None</strong> (Hilton: Not available) — Uber</li>
+              <li><strong>Amenities:</strong> Kitchen, W/D in many units, pool, gym, non-casino</li>
+              <li><strong>Book:</strong> RE+ housing or Hilton / HGVC Paradise</li>
             </ul>
-            <span class="est">OTA re-quote · ESTIMATE · quality caveat</span>
-            <span class="meta-line"><strong>Freshness:</strong> Older stock (Siegel acquisition 2016; ~2009-era reno cites) — does <strong>not</strong> feel new</span>
+            <span class="est">RE+ block ~$149–179 + $20 resort fee/night · ESTIMATE</span>
+            <span class="meta-line"><strong>Freshness:</strong> Opened <strong>Dec 1999</strong> · reno <strong>2011</strong> (unit variance)</span>
             <span class="meta-line"><strong>Mobility est.:</strong> Mon+Wed Uber ~$44–76 · Tue walk $0</span>
-            <span class="all-in">≈ All-in 2nt: room (re-quote) + ~$44–76</span>
+            <span class="all-in">≈ All-in 2nt: ~$382–474</span>
           </div>
         </article>
 
-      </div>
-
-      <h3 class="hotel-subhead">Tier C — on-site Loop / Monorail, longer walk
-        <span>Prefer Loop (or Monorail for LINQ) for Tuesday. Fontainebleau equal with Encore — not the sole lead.</span>
-      </h3>
-      <div class="hotel-equal" id="hotels-tier-c">
-        <article class="hotel-card" id="hotel-fontainebleau">
-          <div class="photos">
-            <img src="images/fontainebleau-1.jpg" alt="Fontainebleau Bleau room" loading="lazy">
-            <img src="images/fontainebleau-2.jpg" alt="Fontainebleau Bleau room alternate" loading="lazy">
-          </div>
-          <div class="body">
-            <span class="tier-label c">Tier C</span>
-            <span class="avail-badge yes">Available for Nov 16–18</span>
-            <span class="firm-badge plush">Firm likelihood: Lowest (plush)</span>
-            <h3>12. Fontainebleau Las Vegas</h3>
-            <p class="tldr">Newest luxury north Strip with excellent plush pillowtop beds and on-site Loop — soft-supportive luxury; skip if firm is non-negotiable.</p>
-            <p class="addr">2777 S Las Vegas Blvd · ≈ 36.1375, −115.1589</p>
-            <ul>
-              <li><strong>Beds:</strong> Custom Serta pillowtop — “plush but supportive”</li>
-              <li><strong>Loop:</strong> On-site Level V1 · ~3–8 min to LVCC</li>
-              <li><strong>Walk LVCC:</strong> ~<strong>10–20 min</strong> (prefer Loop)</li>
-              <li><strong>Airport shuttle:</strong> <strong>None</strong> hotel-run — Uber</li>
-              <li><strong>Amenities:</strong> Large fitness, multi-pool Oasis, dense F&amp;B</li>
-              <li><strong>Opened:</strong> Dec 2023 (new build)</li>
-            </ul>
-            <span class="est">Est. 2Q: ~$200–350+/night + resort fee · ESTIMATE</span>
-            <span class="meta-line"><strong>Freshness:</strong> Opened <strong>Dec 13, 2023</strong> — newest luxury on shortlist</span>
-            <span class="meta-line"><strong>Mobility est.:</strong> Mon+Wed Uber ~$50–84 · Tue Loop ~$7 RT (or walk)</span>
-            <span class="all-in">≈ All-in 2nt: room (re-quote 2Q) + ~$57–91</span>
-          </div>
-        </article>
-
-        <article class="hotel-card" id="hotel-encore">
-          <div class="photos">
-            <img src="images/encore-1.jpg" alt="Encore Resort Suite bedroom" loading="lazy">
-            <img src="images/encore-2.jpg" alt="Encore Resort Suite sitting area" loading="lazy">
-          </div>
-          <div class="body">
-            <span class="tier-label c">Tier C</span>
-            <span class="avail-badge yes">Available for Nov 16–18</span>
-            <span class="firm-badge plush">Firm likelihood: Plush (Wynn Dream Bed)</span>
-            <h3>13. Encore Las Vegas</h3>
-            <p class="tldr">Luxury Loop-on-site option with Encore Resort Two Queens — spendy, soft beds, best tunnel commute of the Loop set.</p>
-            <p class="addr">3131 S Las Vegas Blvd · ≈ 36.1295, −115.1650</p>
-            <ul>
-              <li><strong>Beds:</strong> <strong>Encore Resort Two Queens</strong> (~745 sq ft) — pillow-top Dream Beds</li>
-              <li><strong>Loop:</strong> <strong>On-site Encore station</strong> · short ride to LVCC</li>
-              <li><strong>Walk LVCC:</strong> ~<strong>15–25 min</strong> (prefer Loop)</li>
-              <li><strong>Airport shuttle:</strong> <strong>None</strong> overnight — Uber (Airport Loop daytime only)</li>
-              <li><strong>Amenities:</strong> Full Wynn/Encore dining, pools, spa, casino</li>
-              <li><strong>Book:</strong> RE+ housing or <a href="https://www.wynnlasvegas.com/" target="_blank" rel="noopener">wynnlasvegas.com</a></li>
-            </ul>
-            <span class="est">RE+ block ~$349 Sun–Thu / $399 Fri–Sat + $45 resort fee · ESTIMATE</span>
-            <span class="meta-line"><strong>Freshness:</strong> Opened <strong>Dec 22, 2008</strong></span>
-            <span class="meta-line"><strong>Mobility est.:</strong> Mon+Wed Uber ~$50–84 · Tue Loop ~$7 RT</span>
-            <span class="all-in">≈ All-in 2nt: ~$845–879</span>
-          </div>
-        </article>
-
-        <article class="hotel-card" id="hotel-linq">
-          <div class="photos">
-            <img src="images/linq-1.jpg" alt="The LINQ Hotel exterior" loading="lazy">
-            <img src="images/linq-2.jpg" alt="The LINQ Hotel and Casino exterior" loading="lazy">
-          </div>
-          <div class="body">
-            <span class="tier-label c">Tier C · Monorail</span>
-            <span class="avail-badge yes">Available signal · RE+ block</span>
-            <span class="firm-badge mixed">Firm likelihood: Unknown / mixed</span>
-            <h3>14. The LINQ Hotel</h3>
-            <p class="tldr">Cheapest RE+ rate band on the list — mid-Strip with Monorail to LVCC (walk too long). Only if total cost clearly wins vs Paradise walk hotels.</p>
-            <p class="addr">3535 S Las Vegas Blvd · ≈ 36.1184, −115.1706</p>
-            <ul>
-              <li><strong>Beds:</strong> Double queen room types (Caesars) — confirm 2Q at book</li>
-              <li><strong>Walk LVCC:</strong> ~<strong>35 min</strong> — use <strong>Monorail</strong> (Harrah’s/LINQ → LVCC)</li>
-              <li><strong>Airport shuttle:</strong> <strong>None</strong> hotel — Uber</li>
-              <li><strong>Amenities:</strong> Casino, High Roller / Promenade access; <strong>$49.95</strong> resort fee</li>
-              <li><strong>Book:</strong> RE+ housing or Caesars / LINQ</li>
-            </ul>
-            <span class="est">RE+ block ~$49–149 + $49.95 resort fee/night · ESTIMATE</span>
-            <span class="meta-line"><strong>Freshness:</strong> $223M reno / rebrand <strong>2014–2015</strong> (Travel Weekly)</span>
-            <span class="meta-line"><strong>Mobility est.:</strong> Mon+Wed Uber ~$40–72 · Tue Monorail ~$12–15</span>
-            <span class="all-in">≈ All-in 2nt: ~$250–485 (RE+ room band + mobility)</span>
-          </div>
-        </article>
-
-      </div>
-
-      <h3 class="hotel-subhead">Unavailable for Nov 16–18 (kept for reference)
-        <span>Would-be tiers noted. Westgate/Sahara would have been Tier A via paid LASxpress; Marriott Tier B; Hilton RW Tier C.</span>
-      </h3>
-      <div class="hotel-equal" id="hotels-unavailable">
-        <article class="hotel-card unavailable" id="hotel-westgate">
+<article class="hotel-card unavailable" id="hotel-westgate">
           <div class="photos">
             <img src="images/westgate-1.webp" alt="Westgate Luxe double queen bedroom" loading="lazy">
             <img src="images/westgate-2.webp" alt="Westgate Luxe double queen city view" loading="lazy">
           </div>
           <div class="body">
-            <span class="avail-badge no">Unavailable for Nov 16–18</span>
+            <span class="avail-badge sold">Sold out Nov 16–18</span>
             <span class="tier-label a">Would be Tier A</span>
             <span class="firm-badge best">Firm likelihood: Best of originals</span>
             <h3>Westgate Las Vegas</h3>
@@ -1237,13 +1276,13 @@
           </div>
         </article>
 
-        <article class="hotel-card unavailable" id="hotel-sahara">
+<article class="hotel-card unavailable" id="hotel-sahara">
           <div class="photos">
             <img src="images/sahara-1.jpg" alt="Sahara Alexandria iconic double room" loading="lazy">
             <img src="images/sahara-2.jpg" alt="Sahara Story Tower double room" loading="lazy">
           </div>
           <div class="body">
-            <span class="avail-badge no">Unavailable for Nov 16–18</span>
+            <span class="avail-badge sold">Sold out Nov 16–18</span>
             <span class="tier-label a">Would be Tier A</span>
             <span class="firm-badge mixed">Firm likelihood: Mixed / weak</span>
             <h3>Sahara Las Vegas</h3>
@@ -1257,13 +1296,13 @@
           </div>
         </article>
 
-        <article class="hotel-card unavailable" id="hotel-marriott">
+<article class="hotel-card unavailable" id="hotel-marriott">
           <div class="photos">
             <img src="images/marriott-1.jpg" alt="Las Vegas Marriott guestroom" loading="lazy">
             <img src="images/marriott-2.jpg" alt="Las Vegas Marriott suite" loading="lazy">
           </div>
           <div class="body">
-            <span class="avail-badge no">Unavailable for Nov 16–18</span>
+            <span class="avail-badge sold">Sold out Nov 16–18</span>
             <span class="tier-label b">Would be Tier B</span>
             <span class="firm-badge medium">Firm likelihood: Medium</span>
             <h3>Las Vegas Marriott</h3>
@@ -1277,13 +1316,13 @@
           </div>
         </article>
 
-        <article class="hotel-card unavailable" id="hotel-hilton">
+<article class="hotel-card unavailable" id="hotel-hilton">
           <div class="photos">
             <img src="images/hilton-d1.jpg" alt="Hilton Resorts World Deluxe room" loading="lazy">
             <img src="images/hilton-d2.jpg" alt="Hilton Resorts World Deluxe room view" loading="lazy">
           </div>
           <div class="body">
-            <span class="avail-badge no">Unavailable for Nov 16–18</span>
+            <span class="avail-badge sold">Sold out Nov 16–18</span>
             <span class="tier-label c">Would be Tier C</span>
             <span class="firm-badge strong">Firm likelihood: High–medium</span>
             <h3>Hilton at Resorts World</h3>
@@ -1299,13 +1338,11 @@
       </div>
 
       <p class="hotel-note">
-        <strong>Booking tips:</strong> Filter <strong>2 Queen</strong> explicitly. Leave ~4am Wed — confirm 24h front desk.
-        <strong>Airport:</strong> Uber/Lyft primary for Mon ~11pm + Wed ~4–4:30am at <em>every</em> hotel — no overnight hotel shuttle covers both windows.
-        Home2’s complimentary Uber voucher is <strong>daytime only</strong> (reported 7am–11pm).
-        <strong>All-in totals</strong> = rough room 2-night + mobility (Uber ×2 + Loop/Monorail if used); tip/surge extra; re-quote rooms live.
+        <strong>Booking tips:</strong> Filter <strong>2 Queen / 2 Double</strong> explicitly. Leave ~4am Wed — confirm 24h front desk.
+        <strong>Airport:</strong> Uber/Lyft primary for Mon ~11pm + Wed ~4–4:30am at <em>every</em> remaining hotel — do not rely on overnight hotel shuttles.
+        <strong>All-in totals</strong> = live room 2-night + mobility (Uber ×2 + Loop/Monorail if used); tip/surge extra; re-confirm at checkout (esp. Siegel / LINQ low Expedia quotes).
         Official RE+ housing: <a href="https://www.re-plus.com/housing/" target="_blank" rel="noopener">re-plus.com/housing</a> (deadline Oct 14, 2026).
-        <strong>Not added:</strong> HGI Strip South / Tru Airport / TownePlace / Holiday Inn Express “CC” / Best Western Plus airport · AC Hotel LVCC (opens 2028).
-        Notes: <code>hotel-cost-freshness-2026-10-01.md</code> · <code>hotel-walk-shuttle-2026-10-01.md</code>.
+        Notes: <code>availability-2026-10-05.md</code> · <code>hotel-cost-freshness-2026-10-01.md</code> · <code>hotel-walk-shuttle-2026-10-01.md</code>.
       </p>
     </section>
 
@@ -1597,7 +1634,7 @@
               <h3>Pick hotel by tier · book 2-queen · request firm mattress</h3>
               <span class="status-badge open">Open</span>
             </div>
-            <p>Oct 1 cost+freshness: <strong>A</strong> Home2 · <strong>B</strong> Paradise cluster + Fairfield/Sonesta/Siegel · <strong>C</strong> Fontainebleau/Encore/LINQ · unavailable grayed. Compare all-in room+mobility table. Re-quote 2Q; RE+ housing by Oct 14.</p>
+            <p>Oct 5 live 2-bed: Renaissance / Fontainebleau / Siegel / LINQ available; others sold out or no 2-bed (grayed). Confirm low Expedia prices at checkout. RE+ housing by Oct 14 may unlock sold-out names.</p>
             <div class="action"><strong>Nights:</strong> Mon Nov 16 + Tue Nov 17 only. Confirm 24h desk for 4am Wed exit.</div>
           </div>
         </div>
@@ -1635,7 +1672,7 @@
     </section>
 
     <footer>
-      <p>Las Vegas RE+ 2026 · Krystian &amp; brother · last refreshed Oct 5, 2026 (PT) · weekly Loop/RE+ check · nothing booked.</p>
+      <p>Las Vegas RE+ 2026 · Krystian &amp; brother · last refreshed Oct 5, 2026 (PT) · live 2-bed hotel check ~8:30pm PT · weekly Loop/RE+ check · nothing booked.</p>
       <p>Hotel rates = estimates · verify live · Room photos from hotel CDNs · Map © OpenStreetMap · Leaflet</p>
     </footer>
   </div>
