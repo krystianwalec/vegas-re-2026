@@ -674,6 +674,95 @@
   .tier-label.c { background: var(--wedding-soft); color: #7a5c00; border: 1px solid #e4d39a; }
   .muted { color: var(--muted); }
   .src-note { margin-top: .85rem; font-size: .8rem; color: var(--muted); }
+
+  .hotel-card.booked {
+    border-left: 6px solid var(--climb);
+    border-color: #b7d4bf;
+    box-shadow: 0 10px 32px rgba(45,106,62,.14);
+    background: linear-gradient(180deg, #f7fbf8 0%, var(--bg-card) 40%);
+  }
+  .hotel-card.booked h3 { color: var(--climb); }
+  .avail-badge.booked {
+    background: var(--climb-soft);
+    color: var(--climb);
+    border: 1px solid #b7d4bf;
+  }
+  .status-badge.done {
+    background: var(--climb-soft);
+    color: var(--climb);
+    border: 1px solid #b7d4bf;
+  }
+  .status-badge.progress {
+    background: var(--wedding-soft);
+    color: #7a5c00;
+    border: 1px solid #e4d39a;
+  }
+  .check-item.done .check-box {
+    background: var(--climb);
+    border-color: var(--climb);
+    position: relative;
+  }
+  .check-item.done .check-box::after {
+    content: "✓";
+    color: #fff;
+    font-size: .85rem;
+    font-weight: 700;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .check-item.done { opacity: .92; }
+  .archived-hotels {
+    margin-top: 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: .85rem 1.1rem 1.1rem;
+  }
+  .archived-hotels > summary {
+    cursor: pointer;
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--muted);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+  }
+  .archived-hotels > summary::-webkit-details-marker { display: none; }
+  .archived-hotels > summary::before {
+    content: "▸";
+    color: var(--hotel);
+    font-size: .9rem;
+  }
+  .archived-hotels[open] > summary::before { content: "▾"; }
+  .archived-hotels .hotel-equal { margin-top: 1rem; }
+  .ticket-status {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    margin: 1.25rem 0;
+  }
+  .ticket-person {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1rem 1.15rem;
+    box-shadow: var(--shadow);
+  }
+  .ticket-person h3 { margin: 0 0 .35rem; font-size: 1.1rem; }
+  .ticket-person.done { border-left: 5px solid var(--climb); }
+  .ticket-person.progress { border-left: 5px solid var(--wedding); }
+  .invite-box.muted-box {
+    opacity: .88;
+    border-left-color: #c5b8d4;
+    background: #f7f4fb;
+  }
+  .invite-box.muted-box h3 { color: var(--muted); font-size: .98rem; }
+
 </style>
 </head>
 <body>
@@ -690,9 +779,9 @@
         <span class="chip flight">✈ SEA→LAS · Mon Nov 16 · 8:05pm–10:37pm PT</span>
         <span class="chip flight">✈ LAS→SEA · Wed Nov 18 · 6:00–8:49am PT</span>
         <span class="chip flight">✈ Brother EWR · same pattern TBD</span>
-        <span class="chip hotel">🏨 1 room · 2 beds · firm preferred</span>
+        <span class="chip hotel">🏨 Westgate · booked · Mon–Wed</span>
         <span class="chip loop">🚇 Loop daytime · Uber nights</span>
-        <span class="chip ticket">🎟 Tue Expo One-Day · $225/$275</span>
+        <span class="chip ticket">🎟 Krystian Tue pass · brother in progress</span>
         <span class="chip vendor">⚡ Tesla · Enphase · Sol-Ark…</span>
       </div>
 
@@ -708,29 +797,31 @@
               <td><strong>Arrival Mon</strong></td>
               <td>Land ~10:37pm → curbside ~11:00–11:30pm</td>
               <td class="no">NO</td>
-              <td><strong>Uber/Lyft</strong> hotel-direct (~12–25 min, ~$18–45)</td>
+              <td><strong>Uber/Lyft</strong> or Westgate <strong>LASxpress</strong> (~12–25 min)</td>
             </tr>
             <tr>
               <td><strong>Departure Wed</strong></td>
               <td>Leave hotel ~4:00–4:30am for 6:00am flight</td>
               <td class="no">NO</td>
-              <td><strong>Uber/Lyft</strong> (~15–25 min + TSA). Pre-schedule night before.</td>
+              <td><strong>Uber/Lyft</strong> or <strong>LASxpress</strong> (~15–25 min + TSA). Pre-book / pre-schedule.</td>
             </tr>
             <tr>
               <td><strong>Tue show day</strong></td>
               <td>Hotel ↔ LVCC daytime</td>
               <td class="yes">YES</td>
-              <td>Walk Paradise hotels / Loop (Encore, Fontainebleau)</td>
+              <td><strong>Loop</strong> Westgate station ↔ LVCC (~2 min) · or short walk</td>
             </tr>
           </tbody>
         </table>
-        <p><strong>Bottom line:</strong> Budget 2× rideshares + tip. Loop is excellent for the show commute — useless for your airport times. <strong>Hotel airport shuttles:</strong> none of the currently available 2-bed hotels offer overnight coverage for Mon ~11pm / Wed ~4–4:30am. Home2’s daytime Uber voucher (sold out for these dates) and Westgate/Sahara LASxpress partners would still have missed your windows. <strong>Uber remains primary</strong> for both airport legs.</p>
+        <p><strong>Bottom line:</strong> Staying at <strong>Westgate</strong>. Loop handles Tue hotel↔LVCC (~2 min from the Westgate station). For airport legs, plan <strong>Uber/Lyft</strong> or Westgate’s paid <strong>LASxpress</strong> partner (claims 24/7 — worth pre-booking for Mon ~11pm arrival / Wed ~4–4:30am departure; <strong>confirm hours &amp; price</strong> before relying on it). Budget 2× airport transfers + tip.</p>
       </div>
 
       <div class="notice">
-        <strong>Status:</strong> Research only — nothing booked. <strong>Last refreshed Oct 5, 2026 (PT)</strong> — live hotel 2-bed availability ~8:30pm PT (Nov 16–18); weekly Loop/RE+ check (One-Day Advanced rate ends Oct 8). Four hotels still show 2-bed inventory publicly (Renaissance, Fontainebleau, Siegel, LINQ); most Paradise corridor sold out or king-only. Uber still required Mon ~11pm / Wed ~4–4:30am — no overnight shuttles claimed.
-        Hotel rates below include <strong>live public quotes</strong> from that check — confirm at checkout (esp. low Expedia figures).
-        Registration is open at <a href="https://www.re-plus.com/register/" target="_blank" rel="noopener">re-plus.com/register</a>.
+        <strong>Status:</strong> <strong>Hotel booked</strong> — Westgate Las Vegas (RE+ housing block), Mon Nov 16 – Wed Nov 18, one shared room for Krystian + brother.
+        <strong>Tickets:</strong> Krystian Expo day pass Tue Nov 17 ✔ · brother: in progress.
+        <strong>Last refreshed Oct 5, 2026 (PT)</strong>.
+        Airport legs: Uber/Lyft or Westgate’s paid LASxpress partner (claims 24/7 — confirm hours/price). Tue commute: Loop from Westgate station ↔ LVCC (~2 min) or short walk.
+        Registration: <a href="https://www.re-plus.com/register/" target="_blank" rel="noopener">re-plus.com/register</a>.
       </div>
     </header>
 
@@ -738,7 +829,7 @@
       <div class="toc-inner">
         <a href="#uber-notice">Uber alert</a>
         <a href="#itinerary">Itinerary</a>
-        <a href="#hotels">Hotels</a>
+        <a href="#hotels">Hotel</a>
         <a href="#map">Map</a>
         <a href="#loop">Loop hours</a>
         <a href="#vendors">Vendors</a>
@@ -752,16 +843,16 @@
         <div>
           <span class="tag flight">Timeline</span>
           <h2>Itinerary · Mon Nov 16 – Wed Nov 18</h2>
-          <p>Late Mon arrival → full Tuesday Expo → Wed 4am Uber to airport. Loop daytime only.</p>
+          <p>Late Mon arrival → Westgate check-in → full Tuesday Expo (Loop from Westgate) → Wed ~4–4:30am to LAS.</p>
         </div>
       </div>
 
       <div class="spine" aria-label="Trip spine">
-        <div class="spine-item warn"><strong>Mon ~11pm</strong> Land LAS → Uber to hotel</div>
-        <div class="spine-item hotel"><strong>Mon–Tue nights</strong> Shared 2-bed room</div>
-        <div class="spine-item city"><strong>Tue 10am–6pm</strong> Expo floor · Loop commute</div>
+        <div class="spine-item warn"><strong>Mon ~11pm</strong> Land LAS → Uber or LASxpress → Westgate</div>
+        <div class="spine-item hotel"><strong>Mon–Tue nights</strong> Westgate · shared room</div>
+        <div class="spine-item city"><strong>Tue 10am–6pm</strong> Expo · Loop Westgate ↔ LVCC</div>
         <div class="spine-item flight"><strong>Tue</strong> Vendor meetings · Tesla booked</div>
-        <div class="spine-item warn"><strong>Wed 4–4:30am</strong> Uber → LAS for 6am flight</div>
+        <div class="spine-item warn"><strong>Wed 4–4:30am</strong> Uber or LASxpress → LAS</div>
       </div>
 
       <div class="calendar">
@@ -775,7 +866,8 @@
             <ul>
               <li>Depart SEA <strong>8:05pm PT</strong> → land LAS <strong>~10:37pm PT</strong></li>
               <li>Bags/curbside ~11:00–11:30pm — <strong>Loop closed</strong></li>
-              <li><strong>Uber/Lyft</strong> straight to hotel (~12–25 min)</li>
+              <li><strong>Uber/Lyft</strong> or Westgate <strong>LASxpress</strong> → <strong>Westgate</strong> (~12–25 min). Pre-book LASxpress if using it; confirm hours/price.</li>
+              <li>Check-in: Westgate Las Vegas (RE+ housing). Tip: request <strong>2 queens + firm mattress / higher floor</strong>.</li>
               <li>Brother: EWR→LAS same Mon-evening pattern (exact times TBD)</li>
               <li>Optional: Welcome Reception only if Full Conference + energy after late flight</li>
             </ul>
@@ -788,10 +880,10 @@
             <span class="pill vendor">Expo</span>
             <span class="pill city">Loop</span>
             <ul>
-              <li>Loop or walk hotel → LVCC</li>
+              <li><strong>Loop</strong> from <strong>Westgate station</strong> ↔ LVCC (~2 min ride) — or short walk. Check fares/hours in Loop section.</li>
               <li>Exhibits <strong>10:00am – 6:00pm PT</strong></li>
               <li>Priority: Tesla N527, Enphase, Sol-Ark, FranklinWH, Enstall…</li>
-              <li>Loop back to hotel; optional Block Party (Full Conference)</li>
+              <li>Loop back to Westgate; optional Block Party (Full Conference)</li>
             </ul>
           </div>
         </article>
@@ -802,8 +894,8 @@
             <span class="pill warn">Uber 4am</span>
             <span class="pill flight">Flight</span>
             <ul>
-              <li>Leave hotel <strong>~4:00–4:30am</strong> — Loop closed</li>
-              <li><strong>Pre-schedule Uber/Lyft</strong> the night before</li>
+              <li>Leave Westgate <strong>~4:00–4:30am</strong> — Loop closed</li>
+              <li><strong>Uber/Lyft</strong> or <strong>LASxpress</strong> → LAS (pre-schedule / pre-book; confirm LASxpress hours/price)</li>
               <li>Depart LAS <strong>6:00am</strong> → SEA <strong>8:49am PT</strong></li>
               <li>Miss most/all Wed–Thu exhibits (expo opens 9am Wed)</li>
             </ul>
@@ -812,61 +904,50 @@
       </div>
     </section>
 
-    <section id="hotels">
+        <section id="hotels">
       <div class="hotel-banner">
-        <h2>Hotels — live 2-bed availability (Oct 5)</h2>
-        <p>One shared room, two beds (queen/queen preferred) · check-in Mon Nov 16 · out Wed Nov 18 · firm mattress preferred.
-        <strong>Top:</strong> four hotels with live <strong>2-bed</strong> inventory (equal treatment).
-        <strong>Below:</strong> grayed cards kept for reference — <em>Sold out Nov 16–18</em> or <em>No 2-bed rooms left</em>.
-        <strong>Overnight:</strong> no available hotel’s shuttle covers Mon ~11pm <em>and</em> Wed ~4–4:30am — keep Uber for those legs.
-        Compare table = <strong>live room 2-night + mobility</strong> (Uber/Loop/Monorail). Availability moves fast in RE+ week.</p>
+        <h2>Hotel — Westgate booked</h2>
+        <p>One shared room for Krystian + brother · check-in Mon Nov 16 · out Wed Nov 18 · booked through the <strong>RE+ official housing block</strong>.
+        Loop from the on-site Westgate station ↔ LVCC (~2 min). Airport legs: Uber/Lyft or paid LASxpress partner (confirm hours/price).
+        Other hotels we considered are archived below.</p>
       </div>
 
-      <div class="hotel-note" style="margin-bottom:1.25rem">
-        <strong>Availability is moving fast</strong> for RE+ week.
-        Hotels that look sold out on public OTAs may still have inventory in the
-        <strong>RE+ official housing block</strong> (book by <strong>Oct 14, 2026</strong>) —
-        <a href="https://www.re-plus.com/housing/" target="_blank" rel="noopener">re-plus.com/housing</a>.
-        Live public check: Mon Oct 5, 2026 ~8:30pm PT · 2 adults · 1 room · needs 2 beds.
+      <div class="hotel-equal" id="hotels-booked" style="grid-template-columns: 1fr; max-width: 720px;">
+<article class="hotel-card booked" id="hotel-westgate">
+          <div class="photos">
+            <img src="images/westgate-1.webp" alt="Westgate Luxe double queen bedroom" loading="lazy">
+            <img src="images/westgate-2.webp" alt="Westgate Luxe double queen city view" loading="lazy">
+          </div>
+          <div class="body">
+            <span class="avail-badge booked">Booked · RE+ housing</span>
+            <span class="tier-label a">Tier A · our stay</span>
+            <span class="firm-badge best">Firm likelihood: Best of originals</span>
+            <h3>Westgate Las Vegas Resort &amp; Casino</h3>
+            <p class="tldr">Booked through the RE+ official housing block — one shared room for Krystian + brother, Mon Nov 16 – Wed Nov 18. Best firm-bed evidence on the shortlist + doorstep LVCC + own Loop station.</p>
+            <p class="addr">3000 Paradise Rd · ≈ 36.1363, −115.1517</p>
+            <ul>
+              <li><strong>Stay:</strong> Mon Nov 16 check-in → Wed Nov 18 check-out · 1 shared room · Krystian + brother</li>
+              <li><strong>Confirmation:</strong> see RE+ housing email <em>(no number/rate recorded here — don’t invent one)</em></li>
+              <li><strong>Walk LVCC:</strong> short walk (~5–15 min)</li>
+              <li><strong>Loop:</strong> <strong>Westgate station on-site</strong> ↔ LVCC ~<strong>2 min</strong> ride — check fares/hours in the Loop section below</li>
+              <li><strong>Airport:</strong> paid <strong>LASxpress</strong> partner (claims <strong>24/7</strong>) — worth pre-booking for Mon ~11pm arrival / Wed ~4–4:30am departure as an Uber alternative; <strong>confirm hours &amp; price</strong></li>
+              <li><strong>Beds / firm:</strong> request <strong>2 queens + firm mattress / higher floor</strong> at check-in (firm-bed evidence was strongest among original shortlist)</li>
+            </ul>
+            <span class="est">BOOKED via RE+ housing · Confirmation: see RE+ housing email</span>
+          </div>
+        </article>
       </div>
 
-      <div class="cost-fresh-wrap" id="hotel-cost-compare">
-        <table class="data-table hotel-tint">
-          <thead>
-            <tr>
-              <th class="wrap">Hotel</th>
-              <th>Tier</th>
-              <th>Walk</th>
-              <th class="wrap">Freshness</th>
-              <th class="wrap">Room 2nt (live)</th>
-              <th class="wrap">Mobility</th>
-              <th class="wrap">≈ Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td class="wrap"><a href="#hotel-renaissance">Renaissance</a> · 2 beds</td><td>B</td><td>~3–8</td><td class="wrap">Opened ~2004–05</td><td class="wrap">$1,094 prepay / $1,178 flex (pre-tax, fee in)</td><td class="wrap">~$44–76</td><td class="wrap">~$1,138–1,254</td></tr>
-            <tr><td class="wrap"><a href="#hotel-fontainebleau">Fontainebleau</a> · 2 beds</td><td>C</td><td>~10–20</td><td class="wrap">Opened Dec 2023</td><td class="wrap">~$1,508 before tax (fee in)</td><td class="wrap">~$57–91†</td><td class="wrap">~$1,565–1,599</td></tr>
-            <tr><td class="wrap"><a href="#hotel-siegel">Siegel Select</a> · 2 beds</td><td>B$</td><td>~10–15</td><td class="wrap">Older (~2009-era stock)</td><td class="wrap">~$152 Expedia (tax/fee incl*)</td><td class="wrap">~$44–76</td><td class="wrap">~$196–228*</td></tr>
-            <tr><td class="wrap"><a href="#hotel-linq">The LINQ</a> · 2 beds</td><td>C</td><td>Monorail</td><td class="wrap">Reno 2014–15</td><td class="wrap">~$126–136 Expedia (tax/fee incl*)</td><td class="wrap">~$52–87‡</td><td class="wrap">~$178–223*</td></tr>
-            <tr><td class="wrap"><a href="#hotel-springhill">SpringHill</a></td><td>B</td><td>~5–10</td><td class="wrap">Opened 2009 · reno ~2017</td><td class="wrap">No 2-bed · ~$131/nt king+sofa</td><td class="wrap">~$44–76</td><td class="wrap">—</td></tr>
-            <tr><td class="wrap"><a href="#hotel-courtyard">Courtyard</a></td><td>B</td><td>~5–10</td><td class="wrap">1989 · reno 2019</td><td class="wrap">No 2-bed · $2,056/2nt king suite</td><td class="wrap">~$44–76</td><td class="wrap">—</td></tr>
-            <tr><td class="wrap"><a href="#hotel-sonesta">Sonesta Simply</a></td><td>B*</td><td>~20–30</td><td class="wrap">Reno done May 2026</td><td class="wrap">No 2-bed · 1Q studio only</td><td class="wrap">~$36–64</td><td class="wrap">—</td></tr>
-            <tr><td class="wrap"><a href="#hotel-encore">Encore</a></td><td>C</td><td>~15–25</td><td class="wrap">Opened Dec 2008</td><td class="wrap">No 2-bed · king $444/nt</td><td class="wrap">~$57–91†</td><td class="wrap">—</td></tr>
-            <tr><td class="wrap"><a href="#hotel-home2">Home2 LVCC</a></td><td>A</td><td>~10–15</td><td class="wrap">Opened Sep 2020</td><td class="wrap">Sold out Nov 16–18</td><td class="wrap">~$44–76*</td><td class="wrap">—</td></tr>
-            <tr><td class="wrap"><a href="#hotel-hampton">Hampton LVCC</a></td><td>B</td><td>~10–15</td><td class="wrap">Opened Sep 2020</td><td class="wrap">Sold out Nov 16–18</td><td class="wrap">~$44–76</td><td class="wrap">—</td></tr>
-            <tr><td class="wrap"><a href="#hotel-residence">Residence Inn</a></td><td>B</td><td>~5–10</td><td class="wrap">1989 · reno 2019; 2026 refresh listed</td><td class="wrap">Sold out Nov 16–18</td><td class="wrap">~$44–76</td><td class="wrap">—</td></tr>
-            <tr><td class="wrap"><a href="#hotel-fairfield">Fairfield Inn</a></td><td>B</td><td>~15–20</td><td class="wrap">Opened 1990 · reno 2025</td><td class="wrap">Sold out Nov 16–18</td><td class="wrap">~$36–64</td><td class="wrap">—</td></tr>
-            <tr><td class="wrap"><a href="#hotel-embassy">Embassy Suites</a></td><td>B</td><td>~12–20</td><td class="wrap">Opened 2000 · reno 2024</td><td class="wrap">Sold out Nov 16–18</td><td class="wrap">~$44–76</td><td class="wrap">—</td></tr>
-            <tr><td class="wrap"><a href="#hotel-hgv-paradise">HGV Paradise</a></td><td>B</td><td>~8–15</td><td class="wrap">Opened 1999 · reno 2011</td><td class="wrap">Sold out Nov 16–18</td><td class="wrap">~$44–76</td><td class="wrap">—</td></tr>
-          </tbody>
-        </table>
-        <p class="map-note" style="margin-top:.5rem">Live check <strong>Mon Oct 5, 2026 ~8:30pm PT</strong> (2 adults, 1 room, 2 beds, Nov 16–18). *Siegel/LINQ Expedia totals say taxes/fees included — confirm at checkout (surprisingly low for show week). †Includes Loop ~$7 RT (or walk $0). ‡Monorail ~$12–15 Tue. Mobility = Uber/Loop/Monorail ranges; tip/surge extra. Details: <code>availability-2026-10-05.md</code>.</p>
-      </div>
+      <p class="hotel-note">
+        <strong>Stay tip:</strong> At check-in, request <strong>2 queens + a firm mattress / higher floor</strong>.
+        <strong>Airport:</strong> Uber/Lyft primary backup; LASxpress claims 24/7 but verify before Mon night / Wed early morning.
+        <strong>Loop:</strong> Westgate ↔ LVCC is the planned Tue commute — see Loop hours &amp; fares below.
+      </p>
 
-      <h3 class="hotel-subhead">Available with 2 beds — equal shortlist
-        <span>Live rates checked Mon Oct 5, 2026 ~8:30pm PT. Walk / Loop / Monorail / firm-bed notes kept. No overnight airport shuttles claimed.</span>
-      </h3>
-      <div class="hotel-equal" id="hotels-available">
+      <details class="archived-hotels" id="hotels-archived">
+        <summary>Other hotels we considered (archived)</summary>
+        <p class="map-note" style="margin:.75rem 0 0">Kept for reference from the Oct 5 research pass — available / no-2-bed / sold-out cards. Not needed now that Westgate is booked.</p>
+        <div class="hotel-equal" id="hotels-unavailable">
 <article class="hotel-card" id="hotel-renaissance">
           <div class="photos">
             <img src="images/renaissance-1.jpg" alt="Renaissance Las Vegas double beds room" loading="lazy">
@@ -894,7 +975,6 @@
             <span class="all-in">≈ All-in 2nt: ~$1,138–1,170 (prepay) or ~$1,222–1,254 (flexible) + tax if not incl.</span>
           </div>
         </article>
-
 <article class="hotel-card" id="hotel-fontainebleau">
           <div class="photos">
             <img src="images/fontainebleau-1.jpg" alt="Fontainebleau Bleau room" loading="lazy">
@@ -923,7 +1003,6 @@
             <span class="all-in">≈ All-in 2nt: ~$1,565–1,599 (room ~$1,508 + mobility ~$57–91) + tax</span>
           </div>
         </article>
-
 <article class="hotel-card" id="hotel-siegel">
           <div class="photos">
             <img src="images/siegel-1.jpg" alt="Siegel Select Convention Center room" loading="lazy">
@@ -951,7 +1030,6 @@
           <span class="price-flag">⚠ Price surprisingly low for RE+ show week — confirm at checkout. Older budget property; quality caveat.</span>
           </div>
         </article>
-
 <article class="hotel-card" id="hotel-linq">
           <div class="photos">
             <img src="images/linq-1.jpg" alt="The LINQ Hotel exterior" loading="lazy">
@@ -979,12 +1057,6 @@
           <span class="price-flag">⚠ Price surprisingly low for RE+ show week — confirm at checkout. Not walkable to LVCC — use Monorail.</span>
           </div>
         </article>
-      </div>
-
-      <h3 class="hotel-subhead">Sold out / no 2-bed left (kept for reference)
-        <span>Cards grayed · badges: “Sold out Nov 16–18” or “No 2-bed rooms left”. RE+ housing block may still help through Oct 14.</span>
-      </h3>
-      <div class="hotel-equal" id="hotels-unavailable">
 <article class="hotel-card unavailable" id="hotel-springhill">
           <div class="photos">
             <img src="images/springhill-1.jpg" alt="SpringHill Suites LVCC suite" loading="lazy">
@@ -1011,7 +1083,6 @@
             <span class="all-in">≈ All-in 2nt: ~$482–514 (RE+ room + mobility)</span>
           </div>
         </article>
-
 <article class="hotel-card unavailable" id="hotel-courtyard">
           <div class="photos">
             <img src="images/courtyard-1.jpg" alt="Courtyard LVCC queen queen room" loading="lazy">
@@ -1038,7 +1109,6 @@
             <span class="all-in">≈ All-in 2nt: ~$462–494</span>
           </div>
         </article>
-
 <article class="hotel-card unavailable" id="hotel-sonesta">
           <div class="photos">
             <img src="images/sonesta-1.jpg" alt="Sonesta Simply Suites LVCC one bedroom suite" loading="lazy">
@@ -1064,7 +1134,6 @@
             <span class="all-in">≈ All-in 2nt: re-quote room + ~$36–64</span>
           </div>
         </article>
-
 <article class="hotel-card unavailable" id="hotel-encore">
           <div class="photos">
             <img src="images/encore-1.jpg" alt="Encore Resort Suite bedroom" loading="lazy">
@@ -1091,7 +1160,6 @@
             <span class="all-in">≈ All-in 2nt: ~$845–879</span>
           </div>
         </article>
-
 <article class="hotel-card unavailable" id="hotel-home2">
           <div class="photos">
             <img src="images/home2-1.jpg" alt="Home2 Suites LVCC suite" loading="lazy">
@@ -1119,7 +1187,6 @@
             <span class="all-in">≈ All-in 2nt: room (re-quote) + ~$44–76 mobility</span>
           </div>
         </article>
-
 <article class="hotel-card unavailable" id="hotel-hampton">
           <div class="photos">
             <img src="images/hampton-1.jpg" alt="Hampton Inn Suites LVCC guest room" loading="lazy">
@@ -1146,7 +1213,6 @@
             <span class="all-in">≈ All-in 2nt: room (re-quote) + ~$44–76</span>
           </div>
         </article>
-
 <article class="hotel-card unavailable" id="hotel-residence">
           <div class="photos">
             <img src="images/residence-1.jpg" alt="Residence Inn LVCC two-bedroom loft" loading="lazy">
@@ -1173,7 +1239,6 @@
             <span class="all-in">≈ All-in 2nt: ~$482–514 (loft may higher)</span>
           </div>
         </article>
-
 <article class="hotel-card unavailable" id="hotel-fairfield">
           <div class="photos">
             <img src="images/fairfield-1.jpg" alt="Fairfield Inn LVCC exterior" loading="lazy">
@@ -1200,7 +1265,6 @@
             <span class="all-in">≈ All-in 2nt: room (re-quote) + ~$36–64</span>
           </div>
         </article>
-
 <article class="hotel-card unavailable" id="hotel-embassy">
           <div class="photos">
             <img src="images/embassy-1.jpg" alt="Embassy Suites Convention Center two queens suite" loading="lazy">
@@ -1227,7 +1291,6 @@
             <span class="all-in">≈ All-in 2nt: ~$432–464</span>
           </div>
         </article>
-
 <article class="hotel-card unavailable" id="hotel-hgv-paradise">
           <div class="photos">
             <img src="images/hgv-1.jpg" alt="Hilton Grand Vacations Paradise suite" loading="lazy">
@@ -1254,28 +1317,6 @@
             <span class="all-in">≈ All-in 2nt: ~$382–474</span>
           </div>
         </article>
-
-<article class="hotel-card unavailable" id="hotel-westgate">
-          <div class="photos">
-            <img src="images/westgate-1.webp" alt="Westgate Luxe double queen bedroom" loading="lazy">
-            <img src="images/westgate-2.webp" alt="Westgate Luxe double queen city view" loading="lazy">
-          </div>
-          <div class="body">
-            <span class="avail-badge sold">Sold out Nov 16–18</span>
-            <span class="tier-label a">Would be Tier A</span>
-            <span class="firm-badge best">Firm likelihood: Best of originals</span>
-            <h3>Westgate Las Vegas</h3>
-            <p class="tldr">Best firm-bed evidence + doorstep LVCC + paid LASxpress partner (claims 24/7) — sold out for these dates.</p>
-            <p class="addr">3000 Paradise Rd · ≈ 36.1363, −115.1517</p>
-            <ul>
-              <li><strong>Walk LVCC:</strong> ~5–15 min</li>
-              <li><strong>Airport:</strong> Paid <strong>LASxpress</strong> partner (claims 24/7; pre-book) — not free</li>
-              <li><strong>Loop / Monorail:</strong> On-site</li>
-            </ul>
-            <span class="est">Was RE+ ~$115–215 + $40 fee · ESTIMATE</span>
-          </div>
-        </article>
-
 <article class="hotel-card unavailable" id="hotel-sahara">
           <div class="photos">
             <img src="images/sahara-1.jpg" alt="Sahara Alexandria iconic double room" loading="lazy">
@@ -1295,7 +1336,6 @@
             <span class="est">Was RE+ ~$99–199 + fee · ESTIMATE</span>
           </div>
         </article>
-
 <article class="hotel-card unavailable" id="hotel-marriott">
           <div class="photos">
             <img src="images/marriott-1.jpg" alt="Las Vegas Marriott guestroom" loading="lazy">
@@ -1315,7 +1355,6 @@
             <span class="est">Was RE+ ~$279 · ESTIMATE</span>
           </div>
         </article>
-
 <article class="hotel-card unavailable" id="hotel-hilton">
           <div class="photos">
             <img src="images/hilton-d1.jpg" alt="Hilton Resorts World Deluxe room" loading="lazy">
@@ -1335,15 +1374,8 @@
             <span class="est">Was RE+ ~$125–195 + $39 fee · ESTIMATE</span>
           </div>
         </article>
-      </div>
-
-      <p class="hotel-note">
-        <strong>Booking tips:</strong> Filter <strong>2 Queen / 2 Double</strong> explicitly. Leave ~4am Wed — confirm 24h front desk.
-        <strong>Airport:</strong> Uber/Lyft primary for Mon ~11pm + Wed ~4–4:30am at <em>every</em> remaining hotel — do not rely on overnight hotel shuttles.
-        <strong>All-in totals</strong> = live room 2-night + mobility (Uber ×2 + Loop/Monorail if used); tip/surge extra; re-confirm at checkout (esp. Siegel / LINQ low Expedia quotes).
-        Official RE+ housing: <a href="https://www.re-plus.com/housing/" target="_blank" rel="noopener">re-plus.com/housing</a> (deadline Oct 14, 2026).
-        Notes: <code>availability-2026-10-05.md</code> · <code>hotel-cost-freshness-2026-10-01.md</code> · <code>hotel-walk-shuttle-2026-10-01.md</code>.
-      </p>
+        </div>
+      </details>
     </section>
 
 <section id="map">
@@ -1351,7 +1383,7 @@
         <div>
           <span class="tag ours">OpenStreetMap + Leaflet</span>
           <h2>Map · hotels, LVCC, Loop, airport</h2>
-          <p>Pink = hotels · teal = Loop stations · blue = airport · purple = LVCC.</p>
+          <p>Green star = <strong>Westgate (booked)</strong> · faded pink = archived hotels · teal = Loop · blue = airport · purple = LVCC.</p>
         </div>
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:.75rem">
@@ -1360,7 +1392,7 @@
         <button type="button" id="map-focus-airport" class="tab-btn">Airport</button>
       </div>
       <div id="map" class="map-box" role="img" aria-label="Map of Las Vegas hotels, Loop, and LVCC"></div>
-      <p class="map-note">Scroll zoom after clicking the map. Coordinates are planning approximations (±50–150m). Pins: Tier A–C available + unavailable grayed refs, LVCC, Loop stations, Harry Reid T1/T3.</p>
+      <p class="map-note">Scroll zoom after clicking the map. Coordinates are planning approximations (±50–150m). Westgate is the primary pin; other hotels are de-emphasized. Also: LVCC, Loop stations, Harry Reid T1/T3.</p>
     </section>
 
     <section id="loop">
@@ -1368,7 +1400,7 @@
         <div>
           <span class="tag ours">Boring Company</span>
           <h2>Vegas Loop · hours &amp; fares</h2>
-          <p>Excellent for Tue hotel↔LVCC. Useless for your Mon ~11pm arrival and Wed ~4am airport run. Stations: LVCC campus (×5) · Resorts World · Westgate · Encore · Fontainebleau · Sahara · airport hybrid (RW/Westgate).</p>
+          <p>Excellent for Tue <strong>Westgate ↔ LVCC</strong> (~2 min from the Westgate station). Useless for Mon ~11pm arrival and Wed ~4am airport run — use Uber or LASxpress then. Stations: LVCC campus (×5) · Resorts World · <strong>Westgate (our hotel)</strong> · Encore · Fontainebleau · Sahara · airport hybrid (RW/Westgate).</p>
         </div>
       </div>
 
@@ -1539,22 +1571,23 @@
       </p>
     </section>
 
-    <section id="tickets">
+        <section id="tickets">
       <div class="ticket-banner">
-        <h2>Tickets · lean Tuesday Expo</h2>
-        <p>With Mon late arrival and Wed 6am departure, <strong>Expo Hall One-Day (Tuesday)</strong> is the natural paid fit — or chase free Customer Invitation codes from exhibitors.</p>
+        <h2>Tickets · Tuesday Expo</h2>
+        <p>Lean Tuesday Expo day — Krystian’s pass is set; brother’s purchase is in progress.</p>
       </div>
 
-      <div class="invite-box">
-        <h3>Best free path — Exhibitor Customer Invitations</h3>
-        <p>Exhibitors get complimentary Expo Hall Only passes (allotment by booth size). Attendees can’t claim them from RE+ directly — you need a code/link from the exhibitor.</p>
-        <ol>
-          <li>Pick 3–5 large booths (Tesla, Enphase, Generac, SMA, Sol-Ark, FranklinWH).</li>
-          <li>Email residential / regional sales (or booth-meeting form) and ask: <em>“Do you have two RE+ 26 Customer Invitation / complimentary Expo Hall codes for Tue Nov 17?”</em></li>
-          <li>Register at <a href="https://www.re-plus.com/register/" target="_blank" rel="noopener">re-plus.com/register</a> with the invite → typically <strong>$0 Expo Hall</strong>.</li>
-          <li>Use one registration if multiple vendors offer invites — don’t create duplicate badges.</li>
-          <li>Fallback: buy <strong>Expo Hall One-Day (Tuesday)</strong> — <strong>by Thu Oct 8</strong> to keep the $225/$275 Advanced rate (post-Oct 8 price not yet published). Waiting on invites past Oct 8 risks paying more.</li>
-        </ol>
+      <div class="ticket-status">
+        <div class="ticket-person done">
+          <h3>Krystian</h3>
+          <span class="status-badge done">Done</span>
+          <p style="margin:.55rem 0 0">Expo day pass for <strong>Tue Nov 17</strong> — purchased.</p>
+        </div>
+        <div class="ticket-person progress">
+          <h3>Brother</h3>
+          <span class="status-badge progress">In progress</span>
+          <p style="margin:.55rem 0 0">Buying his own Expo day pass (Tue). Short note: Advanced rate for One-Day ($225/$275) ends <strong>Thu Oct 8</strong> if still buying at that tier.</p>
+        </div>
       </div>
 
       <div class="data-table-wrap">
@@ -1566,7 +1599,7 @@
             <tr>
               <td><strong>Expo Hall One-Day</strong> (Tue/Wed/Thu)</td>
               <td class="amt"><strong>$225 / $275</strong></td>
-              <td><strong>Best paid fit</strong> — choose Tuesday · Advanced rate ends <strong>Oct 8</strong></td>
+              <td><strong>Our pass</strong> — Tuesday · Krystian done · brother in progress</td>
             </tr>
             <tr>
               <td>Expo Hall Only (all exhibit days)</td>
@@ -1587,7 +1620,17 @@
         </table>
       </div>
 
-      <p><strong>Deadlines:</strong> <strong>Advanced rate (incl. One-Day $225/$275) through Thu Oct 8, 2026</strong> per re-plus.com/register (Oct 5 check). Refunds closed — on/after Oct 2 non-refundable, so buy only once the pass type is settled (same-company substitutions allowed). Member pricing requires SEIA premium / SEPA membership verified by Nov 12, 2026, 5pm EDT. Housing deadline cited Oct 14, 2026.</p>
+      <div class="invite-box muted-box">
+        <h3>Optional — Exhibitor Customer Invitations (lower priority)</h3>
+        <p>Some exhibitors still offer complimentary Expo Hall codes. Less urgent now that Krystian’s Tue pass is bought; brother can still ask if useful before paying.</p>
+        <ol>
+          <li>Pick large booths (Tesla, Enphase, Generac, SMA, Sol-Ark, FranklinWH).</li>
+          <li>Ask residential / regional sales for a Customer Invitation code for Tue Nov 17.</li>
+          <li>Register at <a href="https://www.re-plus.com/register/" target="_blank" rel="noopener">re-plus.com/register</a> with the invite if one arrives.</li>
+        </ol>
+      </div>
+
+      <p><strong>Notes:</strong> Refunds closed (Oct 2+) — non-refundable; same-company substitutions allowed. Member pricing needs SEIA premium / SEPA membership verified by Nov 12, 2026, 5pm EDT. Housing is already booked via RE+ block.</p>
       <div class="links-row">
         <a href="https://www.re-plus.com/register/" target="_blank" rel="noopener">Register</a>
         <a href="https://www.re-plus.com/explore-pass-types/" target="_blank" rel="noopener">Pass types</a>
@@ -1602,7 +1645,7 @@
         <div>
           <span class="tag warn">Before you go</span>
           <h2>Pre-trip checklist</h2>
-          <p>Nothing booked yet — work down this list. Snap advice (Oct 5): the $225/$275 One-Day Advanced rate ends <strong>Thu Oct 8</strong> — unless a vendor invite code lands by then, buy two Tue One-Day passes before Oct 8. RE+ housing best rates by <strong>Tue Oct 14</strong>.</p>
+          <p>Hotel booked (Westgate). Krystian’s Tue Expo pass done; brother’s ticket still open. Finish outreach, brother’s pass, and airport transfers.</p>
         </div>
       </div>
       <div class="pretrip-list">
@@ -1617,25 +1660,34 @@
             <div class="action"><strong>Also:</strong> Sol-Ark, FranklinWH, Generac, SMA — same outreach template.</div>
           </div>
         </div>
-        <div class="check-item">
+        <div class="check-item done">
           <div class="check-box" aria-hidden="true"></div>
           <div>
             <div class="check-item-head">
-              <h3>Lock pass type — vendor invite or Tue One-Day ($225/$275)</h3>
-              <span class="status-badge open">By Oct 8</span>
+              <h3>Krystian — Tue Expo day pass</h3>
+              <span class="status-badge done">Done</span>
             </div>
-            <p>Register at re-plus.com. Advanced rate ends Thu Oct 8; refunds closed (Oct 2+). Invite → $0 Expo Hall only if a code arrives before Oct 8, otherwise buy One-Day.</p>
+            <p>Expo day pass for Tue Nov 17 purchased.</p>
           </div>
         </div>
         <div class="check-item">
           <div class="check-box" aria-hidden="true"></div>
           <div>
             <div class="check-item-head">
-              <h3>Pick hotel by tier · book 2-queen · request firm mattress</h3>
-              <span class="status-badge open">Open</span>
+              <h3>Brother — buy his own Tue Expo day pass</h3>
+              <span class="status-badge progress">In progress</span>
             </div>
-            <p>Oct 5 live 2-bed: Renaissance / Fontainebleau / Siegel / LINQ available; others sold out or no 2-bed (grayed). Confirm low Expedia prices at checkout. RE+ housing by Oct 14 may unlock sold-out names.</p>
-            <div class="action"><strong>Nights:</strong> Mon Nov 16 + Tue Nov 17 only. Confirm 24h desk for 4am Wed exit.</div>
+            <p>Brother is buying his own. If still on the Advanced One-Day tier, that rate ends <strong>Thu Oct 8</strong> ($225/$275).</p>
+          </div>
+        </div>
+        <div class="check-item done">
+          <div class="check-box" aria-hidden="true"></div>
+          <div>
+            <div class="check-item-head">
+              <h3>Hotel booked — Westgate (RE+ housing)</h3>
+              <span class="status-badge done">Done</span>
+            </div>
+            <p>Westgate Las Vegas, Mon Nov 16 – Wed Nov 18, one shared room via RE+ housing. Confirmation: see RE+ housing email. At check-in: request 2 queens + firm mattress / higher floor.</p>
           </div>
         </div>
         <div class="check-item">
@@ -1652,10 +1704,10 @@
           <div class="check-box" aria-hidden="true"></div>
           <div>
             <div class="check-item-head">
-              <h3>Pre-schedule Wed 4:00–4:30am Uber hotel → LAS</h3>
+              <h3>Pre-book LASxpress or pre-schedule Uber (Mon ~11pm + Wed ~4–4:30am)</h3>
               <span class="status-badge open">Night before</span>
             </div>
-            <p>Loop closed. Also plan Mon ~11pm Uber on arrival. Budget 2× rideshares + tip.</p>
+            <p>Westgate ↔ LAS. Loop closed both windows. LASxpress partner claims 24/7 — confirm hours/price, or Uber/Lyft. Budget 2× transfers + tip.</p>
           </div>
         </div>
         <div class="check-item">
@@ -1672,7 +1724,7 @@
     </section>
 
     <footer>
-      <p>Las Vegas RE+ 2026 · Krystian &amp; brother · last refreshed Oct 5, 2026 (PT) · live 2-bed hotel check ~8:30pm PT · weekly Loop/RE+ check · nothing booked.</p>
+      <p>Las Vegas RE+ 2026 · Krystian &amp; brother · last refreshed Oct 5, 2026 (PT) · Westgate booked · Krystian Tue pass done · brother ticket in progress.</p>
       <p>Hotel rates = estimates · verify live · Room photos from hotel CDNs · Map © OpenStreetMap · Leaflet</p>
     </footer>
   </div>
@@ -1685,11 +1737,6 @@
       attribution: '&copy; OpenStreetMap'
     }).addTo(map);
 
-    const hotelIcon = L.divIcon({
-      className: '',
-      html: '<div style="background:#c2185b;width:18px;height:18px;border-radius:4px;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;font-size:10px;line-height:1">🏨</div>',
-      iconSize: [18, 18], iconAnchor: [9, 9]
-    });
     const loopIcon = L.divIcon({
       className: '',
       html: '<div style="background:#0d6e6e;width:14px;height:14px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.4)"></div>',
@@ -1712,28 +1759,40 @@
 
     const markers = [];
 
-    const hotels = [
-      [36.1264, -115.1465, 'Home2 Suites LVCC', 'TIER A · walk ~10–15 · daytime Uber voucher · Uber overnight · opened 2020'],
-      [36.1352, -115.1549, 'SpringHill Suites LVCC', 'TIER B · walk ~5–10 · RE+ ~$219 · all-in ~$482–514'],
-      [36.1295, -115.1540, 'Courtyard LVCC', 'TIER B · walk ~5–10 · RE+ ~$209 · reno 2019'],
-      [36.1278, -115.1540, 'Renaissance Las Vegas', 'TIER B · walk ~3–8 · RE+ ~$209+$30'],
-      [36.1305, -115.1540, 'Residence Inn LVCC', 'TIER B · walk ~5–10 · RE+ ~$219'],
-      [36.1360, -115.1545, 'HGV Club Paradise', 'TIER B · walk ~8–15 · RE+ ~$149–179+$20'],
-      [36.1264, -115.1465, 'Hampton Inn Suites LVCC', 'TIER B · same campus as Home2 · opened 2020'],
-      [36.1240, -115.1539, 'Embassy Suites CC', 'TIER B · LVCC shuttle daytime · reno 2024 · RE+ ~$194'],
-      [36.1197, -115.1541, 'Fairfield Inn LVCC', 'TIER B · walk ~15–20 · reno 2025 · re-quote'],
-      [36.1165, -115.1540, 'Sonesta Simply Suites', 'TIER B* · walk ~20–30 (1.3 mi) · reno May 2026'],
-      [36.1324, -115.1615, 'Siegel Select CC', 'TIER B budget · walk ~10–15 · older stock'],
-      [36.1375, -115.1589, 'Fontainebleau Las Vegas', 'TIER C · Loop · opened Dec 2023'],
-      [36.1295, -115.1650, 'Encore Las Vegas', 'TIER C · Loop · RE+ ~$349+$45 · opened 2008'],
-      [36.1184, -115.1706, 'The LINQ', 'TIER C · Monorail · RE+ ~$49–149+$49.95'],
-      [36.1363, -115.1517, 'Westgate Las Vegas', 'UNAVAILABLE · would be Tier A (LASxpress)'],
-      [36.1422, -115.1566, 'Sahara Las Vegas', 'UNAVAILABLE · would be Tier A (LASxpress)'],
-      [36.1319, -115.1535, 'Las Vegas Marriott', 'UNAVAILABLE · would be Tier B · reno 2025'],
-      [36.1337, -115.1662, 'Hilton at Resorts World', 'UNAVAILABLE · would be Tier C · opened 2021'],
+    const bookedIcon = L.divIcon({
+      className: '',
+      html: '<div style="background:#2d6a3e;width:26px;height:26px;border-radius:8px;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;font-size:14px;line-height:1">★</div>',
+      iconSize: [26, 26], iconAnchor: [13, 13]
+    });
+    const fadedHotelIcon = L.divIcon({
+      className: '',
+      html: '<div style="background:#c2185b;opacity:.35;width:12px;height:12px;border-radius:3px;border:1px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.25)"></div>',
+      iconSize: [12, 12], iconAnchor: [6, 6]
+    });
+
+    markers.push(L.marker([36.1363, -115.1517], { icon: bookedIcon, zIndexOffset: 1000 }).addTo(map)
+      .bindPopup(popup('Westgate Las Vegas', 'BOOKED · RE+ housing · Mon Nov 16 – Wed Nov 18 · Loop on-site · LASxpress partner')));
+
+    const archivedHotels = [
+      [36.1264, -115.1465, 'Home2 Suites LVCC', 'Archived · was Tier A'],
+      [36.1352, -115.1549, 'SpringHill Suites LVCC', 'Archived'],
+      [36.1295, -115.1540, 'Courtyard LVCC', 'Archived'],
+      [36.1278, -115.1540, 'Renaissance Las Vegas', 'Archived'],
+      [36.1305, -115.1540, 'Residence Inn LVCC', 'Archived'],
+      [36.1360, -115.1545, 'HGV Club Paradise', 'Archived'],
+      [36.1240, -115.1539, 'Embassy Suites CC', 'Archived'],
+      [36.1197, -115.1541, 'Fairfield Inn LVCC', 'Archived'],
+      [36.1165, -115.1540, 'Sonesta Simply Suites', 'Archived'],
+      [36.1324, -115.1615, 'Siegel Select CC', 'Archived'],
+      [36.1375, -115.1589, 'Fontainebleau Las Vegas', 'Archived'],
+      [36.1295, -115.1650, 'Encore Las Vegas', 'Archived'],
+      [36.1184, -115.1706, 'The LINQ', 'Archived'],
+      [36.1422, -115.1566, 'Sahara Las Vegas', 'Archived'],
+      [36.1319, -115.1535, 'Las Vegas Marriott', 'Archived'],
+      [36.1337, -115.1662, 'Hilton at Resorts World', 'Archived'],
     ];
-    hotels.forEach(([lat, lng, t, b]) => {
-      markers.push(L.marker([lat, lng], { icon: hotelIcon }).addTo(map).bindPopup(popup(t, b)));
+    archivedHotels.forEach(([lat, lng, t, b]) => {
+      markers.push(L.marker([lat, lng], { icon: fadedHotelIcon, opacity: 0.55 }).addTo(map).bindPopup(popup(t, b)));
     });
 
     markers.push(L.marker([36.1315, -115.1515], { icon: venueIcon }).addTo(map)
@@ -1754,9 +1813,9 @@
     });
 
     markers.push(L.marker([36.0801, -115.1522], { icon: flightIcon }).addTo(map)
-      .bindPopup(popup('Harry Reid · Terminal 1', 'Arrive Mon ~10:37pm · Uber required (Loop closed)')));
+      .bindPopup(popup('Harry Reid · Terminal 1', 'Arrive Mon ~10:37pm · Uber or LASxpress → Westgate (Loop closed)')));
     markers.push(L.marker([36.0840, -115.1537], { icon: flightIcon }).addTo(map)
-      .bindPopup(popup('Harry Reid · Terminal 3', 'Depart Wed 6:00am · leave hotel ~4–4:30am Uber')));
+      .bindPopup(popup('Harry Reid · Terminal 3', 'Depart Wed 6:00am · leave Westgate ~4–4:30am Uber or LASxpress')));
 
     const group = L.featureGroup(markers);
     map.fitBounds(group.getBounds().pad(0.12));
