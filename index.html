@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Las Vegas RE+ 2026 — Trip Planner · Krystian &amp; brother</title>
+<title>Las Vegas RE+ 2026 — Trip Planner · Krystian &amp; Andy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
@@ -763,6 +763,92 @@
   }
   .invite-box.muted-box h3 { color: var(--muted); font-size: .98rem; }
 
+
+  .sched-list { display: grid; gap: .85rem; }
+  .sched-card {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.05rem 1.2rem 1.15rem;
+    box-shadow: var(--shadow);
+    border-left: 5px solid var(--vendor);
+  }
+  .sched-card.confirmed { border-left-color: var(--climb); }
+  .sched-card.pending { border-left-color: var(--wedding); }
+  .sched-card.walkup { border-left-color: #8a8680; }
+  .sched-meta {
+    display: flex; flex-wrap: wrap; gap: .45rem .7rem;
+    align-items: center; margin-bottom: .35rem;
+  }
+  .sched-time {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600; font-size: 1.12rem;
+  }
+  .sched-card h3 { margin: 0; font-size: 1.15rem; }
+  .sched-card .booth {
+    font-size: .82rem; font-weight: 700; color: var(--vendor);
+  }
+  .sched-card .brief { margin: .4rem 0 .15rem; font-size: .92rem; }
+  .sched-card .ask {
+    margin: .45rem 0 0;
+    font-size: .86rem;
+    background: #faf7f1;
+    border: 1px dashed var(--line);
+    border-radius: 8px;
+    padding: .55rem .75rem .55rem 1.15rem;
+  }
+  .sched-card .ask strong { display: block; margin: 0 0 .2rem -.4rem; }
+  .sched-card .ask li { margin: .22rem 0; }
+  .pass-short {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: .85rem;
+  }
+
+  .sys-pic {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.15rem 1.25rem 1.3rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 1.25rem;
+  }
+  .sys-pic > p { margin: .35rem 0 .85rem; font-size: .92rem; }
+  .sys-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: .65rem;
+  }
+  .sys-piece {
+    background: #faf7f1;
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--vendor);
+    border-radius: 10px;
+    padding: .7rem .8rem .8rem;
+  }
+  .sys-piece.rack { border-left-color: var(--teal); }
+  .sys-piece.invert { border-left-color: var(--accent); }
+  .sys-piece.batt { border-left-color: var(--flight); }
+  .sys-piece.mon { border-left-color: var(--ticket); }
+  .sys-piece.inst { border-left-color: var(--climb); }
+  .sys-piece h3 { margin: 0 0 .25rem; font-size: .98rem; }
+  .sys-piece p { margin: 0; font-size: .84rem; color: var(--muted); }
+  .sys-note {
+    margin: .9rem 0 0;
+    font-size: .88rem;
+    background: var(--vendor-soft);
+    border: 1px solid #b9cce6;
+    border-radius: 10px;
+    padding: .7rem .85rem;
+  }
+  .brief-kv { margin: .45rem 0 0; }
+  .brief-kv dt {
+    font-size: .72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .04em; color: var(--vendor); margin-top: .5rem;
+  }
+  .brief-kv dt:first-child { margin-top: 0; }
+  .brief-kv dd { margin: .12rem 0 0; font-size: .88rem; }
+
 </style>
 </head>
 <body>
@@ -771,24 +857,24 @@
       <span class="hero-badge">🎰 · ☀️ RE+ 26 · November 2026</span>
       <h1>Las Vegas RE+ — Nov 16–18, 2026</h1>
       <p class="hero-sub">
-        Trip planner for <strong>Krystian &amp; brother</strong> — one shared room (two beds),
-        <strong>no rental car</strong>, Loop for hotel↔LVCC daytime, Uber for airport legs.
-        Goal: Tuesday Expo floor for St. Thomas 3-home solar + storage project.
+        Trip planner for <strong>Krystian &amp; Andy</strong> — one shared room at Westgate,
+        <strong>no rental car</strong>, Loop for hotel↔LVCC, Uber for airport legs if Loop isn’t running.
+        Goal: Tuesday Expo floor for the St. Thomas 3-home solar + storage project.
       </p>
       <div class="meta-row">
         <span class="chip flight">✈ SEA→LAS · Mon Nov 16 · 8:05pm–10:37pm PT</span>
         <span class="chip flight">✈ LAS→SEA · Wed Nov 18 · 6:00–8:49am PT</span>
-        <span class="chip flight">✈ Brother EWR · same pattern TBD</span>
+        <span class="chip flight">✈ Andy EWR · same pattern TBD</span>
         <span class="chip hotel">🏨 Westgate · booked · Mon–Wed</span>
         <span class="chip loop">🚇 Loop Tue + maybe Wed 4am · Uber Mon night</span>
-        <span class="chip ticket">🎟 Krystian Tue pass ✔ · brother still needs pass</span>
-        <span class="chip vendor">⚡ Top 5 vendors contacted Oct 20 · awaiting replies</span>
+        <span class="chip ticket">🎟 Krystian Tue pass ✔ · Andy TBD</span>
+        <span class="chip vendor">⚡ Enstall 11:45 + Victron 2:00 booked · Tesla/ProSolar &amp; Sol-Ark pending</span>
         <span class="chip warn">🕙 Expo Tue Nov 17 · 10am–6pm PT</span>
       </div>
 
       <div class="critical" id="uber-notice" role="alert">
         <h3>⚠ Critical: Uber for Mon arrival · Loop possible Wed 4am</h3>
-        <p>Vegas Loop hotel/airport service normally runs <strong>7am–9pm</strong> — misses Mon ~11pm. <strong>New (Oct 19):</strong> the official Loop hours calendar shows <strong>all stations open 24h on Wed Nov 18</strong> (F1 race week) with airport rides flagged available, so a Westgate → LAS Loop ride at ~4am looks possible (limited availability — keep Uber as backup).</p>
+        <p>Vegas Loop hotel stations normally run <strong>7am–9pm</strong> — that misses the Mon ~11pm arrival. As of the Nov 11 hours calendar, <strong>all stations are still open 24h on Wed Nov 18</strong> with airport rides flagged available, so a Westgate → LAS Loop ride at ~4am still looks possible (limited availability — keep Uber as backup). Airport service on <strong>Mon Nov 16 is now flagged off</strong>; hours that day are still 7am–9pm, so it doesn’t change the late-night plan.</p>
         <table>
           <thead>
             <tr><th>Leg</th><th>Timing (PT)</th><th>Loop?</th><th>Plan</th></tr>
@@ -798,46 +884,46 @@
               <td><strong>Arrival Mon</strong></td>
               <td>Land ~10:37pm → curbside ~11:00–11:30pm</td>
               <td class="no">NO</td>
-              <td><strong>Uber/Lyft</strong> or Westgate <strong>LASxpress</strong> (~12–25 min)</td>
+              <td><strong>Uber/Lyft</strong> or Westgate <strong>LASxpress</strong> (~12–25 min). Loop closes 9pm; airport service also flagged off Nov 16.</td>
             </tr>
             <tr>
               <td><strong>Departure Wed</strong></td>
               <td>Leave hotel ~4:00–4:30am for 6:00am flight</td>
               <td class="yes">MAYBE</td>
-              <td><strong>Loop</strong> Westgate → T1/T3 (~$12 pp, surface drive, “limited availability”) per Nov 18 24h calendar — <strong>or</strong> pre-scheduled <strong>Uber/Lyft</strong> / <strong>LASxpress</strong> as backup (~15–25 min + TSA). Re-check Loop hours Nov 16.</td>
+              <td><strong>Loop</strong> Westgate → T1/T3 (~$12 pp, surface drive, “limited availability”) — Nov 18 still 24h with airport flagged available as of Nov 11 — <strong>or</strong> pre-scheduled <strong>Uber/Lyft</strong> / <strong>LASxpress</strong> as backup (~15–25 min + TSA).</td>
             </tr>
             <tr>
               <td><strong>Tue show day</strong></td>
               <td>Hotel ↔ LVCC daytime</td>
               <td class="yes">YES</td>
-              <td><strong>Loop</strong> Westgate station ↔ LVCC (~2 min) · or short walk</td>
+              <td><strong>Loop</strong> Westgate station ↔ LVCC (~2 min) · 6:30am–11:59pm · or short walk</td>
             </tr>
           </tbody>
         </table>
-        <p><strong>Bottom line:</strong> Staying at <strong>Westgate</strong>. Loop handles Tue hotel↔LVCC (~2 min from the Westgate station). Mon ~11pm arrival: <strong>Uber/Lyft</strong> or Westgate’s paid <strong>LASxpress</strong> partner ((702) 878-4141; claims 24/7; price not published — get a quote / pre-book). Wed ~4–4:30am: <strong>Loop</strong> from Westgate looks possible (Nov 18 runs 24h on the official calendar) — keep a pre-scheduled Uber or LASxpress as backup. Budget 1–2 airport transfers + tip.</p>
+        <p><strong>Bottom line:</strong> Staying at <strong>Westgate</strong>. Loop handles Tue hotel↔LVCC (~2 min from the Westgate station). Mon ~11pm arrival: <strong>Uber/Lyft</strong> or Westgate’s paid <strong>LASxpress</strong> partner (claims 24/7; price not published — get a quote / pre-book). Wed ~4–4:30am: <strong>Loop</strong> from Westgate still looks possible — keep a pre-scheduled Uber or LASxpress as backup. Budget 1–2 airport transfers + tip.</p>
       </div>
 
       <div class="notice">
-        <strong>Status:</strong> <strong>Hotel booked</strong> — Westgate Las Vegas (RE+ housing block), Mon Nov 16 – Wed Nov 18, one shared room for Krystian + brother.
-        <strong>Tickets:</strong> Krystian Expo day pass Tue Nov 17 ✔ · brother: still needs a Tue Expo pass (~$275 nonmember) unless a vendor invitation code arrives.
-        <strong>Last updated Oct 20, 2026 (PT) · transport &amp; booths re-checked Nov 2</strong> — <strong>top 5 vendors contacted Oct 20</strong> (Sol-Ark, Tesla N726, Enphase, Victron, Enstall) for Tue booth meetings + one invitation code; all awaiting replies, follow-up Fri Oct 23. Expo floor Tue <strong>10am–6pm PT</strong>; aim meetings ~10:30am–5pm.
-        Airport legs: Mon — Uber/Lyft or Westgate’s paid LASxpress partner ((702) 878-4141, claims 24/7 — confirm price); Wed ~4am — Loop possible, Uber/LASxpress backup. Tue commute: Loop from Westgate station ↔ LVCC (~2 min) or short walk.
-        Registration: <a href="https://www.re-plus.com/register/" target="_blank" rel="noopener">re-plus.com/register</a>.
+        <strong>Status:</strong> <strong>Hotel booked</strong> — Westgate Las Vegas (RE+ housing block), Mon Nov 16 – Wed Nov 18, one shared room for Krystian + Andy.
+        <strong>Passes:</strong> Krystian has his Tuesday Expo pass · Andy TBD (still needs a Tue Expo pass unless a vendor invitation arrives).
+        <strong>Last updated Nov 11, 2026 (PT).</strong>
+        Tuesday: ProSolar + Tesla 10:30–11:30am at Tesla <strong>N527</strong> (time pending Brad’s confirmation) · Enstall with Yann Schwarz at 11:45am, N536 (confirmed) · Victron with David Lopez at 2:00pm, W16965 (confirmed) · Sol-Ark 3:30pm at C6844/C6854 (requested, pending). SMA at N862 requested, no reply — walk up if needed.
+        Airport: Mon — Uber/Lyft or LASxpress (Loop closed 9pm). Wed ~4am — Loop possible, Uber/LASxpress backup. Tue commute: Loop from Westgate station ↔ LVCC (~2 min) or short walk.
       </div>
     </header>
 
     <nav class="toc" aria-label="Table of contents">
       <div class="toc-inner">
-        <a href="#uber-notice">Uber alert</a>
+        <a href="#uber-notice">Airport legs</a>
         <a href="#itinerary">Itinerary</a>
-        <a href="#showday">Show day</a>
+        <a href="#system">System picture</a>
+        <a href="#schedule">Tue schedule</a>
         <a href="#hotels">Hotel</a>
         <a href="#map">Map</a>
         <a href="#loop">Loop hours</a>
-        <a href="#vendors">Vendor meetings</a>
-        <a href="#tickets">Tickets</a>
+        <a href="#tickets">Passes</a>
         <a href="#checklist">Next steps</a>
-        <a href="#prep">Prep checklist</a>
+        <a href="#prep">Prep</a>
       </div>
     </nav>
 
@@ -854,7 +940,7 @@
         <div class="spine-item warn"><strong>Mon ~11pm</strong> Land LAS → Uber or LASxpress → Westgate</div>
         <div class="spine-item hotel"><strong>Mon–Tue nights</strong> Westgate · shared room</div>
         <div class="spine-item city"><strong>Tue 10am–6pm</strong> Expo · Loop Westgate ↔ LVCC</div>
-        <div class="spine-item flight"><strong>Tue ~10:30am–5pm</strong> Vendor meetings · 5 requests out</div>
+        <div class="spine-item vendor"><strong>Tue meetings</strong> Tesla 10:30 · Enstall 11:45 · Victron 2:00 · Sol-Ark 3:30</div>
         <div class="spine-item warn"><strong>Wed 4–4:30am</strong> Loop (24h) or Uber / LASxpress → LAS</div>
       </div>
 
@@ -868,11 +954,10 @@
             <span class="pill hotel">Check-in</span>
             <ul>
               <li>Depart SEA <strong>8:05pm PT</strong> → land LAS <strong>~10:37pm PT</strong></li>
-              <li>Bags/curbside ~11:00–11:30pm — <strong>Loop closed</strong></li>
+              <li>Bags/curbside ~11:00–11:30pm — <strong>Loop closed</strong> (hotel stations 7am–9pm; airport service flagged off this day)</li>
               <li><strong>Uber/Lyft</strong> or Westgate <strong>LASxpress</strong> → <strong>Westgate</strong> (~12–25 min). Pre-book LASxpress if using it; confirm hours/price.</li>
               <li>Check-in: Westgate Las Vegas (RE+ housing). Tip: request <strong>2 queens + firm mattress / higher floor</strong>.</li>
-              <li>Brother: EWR→LAS same Mon-evening pattern (exact times TBD)</li>
-              <li>Optional: Welcome Reception only if Full Conference + energy after late flight</li>
+              <li>Andy: EWR→LAS same Mon-evening pattern (exact times TBD)</li>
             </ul>
           </div>
         </article>
@@ -885,9 +970,12 @@
             <ul>
               <li><strong>Loop</strong> from <strong>Westgate station</strong> ↔ LVCC (~2 min ride) — or short walk. Loop calendar: <strong>6:30am–11:59pm</strong> on Nov 17.</li>
               <li>Pick up badges <strong>early</strong> (before the 10am open)</li>
-              <li>Exhibits <strong>10:00am – 6:00pm PT</strong> · book meetings <strong>~10:30am–5pm</strong>, 15–20 min between halls</li>
-              <li>Meeting requests out: Sol-Ark C6844/C6854, Tesla <strong>N726</strong> (moved from N527), Enphase N2026, Victron W16965, Enstall N536</li>
-              <li>Loop back to Westgate; optional Block Party (Full Conference)</li>
+              <li>Exhibits <strong>10:00am – 6:00pm PT</strong></li>
+              <li><strong>10:30–11:30am</strong> ProSolar + Tesla at <strong>N527</strong> (time pending Brad)</li>
+              <li><strong>11:45am</strong> Enstall with Yann Schwarz at <strong>N536</strong> (confirmed)</li>
+              <li><strong>2:00pm</strong> Victron with David Lopez at <strong>W16965</strong> (confirmed)</li>
+              <li><strong>3:30pm</strong> Sol-Ark at <strong>C6844/C6854</strong> (requested, pending)</li>
+              <li>Walk-ups: SMA N862, Enphase N2026, FranklinWH, Generac — see the <a href="#system">system picture</a> and <a href="#schedule">Tue schedule</a>. Andy will bring the home plans.</li>
             </ul>
           </div>
         </article>
@@ -898,84 +986,294 @@
             <span class="pill warn">Loop or Uber 4am</span>
             <span class="pill flight">Flight</span>
             <ul>
-              <li>Leave Westgate <strong>~4:00–4:30am</strong> — Loop calendar shows <strong>24h service Nov 18</strong> with airport rides available (~$12 pp; limited availability)</li>
+              <li>Leave Westgate <strong>~4:00–4:30am</strong> — Loop calendar still shows <strong>24h service Nov 18</strong> with airport rides available (~$12 pp; limited availability)</li>
               <li>Backup: pre-scheduled <strong>Uber/Lyft</strong> or <strong>LASxpress</strong> → LAS (confirm LASxpress price)</li>
               <li>Depart LAS <strong>6:00am</strong> → SEA <strong>8:49am PT</strong></li>
-              <li>Miss most/all Wed–Thu exhibits (expo opens 9am Wed)</li>
+              <li>Miss most/all Wed exhibits (expo opens 9am Wed)</li>
             </ul>
           </div>
         </article>
       </div>
     </section>
 
-    <section id="showday">
+    <section id="system">
       <div class="section-head">
         <div>
-          <span class="tag vendor">Show day</span>
-          <h2>Tuesday Nov 17 · Expo floor plan</h2>
-          <p>We are on the floor <strong>Tuesday only</strong>. Source: <a href="https://www.re-plus.com/general-information/" target="_blank" rel="noopener">re-plus.com/general-information</a>.</p>
+          <span class="tag vendor">St. Thomas project</span>
+          <h2>Overall system picture</h2>
+          <p>How the Tuesday meetings fit together — one stack per house, unless a shared plant turns out to be smarter. <strong>Andy will bring the home plans</strong> so vendors can talk sizing, wind calcs, and attachments from real drawings.</p>
         </div>
       </div>
-      <div class="data-table-wrap">
-        <table class="data-table vendor-tint">
-          <thead>
-            <tr><th>Day</th><th>Expo Hall hours (PT)</th><th>Us</th></tr>
-          </thead>
-          <tbody>
-            <tr><td><strong>Tue Nov 17</strong></td><td><strong>10:00am – 6:00pm</strong></td><td><strong>On the floor</strong> — our only Expo day</td></tr>
-            <tr><td>Wed Nov 18</td><td>9:00am – 6:00pm</td><td>Flying out 6:00am — not attending</td></tr>
-            <tr><td>Thu Nov 19</td><td>9:00am – 2:00pm</td><td>Not attending</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="pretrip-list">
-        <div class="check-item">
-          <div class="check-box" aria-hidden="true"></div>
-          <div>
-            <div class="check-item-head"><h3>Pick up badges early</h3><span class="status-badge open">Tue AM</span></div>
-            <p>Get to LVCC (Loop from Westgate, ~2 min) and collect badges before the 10am open so the first meeting isn’t eaten by the badge line.</p>
+      <div class="sys-pic">
+        <p>Three new ~4,000 sq ft rental homes on St. Thomas, USVI. Target: solar + storage covering <strong>80–90% of load</strong>. Flat roofs, hurricane and salt-air exposure, owners off-island (remote monitoring and service matter). Andy’s company, <strong>Custom Unique Homes Inc.</strong>, is managing the work. A separate ask — Krystian’s <strong>Bellevue</strong> house — is backup batteries only, with no solar because of trees.</p>
+        <div class="sys-grid">
+          <div class="sys-piece rack">
+            <h3>1. Roof &amp; racking</h3>
+            <p>Hurricane-rated flat-roof mounting — Enstall (PanelClaw clawFR or an attached alternative). Tesla Solar Roof is unlikely on flat, coastal roofs; confirm before spending time on it.</p>
+          </div>
+          <div class="sys-piece">
+            <h3>2. Panels</h3>
+            <p>Conventional PV modules, specified by the installer. No module-maker meeting is booked; this sits with ProSolar or another STT EPC.</p>
+          </div>
+          <div class="sys-piece invert">
+            <h3>3. Inverter / hybrid brain</h3>
+            <p>Pick <strong>one</strong> primary path — these compete: Tesla Powerwall 3, Sol-Ark 15K, Victron Quattro / MultiPlus-II, SMA Sunny Boy Smart Energy, or Enphase IQ8.</p>
+          </div>
+          <div class="sys-piece batt">
+            <h3>4. Battery</h3>
+            <p>Usually bundled with that path (Powerwall, IQ Battery, SMA battery, PWRcell, FranklinWH aPower) or a 48V pack paired with Sol-Ark or Victron.</p>
+          </div>
+          <div class="sys-piece mon">
+            <h3>5. Monitoring</h3>
+            <p>Must work from off-island: Tesla app, Victron VRM, Sol-Ark app, Sunny Portal, Enphase, or FranklinWH EMS. Reliable internet on STT is part of the design.</p>
+          </div>
+          <div class="sys-piece inst">
+            <h3>6. Installer &amp; WAPA</h3>
+            <p>Local installer (ProSolar already does Tesla and Enphase on STT) handles shipping, DPNR permitting, WAPA interconnection, and service. Systems over 10 kWac typically fall under WAPA Net Energy Billing, not 1:1 net metering. A generator is optional backup for outages.</p>
           </div>
         </div>
-        <div class="check-item">
-          <div class="check-box" aria-hidden="true"></div>
-          <div>
-            <div class="check-item-head"><h3>Meeting window ~10:30am – 5:00pm</h3><span class="status-badge open">Scheduling</span></div>
-            <p>Ask vendors for slots between about <strong>10:30am and 5pm</strong>. Leave <strong>15–20 minutes between halls</strong> — West Hall is a long walk from North and Central. Group North (Tesla N726, Enphase N2026, Enstall N536) and Central (Sol-Ark C6844/C6854) back-to-back; put West (Victron W16965) at one end of the day.</p>
-          </div>
+        <div class="sys-note">
+          <strong>Compete vs complement:</strong> Enstall complements every conventional-PV path. ProSolar is the local installer, not a competing equipment brand. Tesla, Sol-Ark, Victron, SMA, and Enphase are alternative “brains + storage” stacks — leave Tuesday with one shortlist, not three overlapping systems. FranklinWH and Generac are storage (and Generac generator-hybrid) alternatives. Bellevue is a separate, backup-only conversation with Sol-Ark and the walk-ups.
         </div>
       </div>
     </section>
 
-        <section id="hotels">
+    <section id="schedule">
+      <div class="vendor-banner">
+        <h2>Tue Nov 17 schedule</h2>
+        <p>Expo floor <strong>10am–6pm PT</strong> · Loop Westgate ↔ LVCC <strong>6:30am–11:59pm</strong>. Bring the project picture above into every meeting. <strong>Andy will have the home plans</strong>. Wrap Tesla by 11:30 — Enstall is nearby in North Hall. Then West Hall for Victron at 2:00, Central for Sol-Ark at 3:30 (allow 15–20 min to cross).</p>
+      </div>
+
+      <div class="sched-list">
+        <article class="sched-card pending">
+          <div class="sched-meta">
+            <span class="sched-time">10:30–11:30am</span>
+            <span class="status-badge progress">Time pending Brad’s confirmation</span>
+          </div>
+          <h3>ProSolar + Tesla</h3>
+          <div class="booth">Tesla booth N527 · North Hall · ask for Kris, then handoff to ProSolar (Brad / Peter). Floor map may still label this same spot N726; Tesla also lists S6041 in South Hall.</div>
+          <dl class="brief-kv">
+            <dt>Products</dt>
+            <dd>Powerwall 3 (≈13.5 kWh each, hybrid inverter built in) plus Powerwall 3 Expansion and Gateway 3. Conventional Tesla PV if Solar Roof isn’t a fit. Megapack is utility-scale — only raise it if a shared plant for all three homes is on the table.</dd>
+            <dt>In the system</dt>
+            <dd>This is a full stack: modules or Solar Roof + built-in inverter + battery + Tesla app. It <strong>competes</strong> with Sol-Ark, Victron, SMA, Enphase, FranklinWH, and Generac. It <strong>complements</strong> Enstall only if you use racked conventional modules, not Solar Roof. ProSolar would be the STT installer and service path.</dd>
+            <dt>Company</dt>
+            <dd>Tesla Energy (Tesla, Inc., Austin, TX) — the largest US residential storage brand. Powerwall 3 carries a 10-year / 70% capacity warranty, but the full term needs a reliable internet connection for remote firmware (otherwise it can drop to 4 years). Solar Roof: 25-year product and weatherization warranties, with important coastal and wind exclusions below.</dd>
+            <dt>On St. Thomas</dt>
+            <dd>ProSolar Caribbean already installs Powerwall (and Enphase) in the USVI. Ask them to run shipping, DPNR permitting, WAPA interconnection, and off-island service for all three homes. Flag Solar Roof early: it typically wants at least a 2:12 pitch (these roofs are flat), and Tesla’s warranty excludes corrosion from salt water, spray, or fog within 1,500 feet and wind gusts above 139 mph — likely a poor fit. Powerwall’s internet requirement matters for absentee owners and island connectivity. Kris can do about 30 minutes, then ProSolar continues; wrap by 11:30.</dd>
+          </dl>
+          <ul class="ask">
+            <li><strong>Ask</strong></li>
+            <li>Can ProSolar install, warrant, and service Powerwall (and conventional PV) on three new STT homes, including WAPA interconnection?</li>
+            <li>How many Powerwall 3 units (or Expansion packs) per ~4,000 sq ft rental to hit 80–90% of load — and is a shared Megapack-scale plant even in play?</li>
+            <li>Does Solar Roof make any sense on flat, coastal roofs given pitch and salt-air / high-wind warranty exclusions? What are lead times, and how do absentee owners monitor all three homes if internet drops?</li>
+          </ul>
+        </article>
+
+        <article class="sched-card confirmed">
+          <div class="sched-meta">
+            <span class="sched-time">11:45am</span>
+            <span class="status-badge done">Confirmed</span>
+          </div>
+          <h3>Enstall · Yann Schwarz</h3>
+          <div class="booth">Booth N536 · North Hall · ask for Yann</div>
+          <dl class="brief-kv">
+            <dt>Products</dt>
+            <dd>For these flat roofs, start with <strong>PanelClaw clawFR</strong> (ballasted commercial / low-slope, high-wind design). Ask Yann whether an <strong>attached</strong> Enstall system (or IronRidge / QuickMount attachments) is better on new construction. IronRidge XR rails are mainly for pitched roofs — probably not the lead product here. Bring the plans so he can talk wind calcs.</dd>
+            <dt>In the system</dt>
+            <dd>This is the roof layer under conventional modules. It <strong>complements</strong> every inverter/battery path except Tesla Solar Roof. It does not compete with Sol-Ark, Victron, SMA, or Enphase. A St. Thomas EPC (VOLT) already lists PanelClaw among partners.</dd>
+            <dt>Company</dt>
+            <dd>Enstall (Amsterdam HQ, US regional HQ in Greenwich, CT) owns IronRidge, PanelClaw, QuickMount, and others — a major rooftop-mounting group with thousands of flat-roof projects. PanelClaw is based in North Andover, MA; IronRidge in Hayward, CA. Typical product warranty is 25 years; finish warranties are shorter, and hurricane / force-majeure damage and corrosive atmospheres are often excluded or limited — confirm salt-air hardware and what actually survives a storm.</dd>
+            <dt>On St. Thomas</dt>
+            <dd>Need a racking spec the local installer can permit and ship to the island: Miami-Dade or ASCE wind calcs for STT, salt-air stainless / coatings, and freight. On new construction, attached may beat ballast (less weight, better in very high wind) — that’s the core design question for Yann. Warranty service will run through the installer, not a local Enstall desk.</dd>
+          </dl>
+          <ul class="ask">
+            <li><strong>Ask</strong></li>
+            <li>Given the plans, which system — clawFR ballasted or an attached alternative — and can you run Miami-Dade or ASCE wind calcs for ~4,000 sq ft STT roofs?</li>
+            <li>What salt-air hardware do you spec, and does the 25-year warranty still apply in a corrosive, hurricane climate (or are finish and storm damage excluded)?</li>
+            <li>How does shipping to St. Thomas work, and what does the local installer need for permitting?</li>
+          </ul>
+        </article>
+
+        <article class="sched-card confirmed">
+          <div class="sched-meta">
+            <span class="sched-time">2:00pm</span>
+            <span class="status-badge done">Confirmed</span>
+          </div>
+          <h3>Victron · David Lopez</h3>
+          <div class="booth">Booth W16965 · West Hall · Sales Manager, Latin America &amp; Caribbean</div>
+          <dl class="brief-kv">
+            <dt>Products</dt>
+            <dd><strong>Quattro</strong> or <strong>MultiPlus-II</strong> inverter-chargers (Quattro takes two AC sources — useful for WAPA + a generator), <strong>SmartSolar MPPT</strong> charge controllers, Cerbo GX, and <strong>VRM</strong> remote monitoring. Batteries are often third-party 48V (Victron or others). This is a component system, not an all-in-one box.</dd>
+            <dt>In the system</dt>
+            <dd>This would be the hybrid brain, battery charging, and off-island monitoring layer, sitting on Enstall racking + conventional panels. It <strong>competes</strong> with Sol-Ark, SMA, Tesla, and Enphase as the inverter path. It <strong>complements</strong> Enstall and a local installer; it does not include modules or racking.</dd>
+            <dt>Company</dt>
+            <dd>Victron Energy B.V., Almere, Netherlands — long-standing marine and off-grid specialist, which is why it has a strong salt-air and remote-site reputation. Standard warranty on power products is 5 years, upgradeable to 10 years for about 10% more, serviced through authorized dealers — not a direct factory desk on STT.</dd>
+            <dt>On St. Thomas</dt>
+            <dd>The key is an island or Caribbean distributor who will stock parts and service three absentee-owned homes. Ask David who covers USVI, how gear ships, and how VRM is set up so you can see all three sites from off-island. Marine-grade installation practices (enclosures, conformal coating, corrosion) matter as much as the model numbers. The installer still handles WAPA interconnection and DPNR permits.</dd>
+          </dl>
+          <ul class="ask">
+            <li><strong>Ask</strong></li>
+            <li>What Quattro or MultiPlus-II + MPPT architecture would you use for three ~4,000 sq ft hybrid homes, including generator input for WAPA outages?</li>
+            <li>Who is the Caribbean or STT distributor for sales, spare parts, and service — and can we add the 10-year warranty?</li>
+            <li>How should VRM be set up so absentee owners can monitor all three homes, and what salt-air install practices do you require?</li>
+          </ul>
+        </article>
+
+        <article class="sched-card pending">
+          <div class="sched-meta">
+            <span class="sched-time">3:30pm</span>
+            <span class="status-badge progress">Requested, pending</span>
+          </div>
+          <h3>Sol-Ark</h3>
+          <div class="booth">Booths C6844 / C6854 · Central Hall</div>
+          <dl class="brief-kv">
+            <dt>Products</dt>
+            <dd>Lead with the <strong>15K-2P</strong> hybrid (15 kW; also 12K / 8K / 5K if stacking looks better). Battery-agnostic 48V — they pair with many LFP packs (Fortress, HomeGrid, and others). Built-in transfer / generator support and a remote app / fleet view. Also ask about a <strong>backup-only</strong> (no PV) setup for the Bellevue house.</dd>
+            <dt>In the system</dt>
+            <dd>This would be the hybrid inverter + (chosen) battery, on Enstall racking and conventional panels, with Sol-Ark’s app for monitoring. It <strong>competes</strong> with Victron, SMA, Tesla, and Enphase. It <strong>complements</strong> Enstall and a local electrician or EPC. A good fit if you want generator + battery islanding during WAPA outages and the freedom to pick the battery.</dd>
+            <dt>Company</dt>
+            <dd>Sol-Ark LLC, Allen, Texas — founded 2013, privately held, US support team, known among installers for hybrid islanding and live tech support. Standard inverter warranty is 10 years (15-year extended exists; LCD and fans are often 5 years). Important: their limited warranty typically <strong>excludes corrosion and acts of nature</strong> — confirm what that means in a salt-air, hurricane climate.</dd>
+            <dt>On St. Thomas</dt>
+            <dd>Caribbean / Latin America models exist, and local STT companies (for example IRIE Solar) already list the 15K. Ask who stocks and services USVI, how units ship, and whether they will train a local electrician. The installer still runs DPNR permits and WAPA interconnection (expect Net Energy Billing above 10 kWac). Remote access is how you’d support the homes from off-island. Same platform may also cover Bellevue backup-only.</dd>
+          </dl>
+          <ul class="ask">
+            <li><strong>Ask</strong></li>
+            <li>15K vs stacked smaller units, and which 48V batteries would you pair for ~4,000 sq ft rentals targeting 80–90% of load?</li>
+            <li>Who ships, installs, and services on STT — and does the 10-year warranty still mean anything once corrosion and storms are excluded?</li>
+            <li>Can the same platform do backup-only (no PV) for a Bellevue, WA house, with remote monitoring on both projects?</li>
+          </ul>
+        </article>
+
+        <article class="sched-card walkup">
+          <div class="sched-meta">
+            <span class="sched-time">If time — walk up</span>
+            <span class="status-badge open">Requested, no reply</span>
+          </div>
+          <h3>SMA America</h3>
+          <div class="booth">Booth N862 · North Hall</div>
+          <dl class="brief-kv">
+            <dt>Products</dt>
+            <dd><strong>Sunny Boy Smart Energy</strong> hybrid inverters (US models from about 3.8 to 11.5 kW). Monitoring via <strong>Sunny Portal</strong> / the SMA Energy app. Backup options include <strong>Backup Secure</strong> (only about 1.9 kW at a dedicated outlet — not whole-home) and any larger Backup Select / storage pairing they still offer. Ask plainly whether they can do whole-home hurricane backup, or if this is only a grid-tie / light-backup path.</dd>
+            <dt>In the system</dt>
+            <dd>A grid-tie / hybrid alternative to Sol-Ark, Victron, Tesla, and Enphase, still sitting on Enstall racking + conventional panels. <strong>Competes</strong> with those inverter paths. <strong>Complements</strong> Enstall. Continuity plus: STT EPC VOLT Energy already lists SMA among partners.</dd>
+            <dt>Company</dt>
+            <dd>SMA Solar Technology AG, Niestetal, Germany (SMA America is the US arm). Founded 1981, one of the oldest and largest inverter makers, strong reliability reputation. Sunny Boy Smart Energy: 10-year warranty, extendable toward 25 years. Smart Connected can flag inverter faults to the installer automatically — useful when you’re off-island.</dd>
+            <dt>On St. Thomas</dt>
+            <dd>Ask about Caribbean service, spare parts, and whether VOLT or another STT partner will install and interconnect with WAPA. Confirm coastal / hurricane enclosure guidance and that Sunny Portal can show all three homes. If backup is only the 1.9 kW outlet, this may be a second-choice inverter, not the island-backup stack.</dd>
+          </dl>
+          <ul class="ask">
+            <li><strong>Ask</strong></li>
+            <li>Which SBSE model, and is there a whole-home backup option — or only the ~1.9 kW Backup Secure outlet?</li>
+            <li>Caribbean / STT service and spare parts, including a local installer (is VOLT still a partner)?</li>
+            <li>Can Sunny Portal monitor all three homes from off-island, and what salt-air or hurricane guidance applies?</li>
+          </ul>
+        </article>
+
+        <article class="sched-card walkup">
+          <div class="sched-meta">
+            <span class="sched-time">Walk-up</span>
+            <span class="status-badge open">No meeting set</span>
+          </div>
+          <h3>Enphase · ask for Ulises Avila</h3>
+          <div class="booth">Booth N2026 · North Hall (also lists S11001 in the Silver Lot — confirm which is staffed for residential). Ask for Ulises Avila, Caribbean sales.</div>
+          <dl class="brief-kv">
+            <dt>Products</dt>
+            <dd><strong>IQ8</strong> microinverters and <strong>IQ Battery 5P</strong> (stackable, about 5 kWh per unit), plus the Enphase monitoring app / installer portal. Also ask about a backup-only IQ Battery setup for Bellevue (no solar).</dd>
+            <dt>In the system</dt>
+            <dd>A full microinverter + battery stack on Enstall racking and conventional modules. <strong>Competes</strong> with Tesla, Sol-Ark, Victron, and SMA as the house brain. <strong>Complements</strong> Enstall — and ProSolar, who already install Enphase on STT (including a well-known Bluebeard’s Castle project). Good partial-shade and modular-storage story for absentee rentals.</dd>
+            <dt>Company</dt>
+            <dd>Enphase Energy, Fremont, CA — a major public microinverter and storage company. IQ8 typically carries a 25-year limited warranty in the US and territories; IQ Battery 5P is typically 15 years (or 6,000 cycles, whichever comes first). Confirm that the battery warranty actually covers the US Virgin Islands — some Enphase battery terms list only the US and Puerto Rico.</dd>
+            <dt>On St. Thomas</dt>
+            <dd>ProSolar is already an Enphase installer in the USVI, which makes this one of the more straightforward local service paths. Still confirm shipping, coastal corrosion guidance, WAPA interconnection, and off-island monitoring. Ulises Avila is the Caribbean sales contact to ask for at the booth.</dd>
+          </dl>
+          <ul class="ask">
+            <li><strong>Ask</strong></li>
+            <li>How many IQ Battery 5P units per house to hit 80–90% of load, and does the battery warranty cover USVI?</li>
+            <li>Coastal corrosion guidance, and can ProSolar (or another STT partner) install, interconnect with WAPA, and service all three homes?</li>
+            <li>Can absentee owners monitor all three sites, and can IQ Battery also do backup-only for a Bellevue house with no solar?</li>
+          </ul>
+        </article>
+
+        <article class="sched-card walkup">
+          <div class="sched-meta">
+            <span class="sched-time">Walk-up</span>
+            <span class="status-badge open">No meeting set</span>
+          </div>
+          <h3>FranklinWH</h3>
+          <div class="booth">Booth C4614 · Central Hall</div>
+          <dl class="brief-kv">
+            <dt>Products</dt>
+            <dd><strong>aPower 2</strong> (15 kWh usable per unit, stackable) and the <strong>aGate</strong> home energy controller. Whole-home backup that can take solar, grid, generator, and EV input. Also a candidate for Bellevue backup-only (no solar).</dd>
+            <dt>In the system</dt>
+            <dd>A whole-home battery / EMS alternative to Tesla Powerwall (and to Generac or Enphase storage). It still needs an inverter / PV path if used on STT with solar — confirm whether they want to be the main stack or a battery paired with someone else’s hybrid. <strong>Competes</strong> with Powerwall, IQ Battery, and PWRcell on storage. <strong>Complements</strong> a hybrid inverter and Enstall if they support that pairing.</dd>
+            <dt>Company</dt>
+            <dd>FranklinWH Energy Storage, San Jose, CA — founded 2019, a newer whole-home storage specialist (smaller and less proven in the Caribbean than Tesla, Enphase, or SMA). aPower 2 carries a 15-year warranty; some aPower X / aGate X configurations are listed at 12 years. Confirm territory coverage and capacity retention terms.</dd>
+            <dt>On St. Thomas</dt>
+            <dd>The open questions are the Caribbean / USVI channel, a local installer, shipping, coastal / IP ratings, and remote EMS for absentee owners. Do not assume USVI warranty or service exists until they say so. WAPA interconnection would still run through whatever installer they name.</dd>
+          </dl>
+          <ul class="ask">
+            <li><strong>Ask</strong></li>
+            <li>How many aPower 2 units per ~4,000 sq ft rental, and can this be the main STT stack or only a battery paired with another inverter?</li>
+            <li>Do you have a Caribbean / USVI installer and warranty, including salt-air and hurricane terms?</li>
+            <li>Can absentee owners monitor three homes remotely, and can aPower do backup-only for a Bellevue house with no solar?</li>
+          </ul>
+        </article>
+
+        <article class="sched-card walkup">
+          <div class="sched-meta">
+            <span class="sched-time">Walk-up</span>
+            <span class="status-badge open">No meeting set</span>
+          </div>
+          <h3>Generac</h3>
+          <div class="booth">Booth C5148 · Central Hall</div>
+          <dl class="brief-kv">
+            <dt>Products</dt>
+            <dd><strong>PWRcell 2</strong> battery system and, if they’re pushing it, <strong>PWRmicro</strong> microinverters, plus Generac standby generators. The interesting STT story is a battery + generator hybrid for WAPA outages and hurricane season. Also ask about Bellevue backup-only (battery, and whether a generator is even relevant there).</dd>
+            <dt>In the system</dt>
+            <dd>A storage + generator alternative to Tesla / Enphase / FranklinWH, or a generator add-on if you pick another inverter (Sol-Ark and Victron also pair with generators). <strong>Competes</strong> on the battery / whole-home backup slot. <strong>Complements</strong> Enstall if you also use their PV path, and can complement a Sol-Ark or Victron stack if you only want the generator.</dd>
+            <dt>Company</dt>
+            <dd>Generac, Waukesha, Wisconsin — a large, well-known generator maker that expanded into solar and storage. PWRcell 2 is typically a 10-year warranty (with throughput / 70% capacity limits). PWRmicro is often listed at 25 years, but some Generac solar warranties name the US, Puerto Rico, Alaska, and Hawaii only — confirm whether USVI is covered.</dd>
+            <dt>On St. Thomas</dt>
+            <dd>Need a dealer who will ship, install, permit, and service both batteries and generators on the island, including fuel logistics and salt-air enclosures. Off-island owners need a service contract, not a “call the factory” plan. Confirm warranty territory before treating this as a real STT option.</dd>
+          </dl>
+          <ul class="ask">
+            <li><strong>Ask</strong></li>
+            <li>PWRcell 2 vs a generator-hybrid architecture for three STT rentals — and who is the USVI dealer for install and service?</li>
+            <li>Does the warranty cover the US Virgin Islands, and what salt-air or hurricane enclosure options exist?</li>
+            <li>Can this also do backup-only for a Bellevue house with no solar?</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="hotels">
       <div class="hotel-banner">
         <h2>Hotel — Westgate booked</h2>
-        <p>One shared room for Krystian + brother · check-in Mon Nov 16 · out Wed Nov 18 · booked through the <strong>RE+ official housing block</strong>.
-        Loop from the on-site Westgate station ↔ LVCC (~2 min). Airport legs: Mon — Uber/Lyft or paid LASxpress partner (confirm price); Wed ~4am — Loop possible (24h on Nov 18).
-        Other hotels we considered are archived below.</p>
+        <p>One shared room for Krystian + Andy · check-in Mon Nov 16 · out Wed Nov 18 · booked through the <strong>RE+ official housing block</strong>.
+        Loop from the on-site Westgate station ↔ LVCC (~2 min). Airport legs: Mon — Uber/Lyft or paid LASxpress partner (confirm price); Wed ~4am — Loop possible (24h on Nov 18).</p>
       </div>
 
       <div class="hotel-equal" id="hotels-booked" style="grid-template-columns: 1fr; max-width: 720px;">
-<article class="hotel-card booked" id="hotel-westgate">
+        <article class="hotel-card booked" id="hotel-westgate">
           <div class="photos">
             <img src="images/westgate-1.webp" alt="Westgate Luxe double queen bedroom" loading="lazy">
             <img src="images/westgate-2.webp" alt="Westgate Luxe double queen city view" loading="lazy">
           </div>
           <div class="body">
             <span class="avail-badge booked">Booked · RE+ housing</span>
-            <span class="tier-label a">Tier A · our stay</span>
-            <span class="firm-badge best">Firm likelihood: Best of originals</span>
             <h3>Westgate Las Vegas Resort &amp; Casino</h3>
-            <p class="tldr">Booked through the RE+ official housing block — one shared room for Krystian + brother, Mon Nov 16 – Wed Nov 18. Best firm-bed evidence on the shortlist + doorstep LVCC + own Loop station.</p>
-            <p class="addr">3000 Paradise Rd · ≈ 36.1363, −115.1517</p>
+            <p class="tldr">Booked through the RE+ official housing block — one shared room for Krystian + Andy, Mon Nov 16 – Wed Nov 18. Doorstep LVCC plus its own Loop station.</p>
+            <p class="addr">3000 Paradise Rd</p>
             <ul>
-              <li><strong>Stay:</strong> Mon Nov 16 check-in → Wed Nov 18 check-out · 1 shared room · Krystian + brother</li>
+              <li><strong>Stay:</strong> Mon Nov 16 check-in → Wed Nov 18 check-out · 1 shared room</li>
               <li><strong>Confirmed:</strong> first-night deposit charged (Oct 2026)</li>
               <li><strong>Walk LVCC:</strong> short walk (~5–15 min)</li>
               <li><strong>Loop:</strong> <strong>Westgate station on-site</strong> ↔ LVCC ~<strong>2 min</strong> ride · $4.75 single · Nov 17 hours 6:30am–11:59pm · Nov 18 24h</li>
-              <li><strong>Airport:</strong> paid <strong>LASxpress</strong> partner ((702) 878-4141; claims <strong>24/7</strong>, advance online booking; price not published) — Uber alternative for Mon ~11pm arrival; Wed ~4am can also try the Loop (24h Nov 18)</li>
-              <li><strong>Beds / firm:</strong> request <strong>2 queens + firm mattress / higher floor</strong> at check-in (firm-bed evidence was strongest among original shortlist)</li>
+              <li><strong>Airport:</strong> Mon ~11pm — <strong>Uber/Lyft</strong> or paid <strong>LASxpress</strong> partner (claims 24/7; price not published). Wed ~4am — try the Loop (still 24h with airport flagged available as of Nov 11) and keep Uber/LASxpress as backup.</li>
+              <li><strong>Beds:</strong> request <strong>2 queens + firm mattress / higher floor</strong> at check-in</li>
             </ul>
-            <span class="est">BOOKED via RE+ housing · Confirmed: first-night deposit charged (Oct 2026)</span>
+            <span class="est">BOOKED via RE+ housing · first-night deposit charged (Oct 2026)</span>
           </div>
         </article>
       </div>
@@ -985,442 +1283,9 @@
         <strong>Airport:</strong> Mon night — Uber/Lyft or LASxpress (claims 24/7; verify/pre-book). Wed ~4am — Loop possible per Nov 18 24h calendar; Uber/LASxpress backup.
         <strong>Loop:</strong> Westgate ↔ LVCC is the planned Tue commute — see Loop hours &amp; fares below.
       </p>
-
-      <details class="archived-hotels" id="hotels-archived">
-        <summary>Other hotels we considered (archived)</summary>
-        <p class="map-note" style="margin:.75rem 0 0">Kept for reference from the Oct 5 research pass — available / no-2-bed / sold-out cards. Not needed now that Westgate is booked.</p>
-        <div class="hotel-equal" id="hotels-unavailable">
-<article class="hotel-card" id="hotel-renaissance">
-          <div class="photos">
-            <img src="images/renaissance-1.jpg" alt="Renaissance Las Vegas double beds room" loading="lazy">
-            <img src="images/renaissance-2.jpg" alt="Renaissance Las Vegas guestroom" loading="lazy">
-          </div>
-          <div class="body">
-            <span class="tier-label b">Tier B</span>
-            <span class="avail-badge live">Available · 2 beds</span>
-            <span class="checked-stamp">Checked Oct 5, 2026 ~8:30pm PT</span>
-            <span class="firm-badge plush">Firm likelihood: Soft / plush-leaning</span>
-            <h3>Renaissance Las Vegas</h3>
-            <p class="tldr">LVCC-adjacent 4-star with two-double rooms and a polished lobby — great location if you accept softer pillowtops.</p>
-            <p class="addr">3400 Paradise Rd · ≈ 36.1278, −115.1540</p>
-            <ul>
-              <li><strong>Beds:</strong> <strong>Strip View · 2 Double Beds</strong> (live Oct 5)</li>
-              <li><strong>Walk LVCC:</strong> ~<strong>3–8 min</strong> (faces campus)</li>
-              <li><strong>Loop:</strong> LVCC campus</li>
-              <li><strong>Airport shuttle:</strong> <strong>None</strong> — Uber</li>
-              <li><strong>Amenities:</strong> Zio’s, pool, 24/7 gym, UPS store, no casino</li>
-              <li><strong>Book:</strong> <a href="https://www.marriott.com/reservation/availabilitySearch.mi?propertyCode=LASRB&fromDate=11/16/2026&toDate=11/18/2026&numberOfRooms=1&numberOfAdults=2" target="_blank" rel="noopener">Marriott live availability (LASRB)</a> · also RE+ housing</li>
-            </ul>
-            <span class="est">LIVE Oct 5: Prepay non-ref $547/nt → $1,094/2nt incl $30 dest fee (pre-tax) · Flexible Best Available $589/nt → $1,178/2nt, free cancel by Nov 14, 2026</span>
-            <span class="meta-line"><strong>Freshness:</strong> Opened <strong>Dec 2004 / early 2005</strong></span>
-            <span class="meta-line"><strong>Mobility est.:</strong> Mon+Wed Uber ~$44–76 · Tue walk $0</span>
-            <span class="all-in">≈ All-in 2nt: ~$1,138–1,170 (prepay) or ~$1,222–1,254 (flexible) + tax if not incl.</span>
-          </div>
-        </article>
-<article class="hotel-card" id="hotel-fontainebleau">
-          <div class="photos">
-            <img src="images/fontainebleau-1.jpg" alt="Fontainebleau Bleau room" loading="lazy">
-            <img src="images/fontainebleau-2.jpg" alt="Fontainebleau Bleau room alternate" loading="lazy">
-          </div>
-          <div class="body">
-            <span class="tier-label c">Tier C</span>
-            <span class="avail-badge live">Available · 2 beds</span>
-            <span class="checked-stamp">Checked Oct 5, 2026 ~8:30pm PT</span>
-            <span class="firm-badge plush">Firm likelihood: Lowest (plush)</span>
-            <h3>Fontainebleau Las Vegas</h3>
-            <p class="tldr">Newest luxury north Strip with excellent plush pillowtop beds and on-site Loop — soft-supportive luxury; skip if firm is non-negotiable.</p>
-            <p class="addr">2777 S Las Vegas Blvd · ≈ 36.1375, −115.1589</p>
-            <ul>
-              <li><strong>Beds:</strong> <strong>Bleau Queen · 2 queens</strong> (494 sq ft) — live Oct 5 · Custom Serta pillowtop (“plush but supportive”)</li>
-              <li><strong>Loop:</strong> On-site Level V1 · ~3–8 min to LVCC</li>
-              <li><strong>Walk LVCC:</strong> ~<strong>10–20 min</strong> (prefer Loop)</li>
-              <li><strong>Airport shuttle:</strong> <strong>None</strong> hotel-run — Uber</li>
-              <li><strong>Amenities:</strong> Large fitness, multi-pool Oasis, dense F&amp;B</li>
-              <li><strong>Opened:</strong> Dec 2023 (new build)</li>
-              <li><strong>Book:</strong> <a href="https://reserve.fontainebleaulasvegas.com/ibe/shop.aspx?checkIn=11/16/2026&checkOut=11/18/2026&hotelID=17704" target="_blank" rel="noopener">Fontainebleau live reserve</a></li>
-            </ul>
-            <span class="est">LIVE Oct 5: Bleau Queen $754 avg/nt incl resort fee, excl tax → ~$1,508/2nt before tax · cancel policy not shown on quote</span>
-            <span class="meta-line"><strong>Freshness:</strong> Opened <strong>Dec 13, 2023</strong> — newest luxury on shortlist</span>
-            <span class="meta-line"><strong>Mobility est.:</strong> Mon+Wed Uber ~$50–84 · Tue Loop ~$7 RT (or walk)</span>
-            <span class="all-in">≈ All-in 2nt: ~$1,565–1,599 (room ~$1,508 + mobility ~$57–91) + tax</span>
-          </div>
-        </article>
-<article class="hotel-card" id="hotel-siegel">
-          <div class="photos">
-            <img src="images/siegel-1.jpg" alt="Siegel Select Convention Center room" loading="lazy">
-            <img src="images/siegel-2.jpg" alt="Siegel Select Convention Center room alternate" loading="lazy">
-          </div>
-          <div class="body">
-            <span class="tier-label b">Tier B budget</span>
-            <span class="avail-badge live">Available · 2 beds</span>
-            <span class="checked-stamp">Checked Oct 5, 2026 ~8:30pm PT</span>
-            <span class="firm-badge mixed">Firm likelihood: Unknown</span>
-            <h3>Siegel Select Convention Center</h3>
-            <p class="tldr">Closest new addition by walk (~10–15 min on Convention Center Dr) — extended-stay budget; verify recent reviews before trusting beds/cleanliness.</p>
-            <p class="addr">220 Convention Center Dr · ≈ 36.1324, −115.1615</p>
-            <ul>
-              <li><strong>Beds:</strong> <strong>Standard Room · 2 Queen + Kitchenette</strong> (Expedia live Oct 5)</li>
-              <li><strong>Walk LVCC:</strong> ~<strong>10–15 min</strong></li>
-              <li><strong>Airport shuttle:</strong> <strong>None</strong> found — Uber</li>
-              <li><strong>Amenities:</strong> Kitchenette extended-stay basics; no casino</li>
-              <li><strong>Book:</strong> <a href="https://www.siegelselect.com/siegel-select-convention-center-drive/" target="_blank" rel="noopener">siegelselect.com</a></li>
-            </ul>
-            <span class="est">LIVE Oct 5 (Expedia): $76/nt · taxes/fees included per Expedia → ~$152/2nt · free cancel until Oct 12</span>
-            <span class="meta-line"><strong>Freshness:</strong> Older stock (Siegel acquisition 2016; ~2009-era reno cites) — does <strong>not</strong> feel new</span>
-            <span class="meta-line"><strong>Mobility est.:</strong> Mon+Wed Uber ~$44–76 · Tue walk $0</span>
-            <span class="all-in">≈ All-in 2nt: ~$196–228 (room ~$152 + mobility ~$44–76)</span>
-          <span class="price-flag">⚠ Price surprisingly low for RE+ show week — confirm at checkout. Older budget property; quality caveat.</span>
-          </div>
-        </article>
-<article class="hotel-card" id="hotel-linq">
-          <div class="photos">
-            <img src="images/linq-1.jpg" alt="The LINQ Hotel exterior" loading="lazy">
-            <img src="images/linq-2.jpg" alt="The LINQ Hotel and Casino exterior" loading="lazy">
-          </div>
-          <div class="body">
-            <span class="tier-label c">Tier C · Monorail</span>
-            <span class="avail-badge live">Available · 2 beds</span>
-            <span class="checked-stamp">Checked Oct 5, 2026 ~8:30pm PT</span>
-            <span class="firm-badge mixed">Firm likelihood: Unknown / mixed</span>
-            <h3>The LINQ Hotel</h3>
-            <p class="tldr">Cheapest RE+ rate band on the list — mid-Strip with Monorail to LVCC (walk too long). Only if total cost clearly wins vs Paradise walk hotels.</p>
-            <p class="addr">3535 S Las Vegas Blvd · ≈ 36.1184, −115.1706</p>
-            <ul>
-              <li><strong>Beds:</strong> <strong>Deluxe 2 Double</strong> ($63/nt) or <strong>2 queens</strong> ($68/nt) on Expedia — live Oct 5</li>
-              <li><strong>Walk LVCC:</strong> ~<strong>35 min</strong> — use <strong>Monorail</strong> (Harrah’s/LINQ → LVCC)</li>
-              <li><strong>Airport shuttle:</strong> <strong>None</strong> hotel — Uber</li>
-              <li><strong>Amenities:</strong> Casino, High Roller / Promenade access; <strong>$49.95</strong> resort fee</li>
-              <li><strong>Book:</strong> RE+ housing or Caesars / LINQ (Expedia showed Deluxe 2 Double / 2Q on Oct 5 — confirm at checkout)</li>
-            </ul>
-            <span class="est">LIVE Oct 5 (Expedia): Deluxe 2 Double $63/nt · 2Q $68/nt · taxes/fees included per Expedia · cancel not shown</span>
-            <span class="meta-line"><strong>Freshness:</strong> $223M reno / rebrand <strong>2014–2015</strong> (Travel Weekly)</span>
-            <span class="meta-line"><strong>Mobility est.:</strong> Mon+Wed Uber ~$40–72 · Tue Monorail ~$12–15</span>
-            <span class="all-in">≈ All-in 2nt: ~$178–213 (2 Double ~$126) or ~$188–223 (2Q ~$136) + mobility ~$52–87</span>
-          <span class="price-flag">⚠ Price surprisingly low for RE+ show week — confirm at checkout. Not walkable to LVCC — use Monorail.</span>
-          </div>
-        </article>
-<article class="hotel-card unavailable" id="hotel-springhill">
-          <div class="photos">
-            <img src="images/springhill-1.jpg" alt="SpringHill Suites LVCC suite" loading="lazy">
-            <img src="images/springhill-2.jpg" alt="SpringHill Suites LVCC suite alternate" loading="lazy">
-          </div>
-          <div class="body">
-            <span class="tier-label b">Tier B</span>
-            <span class="avail-badge nobed">No 2-bed rooms left</span>
-            <span class="firm-badge medium">Firm likelihood: Medium / mixed</span>
-            <h3>SpringHill Suites LVCC</h3>
-            <p class="tldr">All-suite Paradise Rd pick with confirmed 2-queen suites + breakfast — walk to LVCC, quieter than casino towers.</p>
-            <p class="addr">2989 Paradise Rd · ≈ 36.1352, −115.1549</p>
-            <ul>
-              <li><strong>Beds:</strong> Suite with <strong>2 queens</strong> + trundle (confirm 2Q at book)</li>
-              <li><strong>Walk LVCC:</strong> ~<strong>5–10 min</strong></li>
-              <li><strong>Loop:</strong> LVCC campus stations (~5–10 min walk)</li>
-              <li><strong>Airport shuttle:</strong> <strong>None</strong> — Uber for Mon late / Wed early</li>
-              <li><strong>Amenities:</strong> Hot breakfast, rooftop pool, gym, free Wi-Fi</li>
-              <li><strong>Book:</strong> RE+ housing or <a href="https://www.marriott.com/en-us/hotels/laspr-springhill-suites-las-vegas-convention-center/overview/" target="_blank" rel="noopener">marriott.com/LASPR</a></li>
-            </ul>
-            <span class="est">LIVE Oct 5: only suite 1 king + trundle sofa · ~$131/nt — no true 2-bed</span>
-            <span class="meta-line"><strong>Freshness:</strong> Opened <strong>Oct 2009</strong> · reno cited ~2017</span>
-            <span class="meta-line"><strong>Mobility est.:</strong> Mon+Wed Uber ~$44–76 · Tue walk $0</span>
-            <span class="all-in">≈ All-in 2nt: ~$482–514 (RE+ room + mobility)</span>
-          </div>
-        </article>
-<article class="hotel-card unavailable" id="hotel-courtyard">
-          <div class="photos">
-            <img src="images/courtyard-1.jpg" alt="Courtyard LVCC queen queen room" loading="lazy">
-            <img src="images/courtyard-2.jpg" alt="Courtyard LVCC queen queen room alternate" loading="lazy">
-          </div>
-          <div class="body">
-            <span class="tier-label b">Tier B</span>
-            <span class="avail-badge nobed">No 2-bed rooms left</span>
-            <span class="firm-badge medium">Firm likelihood: Medium</span>
-            <h3>Courtyard LVCC</h3>
-            <p class="tldr">Straight convention workhorse on Paradise with queen/queen rooms and a short walk to LVCC — practical, not plush.</p>
-            <p class="addr">3275 Paradise Rd · ≈ 36.1295, −115.1540</p>
-            <ul>
-              <li><strong>Beds:</strong> <strong>2 queens</strong> guest rooms (Marriott gallery)</li>
-              <li><strong>Walk LVCC:</strong> ~<strong>5–10 min</strong></li>
-              <li><strong>Loop:</strong> LVCC campus stations (~5–10 min walk)</li>
-              <li><strong>Airport shuttle:</strong> <strong>None</strong> — Uber</li>
-              <li><strong>Amenities:</strong> Bistro, indoor pool, gym, non-casino</li>
-              <li><strong>Book:</strong> RE+ housing or <a href="https://www.marriott.com/en-us/hotels/lasch-courtyard-las-vegas-convention-center/overview/" target="_blank" rel="noopener">marriott.com/LASCH</a></li>
-            </ul>
-            <span class="est">LIVE Oct 5: only 1 king suite · $2,056/2nt — no 2-bed</span>
-            <span class="meta-line"><strong>Freshness:</strong> Built <strong>1989</strong> · last major reno <strong>2019</strong> (Cvent)</span>
-            <span class="meta-line"><strong>Mobility est.:</strong> Mon+Wed Uber ~$44–76 · Tue walk $0</span>
-            <span class="all-in">≈ All-in 2nt: ~$462–494</span>
-          </div>
-        </article>
-<article class="hotel-card unavailable" id="hotel-sonesta">
-          <div class="photos">
-            <img src="images/sonesta-1.jpg" alt="Sonesta Simply Suites LVCC one bedroom suite" loading="lazy">
-            <img src="images/sonesta-2.jpg" alt="Sonesta Simply Suites LVCC studio suite" loading="lazy">
-          </div>
-          <div class="body">
-            <span class="tier-label b">Tier B*</span>
-            <span class="avail-badge nobed">No 2-bed rooms left</span>
-            <span class="firm-badge medium">Firm likelihood: Unknown (new mattresses post-reno likely)</span>
-            <h3>Sonesta Simply Suites LVCC</h3>
-            <p class="tldr">Freshest extended-stay on Paradise (reno done May 2026) with 2-queen suites + kitchen — walk is ~1.3 mi (~20–30 min), so only if freshness/price wins.</p>
-            <p class="addr">4034 S Paradise Rd · ≈ 36.1165, −115.1540</p>
-            <ul>
-              <li><strong>Beds:</strong> <strong>1BR suite · 2 queens</strong> (~460 sq ft) — confirm at book</li>
-              <li><strong>Walk LVCC:</strong> ~<strong>20–30 min</strong> (official 1.3 mi) — over preferred ≤20</li>
-              <li><strong>Airport shuttle:</strong> <strong>None</strong> — Uber (~1.9 mi to LAS per Cvent)</li>
-              <li><strong>Amenities:</strong> Full kitchen, gym, laundry, pool; <strong>no resort fee</strong></li>
-              <li><strong>Book:</strong> <a href="https://www.sonesta.com/sonesta-simply-suites/nv/las-vegas/sonesta-simply-suites-las-vegas-convention-center" target="_blank" rel="noopener">sonesta.com</a></li>
-            </ul>
-            <span class="est">LIVE Oct 5: 1 queen studio only — no 2-bed</span>
-            <span class="meta-line"><strong>Freshness:</strong> Built 2000 · reno completed <strong>May 6, 2026</strong> (Sonesta PR) — feels new</span>
-            <span class="meta-line"><strong>Mobility est.:</strong> Mon+Wed Uber ~$36–64 · Tue walk $0 (or short Uber ~$8–15 RT)</span>
-            <span class="all-in">≈ All-in 2nt: re-quote room + ~$36–64</span>
-          </div>
-        </article>
-<article class="hotel-card unavailable" id="hotel-encore">
-          <div class="photos">
-            <img src="images/encore-1.jpg" alt="Encore Resort Suite bedroom" loading="lazy">
-            <img src="images/encore-2.jpg" alt="Encore Resort Suite sitting area" loading="lazy">
-          </div>
-          <div class="body">
-            <span class="tier-label c">Tier C</span>
-            <span class="avail-badge nobed">No 2-bed rooms left</span>
-            <span class="firm-badge plush">Firm likelihood: Plush (Wynn Dream Bed)</span>
-            <h3>Encore Las Vegas</h3>
-            <p class="tldr">Luxury Loop-on-site option with Encore Resort Two Queens — spendy, soft beds, best tunnel commute of the Loop set.</p>
-            <p class="addr">3131 S Las Vegas Blvd · ≈ 36.1295, −115.1650</p>
-            <ul>
-              <li><strong>Beds:</strong> <strong>Encore Resort Two Queens</strong> (~745 sq ft) — pillow-top Dream Beds</li>
-              <li><strong>Loop:</strong> <strong>On-site Encore station</strong> · short ride to LVCC</li>
-              <li><strong>Walk LVCC:</strong> ~<strong>15–25 min</strong> (prefer Loop)</li>
-              <li><strong>Airport shuttle:</strong> <strong>None</strong> overnight — Uber (Airport Loop daytime only)</li>
-              <li><strong>Amenities:</strong> Full Wynn/Encore dining, pools, spa, casino</li>
-              <li><strong>Book:</strong> RE+ housing or <a href="https://www.wynnlasvegas.com/" target="_blank" rel="noopener">wynnlasvegas.com</a></li>
-            </ul>
-            <span class="est">LIVE Oct 5: king only · $444/nt — no 2-bed</span>
-            <span class="meta-line"><strong>Freshness:</strong> Opened <strong>Dec 22, 2008</strong></span>
-            <span class="meta-line"><strong>Mobility est.:</strong> Mon+Wed Uber ~$50–84 · Tue Loop ~$7 RT</span>
-            <span class="all-in">≈ All-in 2nt: ~$845–879</span>
-          </div>
-        </article>
-<article class="hotel-card unavailable" id="hotel-home2">
-          <div class="photos">
-            <img src="images/home2-1.jpg" alt="Home2 Suites LVCC suite" loading="lazy">
-            <img src="images/home2-2.jpg" alt="Home2 Suites LVCC suite alternate" loading="lazy">
-          </div>
-          <div class="body">
-            <span class="tier-label a">Tier A</span>
-            <span class="avail-badge sold">Sold out Nov 16–18</span>
-            <span class="firm-badge medium">Firm likelihood: Medium / unknown</span>
-            <h3>Home2 Suites LVCC</h3>
-            <p class="tldr">Only available shortlist hotel with a hotel-arranged airport transfer (complimentary Uber, reported daytime) plus a real walk to LVCC — confirm hours by phone.</p>
-            <p class="addr">755 Sierra Vista Dr · ≈ 36.1264, −115.1465</p>
-            <ul>
-              <li><strong>Beds:</strong> <strong>Studio 2 queens</strong> (Hilton/Suiteness catalogs) — confirm at book</li>
-              <li><strong>Walk LVCC:</strong> ~<strong>10–15 min</strong> (West ~11 / Central ~14)</li>
-              <li><strong>Loop:</strong> Short walk to LVCC campus stations</li>
-              <li><strong>Airport shuttle:</strong> <strong>Complimentary Uber</strong> (FAQ mirrors: <strong>7:00am–11:00pm</strong>; call hotel to arrange). <strong>Not</strong> a 24h van</li>
-              <li><strong>Overnight fit:</strong> <strong>No</strong> for Mon ~11pm or Wed ~4–4:30am — <strong>Uber those legs</strong>; daytime Uber voucher is still a plus</li>
-              <li><strong>Amenities:</strong> Kitchenette, breakfast, pool, gym, no resort fee (parking fee typical)</li>
-              <li><strong>Book:</strong> <a href="https://www.hilton.com/en/hotels/lasvcht-home2-suites-las-vegas-convention-center/" target="_blank" rel="noopener">hilton.com/LASVCHT</a> · not on RE+ housing list</li>
-            </ul>
-            <span class="est">Est. midweek mid-Nov · re-quote live · ESTIMATE</span>
-            <span class="meta-line"><strong>Freshness:</strong> Opened <strong>Sep 2020</strong> (dual-brand new build w/ Hampton)</span>
-            <span class="meta-line"><strong>Mobility est.:</strong> Mon+Wed Uber ~$44–76 (daytime Uber voucher misses flight windows) · Tue walk $0</span>
-            <span class="all-in">≈ All-in 2nt: room (re-quote) + ~$44–76 mobility</span>
-          </div>
-        </article>
-<article class="hotel-card unavailable" id="hotel-hampton">
-          <div class="photos">
-            <img src="images/hampton-1.jpg" alt="Hampton Inn Suites LVCC guest room" loading="lazy">
-            <img src="images/hampton-2.jpg" alt="Hampton Inn Suites LVCC guest room alternate" loading="lazy">
-          </div>
-          <div class="body">
-            <span class="tier-label b">Tier B</span>
-            <span class="avail-badge sold">Sold out Nov 16–18</span>
-            <span class="firm-badge medium">Firm likelihood: Medium</span>
-            <h3>Hampton Inn &amp; Suites LVCC</h3>
-            <p class="tldr">Same Sierra Vista campus as Home2 — short walk, 2-queen rooms, breakfast; no airport shuttle (unlike Home2’s Uber perk).</p>
-            <p class="addr">755 Sierra Vista Dr · ≈ 36.1264, −115.1465</p>
-            <ul>
-              <li><strong>Beds:</strong> <strong>2 queen</strong> rooms (catalogs) — confirm at book</li>
-              <li><strong>Walk LVCC:</strong> ~<strong>10–15 min</strong></li>
-              <li><strong>Loop:</strong> Walk to LVCC campus stations</li>
-              <li><strong>Airport shuttle:</strong> <strong>None</strong> (Hilton location: Not available) — Uber</li>
-              <li><strong>Amenities:</strong> Hot breakfast, pool, gym, non-casino</li>
-              <li><strong>Book:</strong> <a href="https://www.hilton.com/en/hotels/lassvhx-hampton-suites-las-vegas-convention-center/" target="_blank" rel="noopener">hilton.com/LASSVHX</a></li>
-            </ul>
-            <span class="est">Re-quote live · ESTIMATE</span>
-            <span class="meta-line"><strong>Freshness:</strong> Opened <strong>Sep 2020</strong> (same dual brand as Home2)</span>
-            <span class="meta-line"><strong>Mobility est.:</strong> Mon+Wed Uber ~$44–76 · Tue walk $0</span>
-            <span class="all-in">≈ All-in 2nt: room (re-quote) + ~$44–76</span>
-          </div>
-        </article>
-<article class="hotel-card unavailable" id="hotel-residence">
-          <div class="photos">
-            <img src="images/residence-1.jpg" alt="Residence Inn LVCC two-bedroom loft" loading="lazy">
-            <img src="images/residence-2.jpg" alt="Residence Inn LVCC queen studio" loading="lazy">
-          </div>
-          <div class="body">
-            <span class="tier-label b">Tier B</span>
-            <span class="avail-badge sold">Sold out Nov 16–18</span>
-            <span class="firm-badge medium">Firm likelihood: Medium</span>
-            <h3>Residence Inn LVCC</h3>
-            <p class="tldr">Extended-stay loft option with real second bedroom (king + queen) and kitchen — space tradeoff vs casino hotels.</p>
-            <p class="addr">3225 Paradise Rd · ≈ 36.1305, −115.1540</p>
-            <ul>
-              <li><strong>Beds:</strong> Prefer <strong>2BR loft</strong> (king + queen + sofa); studio = 1 queen + sofa</li>
-              <li><strong>Walk LVCC:</strong> ~<strong>5–10 min</strong></li>
-              <li><strong>Loop:</strong> LVCC campus walk (~5–10 min)</li>
-              <li><strong>Airport shuttle:</strong> <strong>None</strong> — Uber</li>
-              <li><strong>Amenities:</strong> Breakfast, full kitchen (loft), pool, gym</li>
-              <li><strong>Book:</strong> RE+ housing or <a href="https://www.marriott.com/en-us/hotels/lasnv-residence-inn-las-vegas-convention-center/overview/" target="_blank" rel="noopener">marriott.com/LASNV</a></li>
-            </ul>
-            <span class="est">RE+ block ~$219/night + tax · ESTIMATE · loft usually higher than studio</span>
-            <span class="meta-line"><strong>Freshness:</strong> Built <strong>1989</strong> · reno <strong>2019</strong>; Expedia lists Mar–Jun 2026 refresh (expect done by Nov)</span>
-            <span class="meta-line"><strong>Mobility est.:</strong> Mon+Wed Uber ~$44–76 · Tue walk $0</span>
-            <span class="all-in">≈ All-in 2nt: ~$482–514 (loft may higher)</span>
-          </div>
-        </article>
-<article class="hotel-card unavailable" id="hotel-fairfield">
-          <div class="photos">
-            <img src="images/fairfield-1.jpg" alt="Fairfield Inn LVCC exterior" loading="lazy">
-            <img src="images/fairfield-2.jpg" alt="Fairfield Inn LVCC exterior alternate" loading="lazy">
-          </div>
-          <div class="body">
-            <span class="tier-label b">Tier B</span>
-            <span class="avail-badge sold">Sold out Nov 16–18</span>
-            <span class="firm-badge medium">Firm likelihood: Medium / unknown</span>
-            <h3>Fairfield Inn LVCC</h3>
-            <p class="tldr">South-Paradise Marriott select with 2-queen rooms and a 2025 reno — walkable to LVCC (~15–20), slightly closer Uber to LAS.</p>
-            <p class="addr">3850 Paradise Rd · ≈ 36.1197, −115.1541</p>
-            <ul>
-              <li><strong>Beds:</strong> <strong>2 queens</strong> guestrooms (Marriott gallery / Trip.com)</li>
-              <li><strong>Walk LVCC:</strong> ~<strong>15–20 min</strong> (≈1.0 mi sidewalk-adj.)</li>
-              <li><strong>Loop:</strong> Walk to LVCC campus stations</li>
-              <li><strong>Airport shuttle:</strong> <strong>None</strong> found — Uber (slightly shorter than north Paradise)</li>
-              <li><strong>Amenities:</strong> Hot breakfast, outdoor pool, 24/7 gym, free Wi-Fi</li>
-              <li><strong>Book:</strong> <a href="https://www.marriott.com/en-us/hotels/lasfi-fairfield-inn-las-vegas-convention-center/overview/" target="_blank" rel="noopener">marriott.com/LASFI</a></li>
-            </ul>
-            <span class="est">OTA re-quote for Nov 16–18 · ESTIMATE</span>
-            <span class="meta-line"><strong>Freshness:</strong> Opened <strong>1990</strong> · renovated <strong>2025</strong> (Trip.com)</span>
-            <span class="meta-line"><strong>Mobility est.:</strong> Mon+Wed Uber ~$36–64 · Tue walk $0</span>
-            <span class="all-in">≈ All-in 2nt: room (re-quote) + ~$36–64</span>
-          </div>
-        </article>
-<article class="hotel-card unavailable" id="hotel-embassy">
-          <div class="photos">
-            <img src="images/embassy-1.jpg" alt="Embassy Suites Convention Center two queens suite" loading="lazy">
-            <img src="images/embassy-2.jpg" alt="Embassy Suites Convention Center two queens suite alternate" loading="lazy">
-          </div>
-          <div class="body">
-            <span class="tier-label b">Tier B</span>
-            <span class="avail-badge sold">Sold out Nov 16–18</span>
-            <span class="firm-badge medium">Firm likelihood: Medium</span>
-            <h3>Embassy Suites Convention Center</h3>
-            <p class="tldr">Two-room 2-queen suites + free breakfast/evening reception; free daytime shuttle to LVCC — but <strong>no airport</strong> shuttle.</p>
-            <p class="addr">3600 Paradise Rd · ≈ 36.1240, −115.1539</p>
-            <ul>
-              <li><strong>Beds:</strong> <strong>2-room suite · 2 queens</strong> (+ sofa living room) — confirm at book</li>
-              <li><strong>Walk LVCC:</strong> ~<strong>12–20 min</strong> · or free hotel shuttle to LVCC / Monorail / Fashion Show <strong>hourly 7:30am–10:30pm</strong></li>
-              <li><strong>Airport shuttle:</strong> <strong>Not available</strong> (Hilton official) — Uber for airport</li>
-              <li><strong>Overnight fit:</strong> LVCC shuttle hours miss Wed 4am; no airport van</li>
-              <li><strong>Amenities:</strong> Cooked-to-order breakfast, evening reception, indoor pool, gym</li>
-              <li><strong>Book:</strong> RE+ housing or <a href="https://www.hilton.com/en/hotels/lascces-embassy-suites-convention-center-las-vegas/" target="_blank" rel="noopener">hilton.com/LASCCES</a></li>
-            </ul>
-            <span class="est">RE+ block ~$179 Sun/Fri/Sat / $194 Mon–Thu + tax · ESTIMATE</span>
-            <span class="meta-line"><strong>Freshness:</strong> Opened <strong>2000</strong> · reno <strong>2024</strong> (Cvent)</span>
-            <span class="meta-line"><strong>Mobility est.:</strong> Mon+Wed Uber ~$44–76 · Tue walk $0 or free hotel LVCC shuttle (daytime)</span>
-            <span class="all-in">≈ All-in 2nt: ~$432–464</span>
-          </div>
-        </article>
-<article class="hotel-card unavailable" id="hotel-hgv-paradise">
-          <div class="photos">
-            <img src="images/hgv-1.jpg" alt="Hilton Grand Vacations Paradise suite" loading="lazy">
-            <img src="images/hgv-2.jpg" alt="Hilton Grand Vacations Paradise suite alternate" loading="lazy">
-          </div>
-          <div class="body">
-            <span class="tier-label b">Tier B</span>
-            <span class="avail-badge sold">Sold out Nov 16–18</span>
-            <span class="firm-badge mixed">Firm likelihood: Unknown / unit-dependent</span>
-            <h3>HGV Club Paradise</h3>
-            <p class="tldr">Value suite near Westgate/LVCC with 2BR layouts that can sleep two on queens — kitchen + laundry bonus.</p>
-            <p class="addr">455 Karen Ave · ≈ 36.1360, −115.1545</p>
-            <ul>
-              <li><strong>Beds:</strong> 2BR suites often <strong>1 king + 2 queens</strong> (+ sofa) — confirm layout</li>
-              <li><strong>Walk LVCC:</strong> ~<strong>8–15 min</strong> via Paradise / Westgate</li>
-              <li><strong>Loop:</strong> Short hop to Westgate / LVCC Loop stations</li>
-              <li><strong>Airport shuttle:</strong> <strong>None</strong> (Hilton: Not available) — Uber</li>
-              <li><strong>Amenities:</strong> Kitchen, W/D in many units, pool, gym, non-casino</li>
-              <li><strong>Book:</strong> RE+ housing or Hilton / HGVC Paradise</li>
-            </ul>
-            <span class="est">RE+ block ~$149–179 + $20 resort fee/night · ESTIMATE</span>
-            <span class="meta-line"><strong>Freshness:</strong> Opened <strong>Dec 1999</strong> · reno <strong>2011</strong> (unit variance)</span>
-            <span class="meta-line"><strong>Mobility est.:</strong> Mon+Wed Uber ~$44–76 · Tue walk $0</span>
-            <span class="all-in">≈ All-in 2nt: ~$382–474</span>
-          </div>
-        </article>
-<article class="hotel-card unavailable" id="hotel-sahara">
-          <div class="photos">
-            <img src="images/sahara-1.jpg" alt="Sahara Alexandria iconic double room" loading="lazy">
-            <img src="images/sahara-2.jpg" alt="Sahara Story Tower double room" loading="lazy">
-          </div>
-          <div class="body">
-            <span class="avail-badge sold">Sold out Nov 16–18</span>
-            <span class="tier-label a">Would be Tier A</span>
-            <span class="firm-badge mixed">Firm likelihood: Mixed / weak</span>
-            <h3>Sahara Las Vegas</h3>
-            <p class="tldr">North Strip Loop + Monorail + paid LASxpress from ~$18/pp — sold out.</p>
-            <p class="addr">2535 S Las Vegas Blvd · ≈ 36.1422, −115.1566</p>
-            <ul>
-              <li><strong>Walk LVCC:</strong> ~10–20 min</li>
-              <li><strong>Airport:</strong> Paid <strong>LASxpress</strong>; Loop 7am–9pm — Uber for your windows</li>
-            </ul>
-            <span class="est">Was RE+ ~$99–199 + fee · ESTIMATE</span>
-          </div>
-        </article>
-<article class="hotel-card unavailable" id="hotel-marriott">
-          <div class="photos">
-            <img src="images/marriott-1.jpg" alt="Las Vegas Marriott guestroom" loading="lazy">
-            <img src="images/marriott-2.jpg" alt="Las Vegas Marriott suite" loading="lazy">
-          </div>
-          <div class="body">
-            <span class="avail-badge sold">Sold out Nov 16–18</span>
-            <span class="tier-label b">Would be Tier B</span>
-            <span class="firm-badge medium">Firm likelihood: Medium</span>
-            <h3>Las Vegas Marriott</h3>
-            <p class="tldr">Best pure walk to LVCC West — no hotel airport shuttle — sold out.</p>
-            <p class="addr">325 Convention Center Dr · ≈ 36.1319, −115.1535</p>
-            <ul>
-              <li><strong>Walk LVCC:</strong> ~5–10 min to West Hall</li>
-              <li><strong>Airport shuttle:</strong> None — Uber</li>
-            </ul>
-            <span class="est">Was RE+ ~$279 · ESTIMATE</span>
-          </div>
-        </article>
-<article class="hotel-card unavailable" id="hotel-hilton">
-          <div class="photos">
-            <img src="images/hilton-d1.jpg" alt="Hilton Resorts World Deluxe room" loading="lazy">
-            <img src="images/hilton-d2.jpg" alt="Hilton Resorts World Deluxe room view" loading="lazy">
-          </div>
-          <div class="body">
-            <span class="avail-badge sold">Sold out Nov 16–18</span>
-            <span class="tier-label c">Would be Tier C</span>
-            <span class="firm-badge strong">Firm likelihood: High–medium</span>
-            <h3>Hilton at Resorts World</h3>
-            <p class="tldr">Serenity beds + on-site Loop — longer walk — sold out.</p>
-            <p class="addr">3000 S Las Vegas Blvd / Resorts World · ≈ 36.1337, −115.1662</p>
-            <ul>
-              <li><strong>Walk LVCC:</strong> ~15–25 min (prefer Loop)</li>
-              <li><strong>Airport shuttle:</strong> None hotel — Airport Loop ~10am–9pm only</li>
-            </ul>
-            <span class="est">Was RE+ ~$125–195 + $39 fee · ESTIMATE</span>
-          </div>
-        </article>
-        </div>
-      </details>
     </section>
 
-<section id="map">
+    <section id="map">
       <div class="section-head">
         <div>
           <span class="tag ours">OpenStreetMap + Leaflet</span>
@@ -1442,7 +1307,7 @@
         <div>
           <span class="tag ours">Boring Company</span>
           <h2>Vegas Loop · hours &amp; fares</h2>
-          <p>Excellent for Tue <strong>Westgate ↔ LVCC</strong> (~2 min from the Westgate station). Closes 9pm Mon, so it misses the ~11pm arrival (use Uber or LASxpress, (702) 878-4141). <strong>Wed Nov 18 runs 24h</strong> on the official calendar, so the ~4am Westgate → airport run may work by Loop. Stations: LVCC campus (×5) · Resorts World · <strong>Westgate (our hotel)</strong> · Encore · Fontainebleau · Sahara · airport hybrid (RW/Westgate).</p>
+          <p>Excellent for Tue <strong>Westgate ↔ LVCC</strong> (~2 min from the Westgate station). Closes 9pm Mon, so it misses the ~11pm arrival (use Uber or LASxpress). <strong>Wed Nov 18 still runs 24h</strong> on the official calendar as of Nov 11, with airport rides flagged available, so the ~4am Westgate → airport run may work by Loop. Airport service on Mon Nov 16 is now flagged <strong>off</strong> (hours that day remain 7am–9pm). Stations: LVCC campus (×5) · Resorts World · <strong>Westgate (our hotel)</strong> · Encore · Fontainebleau · Sahara · airport hybrid (RW/Westgate).</p>
         </div>
       </div>
 
@@ -1470,7 +1335,7 @@
             <tr>
               <td><strong>Airport hybrid</strong> (Westgate/RW/LVCC ↔ T1/T3; surface drive, limited availability)</td>
               <td>Day-by-day, follows hotel-station hours · <strong>$12</strong> pp from Westgate</td>
-              <td><span style="color:var(--conflict);font-weight:700">Fails Mon ~11pm</span> · <strong>Wed ~4am: possible</strong> (Nov 18 24h, airport flagged available)</td>
+              <td><span style="color:var(--conflict);font-weight:700">Fails Mon ~11pm</span> (hours 7am–9pm; airport flag now off Nov 16) · <strong>Wed ~4am: still possible</strong> as of Nov 11 (24h, airport flagged available)</td>
             </tr>
           </tbody>
         </table>
@@ -1503,185 +1368,25 @@
         <a href="https://www.rwlasvegas.com/meeting-events/vegas-loop/" target="_blank" rel="noopener">Resorts World Loop</a>
         <a href="https://www.lasvegasdirect.com/riding-the-vegas-loop-ultimate-guide/" target="_blank" rel="noopener">Loop guide (3rd party)</a>
       </div>
-      <p class="src-note"><strong>Nov 2 re-check:</strong> no change for our dates — Mon Nov 16 Loop 7am–9pm (Uber/LASxpress for the ~11pm arrival) · Tue Nov 17 6:30am–11:59pm · Wed Nov 18 24h with airport rides flagged available. Note: the Loop calendar switched airport service <em>off</em> for several early-Nov days since Oct 19, so the Wed airport flag can still change — keep the backup. Paradise Rd tunnel: Boring Co. now plans to open <strong>both tunnels together before F1 (Nov 19–21)</strong>, still no date (RJ, Oct 22) — likely after we leave; no effect. LASxpress still “24/7”, no published fare. Airport connector tunnel repaving lane closures still posted through Dec 2026.<br><strong>Oct 20 re-check:</strong> transport plan unchanged — Mon ~11pm Uber or LASxpress ((702) 878-4141, Loop closes 9pm) · Tue Loop 6:30am–11:59pm (~2 min from Westgate) · Wed Nov 18 Loop 24h, ~$12 Westgate → airport, airport service “Limited Availability” · airport connector tunnel lanes closed for repaving through Dec 2026.<br><strong>Oct 19 check:</strong> Official Loop hours calendar (vegasloop.com Hours tab) shows hotel stations 7am–9pm normally; <strong>Tue Nov 17 6:30am–11:59pm</strong>; <strong>Wed Nov 18 – Sat Nov 21 24h</strong> (F1 race week) with airport rides flagged available — so a ~4am Westgate → LAS Loop ride looks possible, but airport service is “limited availability” and the calendar can change: re-check Nov 13/16 and keep Uber/LASxpress as backup. Mon Nov 16 closes 9pm → <strong>Uber/LASxpress still required for the Mon ~11pm arrival</strong>. Fares above are from a 3rd-party read of the booking form (Oct 13), not verified directly. <strong>Paradise Rd tunnel:</strong> still not open — Boring Co. lists Virgin, 4744 Paradise, Hughes Center, Renaissance, Hyatt Place as “opening soon”; LVCVA expects both tunnels before F1 (Nov 19–21). No effect on our plan (Westgate has its own station). On-airport stations / full Airport Connector tunnel: no opening date. <strong>Roads:</strong> Harry Reid airport connector tunnel lane closures (repaving) through Dec 2026 — allow extra time; F1 track closures start Nov 19 (after our Wed 4am departure); Koval Ln closed Nov 15–24 (not on the Paradise Rd route).</p>
+      <p class="src-note"><strong>Nov 11 re-check:</strong> Hours for our dates are unchanged — Mon Nov 16 Loop 7am–9pm (LVCC 7:30–5:30) · Tue Nov 17 6:30am–11:59pm · Wed Nov 18 24h. One change: <strong>airportAvailable flipped to off for Mon Nov 16</strong> (it was on in the Nov 2 snapshot). That doesn’t change the ~11pm arrival plan (Loop already closes 9pm). Wed Nov 18 airport rides are still flagged available — but the flag also flipped off for Nov 12–15 and for Thu Nov 19, so keep the Uber/LASxpress backup. Paradise Rd tunnels: still not open as of Nov 11. FOX5 (Nov 10) reports LVCVA expects a temporary occupancy permit this week and the Paradise / UNLV-area stop open before F1 (Nov 19–21); Hughes Center / Virgin still being finished, no date. No effect on our Westgate plan (own station). LASxpress still “24/7”, no published fare. Airport connector tunnel repaving lane closures still posted through Dec 2026.<br><strong>Nov 2 re-check:</strong> no change for our dates — Mon Nov 16 Loop 7am–9pm (Uber/LASxpress for the ~11pm arrival) · Tue Nov 17 6:30am–11:59pm · Wed Nov 18 24h with airport rides flagged available. Note: the Loop calendar switched airport service <em>off</em> for several early-Nov days since Oct 19, so the Wed airport flag can still change — keep the backup. Paradise Rd tunnel: Boring Co. now plans to open <strong>both tunnels together before F1 (Nov 19–21)</strong>, still no date (RJ, Oct 22) — likely after we leave; no effect. LASxpress still “24/7”, no published fare. Airport connector tunnel repaving lane closures still posted through Dec 2026.<br><strong>Oct 20 re-check:</strong> transport plan unchanged — Mon ~11pm Uber or LASxpress (Loop closes 9pm) · Tue Loop 6:30am–11:59pm (~2 min from Westgate) · Wed Nov 18 Loop 24h, ~$12 Westgate → airport, airport service “Limited Availability” · airport connector tunnel lanes closed for repaving through Dec 2026.<br><strong>Oct 19 check:</strong> Official Loop hours calendar (vegasloop.com Hours tab) shows hotel stations 7am–9pm normally; <strong>Tue Nov 17 6:30am–11:59pm</strong>; <strong>Wed Nov 18 – Sat Nov 21 24h</strong> (F1 race week) with airport rides flagged available — so a ~4am Westgate → LAS Loop ride looks possible, but airport service is “limited availability” and the calendar can change: re-check Nov 13/16 and keep Uber/LASxpress as backup. Mon Nov 16 closes 9pm → <strong>Uber/LASxpress still required for the Mon ~11pm arrival</strong>. Fares above are from a 3rd-party read of the booking form (Oct 13), not verified directly. <strong>Paradise Rd tunnel:</strong> still not open — Boring Co. lists Virgin, 4744 Paradise, Hughes Center, Renaissance, Hyatt Place as “opening soon”; LVCVA expects both tunnels before F1 (Nov 19–21). No effect on our plan (Westgate has its own station). On-airport stations / full Airport Connector tunnel: no opening date. <strong>Roads:</strong> Harry Reid airport connector tunnel lane closures (repaving) through Dec 2026 — allow extra time; F1 track closures start Nov 19 (after our Wed 4am departure); Koval Ln closed Nov 15–24 (not on the Paradise Rd route).</p>
     </section>
 
-    <section id="vendors">
-      <div class="vendor-banner">
-        <h2>Vendor meetings · St. Thomas 3-home solar + storage</h2>
-        <p>3 new rentals · ~4,000 sq ft each · large flat roofs · solar + batteries targeting 80–90% · hurricane / salt-air / island logistics · remote monitoring for absentee owners. Meetings on <strong>Tue Nov 17</strong> only (~10:30am–5pm).</p>
-      </div>
-
-      <div class="section-head" style="margin-top:0">
-        <div>
-          <span class="tag vendor">Status as of Oct 20, 2026</span>
-          <h2 style="font-size:1.35rem">Top 5 · contacted Oct 20</h2>
-          <p>Each asked for a <strong>Tue booth meeting</strong> plus <strong>one Customer Invitation code</strong> (for Krystian’s brother). All are waiting on replies — follow up <strong>Fri Oct 23</strong> with any that haven’t answered.</p>
-        </div>
-      </div>
-
-      <div class="data-table-wrap">
-        <table class="data-table vendor-tint">
-          <thead>
-            <tr><th>#</th><th>Vendor</th><th>Booth</th><th>Why / focus</th><th>Contacted</th><th>Status</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td><strong>Sol-Ark</strong></td>
-              <td>C6844 / C6854 · Central</td>
-              <td>Hybrid inverter + battery — <strong>best fit</strong>; generator + battery islanding for WAPA outages</td>
-              <td>Oct 20</td>
-              <td><span class="status-badge progress">Awaiting reply</span></td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td><strong>Tesla</strong></td>
-              <td>N726 · North <em>(moved from N527; also lists S6041 South as of Nov 2)</em></td>
-              <td>Solar Roof + Powerwall — the <strong>BIPV option</strong></td>
-              <td>Oct 20 · via contact form</td>
-              <td><span class="status-badge progress">Awaiting reply</span></td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td><strong>Enphase Energy</strong></td>
-              <td>N2026 · North + S11001 · Silver Lot</td>
-              <td>Microinverters + IQ Battery · Caribbean team</td>
-              <td>Oct 20</td>
-              <td><span class="status-badge progress">Awaiting reply</span></td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td><strong>Victron Energy</strong></td>
-              <td>W16965 · West</td>
-              <td>VRM remote monitoring · salt-air / marine-grade gear</td>
-              <td>Oct 20 · LATAM &amp; Caribbean sales manager</td>
-              <td><span class="status-badge progress">Awaiting reply</span></td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td><strong>Enstall</strong> (IronRidge / PanelClaw)</td>
-              <td>N536 · North</td>
-              <td>Hurricane-rated flat-roof racking</td>
-              <td>Oct 20</td>
-              <td><span class="status-badge progress">Awaiting reply</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="section-head" style="margin-top:0">
-        <div>
-          <span class="tag vendor">Second wave</span>
-          <h2 style="font-size:1.35rem">Drafts ready · send if fewer than 3 meetings are booked by Mon Nov 2</h2>
-        </div>
-      </div>
-
-      <div class="data-table-wrap">
-        <table class="data-table vendor-tint">
-          <thead>
-            <tr><th>Vendor</th><th>Booth</th><th>Why</th><th>Status</th></tr>
-          </thead>
-          <tbody>
-            <tr><td><strong>SMA America</strong></td><td>N862 · North</td><td>Sunny Boy Smart Energy hybrids · used by STT EPCs</td><td>Draft ready</td></tr>
-            <tr><td><strong>FranklinWH</strong></td><td>C4614 · Central</td><td>Whole-home battery alternative to Powerwall</td><td>Draft ready</td></tr>
-            <tr><td><strong>OutBack Power</strong> / Energy Access Innovations</td><td>C6688 · Central</td><td>Rugged island / off-grid hybrid gear</td><td>Draft ready</td></tr>
-            <tr><td><strong>Lithion / HomeGrid</strong></td><td>W17053 · West</td><td>LiFePO₄ residential storage</td><td>Draft ready</td></tr>
-            <tr><td><strong>Fortress Power</strong></td><td>C6832 · Central</td><td>LiFePO₄ storage · price benchmark</td><td>Draft ready</td></tr>
-            <tr><td><strong>Kaneka</strong> (BIPV)</td><td>W15949 · West</td><td>On-floor BIPV alternative to Tesla Solar Roof</td><td>Draft ready</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <p><strong>Low priority — walk up if time allows:</strong> Generac C5148 (Central) · Unirac N504 (North) · EG4 C5460 (Central).</p>
-
-      <div class="section-head">
-        <div>
-          <span class="tag vendor">Floor routing</span>
-          <h2 style="font-size:1.35rem">Tue routing tip</h2>
-          <p>Cluster <strong>North</strong> (Tesla N726 · Enphase N2026 · Enstall N536) and <strong>Central</strong> (Sol-Ark C6844/C6854) back-to-back; put <strong>West</strong> (Victron W16965) at the start or end of the day and allow 15–20 min to cross. Re-verify booths in RE+ Connect the week of the show.</p>
-        </div>
-      </div>
-
-      <p class="src-note" style="margin-top:1rem">
-        <strong>Nov 2 exhibitor refresh (Map Your Show, 1,295 exhibitors):</strong> Tesla added a second booth <strong>S6041</strong> (South Hall) alongside N726; every other must-meet unchanged.<br><strong>Oct 19 exhibitor refresh (Map Your Show, 1,275 exhibitors):</strong> <strong>Tesla moved N527 → N726</strong> (North). All other must-meets unchanged: Enphase N2026 (+S11001) · Sol-Ark C6844/C6854 · FranklinWH C4614 · Generac C5148 · SMA N862 · Victron W16965 · Enstall N536 · Energy Access Innovations/OutBack C6688 · Lithion/HomeGrid W17053 · Kaneka W15949 · SolarEdge N1516 · Discover C6584. Silfab / GAF / CertainTeed / sonnen still absent.<br>
-        <strong>Oct 5 check:</strong> No strong new Caribbean / hurricane-island residential matches surfaced in RE+ 26 news; priority booths unchanged. Optional BMS/storage-tech add: Nuvation Energy C6378 (BMS, not a homeowner product). Microgrid Pathway / Grid Edge Theater (West Hall) has resilience sessions on the show floor.<br>
-        <strong>Sep 28 exhibitor refresh:</strong> Priority booths unchanged for Tesla N527 / Enphase N2026 (+S11001) / Sol-Ark C6844–C6854 / FranklinWH C4614 / Generac C5148 / SMA N862 / Victron W16965 / Enstall N536 / Unirac N504 / S-5! N3144 / Kaneka W15949 / Fortress C6832 / EG4 C5460 / Stem C6754 (~1,228 exhibitors). <strong>Directory gaps closed:</strong> OutBack now listed as Energy Access Innovations at C6688; Lithion Battery (HomeGrid/GridBox) at W17053. Silfab still absent. GAF / CertainTeed / sonnen / EcoFlow / Fronius still absent — Kaneka remains primary on-floor BIPV. No material ticket price changes (Tue One-Day still $225/$275). Tesla + Enphase book-ahead advice still stands.
-        Offline STT EPCs (email separately, not on RE+ floor):
-        <a href="https://voltenergyservices.net/" target="_blank" rel="noopener">VOLT Energy</a> ·
-        <a href="https://prosolarcaribbean.com/" target="_blank" rel="noopener">ProSolar</a> ·
-        <a href="https://www.iriesolarvi.com/" target="_blank" rel="noopener">IRIE Solar</a> ·
-        <a href="https://efactoryenergy.com/" target="_blank" rel="noopener">Electric Factory</a> ·
-        <a href="https://www.solar340.com/" target="_blank" rel="noopener">Solar340</a>.
-        Directory: <a href="https://re26.mapyourshow.com/" target="_blank" rel="noopener">re26.mapyourshow.com</a> (~1,228 exhibitors).
-      </p>
-    </section>
-
-        <section id="tickets">
+    <section id="tickets">
       <div class="ticket-banner">
-        <h2>Tickets · Tuesday Expo</h2>
-        <p>Lean Tuesday Expo day — Krystian’s pass is set; brother still needs his.</p>
+        <h2>Passes</h2>
+        <p>Krystian has his Tuesday Expo pass. Andy TBD — he still needs a Tue Expo pass unless a vendor invitation arrives.</p>
       </div>
-
-      <div class="ticket-status">
+      <div class="pass-short ticket-status">
         <div class="ticket-person done">
           <h3>Krystian</h3>
           <span class="status-badge done">Done</span>
           <p style="margin:.55rem 0 0">Expo day pass for <strong>Tue Nov 17</strong> — purchased.</p>
         </div>
         <div class="ticket-person progress">
-          <h3>Brother</h3>
-          <span class="status-badge open">Needs pass</span>
-          <p style="margin:.55rem 0 0">Still needs to buy a <strong>Tue Nov 17 Expo pass</strong> (about <strong>$275 nonmember</strong>) — unless one of the top 5 vendors sends a Customer Invitation code.</p>
+          <h3>Andy</h3>
+          <span class="status-badge open">TBD</span>
+          <p style="margin:.55rem 0 0">Still needs a <strong>Tue Nov 17 Expo pass</strong> — exact flights also TBD.</p>
         </div>
-      </div>
-
-      <div class="data-table-wrap">
-        <table class="data-table ticket-tint">
-          <thead>
-            <tr><th>Pass</th><th class="amt">Member / Nonmember</th><th>Fit for this trip</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Expo Hall One-Day</strong> (Tue/Wed/Thu)</td>
-              <td class="amt"><strong>$225 / $275</strong></td>
-              <td><strong>Our pass</strong> — Tuesday · Krystian done · brother still to buy (~$275 nonmember)</td>
-            </tr>
-            <tr>
-              <td>Expo Hall Only (all exhibit days)</td>
-              <td class="amt">$335 / $445</td>
-              <td>Only if plans slip to Wed AM (you fly out early — unlikely)</td>
-            </tr>
-            <tr>
-              <td>Full Conference</td>
-              <td class="amt">$1,237 / $1,497</td>
-              <td>Only for Block Party / lounges / Mon education (limited Mon value)</td>
-            </tr>
-            <tr>
-              <td>Tech &amp; Innovation Forum + Expo</td>
-              <td class="amt">$695 / $805</td>
-              <td>If you want Tue tech sessions + floor</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="invite-box">
-        <h3>Exhibitor Customer Invitation — requested Oct 20</h3>
-        <p>One invitation code for the brother was requested from each of the top 5 (Sol-Ark, Tesla, Enphase, Victron, Enstall). Awaiting replies.</p>
-        <ol>
-          <li>If a code arrives, the brother registers at <a href="https://www.re-plus.com/register/" target="_blank" rel="noopener">re-plus.com/register</a> with it.</li>
-          <li>If no code by the follow-up round, he buys the Tue Expo pass (~$275 nonmember).</li>
-        </ol>
-      </div>
-
-      <p><strong>Notes:</strong> Refunds closed (Oct 2+) — non-refundable; same-company substitutions allowed. Member pricing needs SEIA premium / SEPA membership verified by Nov 12, 2026, 5pm EDT. Housing is already booked via RE+ block.</p>
-      <div class="links-row">
-        <a href="https://www.re-plus.com/register/" target="_blank" rel="noopener">Register</a>
-        <a href="https://www.re-plus.com/explore-pass-types/" target="_blank" rel="noopener">Pass types</a>
-        <a href="https://www.re-plus.com/exhibitor-resources/" target="_blank" rel="noopener">Exhibitor resources (invites)</a>
-        <a href="https://www.re-plus.com/attend/" target="_blank" rel="noopener">Attend / housing</a>
-        <a href="https://www.re-plus.com/" target="_blank" rel="noopener">re-plus.com</a>
       </div>
     </section>
 
@@ -1690,7 +1395,7 @@
         <div>
           <span class="tag warn">Before you go</span>
           <h2>Next steps</h2>
-          <p>As of Oct 20, 2026: hotel booked (Westgate), Krystian’s Tue pass done, top 5 vendor requests out. Remaining: replies, meeting times, brother’s pass + flights, airport ride.</p>
+          <p>As of Nov 11, 2026: hotel booked, Krystian’s Tue pass done, Enstall and Victron locked. Remaining: Brad’s Tesla time, Sol-Ark’s 3:30pm, Andy’s pass and flights, and the airport-ride backup.</p>
         </div>
       </div>
       <div class="pretrip-list">
@@ -1698,31 +1403,30 @@
           <div class="check-box" aria-hidden="true"></div>
           <div>
             <div class="check-item-head">
-              <h3>Follow up with any of the top 5 that haven’t replied</h3>
-              <span class="status-badge open">Fri Oct 23</span>
+              <h3>Await Brad on the 10:30–11:30am Tesla / ProSolar slot</h3>
+              <span class="status-badge progress">Nudged Nov 11</span>
             </div>
-            <p>Sol-Ark, Tesla, Enphase, Victron, Enstall were contacted Oct 20 for a Tue booth meeting + one invitation code.</p>
-            <div class="action"><strong>If fewer than 3 meetings are booked by Mon Nov 2:</strong> send the second-wave drafts (SMA, FranklinWH, OutBack/EAI, Lithion/HomeGrid, Fortress, Kaneka).</div>
+            <p>Ask him to confirm Tuesday 10:30am at Tesla N527 and wrap by 11:30, before Enstall at N536.</p>
           </div>
         </div>
         <div class="check-item">
           <div class="check-box" aria-hidden="true"></div>
           <div>
             <div class="check-item-head">
-              <h3>Lock meeting times</h3>
-              <span class="status-badge open">Open</span>
+              <h3>Await Sol-Ark on 3:30pm</h3>
+              <span class="status-badge progress">Followed up Nov 11</span>
             </div>
-            <p>Confirm Tue Nov 17 slots between ~10:30am and 5pm, with 15–20 min between halls (West is far from North/Central).</p>
+            <p>3:30pm Tuesday at C6844/C6854 was requested again. If they’re still quiet, walk up Wednesday is not an option — we’re flying out at 6:00am — so try the booth after Victron if needed.</p>
           </div>
         </div>
         <div class="check-item">
           <div class="check-box" aria-hidden="true"></div>
           <div>
             <div class="check-item-head">
-              <h3>Brother — buy Tue Expo pass &amp; share flight times</h3>
+              <h3>Andy — Tue Expo pass and flight times</h3>
               <span class="status-badge open">Open</span>
             </div>
-            <p>Buy the Tue Expo pass (~$275 nonmember) unless a vendor sends an invitation code. Share his EWR–LAS flight times.</p>
+            <p>Buy the Tuesday Expo pass unless a vendor invitation arrives, and share EWR–LAS flight times.</p>
           </div>
         </div>
         <div class="check-item">
@@ -1732,7 +1436,7 @@
               <h3>Decide: Uber vs pre-booking LASxpress</h3>
               <span class="status-badge open">Open</span>
             </div>
-            <p>Mon ~11pm arrival: Loop closes 9pm, so Uber or LASxpress ((702) 878-4141). Wed ~4am: Loop runs 24h on Nov 18 (~$12 Westgate → airport, “Limited Availability”) — keep Uber/LASxpress as backup.</p>
+            <p>Mon ~11pm arrival: Loop closes 9pm (airport service also flagged off Nov 16), so Uber or LASxpress. Wed ~4am: Loop still runs 24h on Nov 18 with airport flagged available (~$12 Westgate → airport, limited availability) — keep Uber/LASxpress as backup, because that flag has flipped on nearby days.</p>
           </div>
         </div>
         <div class="check-item done">
@@ -1742,7 +1446,7 @@
               <h3>Hotel booked — Westgate (RE+ housing)</h3>
               <span class="status-badge done">Done</span>
             </div>
-            <p>Westgate Las Vegas, Mon Nov 16 – Wed Nov 18, one shared room. Confirmed: first-night deposit charged (Oct 2026). At check-in: request 2 queens + firm mattress / higher floor.</p>
+            <p>Westgate Las Vegas, Mon Nov 16 – Wed Nov 18, one shared room. First-night deposit charged (Oct 2026). At check-in: request 2 queens + firm mattress / higher floor.</p>
           </div>
         </div>
         <div class="check-item done">
@@ -1759,20 +1463,10 @@
           <div class="check-box" aria-hidden="true"></div>
           <div>
             <div class="check-item-head">
-              <h3>Top 5 vendor outreach</h3>
-              <span class="status-badge done">Sent Oct 20</span>
+              <h3>Enstall 11:45am and Victron 2:00pm locked</h3>
+              <span class="status-badge done">Booked</span>
             </div>
-            <p>Meeting + invitation-code requests sent to Sol-Ark, Tesla (contact form), Enphase, Victron (LATAM &amp; Caribbean sales), Enstall.</p>
-          </div>
-        </div>
-        <div class="check-item">
-          <div class="check-box" aria-hidden="true"></div>
-          <div>
-            <div class="check-item-head">
-              <h3>Re-check booth map + Loop hours show week</h3>
-              <span class="status-badge open">Nov 2026</span>
-            </div>
-            <p>RE+ Connect / Map Your Show for booth moves (Tesla already moved to N726). vegasloop.com Hours tab for day-of hours (confirm Wed Nov 18 24h / airport). Download offline maps.</p>
+            <p>Yann Schwarz at N536 at 11:45am; David Lopez at W16965 at 2:00pm. Both confirmed.</p>
           </div>
         </div>
       </div>
@@ -1831,7 +1525,7 @@
     </section>
 
     <footer>
-      <p>Las Vegas RE+ 2026 · Krystian &amp; brother · last updated Oct 20, 2026 (PT) · Westgate booked · Krystian Tue pass done · brother pass pending · top 5 vendor requests out.</p>
+      <p>Las Vegas RE+ 2026 · Krystian &amp; Andy · last updated Nov 11, 2026 (PT) · Westgate booked · Krystian Tue pass done · Andy pass TBD · Enstall + Victron booked.</p>
       <p>Hotel rates = estimates · verify live · Room photos from hotel CDNs · Map © OpenStreetMap · Leaflet</p>
     </footer>
   </div>
