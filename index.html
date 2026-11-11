@@ -901,6 +901,79 @@
   .iftime-card p { margin: .22rem 0 0; font-size: .84rem; color: var(--muted); }
   .iftime-card p strong { color: var(--text, #222); font-weight: 700; }
 
+  .tag.decide { background: var(--accent-soft); color: var(--accent); }
+  .decide-box {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.15rem 1.25rem 1.3rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 1.25rem;
+    border-top: 4px solid var(--accent);
+  }
+  .decide-box > .lede { margin: 0 0 .85rem; font-size: .94rem; }
+  .criteria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: .65rem;
+    margin: 0 0 1.1rem;
+  }
+  .criteria div {
+    background: var(--accent-soft);
+    border: 1px solid #e8c4b0;
+    border-radius: 10px;
+    padding: .7rem .8rem .8rem;
+  }
+  .criteria h3 { margin: 0 0 .25rem; font-size: .95rem; color: var(--accent); }
+  .criteria p { margin: 0; font-size: .84rem; }
+  .ref-house {
+    background: #faf7f1;
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--wedding);
+    border-radius: 10px;
+    padding: .75rem .9rem .85rem;
+    margin: 0 0 1.1rem;
+    font-size: .88rem;
+  }
+  .ref-house h3 { margin: 0 0 .3rem; font-size: 1.02rem; }
+  .tesla-gen {
+    font-size: .88rem;
+    margin: 0 0 1.1rem;
+  }
+  .opt-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: .7rem;
+    margin: 0 0 1rem;
+  }
+  .opt-card {
+    background: #faf7f1;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: .85rem .95rem 1rem;
+    border-top: 4px solid var(--muted);
+  }
+  .opt-card.lean {
+    background: var(--climb-soft);
+    border-color: #b7d4be;
+    border-top-color: var(--climb);
+  }
+  .opt-card h3 { margin: 0 0 .15rem; font-size: 1.02rem; }
+  .opt-card .opt-tag {
+    font-size: .72rem; font-weight: 800; text-transform: uppercase;
+    letter-spacing: .04em; color: var(--climb); margin-bottom: .4rem;
+  }
+  .opt-card ul { margin: .35rem 0 0; padding-left: 1.1rem; font-size: .84rem; }
+  .opt-card li { margin: .2rem 0; }
+  .tco-note {
+    margin: 0 0 .7rem;
+    font-size: .88rem;
+    background: var(--vendor-soft);
+    border: 1px solid #b9cce6;
+    border-radius: 10px;
+    padding: .7rem .85rem;
+  }
+
 </style>
 </head>
 <body>
@@ -921,6 +994,7 @@
         <span class="chip loop">🚇 Loop Tue + maybe Wed 4am · Uber Mon night</span>
         <span class="chip ticket">🎟 Krystian Tue pass ✔ · Andy TBD</span>
         <span class="chip vendor">⚡ Enstall 11:45 + Victron 2:00 booked · Tesla/ProSolar &amp; Sol-Ark pending</span>
+        <span class="chip warn">⚖ Grid vs generator still open · guest-seamless, lowest 5/7/10-yr TCO</span>
         <span class="chip warn">🕙 Expo Tue Nov 17 · 10am–6pm PT</span>
       </div>
 
@@ -968,6 +1042,7 @@
       <div class="toc-inner">
         <a href="#uber-notice">Airport legs</a>
         <a href="#itinerary">Itinerary</a>
+        <a href="#grid-decision">Grid vs generator</a>
         <a href="#system">System picture</a>
         <a href="#schedule">Tue schedule</a>
         <a href="#if-time">If time</a>
@@ -1050,6 +1125,85 @@
       </div>
     </section>
 
+
+    <section id="grid-decision">
+      <div class="section-head">
+        <div>
+          <span class="tag decide">Key decision</span>
+          <h2>WAPA grid tie vs. off-grid + generator</h2>
+          <p>Any architecture is acceptable. Pick the path that stays seamless for guests and has the lowest total cost, including rental impact, over 5, 7, and 10 years.</p>
+        </div>
+      </div>
+      <div class="decide-box">
+        <p class="lede">A local St. Thomas architect advised against Tesla Powerwalls because another system integrates better with generators. The current lean is to <strong>connect to the WAPA grid and skip generators</strong> — partly because a new service run is already ~150 ft from the road — but that is a trade to test on the floor, not a settled choice.</p>
+
+        <div class="criteria">
+          <div>
+            <h3>1. Any solution is fine</h3>
+            <p>Grid + battery, off-grid + auto-start generator, or hybrid (grid + battery + generator). Leave Tuesday with one shortlist, not a locked brand.</p>
+          </div>
+          <div>
+            <h3>2. Seamless for guests</h3>
+            <p>No overnight outages and no house rules like “set the AC to 78 when you leave.” If a generator is in the design, it has to auto-start and carry the full load, including AC.</p>
+          </div>
+          <div>
+            <h3>3. Lowest 5 / 7 / 10-year cost</h3>
+            <p>Compare total cost of ownership, including equipment, shipping, WAPA or generator operating costs, battery replacement, and lost rental revenue from outages or guest restrictions.</p>
+          </div>
+        </div>
+
+        <div class="ref-house">
+          <h3>Reference house: On The Rocks, St. John</h3>
+          <p>Andy is staying at <a href="https://www.ontherocksstjohn.com/">On The Rocks</a> (408 Chocolate Hole) — a new 5-bedroom finished in 2025, about 2,800 sq ft living / 5,000 sq ft built, designed for 165 mph winds. The listing says solar plus Powerwall backup. From the architect’s roof plan and the <a href="https://www.ontherocksstjohn.com/photo-gallery?pgid=ldxlvhug-5079ad95-6825-46a9-8f7a-c7f4567b5a77">3D drawing on the house site</a>, the array is about 18–19 panels, roughly 7–8 kW (panel wattage is a guess). The owner says the house is <strong>off-grid</strong>, with a backup generator, and asks guests to turn all <strong>6 AC units to 78</strong> when leaving each day so enough energy is stored for overnight cooling. If power does go out, “it usually comes back on around nine or 10am” as the panels recharge. A working automatic generator that can run the AC should not let the house go dark — so the generator may not auto-start, may be too small, or may not be wired to the whole house. The 2025 drawings also show a WAPA meter and transformer; Andy is checking whether a utility feed was ever connected. Takeaway for our ~4,000 sq ft rentals: a small array plus an unreliable generator produces guest rules and possible lights-out nights. We need a larger array and/or more efficient cooling, and we should not count on a generator unless it auto-starts and carries the full load.</p>
+        </div>
+
+        <div class="tesla-gen">
+          <strong>Tesla’s current generator support (verified Nov 11, 2026):</strong>
+          Official Tesla docs still say <strong>Powerwall 3 systems must have a grid connection — fully off-grid is not supported</strong>. The compatibility table lists <strong>automatic generator control: No</strong> and <strong>charging from an upstream generator: No</strong>. A <strong>downstream</strong> generator can be added in a cascading ATS setup (application note Rev 4.0, Jan 15, 2025, updated for Powerwall 3 and Gateway 3): Tesla does not start or stop the generator; the generator powers loads after Powerwall is depleted or overloaded, and it does <strong>not</strong> recharge the batteries. After the ATS takes over, the Powerwall Enable switch must be toggled before Powerwall can resume and charge from solar. No 2025–2026 Tesla announcement of native auto-start or generator charging turned up. The Caribbean warranty (effective May 6, 2026) explicitly covers the <strong>U.S. Virgin Islands</strong> for Powerwall 3 and Gateway 3 (10 years; internet needed for the full term). So the architect’s concern still holds <em>if</em> a generator is part of the design. If we stay grid-tied with no generator, Tesla remains in the running.
+        </div>
+
+        <div class="opt-grid">
+          <article class="opt-card lean">
+            <div class="opt-tag">Current lean</div>
+            <h3>Grid + battery backup</h3>
+            <ul>
+              <li><strong>Pros:</strong> No generator fuel, noise, maintenance, or auto-start failure. WAPA covers multi-day shortfalls and poor solar days. Tesla is a supported path. Simpler for absentee owners if batteries and monitoring are solid. Guest experience can be seamless if batteries cover typical outages.</li>
+              <li><strong>Cons:</strong> Pay for the ~150 ft service run (trenching, conduit, possibly a transformer) plus interconnection and ongoing WAPA bills, including the monthly customer charge. Under Net Energy Billing, exports are credited at only 75% of LEAC — much less than retail — so batteries matter for self-consumption. WAPA has been unreliable; batteries must be sized for outages, not just daily cycling. A long or post-hurricane outage can still exceed battery capacity with no generator fallback. Interconnection time is not guaranteed.</li>
+            </ul>
+          </article>
+          <article class="opt-card">
+            <h3>Off-grid + auto-start generator</h3>
+            <ul>
+              <li><strong>Pros:</strong> Avoids the 150 ft WAPA extension, interconnection process, and ongoing utility bills. Full independence. Victron, Sol-Ark, SMA Sunny Island, Enphase, FranklinWH, and Generac document native auto-start and can charge batteries from the generator.</li>
+              <li><strong>Cons:</strong> Tesla Powerwall 3 is not supported off-grid. The generator must auto-start and carry the whole house, AC included, or guests get On The Rocks-style outages. Fuel, maintenance, noise, and emissions on a rental. Solar and storage must be oversized to hit 80–90% without a grid to lean on. A failed generator or empty tank is a hard outage. TCO has to include fuel, service, and any rental loss.</li>
+            </ul>
+          </article>
+          <article class="opt-card">
+            <h3>Hybrid: grid + battery + generator</h3>
+            <ul>
+              <li><strong>Pros:</strong> Best resilience — grid for ordinary shortfalls, batteries for typical outages, auto-start generator for extended or hurricane events. Native generator integration from Victron, Sol-Ark, Enphase, FranklinWH, Generac, and SMA Sunny Island. The strongest fit for a seamless guest stay.</li>
+              <li><strong>Cons:</strong> Highest equipment and complexity cost (pay for the 150 ft feed <em>and</em> a generator). Tesla can only add a downstream ATS generator that does not charge the batteries and is not Tesla-controlled. More maintenance. This path wins on TCO only if it prevents enough rental losses or if WAPA is worse than expected.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="tco-note">
+          <strong>TCO model to fill in on the floor:</strong> For each path, collect equipment and installed price per kW (PV) and per kWh (battery), shipping to STT, warranty years and cycles, degradation and battery-replacement timing, O&amp;M and monitoring fees, generator fuel and maintenance where relevant, and WAPA rates plus interconnection / line-extension cost. Then compare 5-, 7-, and 10-year totals including rental-revenue impact of any outage or guest power rule.
+        </div>
+
+        <p class="tesla-gen" style="margin:0 0 .5rem"><strong>WAPA facts (do not treat these as a quote for the 150 ft run):</strong></p>
+        <ul style="margin:.2rem 0 .6rem; padding-left:1.2rem; font-size:.88rem">
+          <li>Rates as of Nov 1, 2026: residential <strong>$0.438479/kWh</strong> for the first 250 kWh, then <strong>$0.464677/kWh</strong>, plus a <strong>$4.86/month</strong> customer charge. The LEAC fuel charge is <strong>$0.252246/kWh</strong>.</li>
+          <li>By statute (12 V.I.C. § 1149), net metering expired Jan 1, 2025 for residential systems over 10 kWac. Those move to <strong>Net Energy Billing</strong> as of Jan 1, 2026. Residential systems 10 kWac or less remain under the original net-metering structure — confirm with WAPA whether a <em>new</em> ≤10 kWac system can still enroll in NEM, or only existing agreements are kept.</li>
+          <li>Our ~4,000 sq ft homes targeting 80–90% will likely be over 10 kWac, so expect NEB: exports credited at <strong>75% of LEAC</strong> (about <strong>$0.189/kWh</strong> at the current LEAC), credits reset monthly, a <strong>$250</strong> interconnection fee, and a bidirectional meter. Self-consumed solar is worth roughly the full retail rate; exported solar is worth much less.</li>
+          <li>WAPA’s published review clocks: completeness within <strong>10 business days</strong>, initial technical review within <strong>15 business days</strong> after the application is complete; supplemental review <strong>20 business days</strong> if needed; an interconnection requirements study can take up to <strong>six months</strong>. Building WAPA-owned facilities is project-specific. These are procedural clocks, not an in-service date.</li>
+          <li>The ~150 ft service feed from the road (trenching, conduit, possibly a transformer) is a real cost of any grid or hybrid path. No public per-foot price was found — get a formal WAPA line-extension quote.</li>
+          <li>Reliability: the St. Thomas–St. John district has had repeated capacity shortfalls and rotating outages into late October 2026 (peak hours often 4–11pm). Even a grid-tied design needs enough battery for a seamless guest stay. Utility-scale solar meant to improve daytime reliability has slipped toward 2027.</li>
+        </ul>
+        <p class="src-note">Sources: Tesla Site Requirements and Design Considerations (“fully off-grid systems are not supported”); Tesla Powerwall Compatibility Table; Tesla Application Note: Powerwall and Third Party Backup, Rev 4.0, Jan 15, 2025; Tesla Powerwall Limited Warranty (Caribbean), effective May 6, 2026; WAPA Electric Rates Breakdown, Nov 1, 2026; WAPA Net Energy Billing program page and Net Metering FAQ; 12 V.I.C. § 1149; WAPA Interconnection Procedures (10 / 15 / 20 business-day clocks; IRS up to six months); WAPA and St. Thomas Source reporting on Oct 2026 rotating outages. Vendor generator support from each maker’s current manuals or integration guides (Victron GX, Sol-Ark 15K, SMA Sunny Island, Enphase IQ System Controller, FranklinWH Generator Module). Ask every vendor to confirm.</p>
+      </div>
+    </section>
+
     <section id="system">
       <div class="section-head">
         <div>
@@ -1083,7 +1237,7 @@
           </div>
           <div class="sys-piece inst">
             <h3>6. Installer &amp; WAPA</h3>
-            <p>Local installer (ProSolar already does Tesla and Enphase on STT) handles shipping, DPNR permitting, WAPA interconnection, and service. Systems over 10 kWac typically fall under WAPA Net Energy Billing, not 1:1 net metering. A generator is optional backup for outages.</p>
+            <p>Local installer (ProSolar already does Tesla and Enphase on STT) handles shipping, DPNR permitting, WAPA interconnection, and service. Systems over 10 kWac typically fall under WAPA Net Energy Billing, not 1:1 net metering. Whether to tie to WAPA, go off-grid, or add an auto-start generator is the <a href="#grid-decision">key decision</a> — judged by guest experience and 5 / 7 / 10-year cost, not by brand.</p>
           </div>
         </div>
         <div class="sys-note">
@@ -1116,11 +1270,18 @@
             <dt>On St. Thomas</dt>
             <dd>ProSolar Caribbean already installs Powerwall (and Enphase) in the USVI. Ask them to run shipping, DPNR permitting, WAPA interconnection, and off-island service for all three homes. Flag Solar Roof early: it typically wants at least a 2:12 pitch (these roofs are flat), and Tesla’s warranty excludes corrosion from salt water, spray, or fog within 1,500 feet and wind gusts above 139 mph — likely a poor fit. Powerwall’s internet requirement matters for absentee owners and island connectivity. Kris can do about 30 minutes, then ProSolar continues; wrap by 11:30.</dd>
           </dl>
+          <dl class="brief-kv">
+            <dt>Generator &amp; grid</dt>
+            <dd>Tesla’s published docs still say no automatic generator control and no charging from an upstream generator. A downstream ATS generator can power loads but does not refill Powerwalls, and the Enable switch may need a manual toggle after the generator takes over. Confirm whether that is still current for Powerwall 3 / Gateway 3 in the US and USVI, and whether any native auto-start or generator-charging support is on a timeline. If we stay grid-tied with no generator, can ProSolar interconnect with WAPA (NEB vs residual net metering) and service three absentee-owned homes? What happens in a multi-day STT outage?</dd>
+            <dt>Numbers to collect</dt>
+            <dd>For the 5 / 7 / 10-year TCO model (include rental impact of any outage or AC rule): installed price per kW of PV and per kWh of Powerwall; shipping to STT; warranty years and cycles; degradation and when batteries would need replacement; O&amp;M and monitoring fees; WAPA interconnection and line-extension cost, and remaining utility bills. If a downstream generator is still in the design: fuel use, maintenance, and who services it on-island.</dd>
+          </dl>
           <ul class="ask">
             <li><strong>Ask</strong></li>
             <li>Can ProSolar install, warrant, and service Powerwall (and conventional PV) on three new STT homes, including WAPA interconnection?</li>
             <li>How many Powerwall 3 units (or Expansion packs) per ~4,000 sq ft rental to hit 80–90% of load — and is a shared Megapack-scale plant even in play?</li>
             <li>Does Solar Roof make any sense on flat, coastal roofs given pitch and salt-air / high-wind warranty exclusions? What are lead times, and how do absentee owners monitor all three homes if internet drops?</li>
+            <li>Is Tesla’s “no auto generator control / no generator charging” position still current for PW3 + Gateway 3 in the USVI, and is native support on a timeline — or should we treat Tesla as grid + battery only?</li>
           </ul>
         </article>
 
@@ -1147,6 +1308,10 @@
             <li>What salt-air hardware do you spec, and does the 25-year warranty still apply in a corrosive, hurricane climate (or are finish and storm damage excluded)?</li>
             <li>How does shipping to St. Thomas work, and what does the local installer need for permitting?</li>
           </ul>
+          <dl class="brief-kv">
+            <dt>Numbers to collect</dt>
+            <dd>Installed racking price for a ~4,000 sq ft STT roof; shipping to STT; warranty years and what storm or salt damage is excluded. Array size feeds the 5 / 7 / 10-year system TCO; racking is not the battery or generator model.</dd>
+          </dl>
         </article>
 
         <article class="sched-card confirmed">
@@ -1171,7 +1336,14 @@
             <li>What Quattro or MultiPlus-II + MPPT architecture would you use for three ~4,000 sq ft hybrid homes, including generator input for WAPA outages?</li>
             <li>Who is the Caribbean or STT distributor for sales, spare parts, and service — and can we add the 10-year warranty?</li>
             <li>How should VRM be set up so absentee owners can monitor all three homes, and what salt-air install practices do you require?</li>
+            <li>Confirm native auto-start (GX / two-wire) so the generator can charge batteries and run the full AC load with no manual toggle. Do you have WAPA-approved interconnection experience on STT, and what are the net-metering vs NEB limits?</li>
           </ul>
+          <dl class="brief-kv">
+            <dt>Generator &amp; grid</dt>
+            <dd>Victron documents automatic generator start/stop and can charge batteries from the generator — a main reason to consider it if a generator stays in the design (off-grid or hybrid). Confirm that path, plus any WAPA interconnection experience and NEB / net-metering limits.</dd>
+            <dt>Numbers to collect</dt>
+            <dd>For the 5 / 7 / 10-year TCO model (include rental impact of any outage or AC rule): installed price per kW of PV and per kWh of battery; shipping to STT; warranty years and cycles; degradation and battery-replacement timing; O&amp;M and monitoring fees; generator fuel use and maintenance; WAPA interconnection / line-extension cost if we also grid-tie, and remaining utility bills.</dd>
+          </dl>
         </article>
 
         <article class="sched-card pending">
@@ -1196,7 +1368,14 @@
             <li>15K vs stacked smaller units, and which 48V batteries would you pair for ~4,000 sq ft rentals targeting 80–90% of load?</li>
             <li>Who ships, installs, and services on STT — and does the 10-year warranty still mean anything once corrosion and storms are excluded?</li>
             <li>Can the same platform do backup-only (no PV) for a Bellevue, WA house, with remote monitoring on both projects?</li>
+            <li>Confirm native two-wire auto-start and GEN-port charging (to ~95% SOC) in both a WAPA-tied hybrid and a fully off-grid setup. Any WAPA-approved USVI installs, and experience with NEB vs ≤10 kWac net metering?</li>
           </ul>
+          <dl class="brief-kv">
+            <dt>Generator &amp; grid</dt>
+            <dd>Sol-Ark’s 15K manual documents two-wire automatic generator start and charging from the GEN port. Confirm that this still holds, and whether they have WAPA interconnection experience in the USVI.</dd>
+            <dt>Numbers to collect</dt>
+            <dd>For the 5 / 7 / 10-year TCO model (include rental impact of any outage or AC rule): installed price per kW of PV and per kWh of battery; shipping to STT; warranty years and cycles; degradation and battery-replacement timing; O&amp;M and monitoring fees; generator fuel use and maintenance; WAPA interconnection / line-extension cost if we grid-tie, and remaining utility bills.</dd>
+          </dl>
         </article>
 
         <article class="sched-card walkup">
@@ -1221,7 +1400,14 @@
             <li>Which SBSE model, and is there a whole-home backup option — or only the ~1.9 kW Backup Secure outlet?</li>
             <li>Caribbean / STT service and spare parts, including a local installer (is VOLT still a partner)?</li>
             <li>Can Sunny Portal monitor all three homes from off-island, and what salt-air or hurricane guidance applies?</li>
+            <li>Sunny Island documents dry-contact generator autostart for off-grid systems; Sunny Boy Smart Energy / Sunny Boy Storage appear to be grid-tied hybrids without generator input. Which product would you use on STT if we need auto-start generator charging, and do you have WAPA interconnection experience?</li>
           </ul>
+          <dl class="brief-kv">
+            <dt>Generator &amp; grid</dt>
+            <dd>Generator auto-start is documented on Sunny Island (off-grid). Confirm whether the SBSE stack can integrate a generator at all, or whether an Island-based design is the SMA path if we need one. Also ask about WAPA-approved interconnection and NEB / net-metering limits.</dd>
+            <dt>Numbers to collect</dt>
+            <dd>For the 5 / 7 / 10-year TCO model (include rental impact of any outage or AC rule): installed price per kW of PV and per kWh of battery; shipping to STT; warranty years and cycles; degradation and battery-replacement timing; O&amp;M and monitoring fees; generator fuel and maintenance if an Island / generator path is proposed; WAPA interconnection / line-extension cost if we grid-tie, and remaining utility bills.</dd>
+          </dl>
         </article>
 
         <article class="sched-card walkup">
@@ -1246,7 +1432,14 @@
             <li>How many IQ Battery 5P units per house to hit 80–90% of load, and does the battery warranty cover USVI?</li>
             <li>Coastal corrosion guidance, and can ProSolar (or another STT partner) install, interconnect with WAPA, and service all three homes?</li>
             <li>Can absentee owners monitor all three sites, and can IQ Battery also do backup-only for a Bellevue house with no solar?</li>
+            <li>IQ System Controller has a built-in generator port, auto-start, and can charge batteries and serve loads — confirm this is supported in the USVI, and ask about WAPA interconnection and NEB / net-metering experience.</li>
           </ul>
+          <dl class="brief-kv">
+            <dt>Generator &amp; grid</dt>
+            <dd>Enphase documents native auto-start generator integration (generator can supply loads and charge batteries). Confirm USVI availability and any WAPA-approved installs (ProSolar also does Enphase on STT).</dd>
+            <dt>Numbers to collect</dt>
+            <dd>For the 5 / 7 / 10-year TCO model (include rental impact of any outage or AC rule): installed price per kW of PV and per kWh of battery; shipping to STT; warranty years and cycles; degradation and battery-replacement timing; O&amp;M and monitoring fees; generator fuel and maintenance if a generator is in the design; WAPA interconnection / line-extension cost, and remaining utility bills.</dd>
+          </dl>
         </article>
 
         <article class="sched-card walkup">
@@ -1271,7 +1464,14 @@
             <li>How many aPower 2 units per ~4,000 sq ft rental, and can this be the main STT stack or only a battery paired with another inverter?</li>
             <li>Do you have a Caribbean / USVI installer and warranty, including salt-air and hurricane terms?</li>
             <li>Can absentee owners monitor three homes remotely, and can aPower do backup-only for a Bellevue house with no solar?</li>
+            <li>The Generator Module / aHub documents auto-start on battery SOC and charging aPower from the generator — confirm USVI support, and ask about WAPA interconnection and NEB / net-metering experience.</li>
           </ul>
+          <dl class="brief-kv">
+            <dt>Generator &amp; grid</dt>
+            <dd>FranklinWH documents native auto-start generator integration that can power loads and recharge aPower. Confirm that this is available and supported in the USVI, plus any WAPA interconnection experience.</dd>
+            <dt>Numbers to collect</dt>
+            <dd>For the 5 / 7 / 10-year TCO model (include rental impact of any outage or AC rule): installed price per kW of PV and per kWh of battery; shipping to STT; warranty years and cycles; degradation and battery-replacement timing; O&amp;M and monitoring fees; generator fuel and maintenance if a generator is in the design; WAPA interconnection / line-extension cost if we grid-tie, and remaining utility bills.</dd>
+          </dl>
         </article>
 
         <article class="sched-card walkup">
@@ -1296,7 +1496,14 @@
             <li>PWRcell 2 vs a generator-hybrid architecture for three STT rentals — and who is the USVI dealer for install and service?</li>
             <li>Does the warranty cover the US Virgin Islands, and what salt-air or hurricane enclosure options exist?</li>
             <li>Can this also do backup-only for a Bellevue house with no solar?</li>
+            <li>Confirm the USVI dealer can auto-start a Generac, charge the batteries, and carry whole-house AC — and whether they have WAPA interconnection experience if we go hybrid rather than off-grid.</li>
           </ul>
+          <dl class="brief-kv">
+            <dt>Generator &amp; grid</dt>
+            <dd>Generator integration is Generac’s native strength. Use this meeting to compare a PWRcell + standby generator hybrid against a WAPA-tied battery-only design, including who services both on STT.</dd>
+            <dt>Numbers to collect</dt>
+            <dd>For the 5 / 7 / 10-year TCO model (include rental impact of any outage or AC rule): installed price per kW of PV and per kWh of battery; generator installed price; shipping to STT; warranty years and cycles; degradation and battery-replacement timing; O&amp;M and monitoring fees; generator fuel use and maintenance; WAPA interconnection / line-extension cost if we also grid-tie, and remaining utility bills.</dd>
+          </dl>
         </article>
       </div>
     </section>
@@ -1725,7 +1932,7 @@
               <h3>One-page project summary</h3>
               <span class="status-badge open">To do</span>
             </div>
-            <p>3 new ~4,000 sq ft rental homes on <strong>St. Thomas, USVI</strong> · large flat roofs · solar + batteries covering <strong>80–90%</strong> · hurricane and salt-air exposure · remote monitoring for absentee owners.</p>
+            <p>3 new ~4,000 sq ft rental homes on <strong>St. Thomas, USVI</strong> · large flat roofs · solar + batteries covering <strong>80–90%</strong> · hurricane and salt-air exposure · remote monitoring for absentee owners. Decision criteria: any architecture (grid, off-grid, or hybrid) is fine; must be <strong>seamless for guests</strong> (no outages or AC rules); pick the <strong>lowest 5 / 7 / 10-year cost</strong> including rental impact. Current lean is WAPA grid-tie and no generators — still a trade, especially with a ~150 ft service feed.</p>
           </div>
         </div>
         <div class="check-item">
@@ -1735,7 +1942,7 @@
               <h3>Numbers vendors will ask for</h3>
               <span class="status-badge open">To do</span>
             </div>
-            <p>Roof dimensions or site plan · daily energy use per house (AC, pool pump, water heater) · WAPA rates · budget · timeline.</p>
+            <p>Roof dimensions or site plan · daily energy use per house (AC, pool pump, water heater) · WAPA rates and the ~150 ft line-extension quote · budget · timeline. For the 5 / 7 / 10-year TCO: installed $/kW and $/kWh, shipping to STT, warranty years and cycles, degradation and battery-replacement timing, O&amp;M / monitoring fees, generator fuel and maintenance if relevant, interconnection cost, and any rental-revenue impact of outages or guest power rules.</p>
           </div>
         </div>
         <div class="check-item">
@@ -1745,7 +1952,7 @@
               <h3>Standard question list</h3>
               <span class="status-badge open">To do</span>
             </div>
-            <p>System size per house · hours of backup · wind ratings · salt-air warranty · St. Thomas installer and service · shipping lead times · monitoring across three homes.</p>
+            <p>System size per house · hours of backup · wind ratings · salt-air warranty · St. Thomas installer and service · shipping lead times · monitoring across three homes · <a href="#grid-decision">generator &amp; grid</a> (native auto-start and battery charging? WAPA interconnection and NEB limits?) · the TCO numbers listed above.</p>
           </div>
         </div>
         <div class="check-item">
@@ -1762,7 +1969,7 @@
     </section>
 
     <footer>
-      <p>Las Vegas RE+ 2026 · Krystian &amp; Andy · last updated Nov 11, 2026 (PT) · Westgate booked · Krystian Tue pass done · Andy pass TBD · Enstall + Victron booked.</p>
+      <p>Las Vegas RE+ 2026 · Krystian &amp; Andy · last updated Nov 11, 2026 (PT) · Westgate booked · Krystian Tue pass done · Andy pass TBD · Enstall + Victron booked · Grid vs generator decision added.</p>
       <p>Hotel rates = estimates · verify live · Room photos from hotel CDNs · Map © OpenStreetMap · Leaflet</p>
     </footer>
   </div>
