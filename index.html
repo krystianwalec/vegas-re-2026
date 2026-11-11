@@ -849,6 +849,58 @@
   .brief-kv dt:first-child { margin-top: 0; }
   .brief-kv dd { margin: .12rem 0 0; font-size: .88rem; }
 
+  .iftime-intro { margin: 0 0 1rem; font-size: .92rem; }
+  .iftime-tip {
+    margin: 0 0 1.15rem;
+    font-size: .88rem;
+    background: var(--vendor-soft);
+    border: 1px solid #b9cce6;
+    border-radius: 10px;
+    padding: .7rem .85rem;
+  }
+  .iftime-group { margin: 0 0 1.5rem; }
+  .iftime-group h3 {
+    margin: 0 0 .25rem;
+    font-size: 1.15rem;
+  }
+  .iftime-group .lede {
+    margin: 0 0 .65rem;
+    font-size: .88rem;
+    color: var(--muted);
+  }
+  .iftime-hall {
+    font-size: .72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: var(--muted);
+    margin: .85rem 0 .4rem;
+  }
+  .iftime-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: .7rem;
+  }
+  .iftime-card {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: .8rem .95rem .9rem;
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--vendor);
+  }
+  .iftime-card.usvi { border-left-color: var(--teal); }
+  .iftime-card.bellevue { border-left-color: var(--flight); }
+  .iftime-card.trend { border-left-color: var(--ticket); }
+  .iftime-card h4 { margin: 0 0 .15rem; font-size: .98rem; }
+  .iftime-card .booth {
+    font-size: .76rem; font-weight: 700;
+    color: var(--vendor);
+    margin-bottom: .35rem;
+  }
+  .iftime-card p { margin: .22rem 0 0; font-size: .84rem; color: var(--muted); }
+  .iftime-card p strong { color: var(--text, #222); font-weight: 700; }
+
 </style>
 </head>
 <body>
@@ -918,6 +970,7 @@
         <a href="#itinerary">Itinerary</a>
         <a href="#system">System picture</a>
         <a href="#schedule">Tue schedule</a>
+        <a href="#if-time">If time</a>
         <a href="#hotels">Hotel</a>
         <a href="#map">Map</a>
         <a href="#loop">Loop hours</a>
@@ -976,6 +1029,7 @@
               <li><strong>2:00pm</strong> Victron with David Lopez at <strong>W16965</strong> (confirmed)</li>
               <li><strong>3:30pm</strong> Sol-Ark at <strong>C6844/C6854</strong> (requested, pending)</li>
               <li>Walk-ups: SMA N862, Enphase N2026, FranklinWH, Generac — see the <a href="#system">system picture</a> and <a href="#schedule">Tue schedule</a>. Andy will bring the home plans.</li>
+              <li>If time: worth-a-visit booths (USVI, Bellevue backup, trends) — see <a href="#if-time">If time</a>.</li>
             </ul>
           </div>
         </article>
@@ -1245,6 +1299,189 @@
           </ul>
         </article>
       </div>
+    </section>
+
+
+    <section id="if-time">
+      <div class="section-head">
+        <div>
+          <span class="tag vendor">If time on Tuesday</span>
+          <h2>Worth a visit if time</h2>
+        </div>
+      </div>
+      <p class="iftime-intro">These are extra stops if a meeting wraps early or a gap opens — not the scheduled or already-planned walk-ups (ProSolar / Tesla, Enstall, Victron, Sol-Ark, SMA, Enphase, FranklinWH, Generac). Grouped by why you’d go, then ordered by hall so a cluster is a short walk. Booths confirmed in the official Map Your Show directory on Nov 11, 2026. <strong>SPAN, Lumin, Base Power, and perovskite / tandem module makers are not in the directory.</strong></p>
+      <p class="iftime-tip"><strong>Walking tip:</strong> A tight North Hall cluster sits right by the morning Tesla (N527) and Enstall (N536) meetings — Unirac N504, FoxESS N544, Sigenergy N548. The West Hall group is around the 2:00pm Victron meeting. The Central Hall group is around the 3:30pm Sol-Ark request (Fortress is next door at C6832).</p>
+
+      <div class="iftime-group">
+        <h3>USVI / island-relevant</h3>
+        <p class="lede">Hurricane-rated racking and modules, island hybrids and LFP, remote microgrid control, BIPV, mini-splits, and cistern pumps for the three St. Thomas rentals.</p>
+
+        <div class="iftime-hall">North Hall</div>
+        <div class="iftime-grid">
+          <article class="iftime-card usvi">
+            <h4>Unirac / TerraSmart</h4>
+            <div class="booth">N504 · North Hall</div>
+            <p><strong>What:</strong> PV racking and foundations — Unirac and TerraSmart share this booth.</p>
+            <p><strong>Why:</strong> A second high-wind flat-roof opinion after Enstall, plus coastal hardware and Caribbean lead times. If any metal roof or carport, S-5! is nearby at N3144.</p>
+          </article>
+          <article class="iftime-card usvi">
+            <h4>SolarEdge</h4>
+            <div class="booth">N1516 · North Hall</div>
+            <p><strong>What:</strong> DC-optimized string inverters, batteries, EV charging, and a strong monitoring platform.</p>
+            <p><strong>Why:</strong> The main string-plus-optimizer alternative to Enphase, with an owner portal that can cover three absentee rentals.</p>
+          </article>
+          <article class="iftime-card usvi">
+            <h4>BayWa r.e.</h4>
+            <div class="booth">N2550 · North Hall</div>
+            <p><strong>What:</strong> Global solar distributor and solutions provider.</p>
+            <p><strong>Why:</strong> Ask who actually fulfills USVI or Puerto Rico freight, and which hurricane-rated modules, inverters, and racking they can ship.</p>
+          </article>
+          <article class="iftime-card usvi">
+            <h4>Maxeon</h4>
+            <div class="booth">N2712 · North Hall</div>
+            <p><strong>What:</strong> High-efficiency back-contact modules (the former SunPower Maxeon line).</p>
+            <p><strong>Why:</strong> Strong wind-load ratings; St. Thomas installer VOLT lists Maxeon as a hurricane-region partner.</p>
+          </article>
+          <article class="iftime-card usvi">
+            <h4>Rison Solar Pump</h4>
+            <div class="booth">N2724 · North Hall</div>
+            <p><strong>What:</strong> DC and AC/DC hybrid solar water pumps with built-in remote monitoring.</p>
+            <p><strong>Why:</strong> A cistern or well pump that can run from PV and battery, not the generator — useful on island rentals.</p>
+          </article>
+        </div>
+
+        <div class="iftime-hall">Central Hall</div>
+        <div class="iftime-grid">
+          <article class="iftime-card usvi">
+            <h4>EG4 Electronics</h4>
+            <div class="booth">C5460 · Central Hall</div>
+            <p><strong>What:</strong> Cost-effective hybrid inverters and LFP batteries.</p>
+            <p><strong>Why:</strong> A useful price and support benchmark against Sol-Ark; confirm UL listings, spare parts, and whether they will support USVI.</p>
+          </article>
+          <article class="iftime-card usvi">
+            <h4>OutBack Power (Energy Access Innovations)</h4>
+            <div class="booth">C6688 · Central Hall</div>
+            <p><strong>What:</strong> Battery-based off-grid and hybrid inverters. The directory lists this booth as Energy Access Innovations — it is the OutBack stand.</p>
+            <p><strong>Why:</strong> A longstanding Caribbean and island brand for rugged hybrids and generator pairing on weak-grid or off-grid sites.</p>
+          </article>
+          <article class="iftime-card usvi">
+            <h4>Fortress Power</h4>
+            <div class="booth">C6832 · Central Hall</div>
+            <p><strong>What:</strong> Residential and C&amp;I LFP battery systems.</p>
+            <p><strong>Why:</strong> Often paired with Sol-Ark, and the booth is next door to C6844 — an easy add-on for sizing, coastal ratings, and STT freight.</p>
+          </article>
+        </div>
+
+        <div class="iftime-hall">West Hall</div>
+        <div class="iftime-grid">
+          <article class="iftime-card usvi">
+            <h4>New Sun Road</h4>
+            <div class="booth">W15815 · West Hall</div>
+            <p><strong>What:</strong> Microgrid monitoring and control — Stellar OS, AI optimization, and the StellarEdge gateway.</p>
+            <p><strong>Why:</strong> Remote supervision for off-island owners; ask whether it can watch three homes plus a generator on a weak WAPA or off-grid site.</p>
+          </article>
+          <article class="iftime-card usvi">
+            <h4>Kaneka</h4>
+            <div class="booth">W15949 · West Hall</div>
+            <p><strong>What:</strong> Japan-made heterojunction (HJT) cells and modules, including roof- and building-integrated PV.</p>
+            <p><strong>Why:</strong> The main on-floor BIPV / solar-roof alternative to Tesla Solar Roof; ask about Caribbean wind, humidity, and install partners.</p>
+          </article>
+          <article class="iftime-card usvi">
+            <h4>GREE US</h4>
+            <div class="booth">W16314 · West Hall</div>
+            <p><strong>What:</strong> Ductless mini-splits, heat pumps, and VRF air conditioning.</p>
+            <p><strong>Why:</strong> Cooling is the load that drained the St. John house; ask about efficient mini-splits and how they behave on battery-backed, sometimes generator-backed power.</p>
+          </article>
+          <article class="iftime-card usvi">
+            <h4>Sol-Max (formerly MidNite)</h4>
+            <div class="booth">W16779 · West Hall</div>
+            <p><strong>What:</strong> US hybrid all-in-one inverters and Powerflo LFP batteries, from the team formerly known as MidNite Power.</p>
+            <p><strong>Why:</strong> Installer-focused off-grid heritage, and the booth is near Victron — a useful comparison to Victron’s component stack.</p>
+          </article>
+          <article class="iftime-card usvi">
+            <h4>Lithion Battery (HomeGrid / GridBox)</h4>
+            <div class="booth">W17053 · West Hall</div>
+            <p><strong>What:</strong> Stackable residential lithium storage; HomeGrid and GridBox teams are at this Lithion booth.</p>
+            <p><strong>Why:</strong> A modular battery alternative next to Victron; ask about stacking for ~4,000 sq ft, coastal ratings, and hybrid pairing.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="iftime-group">
+        <h3>Bellevue backup</h3>
+        <p class="lede">Backup-only storage and load control for the new Bellevue house (batteries, no solar, because of trees). Sol-Ark, FranklinWH, and Generac already cover part of this in the Tuesday walk-ups.</p>
+
+        <div class="iftime-hall">North Hall</div>
+        <div class="iftime-grid">
+          <article class="iftime-card bellevue">
+            <h4>EndurEnergy</h4>
+            <div class="booth">N1609 · North Hall</div>
+            <p><strong>What:</strong> Silicon Valley battery and energy-storage maker serving residential, C&amp;I, and utility.</p>
+            <p><strong>Why:</strong> A backup-battery conversation that does not require solar — the Bellevue use case.</p>
+          </article>
+        </div>
+
+        <div class="iftime-hall">Central Hall</div>
+        <div class="iftime-grid">
+          <article class="iftime-card bellevue">
+            <h4>Koolbridge Energy</h4>
+            <div class="booth">C7734 · Central Hall</div>
+            <p><strong>What:</strong> Smart Load Centers that can replace or sit beside the breaker panel, with circuit-level switching of utility and solar or battery sources.</p>
+            <p><strong>Why:</strong> The closest thing on the floor to a SPAN-style panel (SPAN and Lumin are not exhibiting). Useful for Bellevue backup-only load shedding, and for cutting AC on St. Thomas when batteries are low.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="iftime-group">
+        <h3>Trends &amp; cool stuff</h3>
+        <p class="lede">New chemistry, all-in-one home energy, bidirectional EV, and design software. No perovskite or tandem-module exhibitors turned up in the directory.</p>
+
+        <div class="iftime-hall">North Hall</div>
+        <div class="iftime-grid">
+          <article class="iftime-card trend">
+            <h4>FoxESS</h4>
+            <div class="booth">N544 · North Hall</div>
+            <p><strong>What:</strong> Residential and C&amp;I inverters and storage; S&amp;P Global named them the No. 1 global residential storage provider in 2025.</p>
+            <p><strong>Why:</strong> A major all-in-one storage brand sitting just a few booths from Tesla and Enstall — a quick look at what the global residential market is buying.</p>
+          </article>
+          <article class="iftime-card trend">
+            <h4>Sigenergy</h4>
+            <div class="booth">N548 · North Hall</div>
+            <p><strong>What:</strong> All-in-one home energy systems — storage, solar inverters, and EV chargers.</p>
+            <p><strong>Why:</strong> Ask about bidirectional EV charging / vehicle-to-home, a trend that otherwise barely appears in the directory. The booth is next to FoxESS, right by the morning meetings.</p>
+          </article>
+          <article class="iftime-card trend">
+            <h4>CATL</h4>
+            <div class="booth">N1244 · North Hall</div>
+            <p><strong>What:</strong> The world’s largest lithium-battery maker, with a broad new-energy portfolio.</p>
+            <p><strong>Why:</strong> A short stop to ask what they are showing for homes or small commercial storage, including sodium-ion chemistry.</p>
+          </article>
+          <article class="iftime-card trend">
+            <h4>Deye ESS</h4>
+            <div class="booth">N2728 · North Hall</div>
+            <p><strong>What:</strong> Residential, C&amp;I, and utility energy storage from the Deye group, including hybrid ESS packages.</p>
+            <p><strong>Why:</strong> A widely used hybrid-storage brand, and the booth sits next to Maxeon and Rison — an easy North Hall add-on.</p>
+          </article>
+        </div>
+
+        <div class="iftime-hall">Central Hall</div>
+        <div class="iftime-grid">
+          <article class="iftime-card trend">
+            <h4>Phenogy</h4>
+            <div class="booth">C5081 · Central Hall</div>
+            <p><strong>What:</strong> Swiss sodium-ion battery energy storage and energy-management systems, with U.S. operations in South Carolina.</p>
+            <p><strong>Why:</strong> One of the few true sodium-ion booths on the floor. More C&amp;I and critical infrastructure than a house battery, but the chemistry is the interesting part.</p>
+          </article>
+          <article class="iftime-card trend">
+            <h4>Aurora Solar</h4>
+            <div class="booth">C5428 · Central Hall</div>
+            <p><strong>What:</strong> Cloud solar design software (including HelioScope for C&amp;I).</p>
+            <p><strong>Why:</strong> Practical, not just trendy — Andy will have the home plans, and this is a way to turn them into permit-ready layouts for all three houses.</p>
+          </article>
+        </div>
+      </div>
+
+      <p class="src-note">Booth numbers confirmed in the RE+ 26 Map Your Show exhibitor directory on Nov 11, 2026 (1,311 exhibitors). Tesla’s directory listing remains N726 + S6041; the Tuesday meeting uses Kris’s N527 for the same North Hall stand. No emails or phone numbers on this page. Re-check booths in the RE+ Connect app the morning of the show — assignments can still shift.</p>
     </section>
 
     <section id="hotels">
