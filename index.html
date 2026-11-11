@@ -974,6 +974,89 @@
     padding: .7rem .85rem;
   }
 
+  .price-box {
+    margin: 0 0 1rem;
+    background: var(--teal-soft);
+    border: 1px solid #b5d8d8;
+    border-left: 4px solid var(--teal);
+    border-radius: 12px;
+    padding: .85rem .95rem 1rem;
+  }
+  .price-box h3 { margin: 0 0 .35rem; font-size: 1.05rem; color: var(--teal); }
+  .price-box p { margin: .35rem 0 0; font-size: .88rem; }
+  .price-box table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .86rem;
+    margin: .55rem 0 .2rem;
+    background: var(--bg-card);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .price-box th, .price-box td {
+    text-align: left;
+    padding: .4rem .6rem;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  .price-box th {
+    font-size: .72rem;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--teal);
+    background: #eef7f7;
+  }
+  .price-box td:nth-child(2) { font-weight: 700; }
+  .gather-wrap {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.05rem 1.1rem 1.2rem;
+    box-shadow: var(--shadow);
+    border-top: 4px solid var(--vendor);
+    overflow-x: auto;
+  }
+  .gather-wrap > .lede { margin: 0 0 .85rem; font-size: .92rem; }
+  .gather-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .86rem;
+    min-width: 620px;
+  }
+  .gather-table th, .gather-table td {
+    text-align: left;
+    padding: .42rem .55rem;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  .gather-table th {
+    font-size: .72rem;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--vendor);
+    background: #f4f7fb;
+  }
+  .gather-table .g-group td {
+    background: #f4f7fb;
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600;
+    font-size: .95rem;
+    padding-top: .75rem;
+    border-bottom: 1px solid #c5d4e8;
+  }
+  .gather-table .g-item { width: 32%; }
+  .gather-table .g-status { width: 7.5rem; white-space: nowrap; }
+  .status-badge.partial {
+    background: var(--wedding-soft);
+    color: #7a5c00;
+    border: 1px solid #e4d39a;
+  }
+  .status-badge.gotit {
+    background: var(--climb-soft);
+    color: var(--climb);
+    border: 1px solid #b7d4bf;
+  }
+
 </style>
 </head>
 <body>
@@ -1032,7 +1115,7 @@
       <div class="notice">
         <strong>Status:</strong> <strong>Hotel booked</strong> — Westgate Las Vegas (RE+ housing block), Mon Nov 16 – Wed Nov 18, one shared room for Krystian + Andy.
         <strong>Passes:</strong> Krystian has his Tuesday Expo pass · Andy TBD (still needs a Tue Expo pass unless a vendor invitation arrives).
-        <strong>Last updated Nov 11, 2026 (PT).</strong>
+        <strong>Last updated Nov 11, 2026 (PT)</strong> — STT energy prices and a What-to-gather checklist added.
         Tuesday: ProSolar + Tesla 10:30–11:30am at Tesla <strong>N527</strong> (time pending Brad’s confirmation) · Enstall with Yann Schwarz at 11:45am, N536 (confirmed) · Victron with David Lopez at 2:00pm, W16965 (confirmed) · Sol-Ark 3:30pm at C6844/C6854 (requested, pending). SMA at N862 requested, no reply — walk up if needed.
         Airport: Mon — Uber/Lyft or LASxpress (Loop closed 9pm). Wed ~4am — Loop possible, Uber/LASxpress backup. Tue commute: Loop from Westgate station ↔ LVCC (~2 min) or short walk.
       </div>
@@ -1043,6 +1126,7 @@
         <a href="#uber-notice">Airport legs</a>
         <a href="#itinerary">Itinerary</a>
         <a href="#grid-decision">Grid vs generator</a>
+        <a href="#gather">What to gather</a>
         <a href="#system">System picture</a>
         <a href="#schedule">Tue schedule</a>
         <a href="#if-time">If time</a>
@@ -1188,19 +1272,109 @@
         </div>
 
         <div class="tco-note">
-          <strong>TCO model to fill in on the floor:</strong> For each path, collect equipment and installed price per kW (PV) and per kWh (battery), shipping to STT, warranty years and cycles, degradation and battery-replacement timing, O&amp;M and monitoring fees, generator fuel and maintenance where relevant, and WAPA rates plus interconnection / line-extension cost. Then compare 5-, 7-, and 10-year totals including rental-revenue impact of any outage or guest power rule.
+          <strong>TCO spreadsheet is not built yet</strong> — this is a tracking exercise, not a model. Use the <a href="#gather">What to gather at RE+</a> checklist on this page (source of truth in the research folder). For each path, collect installed $/kW (PV) and $/kWh (battery), shipping to STT, warranty years and cycles, degradation and battery-replacement timing, O&amp;M and monitoring fees, generator fuel and maintenance where relevant, and WAPA bills plus interconnection / line-extension cost. After the show, those numbers plus rental impact feed a 5-, 7-, and 10-year comparison.
         </div>
 
-        <p class="tesla-gen" style="margin:0 0 .5rem"><strong>WAPA facts (do not treat these as a quote for the 150 ft run):</strong></p>
+        <div class="price-box" id="stt-prices">
+          <h3>STT energy prices</h3>
+          <p>All-in residential rates through <strong>Dec 31, 2026</strong> are calculated: WAPA’s posted non-fuel charges (infographic still dated March 1, 2022, linked from the page labeled Nov 1, 2026) plus the PSC’s Oct 13, 2026 emergency LEAC of <strong>25.2246¢/kWh</strong>. WAPA had not issued a revised line-item card with the new LEAC as of Nov 11. Next LEAC filing covers the period beginning Jan 1, 2027.</p>
+          <table>
+            <thead>
+              <tr><th>Charge</th><th>Amount now</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>First 250 kWh</td><td>43.85¢/kWh</td><td>$0.438479 calculated ($0.408479 posted + 3¢)</td></tr>
+              <tr><td>All other kWh</td><td>46.47¢/kWh</td><td>$0.464677 calculated. A 4,000 sq ft rental will sit mostly here.</td></tr>
+              <tr><td>Customer charge</td><td>$4.86/month</td><td>Fixed; export credits cannot zero it out.</td></tr>
+              <tr><td>LEAC (fuel)</td><td>25.2246¢/kWh</td><td>Temporary through Dec 31, 2026. Held near 22.22¢ from Mar 2022 until this emergency +3¢. $21M unrecovered fuel — upward pressure into 2027.</td></tr>
+              <tr><td>Net metering / NEB</td><td>NEB if &gt;10 kWac</td><td>Legacy NEM (full retail) only for residential ≤10 kWac. Our homes will almost certainly be on <strong>Net Energy Billing</strong>: exports at <strong>75% of LEAC ≈ 18.9¢/kWh</strong>, credits reset monthly, <strong>$250</strong> interconnection fee, bidirectional meter.</td></tr>
+              <tr><td>Retail diesel (STT)</td><td>$6.936/gal avg</td><td>DLCA survey, week of Sep 7, 2026 (latest found). Lowest $6.499 at Gasworks. No later survey found.</td></tr>
+              <tr><td>Propane (STT)</td><td>$24–$25 / 20-lb<br>$99–$99.50 / 100-lb</td><td>Same DLCA survey. Bulk delivered generator fuel: <strong>not found</strong> — collect a local contract price if a generator stays in the design.</td></tr>
+              <tr><td>~150 ft service feed</td><td>Not published</td><td>New-service fees only: $30 single-phase / $83 three-phase + $111 min deposit (form rev. June 2022). Get a formal WAPA line-extension quote.</td></tr>
+            </tbody>
+          </table>
+          <p>Solar yield, Charlotte Amalie, PVGIS 5.2 (run Nov 11, 2026, 14% losses): <strong>1,572 kWh/kW/year</strong> on a flat roof, <strong>1,603–1,624</strong> at 5–10° south — the right range for these flat roofs. Optimal tilt is 1,645. Even a grid-tied design needs batteries sized for a <strong>7–15 hour</strong> WAPA outage (Oct 2026 rotating outages; no official SAIDI/SAIFI published).</p>
+          <p class="src-note">Sources (accessed Nov 11, 2026): WAPA Electric Rate page (header Nov 1, 2026) and Electric Rate infographic (footer Mar 1, 2022); PSC release 010-26-02, Oct 14, 2026; WAPA Net Energy Billing page, Net Metering FAQ, and Oct 1, 2025 NEM sunset release; 12 V.I.C. § 1149; WAPA residential service form, rev. June 3, 2022; DLCA fuel survey, week of Sep 7, 2026 (St. Thomas Source, Sep 16); JRC PVGIS 5.2 API for 18.3419, −64.9307; St. Thomas Source and WAPA reporting on Oct 2026 outages. Full write-up with “not found” items is in the research folder.</p>
+        </div>
+
         <ul style="margin:.2rem 0 .6rem; padding-left:1.2rem; font-size:.88rem">
-          <li>Rates as of Nov 1, 2026: residential <strong>$0.438479/kWh</strong> for the first 250 kWh, then <strong>$0.464677/kWh</strong>, plus a <strong>$4.86/month</strong> customer charge. The LEAC fuel charge is <strong>$0.252246/kWh</strong>.</li>
-          <li>By statute (12 V.I.C. § 1149), net metering expired Jan 1, 2025 for residential systems over 10 kWac. Those move to <strong>Net Energy Billing</strong> as of Jan 1, 2026. Residential systems 10 kWac or less remain under the original net-metering structure — confirm with WAPA whether a <em>new</em> ≤10 kWac system can still enroll in NEM, or only existing agreements are kept.</li>
-          <li>Our ~4,000 sq ft homes targeting 80–90% will likely be over 10 kWac, so expect NEB: exports credited at <strong>75% of LEAC</strong> (about <strong>$0.189/kWh</strong> at the current LEAC), credits reset monthly, a <strong>$250</strong> interconnection fee, and a bidirectional meter. Self-consumed solar is worth roughly the full retail rate; exported solar is worth much less.</li>
           <li>WAPA’s published review clocks: completeness within <strong>10 business days</strong>, initial technical review within <strong>15 business days</strong> after the application is complete; supplemental review <strong>20 business days</strong> if needed; an interconnection requirements study can take up to <strong>six months</strong>. Building WAPA-owned facilities is project-specific. These are procedural clocks, not an in-service date.</li>
-          <li>The ~150 ft service feed from the road (trenching, conduit, possibly a transformer) is a real cost of any grid or hybrid path. No public per-foot price was found — get a formal WAPA line-extension quote.</li>
-          <li>Reliability: the St. Thomas–St. John district has had repeated capacity shortfalls and rotating outages into late October 2026 (peak hours often 4–11pm). Even a grid-tied design needs enough battery for a seamless guest stay. Utility-scale solar meant to improve daytime reliability has slipped toward 2027.</li>
+          <li>Confirm with WAPA or ProSolar whether a <em>new</em> ≤10 kWac system can still enroll in legacy net metering, or only existing agreements are kept — likely moot if we size for 80–90%.</li>
+          <li>Reliability: the St. Thomas–St. John district had repeated capacity shortfalls and rotating outages into late October 2026 (peak hours often 4–11pm). Unit repairs slip into 2027. Utility-scale solar meant to help daytime reliability has also slipped toward 2027.</li>
         </ul>
-        <p class="src-note">Sources: Tesla Site Requirements and Design Considerations (“fully off-grid systems are not supported”); Tesla Powerwall Compatibility Table; Tesla Application Note: Powerwall and Third Party Backup, Rev 4.0, Jan 15, 2025; Tesla Powerwall Limited Warranty (Caribbean), effective May 6, 2026; WAPA Electric Rates Breakdown, Nov 1, 2026; WAPA Net Energy Billing program page and Net Metering FAQ; 12 V.I.C. § 1149; WAPA Interconnection Procedures (10 / 15 / 20 business-day clocks; IRS up to six months); WAPA and St. Thomas Source reporting on Oct 2026 rotating outages. Vendor generator support from each maker’s current manuals or integration guides (Victron GX, Sol-Ark 15K, SMA Sunny Island, Enphase IQ System Controller, FranklinWH Generator Module). Ask every vendor to confirm.</p>
+        <p class="src-note">Tesla and vendor-generator sources (unchanged): Tesla Site Requirements and Design Considerations (“fully off-grid systems are not supported”); Tesla Powerwall Compatibility Table; Tesla Application Note: Powerwall and Third Party Backup, Rev 4.0, Jan 15, 2025; Tesla Powerwall Limited Warranty (Caribbean), effective May 6, 2026; WAPA Interconnection Procedures (10 / 15 / 20 business-day clocks; interconnection requirements study up to six months). Vendor generator support from each maker’s current manuals or integration guides (Victron GX, Sol-Ark 15K, SMA Sunny Island, Enphase IQ System Controller, FranklinWH Generator Module). Ask every vendor to confirm.</p>
+      </div>
+    </section>
+
+
+    <section id="gather">
+      <div class="section-head">
+        <div>
+          <span class="tag vendor">On the floor</span>
+          <h2>What to gather at RE+</h2>
+          <p>Numbers for a future 5 / 7 / 10-year TCO comparison — the spreadsheet is not built yet. Status: open, partial, or got it. Update after each meeting.</p>
+        </div>
+      </div>
+      <div class="gather-wrap">
+        <p class="lede">Work top to bottom with the Tuesday schedule. Walk-ups and “if time” booths come after the booked meetings. General items can be filled whenever the fact appears. After the show, these rows plus Andy’s On The Rocks notes are what the workbook will need.</p>
+        <table class="gather-table">
+          <thead>
+            <tr><th>Item</th><th>Status</th><th>Note</th></tr>
+          </thead>
+          <tbody>
+              <tr class="g-group"><td colspan="3">ProSolar + Tesla · 10:30–11:30am · N527 <span class="status-badge progress">time pending Brad</span></td></tr>
+              <tr><td class="g-item">Installed $/kW PV and $/kWh Powerwall for three ~4,000 sq ft STT homes</td><td class="g-status"><span class="status-badge open">open</span></td><td>Range is fine if they will not quote on the floor. Separate equipment vs install.</td></tr>
+              <tr><td class="g-item">Shipping, freight insurance, and any duty to St. Thomas</td><td class="g-status"><span class="status-badge open">open</span></td><td>Island freight can move the TCO.</td></tr>
+              <tr><td class="g-item">Confirm generator support: still no native auto-start, no generator charging, no official off-grid?</td><td class="g-status"><span class="status-badge partial">partial</span></td><td>Official Tesla docs verified Nov 11, 2026 still say no. Ask if anything newer is coming.</td></tr>
+              <tr><td class="g-item">Recommended PV + Powerwall size for 80–90% of load under WAPA NEB</td><td class="g-status"><span class="status-badge open">open</span></td><td>Andy will have the plans. On The Rocks (~7–8 kW, 6 AC units) is too small to copy.</td></tr>
+              <tr><td class="g-item">Can the proposed battery cover a 7–15 hour WAPA outage with AC on?</td><td class="g-status"><span class="status-badge open">open</span></td><td>Some Oct 2026 outages ran that long.</td></tr>
+              <tr><td class="g-item">Typical STT interconnection timeline, and a ballpark for the ~150 ft service feed</td><td class="g-status"><span class="status-badge open">open</span></td><td>$250 NEB fee is known; the line extension is not.</td></tr>
+              <tr><td class="g-item">USVI warranty, salt-air and wind exclusions, internet requirement</td><td class="g-status"><span class="status-badge partial">partial</span></td><td>Caribbean warranty (May 6, 2026) covers USVI for Powerwall 3 / Gateway 3 (10 yr, internet required). Confirm Solar Roof is off the table on flat coastal roofs.</td></tr>
+              <tr><td class="g-item">Off-island monitoring and a ProSolar service contract for three homes</td><td class="g-status"><span class="status-badge open">open</span></td><td>Who shows up when something fails.</td></tr>
+              <tr><td class="g-item">Their recommendation: grid-only vs hybrid, given the 150 ft feed and Tesla’s generator limits</td><td class="g-status"><span class="status-badge open">open</span></td><td>Current lean is grid + battery, no generator — test it.</td></tr>
+              <tr><td class="g-item">O&amp;M, monitoring fees, degradation, and battery replacement in a 5 / 7 / 10-year hold</td><td class="g-status"><span class="status-badge open">open</span></td><td>Needed later for the TCO workbook.</td></tr>
+              <tr class="g-group"><td colspan="3">Enstall · Yann Schwarz · 11:45am · N536 <span class="status-badge done">confirmed</span></td></tr>
+              <tr><td class="g-item">Installed racking price for a ~4,000 sq ft flat STT roof, hurricane attachment</td><td class="g-status"><span class="status-badge open">open</span></td><td>PanelClaw clawFR or the attached alternative they recommend.</td></tr>
+              <tr><td class="g-item">Shipping to STT</td><td class="g-status"><span class="status-badge open">open</span></td><td></td></tr>
+              <tr><td class="g-item">Wind rating vs 165 mph design, and salt / storm warranty exclusions</td><td class="g-status"><span class="status-badge open">open</span></td><td>On The Rocks was designed for 165 mph.</td></tr>
+              <tr><td class="g-item">Achievable tilt on these flat roofs (yield vs wind)</td><td class="g-status"><span class="status-badge open">open</span></td><td>PVGIS: 1,572 kWh/kW/yr at 0°, 1,624 at 10° south. A few degrees matter.</td></tr>
+              <tr><td class="g-item">Lead time and a local or Caribbean installer they will stand behind</td><td class="g-status"><span class="status-badge open">open</span></td><td>Complements every PV path; not a competing inverter.</td></tr>
+              <tr class="g-group"><td colspan="3">Victron · David Lopez · 2:00pm · W16965 <span class="status-badge done">confirmed</span></td></tr>
+              <tr><td class="g-item">Quattro or MultiPlus-II + MPPT architecture and installed $/kW and $/kWh</td><td class="g-status"><span class="status-badge open">open</span></td><td>Two AC inputs (WAPA + generator) are the point of the Quattro.</td></tr>
+              <tr><td class="g-item">Confirm native auto-start and generator charging, including whole-house AC</td><td class="g-status"><span class="status-badge partial">partial</span></td><td>Docs say yes. Confirm start % SOC and that it carries the AC load — the On The Rocks failure mode.</td></tr>
+              <tr><td class="g-item">USVI / Caribbean distributor, shipping, spare parts, who services three homes</td><td class="g-status"><span class="status-badge open">open</span></td><td>Ask who covers the island.</td></tr>
+              <tr><td class="g-item">VRM setup so one off-island owner can watch all three sites</td><td class="g-status"><span class="status-badge open">open</span></td><td></td></tr>
+              <tr><td class="g-item">Warranty in the USVI, salt-air guidance, degradation and replacement timing</td><td class="g-status"><span class="status-badge open">open</span></td><td></td></tr>
+              <tr><td class="g-item">Their recommendation on grid vs off-grid vs hybrid for a 150 ft WAPA feed</td><td class="g-status"><span class="status-badge open">open</span></td><td></td></tr>
+              <tr class="g-group"><td colspan="3">Sol-Ark · 3:30pm · C6844/C6854 <span class="status-badge progress">requested, pending</span></td></tr>
+              <tr><td class="g-item">15K-2P (or stacked) pricing: installed $/kW and $/kWh with a recommended 48V battery</td><td class="g-status"><span class="status-badge open">open</span></td><td>Battery-agnostic — also ask Fortress next door (C6832) if time.</td></tr>
+              <tr><td class="g-item">Confirm built-in generator support: auto-start, battery charging, whole-house AC</td><td class="g-status"><span class="status-badge partial">partial</span></td><td>Docs say yes. Confirm on the floor.</td></tr>
+              <tr><td class="g-item">Who stocks, installs, and services the USVI, plus shipping</td><td class="g-status"><span class="status-badge open">open</span></td><td>IRIE Solar or other.</td></tr>
+              <tr><td class="g-item">Remote app / fleet view; warranty and salt/wind exclusions</td><td class="g-status"><span class="status-badge open">open</span></td><td></td></tr>
+              <tr><td class="g-item">Grid vs off-grid vs hybrid recommendation, and a backup-only sketch for Bellevue</td><td class="g-status"><span class="status-badge open">open</span></td><td>Bellevue is batteries only (trees, no solar).</td></tr>
+              <tr><td class="g-item">Degradation, replacement timing, O&amp;M / monitoring fees</td><td class="g-status"><span class="status-badge open">open</span></td><td>For the 5 / 7 / 10-year comparison.</td></tr>
+              <tr class="g-group"><td colspan="3">Walk-ups — SMA N862 · Enphase N2026 · FranklinWH · Generac</td></tr>
+              <tr><td class="g-item">SMA: Sunny Boy Smart Energy vs Sunny Island; installed pricing; generator path; USVI service</td><td class="g-status"><span class="status-badge open">open</span></td><td>Confirm whether a 1.9 kW backup outlet is a deal-breaker for whole-home backup.</td></tr>
+              <tr><td class="g-item">Enphase: IQ8 + IQ Battery pricing; IQ System Controller auto-start / charging; USVI warranty</td><td class="g-status"><span class="status-badge partial">partial</span></td><td>Generator integration is documented; confirm current hardware. ProSolar already installs Enphase on STT.</td></tr>
+              <tr><td class="g-item">FranklinWH: aPower 2 + aGate $/kWh, generator module, USVI channel and remote EMS</td><td class="g-status"><span class="status-badge open">open</span></td><td>Also a Bellevue backup-only candidate. Do not assume coverage until they say so.</td></tr>
+              <tr><td class="g-item">Generac: PWRcell 2 and/or standby generator pricing; confirm USVI warranty and dealer / fuel logistics</td><td class="g-status"><span class="status-badge open">open</span></td><td>Some Generac solar warranties name the US, Puerto Rico, Alaska, and Hawaii only — must be explicit.</td></tr>
+              <tr class="g-group"><td colspan="3">If time (only after the meeting list)</td></tr>
+              <tr><td class="g-item">Unirac N504 — second opinion on high-wind flat-roof racking vs Enstall</td><td class="g-status"><span class="status-badge open">open</span></td><td>Right next to Tesla.</td></tr>
+              <tr><td class="g-item">OutBack C6688, Fortress C6832, GREE W16314, New Sun Road W15815, BayWa N2550, Aurora C5428</td><td class="g-status"><span class="status-badge open">open</span></td><td>Caribbean hybrids, Sol-Ark batteries, efficient mini-splits, remote supervision, who ships to the USVI, and permit-ready layouts from Andy’s plans.</td></tr>
+              <tr class="g-group"><td colspan="3">General — not a booth, still track</td></tr>
+              <tr><td class="g-item">WAPA all-in rates and current LEAC</td><td class="g-status"><span class="status-badge gotit">got it</span></td><td>43.85¢ / 46.47¢ + $4.86/mo; LEAC 25.2246¢ through Dec 31, 2026. Refresh after the Jan 2027 filing.</td></tr>
+              <tr><td class="g-item">Net metering vs NEB rules, $250 fee, 75% of LEAC export credit</td><td class="g-status"><span class="status-badge gotit">got it</span></td><td>Homes this size almost certainly fall under NEB (~18.9¢/kWh export).</td></tr>
+              <tr><td class="g-item">Formal WAPA quote for the ~150 ft service feed</td><td class="g-status"><span class="status-badge open">open</span></td><td>No public $/ft. After RE+, ask WAPA or the electrician.</td></tr>
+              <tr><td class="g-item">Load model from Andy’s plans: AC count/size, pool, water, occupancy</td><td class="g-status"><span class="status-badge open">open</span></td><td>Plans are coming to the floor; numbers still need to be written down.</td></tr>
+              <tr><td class="g-item">On The Rocks field data: panel wattage, Powerwall count, inverter, generator behavior, overnight battery %</td><td class="g-status"><span class="status-badge partial">partial</span></td><td>Array estimated 18–19 panels / ~7–8 kW. Owner confirms off-grid + generator and the 6-AC / 78°F rule. Andy’s photo checklist is still open.</td></tr>
+              <tr><td class="g-item">Bulk delivered diesel or propane for a standby generator on STT</td><td class="g-status"><span class="status-badge partial">partial</span></td><td>Retail diesel $6.936/gal avg (DLCA, week of Sep 7, 2026); propane cylinders $24–$25 (20-lb). No bulk contract price yet.</td></tr>
+              <tr><td class="g-item">Solar yield for STT</td><td class="g-status"><span class="status-badge gotit">got it</span></td><td>PVGIS 5.2: 1,572–1,624 kWh/kW/year on a flat / low-tilt roof at Charlotte Amalie. Still need a roof-specific shade run.</td></tr>
+              <tr><td class="g-item">Rental assumptions: occupancy, ADR, seamless-power premium, $/night outage loss</td><td class="g-status"><span class="status-badge open">open</span></td><td>Krystian. Required before any TCO workbook.</td></tr>
+              <tr><td class="g-item">Discount rate, cash vs debt, inflation</td><td class="g-status"><span class="status-badge open">open</span></td><td>Krystian. Do not invent.</td></tr>
+              <tr><td class="g-item">Tax credit / ITC given the ownership entity (default off until counsel confirms)</td><td class="g-status"><span class="status-badge partial">partial</span></td><td>§25D default off (post-2025 + landlord use test). §48/48E only under narrow territory-ownership rules.</td></tr>
+              <tr><td class="g-item">Insurance premium delta, DPNR permit fees, and realistic interconnection calendar time</td><td class="g-status"><span class="status-badge open">open</span></td><td>Procedural clocks are published; calendar time and insurance are not. Ask ProSolar on timing.</td></tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
