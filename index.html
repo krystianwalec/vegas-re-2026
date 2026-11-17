@@ -675,6 +675,19 @@
   .muted { color: var(--muted); }
   .src-note { margin-top: .85rem; font-size: .8rem; color: var(--muted); }
 
+  .prov-intro { margin: 0 0 1rem; font-size: .92rem; }
+  .prov-cat { margin: 0 0 1.4rem; }
+  .prov-cat h3 { margin: 0 0 .35rem; font-size: 1.08rem; }
+  .prov-cat .lede { margin: 0 0 .55rem; font-size: .88rem; }
+  .prov-skip { margin: .4rem 0 0; font-size: .86rem; color: var(--muted); }
+  .data-table.prov-table { font-size: .84rem; }
+  .data-table.prov-table th:first-child,
+  .data-table.prov-table td:first-child { font-weight: 650; white-space: nowrap; }
+  @media (max-width: 640px) {
+    .data-table.prov-table th:first-child,
+    .data-table.prov-table td:first-child { white-space: normal; }
+  }
+
   .hotel-card.booked {
     border-left: 6px solid var(--climb);
     border-color: #b7d4bf;
@@ -1115,7 +1128,7 @@
       <div class="notice">
         <strong>Status:</strong> <strong>Hotel booked</strong> — Westgate Las Vegas (RE+ housing block), Mon Nov 16 – Wed Nov 18, one shared room for Krystian + Andy.
         <strong>Passes:</strong> Krystian has his Tuesday Expo pass · Andy TBD (still needs a Tue Expo pass unless a vendor invitation arrives).
-        <strong>Last updated Mon Nov 16, 2026, morning (PT)</strong> — show-morning refresh: Loop hours unchanged for our windows; airport flag is <strong>on</strong> today but stations still close 9pm, and <strong>off</strong> for Tue and Wed. Wed 4am remains Uber/LASxpress. No must-meet booth moves. Badge pickup at the Westgate (Tue 7am) or LVCC — the airport desk closed 8pm Mon, before we land. Bring the registration confirmation email + photo ID.
+        <strong>Last updated Mon Nov 16, 2026, evening (PT)</strong> — added a <a href="#providers">Providers by category</a> ranking (USVI serviceability first) plus <a href="#common-systems">what’s most commonly installed</a> on island. Morning Loop refresh is unchanged: hours the same for our windows; airport flag is <strong>on</strong> today but stations still close 9pm, and <strong>off</strong> for Tue and Wed. Wed 4am remains Uber/LASxpress. No must-meet booth moves. Badge pickup at the Westgate (Tue 7am) or LVCC — the airport desk closed 8pm Mon, before we land. Bring the registration confirmation email + photo ID.
         Tuesday: ProSolar + Tesla 10:30–11:30am at Tesla <strong>N527</strong> (time pending Brad’s confirmation) · Enstall with Yann Schwarz at 11:45am, N536 (confirmed) · Victron with David Lopez at 2:00pm, W16965 (confirmed) · Sol-Ark <strong>1:00–1:45pm or after 3:00pm</strong> (proposed Nov 15, TBC) at C6844/C6854. SMA at N862 requested, no reply — walk up if needed.
         Airport: Mon — Uber/Lyft or LASxpress (Loop closed 9pm). Wed ~4am — pre-scheduled Uber/Lyft or LASxpress (Loop airport rides flagged off Nov 18). Tue commute: Loop from Westgate station ↔ LVCC (~2 min) or short walk.
       </div>
@@ -1131,6 +1144,7 @@
         <a href="#system">System picture</a>
         <a href="#schedule">Tue schedule</a>
         <a href="#if-time">If time</a>
+        <a href="#providers">Providers by category</a>
         <a href="#hotels">Hotel</a>
         <a href="#map">Map</a>
         <a href="#loop">Loop hours</a>
@@ -1188,7 +1202,7 @@
               <li><strong>11:45am</strong> Enstall with Yann Schwarz at <strong>N536</strong> (confirmed)</li>
               <li><strong>2:00pm</strong> Victron with David Lopez at <strong>W16965</strong> (confirmed)</li>
               <li><strong>1:00–1:45pm or after 3:00pm</strong> Sol-Ark at <strong>C6844/C6854</strong> (proposed Nov 15 — TBC)</li>
-              <li>Walk-ups: SMA N862, Enphase N2026, FranklinWH, Generac — see the <a href="#system">system picture</a> and <a href="#schedule">Tue schedule</a>. Andy will bring the home plans.</li>
+              <li>Walk-ups: SMA N862, Enphase N2026, FranklinWH, Generac — see the <a href="#system">system picture</a>, <a href="#schedule">Tue schedule</a>, and <a href="#providers">providers by category</a>. Andy will bring the home plans.</li>
               <li>If time: worth-a-visit booths (USVI, Bellevue backup, trends) — see <a href="#if-time">If time</a>.</li>
             </ul>
           </div>
@@ -1721,7 +1735,7 @@
           <h2>Worth a visit if time</h2>
         </div>
       </div>
-      <p class="iftime-intro">These are extra stops if a meeting wraps early or a gap opens — not the scheduled or already-planned walk-ups (ProSolar / Tesla, Enstall, Victron, Sol-Ark, SMA, Enphase, FranklinWH, Generac). Grouped by why you’d go, then ordered by hall so a cluster is a short walk. Booths re-confirmed in the official Map Your Show directory on Nov 16, 2026. <strong>Maxeon is no longer listed</strong> (it was N2712 on Nov 11). <strong>SPAN is at N1536 with Eaton.</strong> Lumin, Base Power, and perovskite / tandem module makers are still not in the directory.</p>
+      <p class="iftime-intro">These are extra stops if a meeting wraps early or a gap opens — not the scheduled or already-planned walk-ups (ProSolar / Tesla, Enstall, Victron, Sol-Ark, SMA, Enphase, FranklinWH, Generac). Grouped by why you’d go, then ordered by hall so a cluster is a short walk. For a ranking by who can actually service a one-off St. Thomas install — and what’s already common on island — see <a href="#providers">Providers by category</a>. Booths re-confirmed in the official Map Your Show directory on Nov 16, 2026. <strong>Maxeon is no longer listed</strong> (it was N2712 on Nov 11). <strong>SPAN is at N1536 with Eaton.</strong> Lumin, Base Power, and perovskite / tandem module makers are still not in the directory.</p>
       <p class="iftime-tip"><strong>Walking tip:</strong> A tight North Hall cluster sits right by the morning Tesla (N527) and Enstall (N536) meetings — Unirac N504, FoxESS N544, Sigenergy N548. The West Hall group is around the 2:00pm Victron meeting. The Central Hall group is around the Sol-Ark meeting (1:00 or after 3:00, TBC) (Fortress is next door at C6832).</p>
 
       <div class="iftime-group">
@@ -1894,6 +1908,198 @@
       </div>
 
       <p class="src-note">Booth numbers re-confirmed in the RE+ 26 Map Your Show exhibitor directory on Nov 16, 2026 (1,307 exhibitors, same count as Nov 13). All must-meet booths unchanged. Tesla’s directory listing remains N726 + S6041; the Tuesday meeting uses Kris’s N527 for the same North Hall stand. Maxeon is no longer listed. SPAN is at N1536 with Eaton. No emails or phone numbers on this page. Re-check booths in the RE+ Connect app this morning — assignments can still shift.</p>
+    </section>
+
+
+    <section id="providers">
+      <div class="section-head">
+        <div>
+          <span class="tag vendor">USVI serviceability first</span>
+          <h2>Providers by category + USVI presence</h2>
+        </div>
+      </div>
+      <p class="prov-intro">This is a <strong>one-off for three rental homes</strong>, not a hunt for a corporate supply relationship. The goal is an informed choice of system and of who will install and service it. Rows are ranked by whether someone in the USVI (or Puerto Rico) can install, stock parts, and honor a warranty — local certified installers, on-island or PR distribution, reachable RMA, and known installs — not by booth size. Brands that only sell cells or utility-scale batteries are called out so you can skip a vendor-relationship conversation. Booths are from the official Map Your Show directory on Nov 16, 2026. “Not verified” means we did not find a public USVI channel, not that none exists.</p>
+
+      <div class="prov-cat" id="common-systems">
+        <h3>Most common systems in the USVI</h3>
+        <p class="lede">Popularity matters on a one-off island job: local techs already know the stack, spare parts are more likely to be on a shelf in Bovoni or Cruz Bay, and interconnection or warranty issues get solved faster. A slightly more expensive common system can beat a cheaper rare one over 5–10 years if a technician can show up with a spare.</p>
+        <p class="lede">The Virgin Islands Energy Office says <strong>“thousands of Tesla Powerwalls are already installed at homes and businesses across the Virgin Islands”</strong> (<a href="https://energy.vi.gov/vieo-issues-nearly-250k-in-incentives-as-vpp-grid-impact-grows/">VIEO, Sep 16, 2026</a>). A VIEO-commissioned Rocky Mountain Institute study found that <strong>Tesla, Enphase, and Fortress are the top three battery manufacturers in the territory</strong>, and that <strong>15 MW / 40.5 MWh of Tesla batteries</strong> were confirmed installed (that energy figure is roughly 3,000 Powerwall-class 13.5 kWh units; VIEO does not publish a unit count). After scaling, RMI estimated about 1,409 DER sites on St. Thomas and 588 on St. John. Source: <a href="https://energy.vi.gov/wp-content/uploads/2025/01/USVI-VPP-Analysis-and-Recommendations-Report-2024.pdf">USVI VPP Analysis and Recommendations Report 2024</a>, Figure 7 and Table 2, posted at energy.vi.gov, Jan 2025.</p>
+        <p class="lede">WAPA’s interconnection rules require UL 1741SA (or newer) and IEEE 1547 inverters. The 2021 procedures refer to an approved inverter list on WAPA’s website; a current public brand-by-brand list was <strong>not found</strong>. VIBES 2.0 VPP is Tesla Powerwall-only at launch, which further concentrates service and familiarity around Tesla even though Enphase and Fortress are also common.</p>
+        <div class="data-table-wrap">
+          <table class="data-table vendor-tint prov-table">
+            <thead>
+              <tr><th>Brand</th><th>What it is</th><th>Which local installers carry or have used it</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Tesla Powerwall</td><td>Dominant home battery</td><td>ProSolar (certified installer; many STT project photos), Solar340 (installs and stocks), VOLT (listed partner). VIBES 2.0 is Tesla-only at launch.</td></tr>
+              <tr><td>Enphase IQ Battery / micros</td><td>#2 BESS maker in the territory (RMI Fig. 7)</td><td>ProSolar (IQ Battery 5P pages; official Enphase + ProSolar Bluebeard’s Castle project), VOLT (listed partner), Meyer (ENF listing, Oct 2024).</td></tr>
+              <tr><td>Fortress Power</td><td>#3 BESS maker in the territory (RMI Fig. 7)</td><td>Electric Factory (Fortress-certified; published STT home installs).</td></tr>
+              <tr><td>Sol-Ark hybrids (+ their BESS)</td><td>Island hybrid with generator integration</td><td>VOLT (documented STT projects, including Sol-Ark inverters + Sol-Ark batteries), IRIE (ENF, Oct 2025), Meyer (ENF, Oct 2024).</td></tr>
+              <tr><td>Victron</td><td>Component hybrid / off-grid, strong remote monitoring</td><td>IRIE (ENF, Oct 2025), Smart Marine Solutions on STT (Victron installer/dealer). Good fit when absentee monitoring matters.</td></tr>
+              <tr><td>SMA</td><td>Grid-tie / hybrid inverters</td><td>VOLT (listed partner), Meyer (ENF, Oct 2024). SMA inverters were used on the Ron de Lugo federal courthouse PV on STT (Helios project).</td></tr>
+              <tr><td>OutBack</td><td>Longstanding island hybrid</td><td>Meyer (ENF, Oct 2024).</td></tr>
+              <tr><td>SolarEdge</td><td>String inverter + power optimizers</td><td>ProSolar installed a 14.4 kW USVI system (2019 public post). Older, but a known local install.</td></tr>
+              <tr><td>Maxeon, Trina, Jinko modules</td><td>High wind-load modules used in hurricane regions</td><td>VOLT lists all three as partners; a documented STT commercial proposal used Maxeon M-Series + Sollega racking. Maxeon is <strong>not</strong> at RE+ 2026.</td></tr>
+              <tr><td>Canadian Solar, Axitec, Silfab, Aptos modules</td><td>Other modules named by STJ installers</td><td>Meyer lists Canadian Solar and Axitec (ENF, 2024). IRIE lists Silfab and Aptos (ENF, 2025). Not independently verified on those firms’ own sites.</td></tr>
+              <tr><td>PanelClaw, Sollega, S-5! racking</td><td>Hurricane flat-roof and metal-roof attachments</td><td>VOLT lists PanelClaw, Sollega, and S-5! as partners; Sollega appears on a documented STT commercial proposal.</td></tr>
+              <tr><td>Generac, Kohler, Cummins generators</td><td>Standby generators / ATS, not the house battery</td><td>Electric Factory does Generac install and repair. Import Supply on STT is a factory-authorized Kohler and Cummins dealer. Kohler and Cummins are not at RE+ 2026.</td></tr>
+              <tr><td>SRNE hybrids</td><td>Budget hybrid line Solar340 sells next to Powerwall</td><td>Solar340 / Eco Innovations VI (their site). Serviceable if Solar340 is the installer; not a VIEO “top three” battery brand.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="prov-skip">VI Solar Technologies does not name equipment brands on its site — <strong>not verified</strong>. Schneider Conext appears only on Meyer’s older ENF listing; Schneider is not at RE+ 2026. CATL is a VOLT C&amp;I partner, not a typical house battery — see below.</p>
+      </div>
+
+      <div class="prov-cat">
+        <h3>1. Integrators / installers</h3>
+        <p class="lede">None of these local firms exhibit at RE+ except the ProSolar meeting at Tesla. Use the floor to lock an equipment shortlist, then bid among STT/STJ installers who already service that stack.</p>
+        <div class="data-table-wrap">
+          <table class="data-table vendor-tint prov-table">
+            <thead>
+              <tr><th>Provider</th><th>Booth</th><th>USVI serviceability</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>ProSolar Caribbean (STT)</td><td>Meeting at Tesla N527 (not a listed exhibitor). Tesla’s main booth is N726 + S6041.</td><td>Certified Tesla Powerwall installer (their claim); Enphase IQ Battery; known STT installs including Bluebeard’s Castle. Best first conversation tomorrow.</td></tr>
+              <tr><td>VOLT Energy (STT)</td><td>Not at RE+</td><td>Hurricane-resilient local EPC. Published partners include Tesla, Enphase, SMA, Sol-Ark, CATL, PanelClaw, S-5!, Maxeon/Trina/Jinko, Sollega, and ComAp. Known STT work (for example NAPA Auto Parts). More C&amp;I-leaning, but a real on-island option for a three-home or shared plant.</td></tr>
+              <tr><td>Solar340 / Eco Innovations VI (STT)</td><td>Not at RE+</td><td>Locally owned, stocked showroom in Estate Bovoni — Tesla Powerwall plus SRNE hybrids, parts and repairs. Useful when spare parts on island matter.</td></tr>
+              <tr><td>Electric Factory (STT)</td><td>Not at RE+</td><td>Fortress Power certified; Generac generators; hybrid-plus-generator microgrids. On the VIEO VIBES vendor list.</td></tr>
+              <tr><td>IRIE Solar (STJ; serves STT/STX)</td><td>Not at RE+</td><td>30+ custom solar-battery systems since 2017 (their site). ENF lists Victron and Sol-Ark inverters.</td></tr>
+              <tr><td>Meyer Electric &amp; Solar (STJ)</td><td>Not at RE+</td><td>Licensed USVI electrical contractor, 12 years in the territory (their site). ENF (2024) lists Enphase, Sol-Ark, SMA, OutBack, and Schneider.</td></tr>
+              <tr><td>VI Solar Technologies (STJ; serves STT)</td><td>Not at RE+</td><td>Custom solar + battery since 2017; brands not published — <strong>not verified</strong>.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="prov-cat">
+        <h3>2. Batteries</h3>
+        <div class="data-table-wrap">
+          <table class="data-table vendor-tint prov-table">
+            <thead>
+              <tr><th>Provider</th><th>Booth</th><th>USVI serviceability</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Tesla Powerwall</td><td>N726 + S6041; meeting N527</td><td>Clear #1 installed base, local certified channel, Caribbean warranty covers the USVI (May 6, 2026), and the only VIBES 2.0 VPP battery at launch. Architect concern still holds if a generator must auto-start and recharge the batteries.</td></tr>
+              <tr><td>Enphase IQ Battery</td><td>N2026 + S11001</td><td>Second-most common BESS in the territory, with a local ProSolar channel and official STT commercial project.</td></tr>
+              <tr><td>Fortress Power</td><td>C6832</td><td>Third-most common BESS; Electric Factory is a local certified installer. Strongest non-Tesla/Enphase service story, and often paired with Sol-Ark (booth is next door).</td></tr>
+              <tr><td>Sol-Ark BESS</td><td>With Sol-Ark at C6844 / C6854</td><td>Used on documented VOLT STT projects alongside Sol-Ark hybrids.</td></tr>
+              <tr><td>FranklinWH</td><td>C4614 (planned walk-up)</td><td>US residential whole-home battery. USVI/Caribbean channel <strong>not verified</strong>.</td></tr>
+              <tr><td>Lithion / HomeGrid</td><td>W17053 (planned walk-up)</td><td>Modular residential LFP. USVI channel <strong>not verified</strong>.</td></tr>
+              <tr><td>Generac PWRcell battery</td><td>C5148 (planned walk-up)</td><td>Electric Factory services Generac <em>generators</em>; a USVI PWRcell battery channel is <strong>not verified</strong>.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="prov-skip"><strong>Deprioritize for a 3-home buy:</strong> CATL (N1244), LG Energy Solution (C4708), HiTHIUM (N662), and similar cell or utility-scale BESS makers. Those are wholesale / OEM / C&amp;I conversations, not a house battery you can have serviced on St. Thomas. Discover, EG4, Sungrow, Pytes, and Pylontech may be fine products — USVI service <strong>not verified</strong>.</p>
+      </div>
+
+      <div class="prov-cat">
+        <h3>3. Inverters / hybrid inverters</h3>
+        <div class="data-table-wrap">
+          <table class="data-table vendor-tint prov-table">
+            <thead>
+              <tr><th>Provider</th><th>Booth</th><th>USVI serviceability</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Tesla (inverter built into Powerwall)</td><td>N726 + S6041; meeting N527</td><td>Same local channel as Powerwall. Whole-home simplicity; weaker if you need native generator charging.</td></tr>
+              <tr><td>Enphase microinverters</td><td>N2026 + S11001</td><td>Local ProSolar / VOLT / Meyer path. Modular and good for partial shade and remote monitoring.</td></tr>
+              <tr><td>Sol-Ark</td><td>C6844 / C6854 (meeting TBC)</td><td>Documented STT installs (VOLT) and STJ installer listings (IRIE, Meyer). Strong generator + islanding story — the main alternative if the architect’s concern rules out Powerwall.</td></tr>
+              <tr><td>Victron</td><td>W16965 (2:00 meeting)</td><td>IRIE (ENF) and Smart Marine Solutions on STT. Excellent VRM remote monitoring for absentee owners. A component system, not an appliance.</td></tr>
+              <tr><td>SMA America</td><td>N862 (planned walk-up)</td><td>VOLT and Meyer list SMA; known STT commercial install (federal courthouse). Ask about Caribbean service and spare parts.</td></tr>
+              <tr><td>OutBack (Energy Access Innovations)</td><td>C6688 (planned walk-up)</td><td>Meyer lists OutBack (ENF, 2024). Longstanding Caribbean / off-grid brand.</td></tr>
+              <tr><td>SolarEdge</td><td>N1516</td><td>Prior ProSolar USVI install (2019). Useful as a string-plus-optimizer comparison to Enphase; confirm current USVI service before shortlisting.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="prov-skip"><strong>Not at RE+ 2026:</strong> Schneider Conext (Meyer ENF listing only), Fronius. <strong>Learning-only unless a local installer will stand behind them:</strong> EG4 (C5460), Sungrow (N944), Growatt (N2062), Deye (N2728), GoodWe (N2836), Sigenergy (N548), FOXESS (N544). Chinese-origin hybrids also carry a possible §48E “prohibited foreign entity” / material-assistance issue — see the note at the bottom. USVI warranty and parts for these brands are <strong>not verified</strong>.</p>
+      </div>
+
+      <div class="prov-cat">
+        <h3>4. Solar panels</h3>
+        <div class="data-table-wrap">
+          <table class="data-table vendor-tint prov-table">
+            <thead>
+              <tr><th>Provider</th><th>Booth</th><th>USVI serviceability</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Maxeon</td><td>Not at RE+ 2026 (dropped)</td><td>VOLT partner; documented STT commercial proposal (M-Series). Ask ProSolar / VOLT rather than hunting a booth. High wind-load reputation.</td></tr>
+              <tr><td>Trina</td><td>N962</td><td>VOLT hurricane-region module partner.</td></tr>
+              <tr><td>Jinko</td><td>N926</td><td>VOLT hurricane-region module partner.</td></tr>
+              <tr><td>Aptos</td><td>C7260</td><td>IRIE lists Aptos (ENF, 2025). Not verified on IRIE’s own site.</td></tr>
+              <tr><td>REC</td><td>N1862</td><td>Quality modules. USVI channel <strong>not verified</strong>.</td></tr>
+              <tr><td>Kaneka (BIPV / HJT)</td><td>W15949 (planned walk-up)</td><td>Roof-integrated alternative to Tesla Solar Roof. USVI channel <strong>not verified</strong>. Useful only if a solar-roof look is still in play.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="prov-skip"><strong>Deprioritize:</strong> Qcells at this show is FLEXRACK by Qcells (C6484), utility trackers, not residential modules. First Solar (S9002) is utility thin-film. Panasonic and Canadian Solar / EP Cube are not exhibiting. LONGi (N704) and JA Solar (N1226) are major module makers with <strong>no verified USVI residential channel</strong>. LG Energy Solution (C4708) is mostly cells / ESS; older LG modules appeared on a STT federal project, which is not a 3-home retail path.</p>
+      </div>
+
+      <div class="prov-cat">
+        <h3>5. Mounts / racking</h3>
+        <div class="data-table-wrap">
+          <table class="data-table vendor-tint prov-table">
+            <thead>
+              <tr><th>Provider</th><th>Booth</th><th>USVI serviceability</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Enstall (IronRidge / PanelClaw)</td><td>N536 (11:45 meeting)</td><td>Primary racking stop. VOLT lists PanelClaw for flat roofs with wind-tunnel tools. USVI code minimum is 145 mph basic wind speed; some sites are designed to 180 mph.</td></tr>
+              <tr><td>Sollega</td><td>C7789</td><td>VOLT partner; used on a documented STT commercial proposal (UV-rated nylon, stainless fasteners). Worth a look if the roofs are flat.</td></tr>
+              <tr><td>S-5!</td><td>N3144</td><td>VOLT partner for metal-roof attachments. Only relevant if any of the three roofs is metal.</td></tr>
+              <tr><td>Unirac (with TerraSmart)</td><td>N504</td><td>Published high-wind span tables (up to 180 mph in older ASCE 7-16 charts). USVI installer/distributor <strong>not verified</strong> — a second opinion after Enstall, not a first shortlist.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="prov-skip">SnapNrack (N2950), Pegasus (C4722), Roof Tech (N3120), and K2 (C4448) are learning stops only unless Enstall/Sollega answers are thin. USVI presence <strong>not verified</strong>. Electric Factory claims 190 mph racking; the OEM brand is not named.</p>
+      </div>
+
+      <div class="prov-cat">
+        <h3>Other categories</h3>
+        <div class="data-table-wrap">
+          <table class="data-table vendor-tint prov-table">
+            <thead>
+              <tr><th>Provider</th><th>Booth</th><th>USVI serviceability</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Generac (generators + PWRcell)</td><td>C5148</td><td>Local Generac generator channel via Electric Factory. Best floor stop if a standby generator remains in the design. PWRcell battery channel on island is <strong>not verified</strong>.</td></tr>
+              <tr><td>ComAp (microgrid / generator controls)</td><td>C7760</td><td>VOLT lists ComAp as a partner. You would not buy this as a homeowner — useful to <em>learn</em> how island hybrids auto-start a generator and island from WAPA.</td></tr>
+              <tr><td>SPAN smart panel</td><td>N1536 (with Eaton)</td><td>Official SPAN support (updated Nov 18, 2025) says the product is available only in the U.S. and Puerto Rico. USVI is not listed — <strong>do not assume it can be serviced on STT</strong>. Fine as a 10-minute lesson on load-shedding for guest AC, not a shortlist item until they confirm territory coverage.</td></tr>
+              <tr><td>Kohler / Cummins generators</td><td>Not at RE+</td><td>Import Supply on STT is a factory-authorized dealer. Ask them after the show if Generac is not the generator path.</td></tr>
+              <tr><td>Monitoring / EMS</td><td>Comes with the inverter brand</td><td>Tesla app, Enphase App, Victron VRM, and SMA Sunny Portal are the ones local installers already use. Prefer a stack whose portal can watch all three homes remotely.</td></tr>
+              <tr><td>EV chargers</td><td>—</td><td>Only relevant if guest charging is in the program. VOLT has done at least one STX project with EV charging + BESS. Tesla Wall Connector follows a Tesla stack. ChargePoint and Wallbox are not in the Nov 16 directory.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="prov-skip"><strong>Not at RE+ 2026:</strong> BYD, Fronius, Anker SOLIX, EcoFlow (Electric Factory offers EcoFlow power stations — portable, not a 3-home system), Canadian Solar / EP Cube, Panasonic, Kohler, Briggs &amp; Stratton / SimpliPhi, Blue Planet Energy, Schneider Electric (Conext). Jackery is at C4732 (portable). Ignore TESLA POWER EQUIPMENTS at W16467 — that is an unrelated Indian transformer company.</p>
+      </div>
+
+      <div class="prov-cat" id="learn-from">
+        <h3>Useful to learn from for system choice</h3>
+        <p class="lede">Not a vendor-relationship tour. These are the highest-value extra stops if a meeting ends early, ranked first by USVI serviceability, then by how much they help you choose a stack. Several already appear under “If time.”</p>
+        <div class="data-table-wrap">
+          <table class="data-table vendor-tint prov-table">
+            <thead>
+              <tr><th>Priority</th><th>Booth</th><th>Why stop, and USVI notes</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1. Fortress Power</td><td>C6832</td><td>The only non-Tesla/Enphase battery with a certified STT installer (Electric Factory) and a documented local installed base. Next door to Sol-Ark. Best place to compare a generator-friendly hybrid stack against Powerwall.</td></tr>
+              <tr><td>2. SolarEdge</td><td>N1516</td><td>Prior ProSolar USVI install. Learn it as the string-plus-optimizer alternative to Enphase, including three-home monitoring. Confirm current territory service.</td></tr>
+              <tr><td>3. ComAp</td><td>C7760</td><td>VOLT’s microgrid-controls partner. Don’t buy here. Do ask how auto-start, islanding, and generator charging are actually done on USVI hybrids — that is the architect’s objection to Powerwall.</td></tr>
+              <tr><td>4. Trina and Jinko</td><td>N962 / N926</td><td>VOLT’s hurricane-region module partners. Maxeon (the other VOLT high-wind module) is not at the show, so these two are the place to get wind and salt-air numbers.</td></tr>
+              <tr><td>5. Sollega</td><td>C7789</td><td>Already used on a STT VOLT proposal. A flat-roof, hurricane-racking comparison after the Enstall meeting.</td></tr>
+              <tr><td>6. S-5!</td><td>N3144</td><td>VOLT metal-roof partner. A short stop only if any roof might be metal.</td></tr>
+              <tr><td>7. Unirac</td><td>N504</td><td>Second high-wind racking opinion, a short walk from Enstall. USVI channel not verified — learning, not a shortlist.</td></tr>
+              <tr><td>8. Aptos (or REC if Aptos is packed)</td><td>C7260 / N1862</td><td>Aptos is listed by IRIE (ENF). REC is a quality module with no verified USVI channel. Use either as a module comparison, not a default choice.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="prov-skip">EG4 (C5460) is a fair <em>price</em> benchmark against Sol-Ark, but only if a local installer will warranty and stock it. USVI service is not verified, and Chinese-origin equipment can complicate a federal storage credit (below). Sungrow, Growatt, Deye, GoodWe, Sigenergy, and FOXESS are the same category: fine to glance at, not a 3-home shortlist without a local service path.</p>
+      </div>
+
+      <div class="prov-cat" id="providers-catl">
+        <h3>Why not talk to CATL — or only very briefly</h3>
+        <p class="lede">CATL (Contemporary Amperex Technology) <strong>is exhibiting at N1244, North Hall</strong> (Map Your Show, Nov 16, 2026). They make cells and commercial / utility storage — EnerOne cabinets (~373 kWh), EnerC containers, and TENER utility blocks (6.25 MWh class) — not a U.S. residential battery you buy like a Powerwall. VOLT Energy on STT lists CATL as a technology partner, which is a C&amp;I / EPC channel, not a homeowner counter. For this one-off three-home project, treat CATL as a <strong>wholesale relationship you do not need</strong>. A two-minute walk-by is enough only if you want to know whether a shared containerized microgrid for all three houses is even in their catalog; you would still buy and service that through a local EPC such as VOLT, not from the CATL booth. Federal tax-credit caution: the residential §25D credit ended Dec 31, 2025. A §48E credit for rental property may still be possible but is already uncertain in the USVI. IRS Notice 2026-15 and the 2025 “One Big Beautiful Bill” material-assistance rules can deny §48E when storage has material assistance from a prohibited foreign entity; CATL is a Chinese cell maker and is widely treated as one. Confirm with tax counsel — do not assume the credit is available, or that it is automatically dead. The same flag applies to other Chinese-origin storage and inverter brands on the floor (Sungrow, Growatt, Deye, GoodWe, many EG4 packs, and so on).</p>
+      </div>
+
+      <p class="src-note">Sources for USVI-presence claims (no emails or phone numbers on this page): <a href="https://energy.vi.gov/vieo-issues-nearly-250k-in-incentives-as-vpp-grid-impact-grows/">VIEO, “Thousands of Tesla Powerwalls…,” Sep 16, 2026</a> · <a href="https://energy.vi.gov/wp-content/uploads/2025/01/USVI-VPP-Analysis-and-Recommendations-Report-2024.pdf">RMI / VIEO VPP report 2024</a> (Fig. 7; 15 MW / 40.5 MWh Tesla; Table 2) · <a href="https://energy.vi.gov/wp-content/uploads/2024/11/VIBESVendorList1.5.pdf">VIEO VIBES vendor list</a> · <a href="https://prosolarcaribbean.com/">ProSolar Caribbean</a> (Tesla certification and IQ Battery 5P pages; project gallery) · <a href="https://newsroom.enphase.com/news-releases/news-release-details/enphase-energy-and-prosolar-restore-solar-power-bluebeards/">Enphase + ProSolar, Bluebeard’s Castle</a> · <a href="https://www.solar340.com/">Solar340</a> · <a href="https://voltenergyservices.net/">VOLT Energy partners and projects</a> · <a href="https://efactoryenergy.com/">Electric Factory</a> (Fortress certified; Generac pages) · <a href="https://www.iriesolarvi.com/">IRIE Solar</a> and <a href="https://www.enfsolar.com/irie-solar">IRIE ENF listing</a> · <a href="https://www.meyerelectricandsolar.com/">Meyer Electric &amp; Solar</a> and <a href="https://www.enfsolar.com/meyer-electric-solar">Meyer ENF listing</a> · <a href="https://visolar.com/about">VI Solar Technologies</a> · <a href="https://www.smartmarinesolutions.com/victron">Smart Marine Solutions / Victron</a> · <a href="https://importsupplyvi.com/">Import Supply</a> · <a href="https://support.span.io/hc/en-us/articles/4410667562903-How-can-I-get-SPAN">SPAN availability (U.S. and Puerto Rico)</a> · <a href="https://energy.vi.gov/wp-content/uploads/2021/12/VIWAPA.NEB_.IC_.Procedures2021Full-F.pdf">WAPA NEB interconnection procedures (2021)</a> · Tesla Caribbean Powerwall warranty, effective May 6, 2026 · <a href="https://www.irs.gov/newsroom/treasury-irs-provide-guidance-for-certain-energy-tax-credits-regarding-material-assistance-provided-by-prohibited-foreign-entities-under-the-one-big-beautiful-bill">IRS / Treasury PFE guidance</a> and IRS Notice 2026-15 · RE+ 2026 Map Your Show directory, Nov 16, 2026 (1,307 exhibitors). Re-check booths in the RE+ Connect app Tuesday morning.</p>
     </section>
 
     <section id="hotels">
@@ -2174,7 +2380,7 @@
     </section>
 
     <footer>
-      <p>Las Vegas RE+ 2026 · Krystian &amp; Andy · last updated Nov 16, 2026 (PT) · Westgate booked · Krystian Tue pass done · Andy pass TBD · Enstall + Victron booked · Grid vs generator decision added.</p>
+      <p>Las Vegas RE+ 2026 · Krystian &amp; Andy · last updated Nov 16, 2026 evening (PT) · Westgate booked · Krystian Tue pass done · Andy pass TBD · Enstall + Victron booked · Providers by category (USVI serviceability) added.</p>
       <p>Hotel rates = estimates · verify live · Room photos from hotel CDNs · Map © OpenStreetMap · Leaflet</p>
     </footer>
   </div>
